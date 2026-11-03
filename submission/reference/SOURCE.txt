@@ -1,0 +1,3 @@
+HuggingFace Transformers source, Apache-2.0
+commit: f90e93c4f83974f634860e246cdfd2c68666d605
+Sources for reading/backport only; installed package unchanged.

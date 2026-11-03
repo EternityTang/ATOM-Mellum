@@ -132,6 +132,8 @@ def build_completion_response(
             "latency_s": round(final_output.get("latency", 0.0), 4),
         },
     )
+    # Raw IDs for auditable greedy correctness checks (OpenAI extension).
+    response = response.model_copy(update={"token_ids": final_output.get("token_ids", [])})
     if "kv_transfer_output_meta_info" in final_output:
         response = response.model_copy(
             update={

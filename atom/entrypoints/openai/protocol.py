@@ -138,6 +138,7 @@ class ChatCompletionResponse(BaseModel):
 
 
 class CompletionResponse(BaseModel):
+    token_ids: Optional[List[int]] = None  # ATOM diagnostic extension; raw generated IDs
     """Response model for text completions."""
 
     id: str
