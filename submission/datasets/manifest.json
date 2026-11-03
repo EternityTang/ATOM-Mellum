@@ -1,0 +1,10 @@
+{
+  "count": 200,
+  "selection": "all 164 HumanEval tasks, then MBPP test task IDs 11 through 46; chosen before inference; chat template applied by frozen tokenizer",
+  "mbpp_commit": "f82046ba5aabbbb427dbfd38a254d26bff08b533",
+  "mbpp_url": "https://raw.githubusercontent.com/google-research/google-research/f82046ba5aabbbb427dbfd38a254d26bff08b533/mbpp/mbpp.jsonl",
+  "mbpp_source_sha256": "ccf64ceae9c5403bf50a044cb6d505bfd2a2963ee58338ba268fd65beab92a9f",
+  "suite_sha256": "187eb968948791becd32979a14c2adb0d27622f8a1797ab5c799827f5d562d0e",
+  "HumanEval_preloaded_sha256": "1d49078ba3e2b196b9344535bef34a43021f038fad9561d6ee7c53450609a6a2",
+  "use": "greedy token correctness, not benchmark pass@1; long context is a separate suite"
+}

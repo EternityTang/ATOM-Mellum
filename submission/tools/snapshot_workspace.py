@@ -1,7 +1,7 @@
 from pathlib import Path
 import shutil
 w=Path('/workspace'); dest=w/'ATOM/submission';dest.mkdir(exist_ok=True)
-for name in ['run0.sh','report.md','WORKLOG.md']:
+for name in ['run0.sh','report.md','WORKLOG.md','README.step0.txt']:
     shutil.copy2(w/name,dest/name)
 for name in ['tools','reference']:
     shutil.copytree(w/name,dest/name,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__'))
