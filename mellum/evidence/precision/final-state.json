@@ -1,0 +1,100 @@
+{
+  "remote_root": "/workspace/results/mellum_opt_points_20261105T172604",
+  "state": "complete",
+  "formal": {
+    "A": {
+      "requests": 512,
+      "success": 512,
+      "failed": 0,
+      "coverage_verified": true,
+      "successful_lengths": {
+        "256": 512
+      },
+      "failed_messages": {},
+      "output_tps": 67.0115,
+      "duration_s": 1955.9639,
+      "ttft_p50_ms": 15333.2078,
+      "ttft_p99_ms": 20685.9197,
+      "tpot_p50_ms": 421.7549,
+      "tpot_p99_ms": 465.1526,
+      "raw_finished": 512,
+      "raw_records": 512
+    },
+    "B": {
+      "requests": 50,
+      "success": 50,
+      "failed": 0,
+      "coverage_verified": true,
+      "successful_lengths": {
+        "256": 50
+      },
+      "failed_messages": {},
+      "output_tps": 19.002,
+      "duration_s": 673.6131,
+      "ttft_p50_ms": 466.3331,
+      "ttft_p99_ms": 485.8059,
+      "tpot_p50_ms": 51.2094,
+      "tpot_p99_ms": 51.8919,
+      "raw_finished": 50,
+      "raw_records": 50
+    },
+    "C": {
+      "requests": 200,
+      "success": 0,
+      "failed": 200,
+      "coverage_verified": true,
+      "successful_lengths": {},
+      "failed_messages": {
+        "TimeoutError": 200
+      },
+      "failed_request_elapsed_range_s": [
+        180.00762824795675,
+        180.99891398404725
+      ],
+      "output_tps": 0.0,
+      "duration_s": 845.0574,
+      "ttft_p50_ms": null,
+      "ttft_p99_ms": null,
+      "tpot_p50_ms": null,
+      "tpot_p99_ms": null,
+      "note": "No complete256-token requests; successful-output throughput is zero and no valid latency percentiles exist.",
+      "raw_finished": 0,
+      "raw_records": 200
+    }
+  },
+  "precision_A200": {
+    "n": 200,
+    "total": 12800,
+    "matches": 12800,
+    "exact": 200,
+    "percent": 100.0
+  },
+  "precision_C": {
+    "expected": 200,
+    "requests_with_64": 1,
+    "matches_on_available": 388,
+    "positions_available": 388,
+    "full_denominator": 12800,
+    "exact_64": 1,
+    "full64_subset_percent": 100.0
+  },
+  "selected": {
+    "attention": "bounded",
+    "moe": "off",
+    "dispatch": "graph_bucket"
+  },
+  "production_smoke": {
+    "id": "A-0007",
+    "matches": 64,
+    "total": 64,
+    "model_source_unchanged": true
+  },
+  "original_sources_unchanged": true,
+  "git_commit_created": false,
+  "ports_open": {
+    "8660": false,
+    "8661": false,
+    "8680": false,
+    "8681": false
+  }
+}

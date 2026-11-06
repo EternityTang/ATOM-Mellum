@@ -1,0 +1,19 @@
+[
+  {
+    "path": "control-profile32/trace.json",
+    "reason": "Full content included as trace.json.gz",
+    "size": 173427333,
+    "sha256": "b74728279ad6e36f0b3cbca371ad7fba45dbba13d3e6b11e4a10af7e1fdd432d"
+  },
+  {
+    "path": "combined-profile32/trace.json",
+    "reason": "Full content included as trace.json.gz",
+    "size": 92037650,
+    "sha256": "58b021e28ace57c610c20c7fbede3c28e7e644eca813bb2405ef279c7b418a8c"
+  },
+  {
+    "path": "failure-coredumps/gpucore.302198.gpu",
+    "reason": "Large failed prototype GPU dump retained on server only",
+    "size": 29553077904
+  }
+]

@@ -1,0 +1,104 @@
+{
+  "stage": 28,
+  "title": "Freeze the validated precision entry and A B C evidence",
+  "notes": "A200100%, separate16k group100%; A67.0115/B19.0020 tok/s. C0/200 due timeout, no OOM. No new optimization is mixed into this archival task.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:43.035246+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_opt_points/README.md",
+      "path": "mellum/tools/mellum_opt_points/README.md",
+      "sha256": "8b2644f77e2e0098813aee5d69061690ad6568e09085f1ad905ffa8ed5f70421"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/__init__.py",
+      "path": "mellum/tools/mellum_opt_points/__init__.py",
+      "sha256": "10108d4dc6dff6ae3dd6cf3777abe4870d04312bf0ee8da001aa229d67f74bd8"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/graph.py",
+      "path": "mellum/tools/mellum_opt_points/graph.py",
+      "sha256": "18f7b0b45a5fff55e8fc8ec00b5f8aa4764dadd457e5eb91c8c714a2e2e3aa7a"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/install.py",
+      "path": "mellum/tools/mellum_opt_points/install.py",
+      "sha256": "4633de7a89bb5497689a3c0506af7a0f22c538e98d3431b3b5e430a7183413e6"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/ops.py",
+      "path": "mellum/tools/mellum_opt_points/ops.py",
+      "sha256": "badbef5b69aa3eef69050b192be3d59a62495d05d4c64f28ed81c00a96c45ab9"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/serve.py",
+      "path": "mellum/tools/mellum_opt_points/serve.py",
+      "sha256": "25a236803b13997c195757ad71d5cdd10ee406e07fbd80ce9ec0ca2bdcb6a176"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/serve_entry.py",
+      "path": "mellum/tools/mellum_opt_points/serve_entry.py",
+      "sha256": "f2888e25535857a168c658e97e7944d6410eeeac0c7a4eaddc3f0d0b0b597779"
+    },
+    {
+      "source": "/workspace/tools/mellum_opt_points/softmax.py",
+      "path": "mellum/tools/mellum_opt_points/softmax.py",
+      "sha256": "921604125447a22e5151487d6de6e13c61c1b3ec67b1b89b10034825ee6c22ba"
+    },
+    {
+      "source": "/workspace/run_mellum_opt_points.sh",
+      "path": "mellum/history/original-launchers/run_mellum_opt_points.sh",
+      "sha256": "f1dfc491a807e17e1db8c93a229b27f7265c9a76bd5283702685e733e7c01177"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/REPORT.md",
+      "path": "mellum/evidence/precision/REPORT.md",
+      "sha256": "036dc052d63e119dea057483d4f423baa7c1df4bc9e7a10af1f92146384469ad"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/analysis.json",
+      "path": "mellum/evidence/precision/analysis.json",
+      "sha256": "6bf092a721e65b6ec903b4f86938fa40c9949dadf65acab2d451b8d999a4bb5e"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/final-candidate.json",
+      "path": "mellum/evidence/precision/final-candidate.json",
+      "sha256": "43bdcd933bc71e41777abc44f58b8848626eb498dba4866e343d5aa995371ad9"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/final-state.json",
+      "path": "mellum/evidence/precision/final-state.json",
+      "sha256": "18c4ce569075562c8f68dade63be4596786d0f2641dde5f49ec393099f254840"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/archive-sha256.txt",
+      "path": "mellum/evidence/precision/archive-sha256.txt",
+      "sha256": "ecfeffebdc5f8cb5b71d1503822fea65d4f560f092108d8f2dafc0b573ca8e32"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/archive-omissions.json",
+      "path": "mellum/evidence/precision/archive-omissions.json",
+      "sha256": "5a54a5aae414c349337656312654e38bdc14ca953056bd2dbf3bde383c99698f"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/production-smoke-result.json",
+      "path": "mellum/evidence/precision/production-smoke-result.json",
+      "sha256": "d480ae0c2cac95168b64ae69fb5559633186b28ac60dc97be035460a9ba55531"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/C-scheduling-audit.json",
+      "path": "mellum/evidence/precision/C-scheduling-audit.json",
+      "sha256": "c7f2f907059a9354d6527879d6ac56090f6f9e00a129a48dc8a693850f4693d3"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/http-best/precision-A200-independent.json",
+      "path": "mellum/evidence/precision/precision-A200-independent.json",
+      "sha256": "4aa591c944c34330862629f2379d216aa63d3dd7cc55dc2b383251a243ed65df"
+    },
+    {
+      "source": "/workspace/MELLUM_PRECISION_ACCEPTANCE.md",
+      "path": "mellum/PRECISION_ACCEPTANCE.md",
+      "sha256": "922d6887c216f7ab710cc6834cc4b6ae622011477bf3ff1840ed42177e7a33ee"
+    }
+  ]
+}

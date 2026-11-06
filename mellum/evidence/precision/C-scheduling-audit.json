@@ -1,0 +1,23 @@
+{
+  "source": "/workspace/ATOM/atom/model_engine/scheduler.py",
+  "sha256": "32f3c2ae1562af00cfe429c85d8a22378e3f64fb4440f632693885632f577c2e",
+  "lines": {
+    "prefill_first_contract": 633,
+    "admit_waiting": 681,
+    "return_prefill_before_decode": 802,
+    "decode_phase": 838
+  },
+  "finding": "Scheduler selects ready prefills first and returns before decode. Full long prefills can repeatedly delay existing decode streams under Poisson arrivals. This is a contributing mechanism, not a measured unique attribution; no scheduling change was made.",
+  "observed_oom_input": "15194-token request scheduled at 19:08:31 UTC; subsequent requests continue without backend OOM in this run.",
+  "stream_cleanup_review": [
+    {
+      "path": "/workspace/ATOM/atom/entrypoints/openai/serving_completion.py",
+      "sha256": "daab57bd8704db1c79e97ba50fe60c19d64dfb31a59fbe4736372b20dbc18ab4"
+    },
+    {
+      "path": "/workspace/ATOM/atom/entrypoints/openai/api_server.py",
+      "sha256": "0772b3f554bfd897d8f07e51e08636271a730562b5b97a1706911df489c66e8e"
+    }
+  ],
+  "stream_cleanup_finding": "stream_completion_response calls cleanup_fn only after the normal finished loop; no finally in this function. cleanup_streaming_request removes frontend maps, with no explicit core cancellation there. _logged_stream only logs and yields. This code review suggests cancelled-client work may persist; no separate cancellation experiment or causal attribution was performed."
+}
