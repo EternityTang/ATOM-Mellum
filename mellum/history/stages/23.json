@@ -1,0 +1,24 @@
+{
+  "stage": 23,
+  "title": "Add bounded softmax and dispatch ablation switches",
+  "notes": "First saved implementation with independent attention, MoE and dispatch candidates.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.693645+00:00",
+  "sources": [
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v1/__init__.py",
+      "path": "mellum/tools/mellum_opt_points/__init__.py",
+      "sha256": "10108d4dc6dff6ae3dd6cf3777abe4870d04312bf0ee8da001aa229d67f74bd8"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v1/install.py",
+      "path": "mellum/tools/mellum_opt_points/install.py",
+      "sha256": "781bd506a7fab678d6a1af60938423846c6f68a9305975919c2d1a91d2e10c41"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v1/ops.py",
+      "path": "mellum/tools/mellum_opt_points/ops.py",
+      "sha256": "badbef5b69aa3eef69050b192be3d59a62495d05d4c64f28ed81c00a96c45ab9"
+    }
+  ]
+}
