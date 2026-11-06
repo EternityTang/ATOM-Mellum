@@ -1,0 +1,133 @@
+{
+  "precision_A200": {
+    "n": 200,
+    "total": 12800,
+    "matches": 12800,
+    "exact": 200,
+    "percent": 100.0
+  },
+  "precision_long4": [
+    {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 33.9185216879705,
+      "output_tps": 7.547498748767481,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8"
+      },
+      "gpu": "1"
+    }
+  ],
+  "speed_repaired32": [
+    {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 77.403046522988,
+      "output_tps": 26.458906877673897,
+      "profile": false,
+      "flags": {
+        "track": "speed",
+        "stage": "5",
+        "kv": "off",
+        "dense_cap": "1"
+      },
+      "gpu": "0"
+    }
+  ],
+  "speed_repaired_long4": [
+    {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 39.23031773802359,
+      "output_tps": 6.525565296451183,
+      "profile": false,
+      "flags": {
+        "track": "speed",
+        "stage": "5",
+        "kv": "off",
+        "dense_cap": "1"
+      },
+      "gpu": "0"
+    }
+  ],
+  "speed_last1_32": [
+    {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 76.90621539205313,
+      "output_tps": 26.629837257752044,
+      "profile": false,
+      "flags": {
+        "track": "speed",
+        "stage": "5",
+        "kv": "off",
+        "dense_cap": "1"
+      },
+      "gpu": "0"
+    }
+  ],
+  "speed_last1_long4": [
+    {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 39.437943160068244,
+      "output_tps": 6.491210734823652,
+      "profile": false,
+      "flags": {
+        "track": "speed",
+        "stage": "5",
+        "kv": "off",
+        "dense_cap": "1"
+      },
+      "gpu": "0"
+    }
+  ],
+  "idle_control_median_tps": 42.97002376278771,
+  "idle_candidate_median_tps": 48.182924355626874,
+  "idle_speedup_percent": 12.131481754854324,
+  "http_benchmark": {
+    "Test Duration (s)": 656.7652,
+    "Concurrency": 32,
+    "Request Rate (req/s)": -1.0,
+    "Total Requests": 200,
+    "Success Requests": 200,
+    "Failed Requests": 0,
+    "Stream Requests": 200,
+    "Non-Stream Requests": 0,
+    "Req Throughput (req/s)": 0.3045,
+    "Avg Latency (s)": 100.6827,
+    "Avg Input Tokens": 2353.075,
+    "Output Throughput (tok/s)": 77.9578,
+    "Total Throughput (tok/s)": 794.5229,
+    "Avg TTFT (ms)": 13800.55,
+    "Avg TPOT (ms)": 340.71,
+    "Avg ITL (ms)": 340.72,
+    "Avg Output Tokens": 256.0,
+    "Input Throughput (tok/s)": 0.0
+  },
+  "new_git_commits": false
+}

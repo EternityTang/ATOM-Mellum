@@ -1,0 +1,6 @@
+{
+  "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+  "transformers": "5.10.1",
+  "torch_path": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "transformers_path": "/opt/venv/lib/python3.12/site-packages/transformers/__init__.py"
+}

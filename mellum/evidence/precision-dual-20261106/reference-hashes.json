@@ -1,0 +1,26 @@
+{
+  "A200.json": {
+    "sha256": "d66d415344cb6768b58388a85e422c18bc4f463b007f0a5d74f000d4a2aac2f2",
+    "unchanged_from_previous": true
+  },
+  "hf-A200.jsonl": {
+    "sha256": "b3bdbd984929aa91794e9d3ec43a6e73c8febac5f568ded2479fa7d01750811e",
+    "unchanged_from_previous": true
+  },
+  "quick32.json": {
+    "sha256": "ef2e59ad9349f9b89f05abea170d519d0f37f30a7732e625916506c6c9685b2e",
+    "unchanged_from_previous": true
+  },
+  "hf-quick32.jsonl": {
+    "sha256": "6e463356aa94af9756dc11b9ee2ed81f4c79b04f252177880dc37356a578d823",
+    "unchanged_from_previous": true
+  },
+  "long4.json": {
+    "sha256": "f61e4cdde990bcc073a5806fab5ff2171ed481bb37e6b333eb10267d3527ac69",
+    "unchanged_from_previous": true
+  },
+  "hf-long4.jsonl": {
+    "sha256": "362a912351e37d75b2bc8d874473c14430d7d6a1e95770198c63fd72de53680b",
+    "unchanged_from_previous": true
+  }
+}

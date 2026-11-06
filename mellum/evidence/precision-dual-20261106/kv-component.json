@@ -1,0 +1,72 @@
+[
+  {
+    "lengths": [
+      15,
+      16,
+      17
+    ],
+    "window": null,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      15,
+      16,
+      17
+    ],
+    "window": 1024,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      1023,
+      1024,
+      1025
+    ],
+    "window": null,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      1023,
+      1024,
+      1025
+    ],
+    "window": 1024,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      4099,
+      512,
+      1400
+    ],
+    "window": null,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      4099,
+      512,
+      1400
+    ],
+    "window": 1024,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      15194,
+      16019
+    ],
+    "window": null,
+    "bitwise_equal": true
+  },
+  {
+    "lengths": [
+      15194,
+      16019
+    ],
+    "window": 1024,
+    "bitwise_equal": true
+  }
+]

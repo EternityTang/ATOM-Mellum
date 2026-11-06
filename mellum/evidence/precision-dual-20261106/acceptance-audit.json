@@ -1,0 +1,11 @@
+{
+  "requests": 200,
+  "unique_requests": 200,
+  "all_finished": true,
+  "output_tokens_each": 256,
+  "http_peak_active": 32,
+  "model_max_decode_batch": 32,
+  "graph_fallbacks": 0,
+  "kv_gathers_snapshot": 48636,
+  "candidate_dense_cap": 8
+}

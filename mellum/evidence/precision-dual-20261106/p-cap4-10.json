@@ -1,0 +1,20 @@
+[
+  {
+    "repetition": 0,
+    "n": 10,
+    "tokens": 64,
+    "matches": 640,
+    "total": 640,
+    "exact": 10,
+    "elapsed_s": 17.836767278960906,
+    "output_tps": 35.88094131580124,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "4"
+    },
+    "gpu": "1"
+  }
+]
