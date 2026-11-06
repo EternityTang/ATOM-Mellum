@@ -3,7 +3,7 @@
 # https://github.com/huggingface/transformers/blob/v5.10.1/src/transformers/models/mellum/modeling_mellum.py
 """Independent, uncompiled single-GPU Mellum baseline inside the ATOM engine.
 
-Plain torch experts and explicit-mask SDPA. No FusedMoE, native attention,
+Plain torch experts and SDPA with causal/SWA masking. No FusedMoE, native attention,
 model compilation, quantization, prefix cache or speculative decoding.
 """
 

@@ -1,0 +1,19 @@
+{
+  "stage": 6,
+  "title": "Correct the naive baseline attention and numerical boundaries",
+  "notes": "Final saved naive variant; the earlier snapshot remains in the parent stage.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.029977+00:00",
+  "sources": [
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_naive.py",
+      "path": "atom/models/mellum_naive.py",
+      "sha256": "681a56576d3a89617c6ad3091d93bb106c971db4a0072be46ccb66f391bbd483"
+    },
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_naive_ops.py",
+      "path": "atom/models/mellum_naive_ops.py",
+      "sha256": "2926ce7cad5e0a20c4b7c11296e4e6af2b4e69d7e58d110a92235d000fd01ce6"
+    }
+  ]
+}

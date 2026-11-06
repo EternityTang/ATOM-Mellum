@@ -97,6 +97,29 @@ def masked_sdpa(query, key, value, query_positions, key_positions, window, scale
     return output[0].transpose(0, 1)
 
 
+def naive_sdpa(query, key, value, query_positions, key_positions, window, scale):
+    """Match HF's mask-free SDPA calls when their visibility is equivalent.
+
+    Cached multi-token queries need an offset causal mask: SDPA's causal flag
+    alone uses the top-left diagonal. Keep the explicit path for those queries
+    and for SWA at/above its boundary (HF skips only when KV length < window).
+    """
+    local_skip = window is None or len(key_positions) < window
+    if local_skip and window is not None:
+        local_skip = bool((query_positions[-1] - key_positions[0] < window).item())
+    same_positions = len(query_positions) == len(key_positions) and torch.equal(
+        query_positions, key_positions)
+    causal = same_positions and bool(torch.all(key_positions[1:] > key_positions[:-1]).item())
+    decode = len(query_positions) == 1 and bool(torch.all(key_positions <= query_positions[0]).item())
+    if not (local_skip and (causal or decode)):
+        return masked_sdpa(query, key, value, query_positions, key_positions, window, scale)
+    output = F.scaled_dot_product_attention(
+        query.transpose(0, 1)[None], key.transpose(0, 1)[None], value.transpose(0, 1)[None],
+        attn_mask=None, dropout_p=0.0, is_causal=len(query_positions) > 1,
+        scale=scale, enable_gqa=True)
+    return output[0].transpose(0, 1)
+
+
 class TorchPagedKV:
     """Torch indexing into ATOM's native BF16 packed K / HDS V page layout."""
 
@@ -171,6 +194,6 @@ class NaiveSDPAAttention(nn.Module):
                 keys, values, key_positions = key[start:end], value[start:end], positions[start:end]
             else:
                 keys, values, key_positions = cache.read(meta.block_tables[index], length)
-            output[start:end] = masked_sdpa(query[start:end], keys, values,
+            output[start:end] = naive_sdpa(query[start:end], keys, values,
                 positions[start:end], key_positions, self.window, self.scale)
         return output
