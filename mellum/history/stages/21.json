@@ -1,0 +1,29 @@
+{
+  "stage": 21,
+  "title": "Reconnect the Qwen3-MoE backbone and attention components",
+  "notes": "Component reuse with eager-compatible math; failed accelerated SWA alternatives retained as switches.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.544918+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_reuse_request/README.md",
+      "path": "mellum/tools/mellum_reuse_request/README.md",
+      "sha256": "6650cb3818ab9035af849ef9b3c2c80ce43134f9221628def66bf35a0e37d2bb"
+    },
+    {
+      "source": "/workspace/tools/mellum_reuse_request/__init__.py",
+      "path": "mellum/tools/mellum_reuse_request/__init__.py",
+      "sha256": "c26b22d188dfd8ce8cb2b983c9249154313a72f08b12d5cedd9dbbbf4a6d5530"
+    },
+    {
+      "source": "/workspace/tools/mellum_reuse_request/serve.py",
+      "path": "mellum/tools/mellum_reuse_request/serve.py",
+      "sha256": "a426960bff37df4ad85f94709e76b1af7462488afa2fa5863e3114c385aa8c3b"
+    },
+    {
+      "source": "/workspace/tools/mellum_reuse_request/stages.py",
+      "path": "mellum/tools/mellum_reuse_request/stages.py",
+      "sha256": "e3ccb2c0a08f90736be7755814e86c0aabe46fac03a73f549e30e647f62079a8"
+    }
+  ]
+}
