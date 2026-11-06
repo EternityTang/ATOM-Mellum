@@ -14,6 +14,12 @@ def eager_math(q,k,v,mask,scale):
     return torch.matmul(probs,v)
 
 def eager_one(q,k,v,qpos,kpos,window,scale):
+    # Match HF DynamicSlidingWindowLayer: W-1 cached keys + the current
+    # contiguous query chunk. Masking older keys is semantically equivalent,
+    # but a different BF16 GEMM/softmax shape can change greedy tokens.
+    shift=max(0,len(k)-len(q)-window+1) if window is not None else 0
+    if shift:
+        k,v,kpos=k[shift:],v[shift:],kpos[shift:]
     groups=q.shape[1]//k.shape[1]
     def repeat(x):
         x=x.transpose(0,1)[None]
