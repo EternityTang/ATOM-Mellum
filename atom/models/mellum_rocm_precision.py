@@ -7,26 +7,107 @@ SDPA is a local correctness fallback, not a port of vLLM's attention kernels.
 All replacements retain the original checkpoint Parameters and names.
 """
 
+from dataclasses import dataclass
+
 import torch
 from torch import nn
 from torch.nn import functional as F
 
 from atom.model_ops.layernorm import RMSNorm
-from atom.models.mellum_naive_ops import NaiveRoPE, NaiveSDPAAttention, rotate
+from atom.models.mellum_naive_ops import NaiveRoPE, NaiveSDPAAttention, TorchPagedKV, rotate
 from atom.models.mellum_torch_experts import (
     MellumTorchExpertsForCausalLM,
     TorchExpertMethod,
     torch_expert_forward,
 )
 from atom.utils import envs
+from atom.utils.forward_context import get_forward_context
 
 
 PROFILES = {
     "ck_native": dict(norm="ck", qkv="packed", attention="native", routing="hf"),
     "torch_native": dict(norm="torch", qkv="packed", attention="native", routing="hf"),
     "torch_sdpa_packed": dict(norm="torch", qkv="packed", attention="sdpa", routing="hf"),
-    "correctness": dict(norm="torch", qkv="split", attention="sdpa", routing="hf"),
+    "torch_sdpa_split": dict(norm="torch", qkv="split", attention="sdpa", routing="hf"),
+    "torch_gate": dict(norm="torch", qkv="split", attention="sdpa", routing="hf", gate="torch"),
+    "correctness": dict(norm="torch", qkv="split", attention="sdpa", routing="hf", gate="torch", head="torch"),
+    "indexed_decode": dict(norm="torch", qkv="split", attention="indexed_decode", routing="hf", gate="torch", head="torch"),
 }
+
+
+@dataclass
+class DecodePagePlan:
+    lengths: list[int]
+    blocks: torch.Tensor
+    offsets: torch.Tensor
+    write_blocks: torch.Tensor
+    write_offsets: torch.Tensor
+    window_masks: tuple
+
+    @classmethod
+    def build(cls, meta, positions, window, block_size):
+        lengths = meta.context_lens.tolist()
+        total = sum(lengths)
+        # Bound the two temporary BF16 gathers to 256 MiB for Mellum's 4 KV heads.
+        if (meta.block_tables is None or meta.max_seqlen_q != 1 or len(lengths) != len(positions)
+                or not lengths or min(lengths) <= 0 or total > 131072):
+            return None
+        lengths_gpu = meta.context_lens.to(device=positions.device, dtype=torch.long)
+        slots = meta.slot_mapping[:len(lengths)].long()
+        if not torch.equal(positions, lengths_gpu - 1) or bool((slots < 0).any().item()):
+            return None
+        seq = torch.arange(len(lengths), device=positions.device).repeat_interleave(lengths_gpu, output_size=total)
+        starts = lengths_gpu.cumsum(0) - lengths_gpu
+        key_pos = torch.arange(total, device=positions.device) - starts[seq]
+        blocks = meta.block_tables[seq, key_pos // block_size].long()
+        hidden = key_pos <= lengths_gpu[seq] - 1 - window
+        mask = torch.zeros(total, device=positions.device, dtype=torch.bfloat16).masked_fill_(hidden, float('-inf'))
+        return cls(lengths, blocks, key_pos % block_size, slots // block_size,
+                   slots % block_size, mask.split(lengths))
+
+    def attend(self, layer, query, key, value):
+        pages = get_forward_context().kv_cache_data[f'layer_{layer.layer_num}']
+        cache = TorchPagedKV(pages, layer.num_kv_heads, layer.head_dim)
+        cache.key[self.write_blocks, :, :, self.write_offsets, :] = key.reshape(
+            -1, cache.heads, cache.width // cache.pack, cache.pack)
+        cache.value[self.write_blocks, :, :, self.write_offsets] = value
+        keys = cache.key[self.blocks, :, :, self.offsets, :].reshape(-1, cache.heads, cache.width)
+        values = cache.value[self.blocks, :, :, self.offsets]
+        result = []
+        for i, (k, v) in enumerate(zip(keys.split(self.lengths), values.split(self.lengths))):
+            k = k.transpose(0, 1).unsqueeze(0)
+            v = v.transpose(0, 1).unsqueeze(0)
+            masked = layer.window is not None and self.lengths[i] >= layer.window
+            mask = None
+            if masked:
+                groups = layer.num_heads // cache.heads
+                k = k.repeat_interleave(groups, dim=1)
+                v = v.repeat_interleave(groups, dim=1)
+                mask = self.window_masks[i].view(1, 1, 1, -1)
+            attention = F.scaled_dot_product_attention(
+                query[i][None, :, None, :], k, v, attn_mask=mask,
+                scale=layer.scale, enable_gqa=not masked)
+            result.append(attention[0, :, 0])
+        return torch.stack(result)
+
+
+class MellumPrecisionLinear(nn.Module):
+    def __init__(self, original, settings, role):
+        super().__init__()
+        self.weight = original.weight
+        self.bias = original.bias
+        self.settings = settings
+        self.role = role
+        self._native_forward = original.forward
+
+    def forward(self, x):
+        if self.settings.get(self.role, "native") == "native":
+            return self._native_forward(x)
+        if self.role == "head":
+            context = get_forward_context()
+            if context.context.is_prefill and not context.context.is_draft:
+                x = x[context.attn_metadata.cu_seqlens_q[1:] - 1].contiguous()
+        return F.linear(x, self.weight, self.bias)
 
 
 class MellumPrecisionNorm(nn.Module):
@@ -94,7 +175,11 @@ class MellumPrecisionAttention(nn.Module):
         key = self.k_norm(key.view(-1, self.num_kv_heads, self.head_dim))
         value = value.view(-1, self.num_kv_heads, self.head_dim)
         query, key = rotate(query, key, *self.rope(hidden_states, positions)[self.kind])
-        if self.settings["attention"] == "sdpa":
+        attention = self.settings["attention"]
+        plan = getattr(get_forward_context(), 'mellum_page_plan', None) if attention == "indexed_decode" else None
+        if plan is not None:
+            output = plan.attend(self, query, key, value)
+        elif attention in ("sdpa", "indexed_decode"):
             # Reuse the validated BF16 page read/write and causal/SWA boundary code.
             output = NaiveSDPAAttention.forward(self, query, key, value, positions)
         else:
@@ -148,10 +233,26 @@ class MellumRocmPrecisionForCausalLM(MellumTorchExpertsForCausalLM):
             experts = layer.mlp.experts
             experts.quant_method = MellumPrecisionExpertMethod(
                 experts.moe_config, self.precision_settings)
+            layer.mlp.gate = MellumPrecisionLinear(
+                layer.mlp.gate, self.precision_settings, "gate")
+        self.lm_head = MellumPrecisionLinear(self.lm_head, self.precision_settings, "head")
         after = {name: id(value) for name, value in self.named_parameters()}
         if before != after or count != 4 * self.config.num_hidden_layers + 1:
             raise RuntimeError("Mellum precision must preserve all checkpoint Parameter identities")
         self.precision_parameter_identity_preserved = True
+
+    def forward(self, input_ids, positions, *args, **kwargs):
+        if self.precision_settings['attention'] != 'indexed_decode':
+            return super().forward(input_ids, positions, *args, **kwargs)
+        ctx = get_forward_context()
+        if ctx.context.is_prefill or ctx.context.is_dummy_run:
+            return super().forward(input_ids, positions, *args, **kwargs)
+        ctx.mellum_page_plan = DecodePagePlan.build(
+            ctx.attn_metadata, positions, self.config.sliding_window, self.atom_config.kv_cache_block_size)
+        try:
+            return super().forward(input_ids, positions, *args, **kwargs)
+        finally:
+            del ctx.mellum_page_plan
 
     def configure_precision_profile(self, name):
         """Select a profile before inference; callers must not change it in-flight."""

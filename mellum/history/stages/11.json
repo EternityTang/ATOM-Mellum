@@ -1,0 +1,14 @@
+{
+  "stage": 11,
+  "title": "Preserve precision projection boundaries and final shared model state",
+  "notes": "Final shared runtime source; stage history does not imply every intermediate combination was re-benchmarked.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.078001+00:00",
+  "sources": [
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_rocm_precision.py",
+      "path": "atom/models/mellum_rocm_precision.py",
+      "sha256": "fb1bfe272bc1ccc8c9805e997cf8843683dbccfbd76806892f0ac2635e6ba2b0"
+    }
+  ]
+}
