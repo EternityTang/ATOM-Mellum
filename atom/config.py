@@ -594,8 +594,6 @@ def get_hf_config(model: str, trust_remote_code: bool = False) -> PretrainedConf
         model,
     )
     model_type = config_dict.get("model_type")
-    if model_type == "mellum":
-        return PretrainedConfig.from_dict(config_dict)
 
     def _get_hf_token() -> str | None:
         token = os.getenv("HF_TOKEN")

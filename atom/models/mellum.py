@@ -1,497 +1,178 @@
-# Adapted from ROCm/ATOM qwen3_moe.py at 26f23a0; Step 0 eager implementation.
-from typing import Optional, Union, Any
+# SPDX-License-Identifier: MIT
+# Integration pattern: vLLM v0.23.0 model_executor/models/mellum.py (Apache-2.0).
+"""Mellum integration reusing ATOM's Qwen3-MoE and native SWA attention.
+
+Only constructors differ: per-layer attention/RoPE and MLP selection. Forward,
+MoE kernels, norms, cache management and checkpoint loaders remain ATOM's.
+SWA is connected through the same per_layer_sliding_window interface used by
+GPT-OSS and MiMo; their model-specific sinks, biases and V scaling are not used.
+"""
 
 import torch
-from aiter.dist.communication_op import tensor_model_parallel_all_reduce
+from torch import nn
 from aiter.dist.parallel_state import get_pp_group, get_tensor_model_parallel_world_size
+from aiter.rotary_embedding import get_rope
 
-# from atom.model_ops.rotary_embedding import get_rope
-from atom.models.mellum_ops import get_rope, MellumSDPAAttention as Attention
-from atom.config import Config, QuantizationConfig
-from atom.model_ops.activation import SiluAndMul
-
-# from atom.model_ops.attention import Attention
-
+from atom.model_ops.base_attention import Attention
 from atom.model_ops.embed_head import ParallelLMHead, VocabParallelEmbedding
 from atom.model_ops.layernorm import RMSNorm
-from atom.model_ops.linear import (
-    MergedColumnParallelLinear,
-    QKVParallelLinear,
-    ReplicatedLinear,
-    RowParallelLinear,
+from atom.model_ops.linear import QKVParallelLinear, RowParallelLinear
+from atom.models.qwen3_moe import (
+    ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION,
+    ENABLE_ALLREDUCE_RMSNORM_FUSION,
+    Qwen3MoeAttention,
+    Qwen3MoeDecoderLayer,
+    Qwen3MoeForCausalLM,
+    Qwen3MoeMLP,
+    Qwen3MoeModel,
+    Qwen3MoeSparseMoeBlock,
 )
-
-from atom.utils.decorators import support_torch_compile
-
-# from atom.model_ops.rotary_embedding import get_rope
-from atom.model_ops.moe import FusedMoE
 from atom.models.utils import (
-    IntermediateTensors,
     PPMissingLayer,
     make_empty_intermediate_tensors_factory,
     make_layers,
     maybe_prefix,
 )
-from atom.utils import envs
-from torch import nn
-
-# import torch.distributed as dist
-from transformers import PretrainedConfig
-
-ENABLE_ALLREDUCE_RMSNORM_FUSION = envs.ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION
-ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION = (
-    envs.ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION
-)
+from atom.utils.decorators import support_torch_compile
 
 
-class MellumMLP(nn.Module):
-    def __init__(
-        self,
-        hidden_size: int,
-        intermediate_size: int,
-        hidden_act: str,
-        quant_config: QuantizationConfig | None = None,
-        reduce_results: bool = True,
-        prefix: str = "",
-    ) -> None:
-        super().__init__()
-        self.gate_up_proj = MergedColumnParallelLinear(
-            hidden_size,
-            [intermediate_size] * 2,
-            bias=False,
-            quant_config=quant_config,
-            prefix=f"{prefix}.gate_up_proj",
-        )
-        self.down_proj = RowParallelLinear(
-            intermediate_size,
-            hidden_size,
-            bias=False,
-            quant_config=quant_config,
-            reduce_results=reduce_results,
-            prefix=f"{prefix}.down_proj",
-        )
-        if hidden_act != "silu":
-            raise ValueError(
-                f"Unsupported activation: {hidden_act}. Only silu is supported for now."
-            )
-        self.act_fn = SiluAndMul()
+class MellumAttention(Qwen3MoeAttention):
+    """Qwen3-MoE forward with native per-layer SWA and AITER RoPE."""
 
-    def forward(self, x):
-        gate_up, _ = self.gate_up_proj(x)
-        x = self.act_fn(gate_up)
-        x, _ = self.down_proj(x)
-        return x
-
-
-class MellumExpert(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        self.gate_proj = nn.Linear(config.hidden_size, config.moe_intermediate_size, bias=False)
-        self.up_proj = nn.Linear(config.hidden_size, config.moe_intermediate_size, bias=False)
-        self.down_proj = nn.Linear(config.moe_intermediate_size, config.hidden_size, bias=False)
-    def forward(self, x):
-        return self.down_proj(torch.nn.functional.silu(self.gate_proj(x)) * self.up_proj(x))
-
-class MellumSparseMoeBlock(nn.Module):
-    def __init__(self, config, quant_config=None, prefix=""):
-        super().__init__()
-        self.top_k = config.num_experts_per_tok
-        self.renormalize = config.norm_topk_prob
-        self.gate = nn.Linear(config.hidden_size, config.num_experts, bias=False)
-        self.experts = nn.ModuleList([MellumExpert(config) for _ in range(config.num_experts)])
-    def forward(self, x):
-        probs = torch.softmax(self.gate(x).float(), dim=-1)
-        weights, indices = torch.topk(probs, self.top_k, dim=-1)
-        if self.renormalize:
-            weights = weights / weights.sum(-1, keepdim=True)
-        weights = weights.to(x.dtype)
-        result = torch.zeros_like(x)
-        for eid, expert in enumerate(self.experts):
-            rows, slots = torch.where(indices == eid)
-            if rows.numel():
-                result.index_add_(0, rows, expert(x[rows]) * weights[rows, slots, None])
-        return result
-
-
-class MellumAttention(nn.Module):
-    def __init__(
-        self,
-        hidden_size: int,
-        num_heads: int,
-        num_kv_heads: int,
-        max_position: int = 4096 * 32,
-        head_dim: int | None = None,
-        rms_norm_eps: float = 1e-06,
-        qkv_bias: bool = False,
-        rope_theta: float = 10000,
-        rope_scaling: tuple | None = None,
-        kv_cache_dtype: str = "fp16",
-        layer_num: int = 0,
-        atom_config: Config = None,
-        prefix: str = "",
-    ) -> None:
-        super().__init__()
+    def __init__(self, atom_config, layer_num, prefix):
+        nn.Module.__init__(self)
+        config = atom_config.hf_config
         tp_size = get_tensor_model_parallel_world_size()
-        self.total_num_heads = num_heads
-        assert self.total_num_heads % tp_size == 0
-        self.num_heads = self.total_num_heads // tp_size
-        self.total_num_kv_heads = num_kv_heads
+        self.total_num_heads = config.num_attention_heads
+        self.total_num_kv_heads = config.num_key_value_heads
+        if self.total_num_heads % tp_size:
+            raise ValueError("Query heads must be divisible by TP size")
         if self.total_num_kv_heads >= tp_size:
-            # Number of KV heads is greater than TP size, so we partition
-            # the KV heads across multiple tensor parallel GPUs.
-            assert self.total_num_kv_heads % tp_size == 0
-        else:
-            # Number of KV heads is less than TP size, so we replicate
-            # the KV heads across multiple tensor parallel GPUs.
-            assert tp_size % self.total_num_kv_heads == 0
+            if self.total_num_kv_heads % tp_size:
+                raise ValueError("KV heads must be divisible by TP size")
+        elif tp_size % self.total_num_kv_heads:
+            raise ValueError("TP size must be divisible by replicated KV heads")
+        self.num_heads = self.total_num_heads // tp_size
         self.num_kv_heads = max(1, self.total_num_kv_heads // tp_size)
-        self.head_dim = head_dim or (hidden_size // self.total_num_heads)
+        self.head_dim = config.head_dim
         self.q_size = self.num_heads * self.head_dim
         self.kv_size = self.num_kv_heads * self.head_dim
-        self.scaling = self.head_dim**-0.5
-
+        self.scaling = self.head_dim ** -0.5
+        self.layer_num = layer_num
+        self.kv_cache_dtype = atom_config.kv_cache_dtype
         self.qkv_proj = QKVParallelLinear(
-            hidden_size,
-            self.head_dim,
-            self.total_num_heads,
-            self.total_num_kv_heads,
-            bias=qkv_bias,
-            quant_config=atom_config.quant_config,
-            prefix=f"{prefix}.qkv_proj",
+            config.hidden_size, self.head_dim, self.total_num_heads,
+            self.total_num_kv_heads, bias=config.attention_bias,
+            quant_config=atom_config.quant_config, prefix=f"{prefix}.qkv_proj",
         )
-
         self.o_proj = RowParallelLinear(
-            self.total_num_heads * self.head_dim,
-            hidden_size,
-            bias=False,
+            self.total_num_heads * self.head_dim, config.hidden_size, bias=False,
             quant_config=atom_config.quant_config,
             reduce_results=not ENABLE_ALLREDUCE_RMSNORM_FUSION,
             prefix=f"{prefix}.o_proj",
         )
-
+        kind = config.layer_types[layer_num]
+        rope = dict(config.rope_parameters[kind])
         self.rotary_emb = get_rope(
-            self.head_dim,
-            rotary_dim=self.head_dim,
-            max_position=max_position,
-            base=rope_theta,
-            rope_scaling=rope_scaling,
+            self.head_dim, rotary_dim=self.head_dim,
+            max_position=config.max_position_embeddings,
+            base=rope["rope_theta"], rope_scaling=rope,
         )
         if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION:
-            cos, sin = self.rotary_emb.cos_cache, self.rotary_emb.sin_cache
-            joint_cache = torch.cat((cos, sin), dim=-1)
+            joint = torch.cat((self.rotary_emb.cos_cache, self.rotary_emb.sin_cache), dim=-1)
             self.rotary_emb.register_buffer(
-                "cos_sin_cache",
-                joint_cache.view(joint_cache.size(0), self.head_dim),
-                persistent=False,
+                "cos_sin_cache", joint.view(joint.size(0), self.head_dim), persistent=False
             )
-
-        self.q_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
-        self.k_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
-
+        self.q_norm = RMSNorm(self.head_dim, eps=config.rms_norm_eps)
+        self.k_norm = RMSNorm(self.head_dim, eps=config.rms_norm_eps)
         self.attn = Attention(
-            self.num_heads,
-            self.head_dim,
-            self.scaling,
-            self.num_kv_heads,
-            kv_cache_dtype=kv_cache_dtype,
-            layer_num=layer_num,
-            use_mla=False,
+            self.num_heads, self.head_dim, self.scaling, self.num_kv_heads,
+            kv_cache_dtype=self.kv_cache_dtype, layer_num=layer_num,
             rotary_emb=self.rotary_emb,
-            per_layer_sliding_window=(atom_config.hf_config.sliding_window if atom_config.hf_config.layer_types[layer_num] == "sliding_attention" else None),
+            per_layer_sliding_window=(config.sliding_window if kind == "sliding_attention" else None),
             prefix=f"{prefix}.attn",
             q_norm=self.q_norm if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION else None,
             k_norm=self.k_norm if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION else None,
         )
 
-        self.kv_cache_dtype = kv_cache_dtype
-        self.layer_num = layer_num
 
-    def forward(
-        self,
-        positions: torch.Tensor,
-        hidden_states: torch.Tensor,
-        **model_kwargs: dict[str, Any] | None,
-    ) -> torch.Tensor:
-        qkv = self.qkv_proj(hidden_states)
-        q, k, v = torch.split(qkv, [self.q_size, self.kv_size, self.kv_size], dim=-1)
-        if ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION:
-            q, k, v = torch.split(
-                qkv, [self.q_size, self.kv_size, self.kv_size], dim=-1
-            )
-            attn_output = self.attn(
-                query=q, key=k, value=v, positions=positions, q_scale=None, qkv=qkv
-            )
-        else:
-            # Add qk-norm (per-head)
-            q = self.q_norm(q.view(-1, self.num_heads, self.head_dim)).view(
-                -1, self.num_heads * self.head_dim
-            )
-            k = self.k_norm(k.view(-1, self.num_kv_heads, self.head_dim)).view(
-                -1, self.num_kv_heads * self.head_dim
-            )
+class MellumDecoderLayer(Qwen3MoeDecoderLayer):
+    """Reuse the Qwen residual/norm/MoE forward; select Mellum layer types."""
 
-            attn_output = self.attn(
-                query=q, key=k, value=v, positions=positions, **model_kwargs
-            )
-        output = self.o_proj(attn_output)
-        return output
-
-
-class MellumDecoderLayer(nn.Module):
-    def __init__(self, atom_config=None, layer_num: int = 0, prefix: str = "") -> None:
-        super().__init__()
-
+    def __init__(self, atom_config, layer_num=0, prefix=""):
+        nn.Module.__init__(self)
         self.atom_config = atom_config
-        config = self.atom_config.hf_config
-        self.hidden_size = config.hidden_size
-        rope_params = config.rope_parameters[config.layer_types[layer_num]]
-        rope_theta = rope_params["rope_theta"]
-        rope_scaling = rope_params
-        kv_cache_dtype = atom_config.kv_cache_dtype
-        max_position_embeddings = getattr(config, "max_position_embeddings", 8192)
-        # DecoderLayers are created with `make_layers` which passes the prefix
-        # with the layer's index.
+        config = atom_config.hf_config
         self.layer_idx = layer_num
-
-        self.self_attn = MellumAttention(
-            hidden_size=self.hidden_size,
-            num_heads=config.num_attention_heads,
-            num_kv_heads=config.num_key_value_heads,
-            max_position=max_position_embeddings,
-            rms_norm_eps=config.rms_norm_eps,
-            qkv_bias=getattr(config, "attention_bias", False),
-            head_dim=getattr(config, "head_dim", None),
-            rope_theta=rope_theta,
-            rope_scaling=rope_scaling,
-            kv_cache_dtype=kv_cache_dtype,
-            layer_num=layer_num,
-            atom_config=atom_config,
-            prefix=f"{prefix}.self_attn",
-        )
-
-        # `mlp_only_layers` in the config.
-        mlp_only_layers = (
-            [] if not hasattr(config, "mlp_only_layers") else config.mlp_only_layers
-        )
-        if (self.layer_idx not in mlp_only_layers) and (
-            config.num_experts > 0
-            and (self.layer_idx + 1) % getattr(config, "decoder_sparse_step", 1) == 0
-        ):
-            self.mlp = MellumSparseMoeBlock(
-                config,
-                quant_config=self.atom_config.quant_config,
-                prefix=f"{prefix}.mlp",
+        self.hidden_size = config.hidden_size
+        self.self_attn = MellumAttention(atom_config, layer_num, f"{prefix}.self_attn")
+        if config.mlp_layer_types[layer_num] == "sparse":
+            self.mlp = Qwen3MoeSparseMoeBlock(
+                config, quant_config=atom_config.quant_config, prefix=f"{prefix}.mlp"
             )
         else:
-            self.mlp = MellumMLP(
-                hidden_size=config.hidden_size,
-                intermediate_size=config.intermediate_size,
-                hidden_act=config.hidden_act,
-                quant_config=self.atom_config.quant_config,
+            self.mlp = Qwen3MoeMLP(
+                config.hidden_size, config.intermediate_size, config.hidden_act,
+                quant_config=atom_config.quant_config,
                 reduce_results=not ENABLE_ALLREDUCE_RMSNORM_FUSION,
                 prefix=f"{prefix}.mlp",
             )
         self.input_layernorm = RMSNorm(
-            config.hidden_size,
-            eps=config.rms_norm_eps,
-            fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION and self.layer_idx > 0,
+            config.hidden_size, eps=config.rms_norm_eps,
+            fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION and layer_num > 0,
         )
         self.post_attention_layernorm = RMSNorm(
-            config.hidden_size,
-            eps=config.rms_norm_eps,
+            config.hidden_size, eps=config.rms_norm_eps,
             fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION,
         )
 
-    def forward(
-        self,
-        positions: torch.Tensor,
-        hidden_states: torch.Tensor,
-        residual: torch.Tensor | None,
-        **model_kwargs: dict[str, Any] | None,
-    ) -> tuple[torch.Tensor, torch.Tensor]:
-        # Self Attention
-        if residual is None:
-            residual = hidden_states
-            hidden_states = self.input_layernorm(hidden_states)
-        else:
-            hidden_states, residual = self.input_layernorm(hidden_states, residual)
-        hidden_states = self.self_attn(
-            positions=positions,
-            hidden_states=hidden_states,
-            **model_kwargs,
-        )
 
-        # Fully Connected
-        hidden_states, residual = self.post_attention_layernorm(hidden_states, residual)
-        hidden_states = self.mlp(hidden_states)
-        return hidden_states, residual
+@support_torch_compile
+class MellumModel(Qwen3MoeModel):
+    """Construct Mellum layers while inheriting the complete Qwen backbone API."""
 
-
-class MellumModel(nn.Module):
-    def __init__(
-        self,
-        atom_config: Config,
-        prefix: str = "",
-        layer_type: type[nn.Module] = MellumDecoderLayer,
-    ):
-        super().__init__()
-
+    def __init__(self, atom_config, prefix=""):
+        nn.Module.__init__(self)
         self.config = atom_config.hf_config
-
-        if get_pp_group().is_first_rank:
-            self.embed_tokens = VocabParallelEmbedding(
-                self.config.vocab_size,
-                self.config.hidden_size,
-            )
-        else:
-            self.embed_tokens = PPMissingLayer()
-
+        config = self.config
+        if len(config.layer_types) != config.num_hidden_layers or len(config.mlp_layer_types) != config.num_hidden_layers:
+            raise ValueError("Mellum requires one attention/MLP type per layer")
+        if not set(config.layer_types) <= {"sliding_attention", "full_attention"}:
+            raise ValueError("Unsupported Mellum attention layer type")
+        if not set(config.mlp_layer_types) <= {"sparse", "dense"}:
+            raise ValueError("Unsupported Mellum MLP layer type")
+        self.embed_tokens = (
+            VocabParallelEmbedding(config.vocab_size, config.hidden_size)
+            if get_pp_group().is_first_rank else PPMissingLayer()
+        )
         self.start_layer, self.end_layer, self.layers = make_layers(
-            self.config.num_hidden_layers,
-            lambda prefix, layer_num=None: MellumDecoderLayer(
-                atom_config=atom_config,
-                layer_num=layer_num,
-                prefix=prefix,
-            ),
-            prefix=f"{prefix}.layers",
-            layer_num_offset=0,
+            config.num_hidden_layers,
+            lambda prefix, layer_num=None: MellumDecoderLayer(atom_config, layer_num, prefix),
+            prefix=f"{prefix}.layers", layer_num_offset=0,
         )
-        if get_pp_group().is_last_rank:
-            self.norm = RMSNorm(
-                self.config.hidden_size,
-                eps=self.config.rms_norm_eps,
-                fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION,
-            )
-        else:
-            self.norm = PPMissingLayer()
-
+        self.norm = (
+            RMSNorm(config.hidden_size, eps=config.rms_norm_eps,
+                    fused_allreduce=ENABLE_ALLREDUCE_RMSNORM_FUSION)
+            if get_pp_group().is_last_rank else PPMissingLayer()
+        )
         self.make_empty_intermediate_tensors = make_empty_intermediate_tensors_factory(
-            ["hidden_states", "residual"], self.config.hidden_size
+            ["hidden_states", "residual"], config.hidden_size
         )
 
-    def get_input_embeddings(self, input_ids: torch.Tensor) -> torch.Tensor:
-        return self.embed_tokens(input_ids)
 
-    def forward(
-        self,
-        input_ids: torch.Tensor,
-        positions: torch.Tensor,
-        intermediate_tensors: IntermediateTensors | None = None,
-        inputs_embeds: torch.Tensor | None = None,
-        **model_kwargs: dict[str, Any] | None,
-    ) -> torch.Tensor | IntermediateTensors | tuple[torch.Tensor, list[torch.Tensor]]:
-        if get_pp_group().is_first_rank:
-            if inputs_embeds is not None:
-                hidden_states = inputs_embeds
-            else:
-                hidden_states = self.get_input_embeddings(input_ids)
-            residual = None
-        else:
-            assert intermediate_tensors is not None
-            hidden_states = intermediate_tensors["hidden_states"]
-            residual = intermediate_tensors["residual"]
+class MellumForCausalLM(Qwen3MoeForCausalLM):
+    packed_modules_mapping = dict(Qwen3MoeForCausalLM.packed_modules_mapping)
 
-        for layer in self.layers[self.start_layer : self.end_layer]:
-            hidden_states, residual = layer(
-                positions, hidden_states, residual, **model_kwargs
-            )
-
-        if not get_pp_group().is_last_rank:
-            return IntermediateTensors(
-                {"hidden_states": hidden_states, "residual": residual}
-            )
-        hidden_states, _ = self.norm(hidden_states, residual)
-
-        return hidden_states
-
-    def unused_expert_mapping(self) -> list[tuple[str, str, int, str]]:
-        # Params for weights, fp8 weight scales, fp8 activation scales
-        # (param_name, weight_name, expert_id, shard_id)
-        return []
-
-
-
-class MellumForCausalLM(nn.Module):
-    packed_modules_mapping = {
-        "q_proj": ("qkv_proj", "q"),
-        "k_proj": ("qkv_proj", "k"),
-        "v_proj": ("qkv_proj", "v"),
-    }
-
-    def __init__(
-        self,
-        atom_config: Config,
-        prefix: str = "",
-        layer_type: type[nn.Module] = MellumDecoderLayer,
-    ):
-        super().__init__()
+    def __init__(self, atom_config, prefix=""):
+        nn.Module.__init__(self)
         self.atom_config = atom_config
-        self.config = self.atom_config.hf_config
-
-        # Only perform the following mapping when MellumMLP exists
-        if getattr(self.config, "mlp_only_layers", []):
-            self.packed_modules_mapping["gate_up_proj"] = ["gate_proj", "up_proj"]
-        self.model = MellumModel(
-            atom_config=self.atom_config,
-            prefix=maybe_prefix(prefix, "model"),
+        self.config = atom_config.hf_config
+        self.model = MellumModel(atom_config, prefix=maybe_prefix(prefix, "model"))
+        self.lm_head = (
+            ParallelLMHead(self.config.vocab_size, self.config.hidden_size,
+                           bias=False, prefix=maybe_prefix(prefix, "lm_head"))
+            if get_pp_group().is_last_rank else PPMissingLayer()
         )
-
-        if get_pp_group().is_last_rank:
-            self.lm_head = ParallelLMHead(
-                num_embeddings=self.config.vocab_size,
-                embedding_dim=self.config.hidden_size,
-                bias=False,
-                prefix=maybe_prefix(prefix, "lm_head"),
-            )
-        else:
-            self.lm_head = PPMissingLayer()
         if self.config.tie_word_embeddings:
             self.lm_head.weight = self.model.embed_tokens.weight
-
-        self.make_empty_intermediate_tensors = (
-            self.model.make_empty_intermediate_tensors
-        )
-
-    def get_input_embeddings(self, input_ids: torch.Tensor) -> torch.Tensor:
-        return self.model.get_input_embeddings(input_ids)
-
-    def forward(
-        self,
-        input_ids: torch.Tensor,
-        positions: torch.Tensor,
-        intermediate_tensors: IntermediateTensors | None = None,
-        inputs_embeds: torch.Tensor | None = None,
-        **model_kwargs: dict[str, Any] | None,
-    ) -> Union[torch.Tensor, IntermediateTensors]:
-        hidden_states = self.model(
-            input_ids=input_ids,
-            positions=positions,
-            intermediate_tensors=intermediate_tensors,
-            inputs_embeds=inputs_embeds,
-            **model_kwargs,
-        )
-        return hidden_states
-
-    def compute_logits(
-        self,
-        hidden_states: torch.Tensor,
-    ) -> Optional[torch.Tensor]:
-        logits = self.lm_head(hidden_states)
-        return logits
-
-    def make_empty_intermediate_tensors(
-        self, batch_size: int, dtype: torch.dtype, device: torch.device
-    ) -> IntermediateTensors:
-        return IntermediateTensors(
-            {
-                "hidden_states": torch.zeros(
-                    (batch_size, self.config.hidden_size), dtype=dtype, device=device
-                ),
-                "residual": torch.zeros(
-                    (batch_size, self.config.hidden_size), dtype=dtype, device=device
-                ),
-            }
-        )
-
-    def unused_expert_mapping(self) -> list[tuple[str, str, int, str]]:
-        return self.model.get_expert_mapping()
+        self.make_empty_intermediate_tensors = self.model.make_empty_intermediate_tensors

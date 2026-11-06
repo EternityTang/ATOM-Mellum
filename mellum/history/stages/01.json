@@ -1,0 +1,24 @@
+{
+  "stage": 1,
+  "title": "Rebuild Mellum on Qwen3-MoE and retire the custom adapter",
+  "notes": "Recovered pre-MTP source snapshot; legacy submission and custom adapter remain reachable in the original commits.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:41.876032+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/config.py",
+      "path": "atom/config.py",
+      "sha256": "ed65883849b1bf329fa1864f0875d81d14a739bdc6760902e82642e972f0a720"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/models/mellum.py",
+      "path": "atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/spec_decode/eagle.py",
+      "path": "atom/spec_decode/eagle.py",
+      "sha256": "f1dc4e6f9e59b9765636f9d9b74eb27b8bc11785e3bcffdc95127e1c11ee6e45"
+    }
+  ]
+}
