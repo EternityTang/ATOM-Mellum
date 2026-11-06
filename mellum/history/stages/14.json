@@ -1,0 +1,24 @@
+{
+  "stage": 14,
+  "title": "Add sparse-workload exact expert and gathered-KV paths",
+  "notes": "Preserves the small-batch decode alternative used by the eventual speed dispatcher.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.103298+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_exact_decode/exact.py",
+      "path": "mellum/tools/mellum_exact_decode/exact.py",
+      "sha256": "a48eb884e59c8b1554d23d7962f2ebdab15ec82c597e49d540953536c0502e52"
+    },
+    {
+      "source": "/workspace/tools/mellum_exact_decode/gathered.py",
+      "path": "mellum/tools/mellum_exact_decode/gathered.py",
+      "sha256": "14655304cc73e4829b1b2ccf082cc0ba1efd48bfab701a52684217f68b3a0a5a"
+    },
+    {
+      "source": "/workspace/tools/mellum_exact_decode/serve_exact.py",
+      "path": "mellum/tools/mellum_exact_decode/serve_exact.py",
+      "sha256": "33104494f373af5813d90f07056f7d353fe2b258c88a41299a8bd0e8726f9e1f"
+    }
+  ]
+}
