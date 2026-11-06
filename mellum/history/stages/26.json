@@ -1,0 +1,34 @@
+{
+  "stage": 26,
+  "title": "Isolate global and sliding softmax precision experiments",
+  "notes": "Preserves separate failed candidate modes and graph combinations.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.914808+00:00",
+  "sources": [
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v4/__init__.py",
+      "path": "mellum/tools/mellum_opt_points/__init__.py",
+      "sha256": "10108d4dc6dff6ae3dd6cf3777abe4870d04312bf0ee8da001aa229d67f74bd8"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v4/graph.py",
+      "path": "mellum/tools/mellum_opt_points/graph.py",
+      "sha256": "2ad84d1da93b2766b8b89bd66bf72fb2587748f6ec20dd0bfabdb1b9158fc915"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v4/install.py",
+      "path": "mellum/tools/mellum_opt_points/install.py",
+      "sha256": "ce5fa4b045f287c6bcd3dc767497454e680bde8db1a00b71b277d21f8bef7246"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v4/ops.py",
+      "path": "mellum/tools/mellum_opt_points/ops.py",
+      "sha256": "badbef5b69aa3eef69050b192be3d59a62495d05d4c64f28ed81c00a96c45ab9"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v4/softmax.py",
+      "path": "mellum/tools/mellum_opt_points/softmax.py",
+      "sha256": "921604125447a22e5151487d6de6e13c61c1b3ec67b1b89b10034825ee6c22ba"
+    }
+  ]
+}

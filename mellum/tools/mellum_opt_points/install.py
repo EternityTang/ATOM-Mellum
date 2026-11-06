@@ -8,7 +8,7 @@ from mellum_parallel_precision import install as install_base
 from .ops import linear_rows,norm_rows,projected_cap8
 
 def install(model,attention='off',moe='off',dispatch='off'):
-    assert attention in ('off','bounded','triton')
+    assert attention in ('off','bounded','triton','triton_full','triton_swa')
     assert moe in ('off','script','triton')
     assert dispatch in ('off','script','graph')
     import adapter
@@ -18,7 +18,17 @@ def install(model,attention='off',moe='off',dispatch='off'):
     def decoding():
         c=get_forward_context()
         return not c.context.is_dummy_run and not c.context.is_prefill
-    if attention in ('bounded','triton'):
+    if attention in ('bounded','triton','triton_full','triton_swa'):
+        if attention.startswith('triton_'):
+            from types import MethodType
+            for layer in model.model.layers:
+                a=layer.self_attn;impl=a.attn.impl;old=impl.forward_impl_server_mode
+                def typed(self,*args,old=old,window=a.window,**kwargs):
+                    c=get_forward_context();previous=getattr(c,'opt_softmax_swa',None)
+                    c.opt_softmax_swa=window is not None
+                    try:return old(*args,**kwargs)
+                    finally:c.opt_softmax_swa=previous
+                impl.forward_impl_server_mode=MethodType(typed,impl)
         eager=importlib.import_module('mellum_eager_precision.install')
         original=eager.eager_math
         def bounded(q,k,v,mask,scale):
@@ -28,7 +38,9 @@ def install(model,attention='off',moe='off',dispatch='off'):
                 return original(q,k,v,mask,scale)
             scores=torch.matmul(q,k.transpose(-2,-1))*scale
             if mask is not None:scores=scores+mask
-            if attention=='triton':
+            use_triton=(attention=='triton' or attention=='triton_full' and not get_forward_context().opt_softmax_swa or attention=='triton_swa' and get_forward_context().opt_softmax_swa)
+            if use_triton:
+                counts['triton_softmax_calls']=counts.get('triton_softmax_calls',0)+1
                 from .softmax import softmax
                 probs=softmax(scores)
             else:
