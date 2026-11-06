@@ -1,0 +1,39 @@
+{
+  "stage": 16,
+  "title": "Complete packed QK norm RoPE and grouped-expert speed path",
+  "notes": "Final speed runtime source exactly matches /workspace/tools; portable launcher changes checkout paths only.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.121088+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_target600/entry.py",
+      "path": "mellum/tools/mellum_target600/entry.py",
+      "sha256": "c3da6b55230b3af6c25531334fcd0be953aa7a87d94e4a6a53173e6d170b2006"
+    },
+    {
+      "source": "/workspace/tools/mellum_target600/grouped.py",
+      "path": "mellum/tools/mellum_target600/grouped.py",
+      "sha256": "ca071b8c35ac0ec32da9a0582db370e7c7ab3e9ccca7981bfa5804423c91a514"
+    },
+    {
+      "source": "/workspace/tools/mellum_target600/kernels.py",
+      "path": "mellum/tools/mellum_target600/kernels.py",
+      "sha256": "7abaabfc8e288de72164306e175cd8314bbfd4c786a535229e041bf44f80e845"
+    },
+    {
+      "source": "/workspace/tools/mellum_target600/qkr.py",
+      "path": "mellum/tools/mellum_target600/qkr.py",
+      "sha256": "86846a3f92f641d439d90532621aa4250c30ca2ae3828a989ee0d2cd01c25c5b"
+    },
+    {
+      "source": "/workspace/tools/mellum_target600/target.py",
+      "path": "mellum/tools/mellum_target600/target.py",
+      "sha256": "484013bb95fe16ae13a023631074c2596a96cdec662d615a18148e38ce479d2f"
+    },
+    {
+      "source": "/workspace/run_mellum_target600.sh",
+      "path": "mellum/history/original-launchers/run_mellum_target600.sh",
+      "sha256": "9bfba5b0c871c6bd6cd5aad4532cc7eb514d83ce964f195d9205c5916f1479b5"
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 """Use the actual decode shape to choose sparse-workload or grouped operators."""
+import grouped as fused_experts
+import qkr
 import adapter,step_cache,batched_sdpa
 import exact,gathered,kernels
 from atom.utils.forward_context import get_forward_context
 from atom.models import mellum_rocm_precision as precision
 MODES=dict(step_cache.MODES,uniform=('paged_grouped',True,'native'),
-           adaptive=('mixed_grouped',True,'native'),sparse=('mixed_grouped',True,'native'))
+           post=('mixed_grouped',True,'native'),packed=('mixed_grouped',True,'native'),adaptive=('mixed_grouped',True,'native'),sparse=('mixed_grouped',True,'native'))
 def install(model,select):
     step_cache.MODES.update(MODES)
     grouped=adapter.grouped_experts
@@ -17,16 +19,19 @@ def install(model,select):
         ctx=get_forward_context()
         active=select()
         decode=not ctx.context.is_prefill and not ctx.context.is_dummy_run and ctx.attn_metadata.max_seqlen_q==1
-        ctx.target_sparse=decode and (active=='sparse' or (active=='adaptive' and args[0].numel()*top_k<expert_count))
-        ctx.target_fuse=decode and active in ('uniform','adaptive') and not ctx.target_sparse
+        ctx.target_sparse=decode and (active=='sparse' or (active in ('adaptive','post','packed') and args[0].numel()*top_k<expert_count))
+        ctx.target_fuse=decode and active in ('uniform','adaptive','post','packed') and not ctx.target_sparse
+        ctx.target_post=ctx.target_fuse and active in ('post','packed')
+        ctx.target_qkr=ctx.target_fuse and active=='packed'
     model.register_forward_pre_hook(start)
     def choose():
         active=select()
-        if active=='adaptive':
+        if active in ('adaptive','post','packed'):
             return 'sparse' if get_forward_context().target_sparse else 'uniform'
         return active
     def experts(*args):
         if get_forward_context().target_sparse:return exact.experts(*args)
+        if get_forward_context().target_post:return fused_experts.experts(*args)
         return grouped(*args)
     def attend(*args,**kw):
         if get_forward_context().target_sparse:return gathered.batched(*args,**kw)
@@ -39,6 +44,11 @@ def install(model,select):
         if get_forward_context().target_fuse and all(x.is_contiguous() for x in (q,k,c,s)):
             return kernels.rotate(q,c,s),kernels.rotate(k,c,s)
         return base_rotate(q,k,c,s)
+    base_attention=precision.MellumPrecisionAttention.forward
+    def attention(layer,positions,hidden_states,**kwargs):
+        if get_forward_context().target_qkr:return qkr.attn(layer,positions,hidden_states)
+        return base_attention(layer,positions,hidden_states,**kwargs)
+    precision.MellumPrecisionAttention.forward=attention
     precision.MellumPrecisionNorm.forward=norm
     precision.rotate=rotate
     adapter.grouped_experts=experts
