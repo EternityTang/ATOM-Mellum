@@ -1,0 +1,29 @@
+{
+  "stage": 5,
+  "title": "Fix per-layer sliding-window attention integration",
+  "notes": "Preserves production SWA bindings and boundary checks; later precision adapters retain eager math inside these components.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.019485+00:00",
+  "sources": [
+    {
+      "source": "/workspace/ATOM/atom/models/mellum.py",
+      "path": "atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/ATOM/atom/model_ops/attention_mha.py",
+      "path": "atom/model_ops/attention_mha.py",
+      "sha256": "6ce7fd977e9b2d1ba6208ea6ed03412d9feed62c9e24530fbb80719966a84359"
+    },
+    {
+      "source": "/workspace/ATOM/atom/plugin/attention_mha.py",
+      "path": "atom/plugin/attention_mha.py",
+      "sha256": "cd546f47d3196454181da952200fdc6db09fc2a95120e16ab1c1eaf817dd41ee"
+    },
+    {
+      "source": "/workspace/ATOM/tests/test_swa_window.py",
+      "path": "tests/test_swa_window.py",
+      "sha256": "f9a20ffac488d3ed61d902c4cd9637f29715b9881d6ad2c91caa7f1fe1f2a210"
+    }
+  ]
+}

@@ -320,7 +320,11 @@ class PagedAttentionImplPluginModeMethods:
             temporary_output=temporary_output,
             alibi_slopes=None,
             sinks=self.sinks,
-            sliding_window=self.sliding_window,
+            # Match the frozen Gluon kernel's query-span window convention.
+            sliding_window=(
+                self.sliding_window + max_qlen
+                if self.sliding_window > 0 else self.sliding_window
+            ),
             ps=use_ps,
         )
         return out
@@ -412,8 +416,8 @@ class PagedAttentionImplPluginModeMethods:
         )
 
         sliding_window = (
-            (self.sliding_window, 0, 0)
-            if self.sliding_window is not None
+            (self.sliding_window - 1, 0, 0)
+            if self.sliding_window is not None and self.sliding_window > 0
             else (-1, -1, 0)
         )
         aiter.flash_attn_varlen_func(
@@ -694,8 +698,8 @@ class PagedAttentionImplPluginModeMethods:
             prefill_value = value[num_decode_tokens + num_extend_tokens :]
 
             sliding_window = (
-                (self.sliding_window, 0, 0)
-                if self.sliding_window is not None
+                (self.sliding_window - 1, 0, 0)
+                if self.sliding_window is not None and self.sliding_window > 0
                 else (-1, -1, 0)
             )
 
