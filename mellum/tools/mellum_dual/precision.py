@@ -1,7 +1,8 @@
 import os
 from mellum_opt_points import install as base_install
 def install(model):
- base_install(model,attention='bounded',moe='off',dispatch='graph_bucket')
+ base_install(model,attention='bounded',moe='off',dispatch='graph_bucket',
+              norm=os.environ.get('PRECISION_NORM','pointwise_batch'))
  counts=dict(kv_gathers=0)
  if os.environ.get('KV_MODE','off')=='direct':
   from .kv import install as install_kv

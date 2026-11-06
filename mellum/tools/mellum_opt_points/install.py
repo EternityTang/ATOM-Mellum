@@ -7,10 +7,14 @@ from atom.models.mellum_naive_ops import rotate
 from mellum_parallel_precision import install as install_base
 from .ops import linear_rows,norm_rows,projected_cap8
 
-def install(model,attention='off',moe='off',dispatch='off'):
+def install(model,attention='off',moe='off',dispatch='off',norm='per_request'):
     assert attention in ('off','bounded','triton','triton_full','triton_swa')
     assert moe in ('off','script','triton')
     assert dispatch in ('off','script','graph','graph_bucket')
+    assert norm in ('per_request','pointwise_batch')
+    batch_norm=norm=='pointwise_batch'
+    if batch_norm:
+        from .norm_ops import pointwise_batch
     import adapter
     original_fused_experts=adapter.grouped_experts
     install_base(model,'norm_cap8')
@@ -105,6 +109,11 @@ def install(model,attention='off',moe='off',dispatch='off'):
                         out,values=norm_rows(x,m.weight,float(m.eps),residual)
                         return out if residual is None else (out,values)
                     key=('norm',m.weight.data_ptr(),residual is not None)
+                    if batch_norm:
+                        def compute(z,r=None):
+                            return pointwise_batch(z,m.weight,float(m.eps),r)
+                        if residual is None:return regions.run(key,compute,x)
+                        return regions.run(key,compute,x,residual)
                     if residual is None:return regions.run(key,lambda z:original(z,None,None),x)
                     return regions.run(key,lambda z,r:original(z,r,None),x,residual)
                 module.forward=norm
@@ -114,5 +123,5 @@ def install(model,attention='off',moe='off',dispatch='off'):
             assert get_forward_context().attn_metadata.max_seqlen_q==1
             return linear(hidden,model.lm_head.weight,model.lm_head.bias)
         model.compute_logits=logits
-    model.opt_points_metadata=dict(attention=attention,moe=moe,dispatch=dispatch,counts=counts,baseline=model.parallel_metadata)
+    model.opt_points_metadata=dict(attention=attention,moe=moe,dispatch=dispatch,norm='pointwise_batch' if batch_norm else 'per_request',counts=counts,baseline=model.parallel_metadata)
     return model.opt_points_metadata

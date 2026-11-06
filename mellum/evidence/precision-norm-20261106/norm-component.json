@@ -1,0 +1,1220 @@
+[
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 1,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 2,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 4,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 8,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 16,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 17,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      2304
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      32,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 0.001,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1.0,
+    "residual": true,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": false,
+    "bitwise_equal": true
+  },
+  {
+    "n": 32,
+    "dims": [
+      4,
+      128
+    ],
+    "scale": 1000.0,
+    "residual": true,
+    "bitwise_equal": true
+  }
+]

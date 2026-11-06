@@ -1,0 +1,140 @@
+{
+  "base": "8f4ac3644272dcf97cc52de0e2aac7956c1cb636",
+  "selected_point": "norm_pointwise_batch",
+  "control": {
+    "score": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "performance": {
+      "Test Duration (s)": 663.6403,
+      "Concurrency": 32,
+      "Request Rate (req/s)": -1.0,
+      "Total Requests": 200,
+      "Success Requests": 200,
+      "Failed Requests": 0,
+      "Stream Requests": 200,
+      "Non-Stream Requests": 0,
+      "Req Throughput (req/s)": 0.3014,
+      "Avg Latency (s)": 101.7928,
+      "Avg Input Tokens": 2353.075,
+      "Output Throughput (tok/s)": 77.1502,
+      "Total Throughput (tok/s)": 786.2919,
+      "Avg TTFT (ms)": 13983.97,
+      "Avg TPOT (ms)": 344.35,
+      "Avg ITL (ms)": 344.35,
+      "Avg Output Tokens": 256.0,
+      "Input Throughput (tok/s)": 0.0
+    },
+    "audit": {
+      "requests": 200,
+      "output_tokens_each": 256,
+      "http_peak_active": 32,
+      "model_max_decode_batch": 32,
+      "points": [
+        "control"
+      ],
+      "graph_fallbacks": 0
+    }
+  },
+  "candidate": {
+    "score": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "performance": {
+      "Test Duration (s)": 541.0755,
+      "Concurrency": 32,
+      "Request Rate (req/s)": -1.0,
+      "Total Requests": 200,
+      "Success Requests": 200,
+      "Failed Requests": 0,
+      "Stream Requests": 200,
+      "Non-Stream Requests": 0,
+      "Req Throughput (req/s)": 0.3696,
+      "Avg Latency (s)": 82.5487,
+      "Avg Input Tokens": 2353.075,
+      "Output Throughput (tok/s)": 94.6263,
+      "Total Throughput (tok/s)": 964.4033,
+      "Avg TTFT (ms)": 13835.42,
+      "Avg TPOT (ms)": 269.46,
+      "Avg ITL (ms)": 269.47,
+      "Avg Output Tokens": 256.0,
+      "Input Throughput (tok/s)": 0.0
+    },
+    "audit": {
+      "requests": 200,
+      "output_tokens_each": 256,
+      "http_peak_active": 32,
+      "model_max_decode_batch": 32,
+      "points": [
+        "norm_pointwise_batch"
+      ],
+      "graph_fallbacks": 0
+    }
+  },
+  "speedup_percent": 22.652047564361478,
+  "long4": {
+    "repetition": 0,
+    "n": 4,
+    "tokens": 64,
+    "matches": 256,
+    "total": 256,
+    "exact": 4,
+    "elapsed_s": 34.09631824598182,
+    "phase_timing": false,
+    "output_tps": 7.508142027333672,
+    "profile": false,
+    "flags": {
+      "track": "points",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "norm_pointwise_batch"
+    },
+    "gpu": "0"
+  },
+  "odd17": {
+    "repetition": 0,
+    "n": 17,
+    "tokens": 64,
+    "matches": 1088,
+    "total": 1088,
+    "exact": 17,
+    "elapsed_s": 23.35812538396567,
+    "phase_timing": false,
+    "output_tps": 46.579080389167885,
+    "profile": false,
+    "flags": {
+      "track": "points",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "norm_pointwise_batch"
+    },
+    "gpu": "0"
+  },
+  "component_bitwise_cases": 126,
+  "entry_smoke": {
+    "variant": "precision",
+    "http_success": 33,
+    "single64_hf_matches": 64,
+    "batch32_first8_hf_matches": 256,
+    "batch32_total": 256,
+    "counts": {
+      "max_decode_batch": 32,
+      "packed_decode_steps": 0
+    },
+    "checkout_imports_verified": true,
+    "scope": "Branch launch/import smoke only, not a new performance or A200 acceptance run"
+  },
+  "git_committed": false
+}
