@@ -1,0 +1,19 @@
+{
+  "stage": 8,
+  "title": "Match BF16 routing-weight boundaries",
+  "notes": "Recovered post-routing/pre-RNE snapshot; precision experiments and failures are preserved in the reports.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.049360+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-mellum-rne-norm-20261103T223558/mellum_torch_experts.py",
+      "path": "atom/models/mellum_torch_experts.py",
+      "sha256": "c1dfc4a928188e84d54613ef1aeb03dc38dd425cc15fb5eaa5b183a3b27708de"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rne-norm-20261103T223558/envs.py",
+      "path": "atom/utils/envs.py",
+      "sha256": "c52bfc7c77a237a395bbfb7b2f88f09892326801e8f1fee99a2f989faeb32ee3"
+    }
+  ]
+}

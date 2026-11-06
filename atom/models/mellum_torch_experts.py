@@ -12,6 +12,7 @@ from aiter import ActivationType
 
 from atom.model_ops.moe import FusedMoE, UnquantizedFusedMoEMethod
 from atom.models.mellum import MellumForCausalLM
+from atom.utils import envs
 
 
 def torch_expert_forward(hidden, w13, w2, indices, weights):
@@ -29,6 +30,10 @@ def torch_expert_forward(hidden, w13, w2, indices, weights):
 
 
 class TorchExpertMethod(UnquantizedFusedMoEMethod):
+    def __init__(self, moe):
+        super().__init__(moe)
+        self.route_weights_bf16 = envs.ATOM_MELLUM_ROUTE_WEIGHT_BF16
+
     def process_weights_after_loading(self, layer):
         # The native loader already packed [gate; up]. Ordinary F.linear needs
         # this standard layout, so do not execute the AITER shuffle step.
@@ -53,6 +58,8 @@ class TorchExpertMethod(UnquantizedFusedMoEMethod):
             fused_shared_experts_scoring_func=options.get('fused_shared_experts_scoring_func'),
             routed_scaling_factor=layer.routed_scaling_factor,
         )
+        if self.route_weights_bf16:
+            weights = weights.to(torch.bfloat16)
         return torch_expert_forward(x, layer.w13_weight, layer.w2_weight, indices, weights)
 
 
