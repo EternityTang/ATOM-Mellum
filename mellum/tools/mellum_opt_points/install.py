@@ -8,15 +8,17 @@ from mellum_parallel_precision import install as install_base
 from .ops import linear_rows,norm_rows,projected_cap8
 
 def install(model,attention='off',moe='off',dispatch='off'):
-    assert attention in ('off','bounded')
-    assert moe in ('off','script')
-    assert dispatch in ('off','script')
+    assert attention in ('off','bounded','triton')
+    assert moe in ('off','script','triton')
+    assert dispatch in ('off','script','graph')
+    import adapter
+    original_fused_experts=adapter.grouped_experts
     install_base(model,'norm_cap8')
     counts=dict(attention_tiled=0,expert_script_calls=0,linear_script_calls=0,norm_script_calls=0)
     def decoding():
         c=get_forward_context()
         return not c.context.is_dummy_run and not c.context.is_prefill
-    if attention=='bounded':
+    if attention in ('bounded','triton'):
         eager=importlib.import_module('mellum_eager_precision.install')
         original=eager.eager_math
         def bounded(q,k,v,mask,scale):
@@ -26,9 +28,13 @@ def install(model,attention='off',moe='off',dispatch='off'):
                 return original(q,k,v,mask,scale)
             scores=torch.matmul(q,k.transpose(-2,-1))*scale
             if mask is not None:scores=scores+mask
-            probs=torch.empty_like(scores)
-            for h in range(0,scores.size(-3),4):
-                probs[...,h:h+4,:,:]=F.softmax(scores[...,h:h+4,:,:],dim=-1,dtype=torch.float32).to(q.dtype)
+            if attention=='triton':
+                from .softmax import softmax
+                probs=softmax(scores)
+            else:
+                probs=torch.empty_like(scores)
+                for h in range(0,scores.size(-3),4):
+                    probs[...,h:h+4,:,:]=F.softmax(scores[...,h:h+4,:,:],dim=-1,dtype=torch.float32).to(q.dtype)
             counts['attention_tiled']+=1
             return torch.matmul(probs,v)
         eager.eager_math=bounded
@@ -38,10 +44,20 @@ def install(model,attention='off',moe='off',dispatch='off'):
             counts['expert_script_calls']+=1
             return projected_cap8(x,w,segments)
         exact.projected=projected
-    if dispatch=='script':
+    if moe=='triton':
+        def fused(x,w13,w2,ids,weights):
+            counts['fused_expert_calls']=counts.get('fused_expert_calls',0)+1
+            return original_fused_experts(x,w13,w2,ids,weights)
+        adapter.grouped_experts=fused
+    if dispatch in ('script','graph'):
+        from .graph import RegionGraphs
+        regions=RegionGraphs()
+        counts['graphs']=regions.counts
         def linear(x,w,b=None):
             counts['linear_script_calls']+=1
-            return linear_rows(x,w,b)
+            if dispatch=='script':return linear_rows(x,w,b)
+            def fn(z):return torch.cat([F.linear(z[i:i+1],w,b) for i in range(len(z))],0)
+            return regions.run(('linear',w.data_ptr(),tuple(w.shape),tuple(w.stride())),fn,x)
         for layer in model.model.layers:
             a=layer.self_attn;old=a.forward
             def attention_forward(positions,hidden_states,original=old,a=a,**kwargs):
@@ -71,8 +87,12 @@ def install(model,attention='off',moe='off',dispatch='off'):
                     if not decoding():return original(x,residual,x_scale)
                     if x_scale is not None:raise ValueError('Quantized norm unsupported')
                     counts['norm_script_calls']+=1
-                    out,values=norm_rows(x,m.weight,float(m.eps),residual)
-                    return out if residual is None else (out,values)
+                    if dispatch=='script':
+                        out,values=norm_rows(x,m.weight,float(m.eps),residual)
+                        return out if residual is None else (out,values)
+                    key=('norm',m.weight.data_ptr(),residual is not None)
+                    if residual is None:return regions.run(key,lambda z:original(z,None,None),x)
+                    return regions.run(key,lambda z,r:original(z,r,None),x,residual)
                 module.forward=norm
         old_logits=model.compute_logits
         def logits(hidden):
