@@ -1,0 +1,32 @@
+[
+  {
+    "file": "/workspace/ATOM/atom/model_engine/model_runner.py",
+    "before_sha256": "a963fd01f22d48efc18d07878267c28884ffd8a01fe13a6b0dd196e3fe46a442",
+    "after_sha256": "cb172e17847c39a1d3a5b5e0c36c7ea54f46dcbfe5cba15132d6873c444fb077"
+  },
+  {
+    "file": "/workspace/ATOM/atom/utils/envs.py",
+    "before_sha256": "88d3723503fae690ce6a56624c724d3aa88572a35f4d2432c087ce61687a9997",
+    "after_sha256": "1851722cb7b721417183521c6301649b479b814d17dc4e40b6b3e8af8be11741"
+  },
+  {
+    "file": "/workspace/ATOM/atom/models/mellum_rocm_precision.py",
+    "new": true,
+    "sha256": "f400c8664dc76e9dfe6ba9bd8f21d6ab1b1ad879451e06d398f8645d1f51f9b2"
+  },
+  {
+    "file": "/workspace/run_rocm_precision.sh",
+    "new": true,
+    "sha256": "7d1b00928e18b8b8ffbe47cc1fa159a3f5a5f4092c4d605e75c8ea5bf45545d1"
+  },
+  {
+    "file": "/workspace/tools/measure_mellum_rocm_precision.py",
+    "new": true,
+    "sha256": "723aa30ca694e8d3e9a69859c82be01d3a4a658009f0e63c2dfe79684b368c90"
+  },
+  {
+    "file": "/workspace/tools/run_mellum_rocm_precision_checks.py",
+    "new": true,
+    "sha256": "f3a1d3978472a8e0f73847c2b8ece0103f44c3aea2604177976beb6ffe4354be"
+  }
+]

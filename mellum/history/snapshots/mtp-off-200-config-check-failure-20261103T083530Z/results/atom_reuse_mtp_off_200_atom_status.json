@@ -1,0 +1,27 @@
+{
+  "status": "failed",
+  "completed": 0,
+  "expected": 200,
+  "metadata": {
+    "backend": "atom",
+    "mtp": false,
+    "concurrency": 1,
+    "greedy": true,
+    "ignore_eos": true,
+    "output_tokens": 64,
+    "transformers": "5.10.1",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "source_sha256": {
+      "ATOM/atom/models/mellum.py": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4",
+      "ATOM/atom/models/mellum_mtp.py": "cd43622088f205daff07054a1dd2171ee0cc44d01a0d6a342eb7b397bb9f85b7",
+      "ATOM/atom/model_engine/model_runner.py": "4b73dd581f174d604924a2d0552d29da73dc212b84c16e343a1ac2c368677e14",
+      "ATOM/atom/config.py": "d403081c081c543a4503753b2a69d072ffb7c32a54e823975afa0a486e665af1",
+      "ATOM/atom/spec_decode/eagle.py": "e304453eb375717f7a4f8939e53bec9dd25456338be64531bc110751d601ed2b",
+      "run0.sh": "a5be29584c5ed127e6f33668a8dc5fe4a231cdfabcd53afab111182232039d0e",
+      "datasets/correctness_200.jsonl": "187eb968948791becd32979a14c2adb0d27622f8a1797ab5c799827f5d562d0e",
+      "tools/measure_mellum_reuse_200.py": "3108c8a29ceece272753be38582cf08d899a9d4255aea1520bc95f88dd757cc8"
+    },
+    "scope": "public200, 164 HumanEval + 36 MBPP; token agreement, not pass@1"
+  },
+  "error": "Traceback (most recent call last):\n  File \"/workspace/tools/measure_mellum_reuse_200.py\", line 70, in run\n    assert engine.config.speculative_config is None\n           ^^^^^^^^^^^^^\nAttributeError: 'LLMEngine' object has no attribute 'config'\n"
+}

@@ -1,0 +1,28 @@
+--- before/atom/model_engine/model_runner.py
++++ after/atom/model_engine/model_runner.py
+@@ -57,7 +57,9 @@
+ 
+ support_model_arch_dict = {
+     "MellumForCausalLM": (
+-        "atom.models.mellum_naive.MellumNaiveForCausalLM"
++        "atom.models.mellum_rocm_precision.MellumRocmPrecisionForCausalLM"
++        if envs.ATOM_MELLUM_ROCM_PRECISION
++        else "atom.models.mellum_naive.MellumNaiveForCausalLM"
+         if envs.ATOM_MELLUM_NAIVE_BASELINE
+         else (
+             "atom.models.mellum_torch_experts.MellumTorchExpertsForCausalLM"
+--- before/atom/utils/envs.py
++++ after/atom/utils/envs.py
+@@ -32,6 +32,12 @@
+     # Independent torch-loop / explicit-mask SDPA Mellum baseline.
+     "ATOM_MELLUM_NAIVE_BASELINE": lambda: (
+         os.getenv("ATOM_MELLUM_NAIVE_BASELINE", "0") == "1"
++    ),
++    "ATOM_MELLUM_ROCM_PRECISION": lambda: (
++        os.getenv("ATOM_MELLUM_ROCM_PRECISION", "0") == "1"
++    ),
++    "ATOM_MELLUM_ROCM_PRECISION_PROFILE": lambda: os.getenv(
++        "ATOM_MELLUM_ROCM_PRECISION_PROFILE", "correctness"
+     ),
+     "ATOM_MELLUM_TORCH_EXPERTS": lambda: (
+         os.getenv("ATOM_MELLUM_TORCH_EXPERTS", "0") == "1"

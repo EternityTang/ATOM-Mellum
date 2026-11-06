@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "mtp": false,
+  "server_temporarily_stopped": false,
+  "atom_pid": 39894,
+  "hf_pid": 39895,
+  "error": "Traceback (most recent call last):\n  File \"<string>\", line 13, in <module>\nRuntimeError: Measurement backend failed: {'atom': 1}\n",
+  "server_restart_pid": 41581
+}

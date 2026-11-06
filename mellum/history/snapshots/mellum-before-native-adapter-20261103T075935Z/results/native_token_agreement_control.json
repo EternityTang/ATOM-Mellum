@@ -1,0 +1,10 @@
+{
+  "status": "paused",
+  "pid": 32867,
+  "paused_at_hkt": "2026-11-03T15:43:42.577643+08:00",
+  "method": "SIGSTOP",
+  "completed": 109,
+  "expected": 200,
+  "process_status": "stopped",
+  "note": "In-memory model and GPU allocations retained. Resume only on user request, after verifying PID and cmdline, using SIGCONT."
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "name": "residual",
+    "size": 2304,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "norm",
+    "size": 2304,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 4096,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 4096,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 512,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 512,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "silu_mul",
+    "size": 7168,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "ordered_sum",
+    "size": 2304,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "residual",
+    "size": 16128,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "norm",
+    "size": 16128,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 28672,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 28672,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 3584,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 3584,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "silu_mul",
+    "size": 50176,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "ordered_sum",
+    "size": 16128,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "residual",
+    "size": 18432,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "norm",
+    "size": 18432,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 32768,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 32768,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 4096,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 4096,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "silu_mul",
+    "size": 57344,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "ordered_sum",
+    "size": 18432,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "residual",
+    "size": 71424,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "norm",
+    "size": 71424,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 126976,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 126976,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 15872,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 15872,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "silu_mul",
+    "size": 222208,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "ordered_sum",
+    "size": 71424,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "residual",
+    "size": 73728,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "norm",
+    "size": 73728,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 131072,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 131072,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "packed_norm_rope",
+    "size": 16384,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "rotate",
+    "size": 16384,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "silu_mul",
+    "size": 229376,
+    "different": 0,
+    "max_abs": 0.0
+  },
+  {
+    "name": "ordered_sum",
+    "size": 73728,
+    "different": 0,
+    "max_abs": 0.0
+  }
+]

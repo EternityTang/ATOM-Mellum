@@ -1,0 +1,10 @@
+{
+  "ATOM/atom/model_ops/attention_mha.py": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64",
+  "ATOM/atom/model_ops/sampler.py": "9894d4df387452cc0ee11bed3d80632a7d7cf5b06d831362ff0c4085161de92b",
+  "ATOM/atom/models/mellum.py": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4",
+  "ATOM/atom/models/mellum_naive.py": "34898d6560a56b4e941532daa937e4389ac514b3885a8fe5f81299571795044c",
+  "ATOM/atom/models/mellum_naive_ops.py": "5502ca17d52e9f2288ae5fd8f4741b29e9645344eb6784f40b476b84e7336875",
+  "run0.sh": "a5be29584c5ed127e6f33668a8dc5fe4a231cdfabcd53afab111182232039d0e",
+  "run_naive_baseline.sh": "8c127f01c7e91dea6b365a653d657b4c33bc986c64916573697f23dcb7db901d",
+  "ATOM/atom/plugin/attention_mha.py": "fed37a4d7428c5b989c2401386c15aeebd20d4ab0caf3a16c88fd024febbf936"
+}

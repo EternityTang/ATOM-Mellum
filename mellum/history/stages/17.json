@@ -1,0 +1,984 @@
+{
+  "stage": 17,
+  "title": "Archive speed results and recoverable pre-branch optimization history",
+  "notes": "Includes source snapshots, abandoned approaches, and contemporaneous reports without large GPU dumps or credentials.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.158386+00:00",
+  "sources": [
+    {
+      "source": "/workspace/CURRENT_STATUS.md",
+      "path": "mellum/history/reports/CURRENT_STATUS.md",
+      "sha256": "e5394c378d0d1a80b8cd8199cbfd30f80af19fea4801704616c4d458cade6dad"
+    },
+    {
+      "source": "/workspace/FILE_CHANGES.md",
+      "path": "mellum/history/reports/FILE_CHANGES.md",
+      "sha256": "558b6d4f84d915bac695835c4d2cc30545fd2751f2bc56b6a4055f4ecb989a73"
+    },
+    {
+      "source": "/workspace/GPU0_LAYER_LOGITS_HIDDEN.md",
+      "path": "mellum/history/reports/GPU0_LAYER_LOGITS_HIDDEN.md",
+      "sha256": "6404a574c4a334701d41b8a7d4c2b739ca50f30ddacca825b57db566c836be84"
+    },
+    {
+      "source": "/workspace/HUMANEVAL66_DIAGNOSIS.md",
+      "path": "mellum/history/reports/HUMANEVAL66_DIAGNOSIS.md",
+      "sha256": "d7bda4bf37bf5f65490616d9fbeb83596cce151c54d2b3dd1a82bd307b0d0909"
+    },
+    {
+      "source": "/workspace/MELLUM_ADAPTATION_PLAN.md",
+      "path": "mellum/history/reports/MELLUM_ADAPTATION_PLAN.md",
+      "sha256": "9dad9d0a6fb58de5ca00943570579f026f6709a50459f7f5c487ec836f07c356"
+    },
+    {
+      "source": "/workspace/MELLUM_CHAIN_AUDIT.md",
+      "path": "mellum/history/reports/MELLUM_CHAIN_AUDIT.md",
+      "sha256": "ef343446850a23031493efd3da386ddb22029a5a6feebaa9a6b7f230c969fd5a"
+    },
+    {
+      "source": "/workspace/MELLUM_COMPATIBILITY_AUDIT.md",
+      "path": "mellum/history/reports/MELLUM_COMPATIBILITY_AUDIT.md",
+      "sha256": "702ae0a98a6662b3b6896477f1439f64975bd3d43cb66a32590d99edbb2e1ffe"
+    },
+    {
+      "source": "/workspace/MELLUM_NAIVE_BASELINE.md",
+      "path": "mellum/history/reports/MELLUM_NAIVE_BASELINE.md",
+      "sha256": "7193e708132801c52ac09fbdef6aca24def670fecc714e61c5f1d0d910100c6d"
+    },
+    {
+      "source": "/workspace/MELLUM_NORM_CAP8_ABC.md",
+      "path": "mellum/history/reports/MELLUM_NORM_CAP8_ABC.md",
+      "sha256": "1ca9595902ceba2106b223f51f3982b968cba30328f8f763292829c8359cab35"
+    },
+    {
+      "source": "/workspace/MELLUM_OPT_POINTS.md",
+      "path": "mellum/history/reports/MELLUM_OPT_POINTS.md",
+      "sha256": "036dc052d63e119dea057483d4f423baa7c1df4bc9e7a10af1f92146384469ad"
+    },
+    {
+      "source": "/workspace/MELLUM_PARALLEL_PRECISION.md",
+      "path": "mellum/history/reports/MELLUM_PARALLEL_PRECISION.md",
+      "sha256": "d4eba819af2fdd8968b2d975b19881904a91cf2a91cd56abcb4da15bfd9d8305"
+    },
+    {
+      "source": "/workspace/MELLUM_PLAIN_REQUEST_A.md",
+      "path": "mellum/history/reports/MELLUM_PLAIN_REQUEST_A.md",
+      "sha256": "d7b3ec94bb41b2787d77e917e41782af5cd8ee94146256e6ebdb7db0407e158f"
+    },
+    {
+      "source": "/workspace/MELLUM_PRECISION_ACCEPTANCE.md",
+      "path": "mellum/history/reports/MELLUM_PRECISION_ACCEPTANCE.md",
+      "sha256": "922d6887c216f7ab710cc6834cc4b6ae622011477bf3ff1840ed42177e7a33ee"
+    },
+    {
+      "source": "/workspace/MELLUM_REUSE_PERF_PROFILE.md",
+      "path": "mellum/history/reports/MELLUM_REUSE_PERF_PROFILE.md",
+      "sha256": "6ecad3566b444a0b9c83c3ba4c441c19ac0a6322a3b73e61d0cac3c43d39f623"
+    },
+    {
+      "source": "/workspace/MELLUM_REUSE_STAGES.md",
+      "path": "mellum/history/reports/MELLUM_REUSE_STAGES.md",
+      "sha256": "d53a9b7b2643a0a9d46b351081de03c4b951562472a94f3377bed203692a3c7a"
+    },
+    {
+      "source": "/workspace/MELLUM_RNE_FIX.md",
+      "path": "mellum/history/reports/MELLUM_RNE_FIX.md",
+      "sha256": "8ab5552cc1675ef3d16e438b8d0667a1bd165eaa7f13abe96f50af79fd84f883"
+    },
+    {
+      "source": "/workspace/MELLUM_ROCM_PRECISION.md",
+      "path": "mellum/history/reports/MELLUM_ROCM_PRECISION.md",
+      "sha256": "b7ea1a31547f25e696b89f7f604f3ca43f5b87c20889edfd95fe3ebd25d388ec"
+    },
+    {
+      "source": "/workspace/MELLUM_VARIANT_COMPARISON.md",
+      "path": "mellum/history/reports/MELLUM_VARIANT_COMPARISON.md",
+      "sha256": "738469352765273eaad574ec5038bfff6559ad873991266e39cc7208cd09bac0"
+    },
+    {
+      "source": "/workspace/NAIVE_BASELINE_ALIGNMENT_GPU1.md",
+      "path": "mellum/history/reports/NAIVE_BASELINE_ALIGNMENT_GPU1.md",
+      "sha256": "85787a65adc9662fdb9bb0822368a80644882dde0d172b8999550963186db4ff"
+    },
+    {
+      "source": "/workspace/NAIVE_FULL200.md",
+      "path": "mellum/history/reports/NAIVE_FULL200.md",
+      "sha256": "caf7ad783d6651df8bc741ba229d0430fb59dae6cabbcb9be3f60a2c4f856b22"
+    },
+    {
+      "source": "/workspace/NAIVE_NATIVE_OPERATOR_DIAGNOSIS.md",
+      "path": "mellum/history/reports/NAIVE_NATIVE_OPERATOR_DIAGNOSIS.md",
+      "sha256": "56c30cb5374f81a3ee7b7ab96bb3b4d8dbce605f75b392fe13db251aca053648"
+    },
+    {
+      "source": "/workspace/NAIVE_QUICK10_RETEST.md",
+      "path": "mellum/history/reports/NAIVE_QUICK10_RETEST.md",
+      "sha256": "73f530a518f4db31ba44f29da5d00acd3e48fbe044b0b5d07d7c9ec360567478"
+    },
+    {
+      "source": "/workspace/NAIVE_SDPA_FIX.md",
+      "path": "mellum/history/reports/NAIVE_SDPA_FIX.md",
+      "sha256": "6630bc8aa15a46a3adf37c06beb4a64d3131932c63a761c150cf979f6898e23f"
+    },
+    {
+      "source": "/workspace/NATIVE_REPEAT_DIAGNOSIS.md",
+      "path": "mellum/history/reports/NATIVE_REPEAT_DIAGNOSIS.md",
+      "sha256": "32b06a141a2a9c2332d7eb9727f039bcb22307f4c543e4798f7f5c72bcbeec74"
+    },
+    {
+      "source": "/workspace/PERF_COMPARISON.md",
+      "path": "mellum/history/reports/PERF_COMPARISON.md",
+      "sha256": "bd8b7e5eb995453350d55c78c10b429b70014448663da48650e8bef3daa688c2"
+    },
+    {
+      "source": "/workspace/PROJECT_RETROSPECTIVE_STAR.md",
+      "path": "mellum/history/reports/PROJECT_RETROSPECTIVE_STAR.md",
+      "sha256": "e8f08ae8f01f78460b1228bfd1558a4598eb5c00a1f70e59ba19295662f68884"
+    },
+    {
+      "source": "/workspace/ROCM_PRECISION_FULL200.md",
+      "path": "mellum/history/reports/ROCM_PRECISION_FULL200.md",
+      "sha256": "26fae48e7c1283a05bd315e0d4fa0b668b278bafb1b5a9e15d5206fc544abd84"
+    },
+    {
+      "source": "/workspace/SAMPLER_V017_BACKPORT.md",
+      "path": "mellum/history/reports/SAMPLER_V017_BACKPORT.md",
+      "sha256": "b4b5f15ac02b144776b1bd5fb791d22f07217237a099e8c0225674e0067129f0"
+    },
+    {
+      "source": "/workspace/SWA_FIX.md",
+      "path": "mellum/history/reports/SWA_FIX.md",
+      "sha256": "4537b4ba167d987132ff1a24506cf2daa7a9791aeb33bee569a29c57f0985fb6"
+    },
+    {
+      "source": "/workspace/TORCH_EXPERTS_FULL_AND_PRECISION.md",
+      "path": "mellum/history/reports/TORCH_EXPERTS_FULL_AND_PRECISION.md",
+      "sha256": "b6cd7b2ea7b8ca1a592685deb9013f2c14085e05e111ce2ee54dbad546680d8b"
+    },
+    {
+      "source": "/workspace/VLLM_ROCM_IMPLEMENTATION_COMPARISON.md",
+      "path": "mellum/history/reports/VLLM_ROCM_IMPLEMENTATION_COMPARISON.md",
+      "sha256": "f8216a8cf209e6fa25de5c32c9fd7e330d1adbaa4c461a7edbf1b2239514ec0c"
+    },
+    {
+      "source": "/workspace/WORKLOG.md",
+      "path": "mellum/history/reports/WORKLOG.md",
+      "sha256": "8bc0554d72e8ca5430ffd053aaea4244bc4a45d0fe39896bff6ae9712b584c44"
+    },
+    {
+      "source": "/workspace/report.md",
+      "path": "mellum/history/reports/report.md",
+      "sha256": "64866b735dd02a297ddd7205327c7df0e976646ce8cce3f2a38fb4d04b3e32e5"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/atom/entrypoints/openai/protocol.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/atom/entrypoints/openai/protocol.py",
+      "sha256": "a1055fb7a16d1b8aa80b5fe98aaf89d1db6bb2c6747101920d7a3bb8dd5d468d"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/atom/entrypoints/openai/serving_completion.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/atom/entrypoints/openai/serving_completion.py",
+      "sha256": "c5b839d4f4bb05fc20fd72ab6c311d7c32b08c8497229094aec11d375eed16a0"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/atom/model_engine/model_runner.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/atom/model_engine/model_runner.py",
+      "sha256": "4b73dd581f174d604924a2d0552d29da73dc212b84c16e343a1ac2c368677e14"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/atom/models/mellum.py",
+      "sha256": "6b6842019b2661ca7201b123ca202bbb18e12b57e297e488a273b7ee74793f70"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/atom/models/mellum_ops.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/atom/models/mellum_ops.py",
+      "sha256": "c86a1639e1587120acb2da714b7adfd9654913ec47db62978a57a9c64b2f36fb"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/README.step0.txt",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/README.step0.txt",
+      "sha256": "53e07590e51b6b87a32b2907f09609cab60bc4ec9511b529ea8186600fa95f92"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/WORKLOG.md",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/WORKLOG.md",
+      "sha256": "6ad460891b203465586f88b220d97f77346ba6e91e3c01a706ccf135c476dd02"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/datasets/manifest.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/datasets/manifest.json",
+      "sha256": "addfbc5dcf9572cc53d84555755ff7dc4f9d482430244ecf686bfdf09cf3e022"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/benchmark_smoke.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/benchmark_smoke.json",
+      "sha256": "a0617ba6afc05b0298075c884a756a8d159e1bb48eecbf4d399b377e71404d3f"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/boundary_correctness.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/boundary_correctness.json",
+      "sha256": "b94e8c321619e613b6ded67279272a8f5f0e199197d87cbe0b777229deb57dbe"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/dataset_stats.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/dataset_stats.json",
+      "sha256": "269549938fddb4f532849b550a8784fe9d6c2cad29e759944f7ebdaa6846d70b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/environment.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/environment.json",
+      "sha256": "d90c05f32c8e5f93e7feecd864bd98350bb289ae5d26697800019647c550b040"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/smoke_reference.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/evidence/smoke_reference.json",
+      "sha256": "b3fdf9772593332f0ac8fcbccbb630dad8e490842b2d5d61d4377f131e2f5ca9"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/SOURCE.txt",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/SOURCE.txt",
+      "sha256": "625220d5cccb60a644883d0b103c1903c8ec9ddece54d5776992cad8adc15635"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/configuration_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/configuration_mellum.py",
+      "sha256": "41d7a6b2d1425bb5c4e31eedd863d4e3eef66c4e5ac68e41654781db2164be73"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/mellum_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/mellum_reference.py",
+      "sha256": "01b2139d4e383da5ec94235c82f94cdecbaec01228bdf8a0ffb05ee81f02726b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/modeling_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/reference/modeling_mellum.py",
+      "sha256": "b678206da799b55bf0cf0165581e3adc1c25e4f095ba3bdf7473e722a5706dd2"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/report.md",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/report.md",
+      "sha256": "8b5338eadeea743747d386b79d9650a221716270effc0aad80c528c362f3f977"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/run0.sh",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/run0.sh",
+      "sha256": "5a207b9ffa046806426fb389690828703765dc4939cd877b8912caf62865849f"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/benchmark_local.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/benchmark_local.py",
+      "sha256": "af8b36d7cea8cda83d8d691bea064f0aced643603fe70b34b9f1d33013b72cde"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/check_boundaries.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/check_boundaries.py",
+      "sha256": "8553ba49b8670ec6810cd1dea0988f99d1dedf3848b771ce6081fc8b413fea29"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/finish_step0_checks.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/finish_step0_checks.py",
+      "sha256": "dc15be9fe53977bf9550c0a56d0d53e018acec8c6d2d7293fbd1a8859016d93b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/restart_step0.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/restart_step0.py",
+      "sha256": "5734a2283d19bf2da81d0c136c213b9639b496eccff445ee7e706b7dd64268c7"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/smoke_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/smoke_reference.py",
+      "sha256": "27830c98a07c3db35568ccd289a402d0728b546241bad002c2fb3456984c6f86"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/snapshot_workspace.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/ATOM/submission/tools/snapshot_workspace.py",
+      "sha256": "bc0f7ae225d8b905f97dc255111203d99b616e0cd176024812dc24f5eb6a5ece"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/WORKLOG.md",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/WORKLOG.md",
+      "sha256": "d00bbbe7bbc1e7320df2adde67e7238f5ca9de1d7f43ab823129c5e665ffa03f"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/git-log.txt",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/git-log.txt",
+      "sha256": "c2c66d1e48f243499e34bcefa26b5c0981aa6c0df049495d3962cc91b4b2f753"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/native_adapter_backup.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/native_adapter_backup.json",
+      "sha256": "0a353855a2d29bb1285db2b82b246e55625a74e48520b7c017f45922b6c7f453"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/native_token_agreement.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/native_token_agreement.json",
+      "sha256": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/native_token_agreement.paused.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/native_token_agreement.paused.json",
+      "sha256": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/native_token_agreement_control.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/native_token_agreement_control.json",
+      "sha256": "ff70214b688db3fa6c2266626582f434ea735890b1beb3e57a29ccbda10bff7b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/native_transformers_smoke.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/native_transformers_smoke.json",
+      "sha256": "f606064d8b6ee2bb91ea4b32963320791849790602893ec08d001ef65ecfa01f"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/SOURCE.txt",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/SOURCE.txt",
+      "sha256": "625220d5cccb60a644883d0b103c1903c8ec9ddece54d5776992cad8adc15635"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/configuration_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/configuration_mellum.py",
+      "sha256": "41d7a6b2d1425bb5c4e31eedd863d4e3eef66c4e5ac68e41654781db2164be73"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/human_eval/SOURCE.json",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/human_eval/SOURCE.json",
+      "sha256": "568b0e1fa50d2f56b303b4958058ede35ae00aa5be57c80fdbc84b577e68fda6"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/human_eval/execution.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/human_eval/execution.py",
+      "sha256": "79901c6f5b59701c465b164aed290fa53abc35abc80a5378fc10f4dac1f9a84c"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/mellum_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/mellum_reference.py",
+      "sha256": "01b2139d4e383da5ec94235c82f94cdecbaec01228bdf8a0ffb05ee81f02726b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/reference/modeling_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/reference/modeling_mellum.py",
+      "sha256": "b678206da799b55bf0cf0165581e3adc1c25e4f095ba3bdf7473e722a5706dd2"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/report.md",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/report.md",
+      "sha256": "ea16002dbbb10f6d74374840723aa4ec110baf2feeee12d927d42d9062f5cba7"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_reference/SOURCE.txt",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_reference/SOURCE.txt",
+      "sha256": "625220d5cccb60a644883d0b103c1903c8ec9ddece54d5776992cad8adc15635"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_reference/configuration_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_reference/configuration_mellum.py",
+      "sha256": "41d7a6b2d1425bb5c4e31eedd863d4e3eef66c4e5ac68e41654781db2164be73"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_reference/mellum_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_reference/mellum_reference.py",
+      "sha256": "01b2139d4e383da5ec94235c82f94cdecbaec01228bdf8a0ffb05ee81f02726b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_reference/modeling_mellum.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_reference/modeling_mellum.py",
+      "sha256": "b678206da799b55bf0cf0165581e3adc1c25e4f095ba3bdf7473e722a5706dd2"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/benchmark_local.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/benchmark_local.py",
+      "sha256": "2ededa5b7f95c015ef32457bd60908cd6c38ff68676841e1026c358593f0cbc1"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/check_boundaries.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/check_boundaries.py",
+      "sha256": "8553ba49b8670ec6810cd1dea0988f99d1dedf3848b771ce6081fc8b413fea29"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/check_native_transformers.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/check_native_transformers.py",
+      "sha256": "58f73408440f545888eb5da46d43fa1f5b1cb2c8ce8136b28e5de4f8bbb352ea"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/check_norm_regression.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/check_norm_regression.py",
+      "sha256": "f9b178025b3310a057431240f7e0f234392782d9f0dabed6648771bae54a685a"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/compare_first_layer.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/compare_first_layer.py",
+      "sha256": "c077957eac3ec3f106cefd79b199a775edf60a3b73591888b6c229c52aa9132b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/eval_reference_batch.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/eval_reference_batch.py",
+      "sha256": "c4eeb9e98d9be48d17987d39fadd63c94bd9b4c18e537fe43f5c4650658cbae8"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/evaluate_correctness.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/evaluate_correctness.py",
+      "sha256": "9702c2ed00e6966c270b64c5d17d874fd70dd0931924e8fe31fc6f95f2ccae8d"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/evaluate_humaneval.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/evaluate_humaneval.py",
+      "sha256": "23767833d30fddcc4afa03a3d9d172397cd60331a8e96cbf64d54b49286acc79"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/finish_step0_checks.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/finish_step0_checks.py",
+      "sha256": "dc15be9fe53977bf9550c0a56d0d53e018acec8c6d2d7293fbd1a8859016d93b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/measure_native_token_agreement.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/measure_native_token_agreement.py",
+      "sha256": "ef83f1e1ebad6ae1b1843dc6a5189db3e0afe529c943386ecd6702ff29744f5a"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/measure_token_agreement.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/measure_token_agreement.py",
+      "sha256": "a6472cd3daadacfee2622fd7638f29f4a09e689dc8afea6cc3c61e9af59cdfaf"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/probe_norm.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/probe_norm.py",
+      "sha256": "b1e1fa4b1808d2aa375b36a1dd698808dd1711c83f898f2b25971b6df4c5e5b0"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/restart_step0.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/restart_step0.py",
+      "sha256": "5734a2283d19bf2da81d0c136c213b9639b496eccff445ee7e706b7dd64268c7"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/run_step0_suite.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/run_step0_suite.py",
+      "sha256": "e5b5b76224db732fb299c69e3e0566dfd31a86088fd3d51248748de238a95796"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/smoke_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/smoke_reference.py",
+      "sha256": "27830c98a07c3db35568ccd289a402d0728b546241bad002c2fb3456984c6f86"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/snapshot_workspace.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/snapshot_workspace.py",
+      "sha256": "bc0f7ae225d8b905f97dc255111203d99b616e0cd176024812dc24f5eb6a5ece"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/retired_tools/validate_mellum_components.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/retired_tools/validate_mellum_components.py",
+      "sha256": "67221c3b478c8dbbaaa5ebcda67568daef1883281bb430f731af9205d4f631c1"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/run0.sh",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/run0.sh",
+      "sha256": "a188228319d27ac51e5194ad73e25c4ce3108fc23057c2f21c9e91d4726e854d"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/benchmark_local.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/benchmark_local.py",
+      "sha256": "2ededa5b7f95c015ef32457bd60908cd6c38ff68676841e1026c358593f0cbc1"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/check_boundaries.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/check_boundaries.py",
+      "sha256": "8553ba49b8670ec6810cd1dea0988f99d1dedf3848b771ce6081fc8b413fea29"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/check_native_transformers.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/check_native_transformers.py",
+      "sha256": "58f73408440f545888eb5da46d43fa1f5b1cb2c8ce8136b28e5de4f8bbb352ea"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/check_norm_regression.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/check_norm_regression.py",
+      "sha256": "f9b178025b3310a057431240f7e0f234392782d9f0dabed6648771bae54a685a"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/compare_first_layer.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/compare_first_layer.py",
+      "sha256": "c077957eac3ec3f106cefd79b199a775edf60a3b73591888b6c229c52aa9132b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/eval_reference_batch.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/eval_reference_batch.py",
+      "sha256": "c4eeb9e98d9be48d17987d39fadd63c94bd9b4c18e537fe43f5c4650658cbae8"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/evaluate_correctness.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/evaluate_correctness.py",
+      "sha256": "9702c2ed00e6966c270b64c5d17d874fd70dd0931924e8fe31fc6f95f2ccae8d"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/evaluate_humaneval.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/evaluate_humaneval.py",
+      "sha256": "23767833d30fddcc4afa03a3d9d172397cd60331a8e96cbf64d54b49286acc79"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/finish_step0_checks.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/finish_step0_checks.py",
+      "sha256": "dc15be9fe53977bf9550c0a56d0d53e018acec8c6d2d7293fbd1a8859016d93b"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/measure_native_token_agreement.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/measure_native_token_agreement.py",
+      "sha256": "ef83f1e1ebad6ae1b1843dc6a5189db3e0afe529c943386ecd6702ff29744f5a"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/measure_token_agreement.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/measure_token_agreement.py",
+      "sha256": "a6472cd3daadacfee2622fd7638f29f4a09e689dc8afea6cc3c61e9af59cdfaf"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/probe_norm.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/probe_norm.py",
+      "sha256": "b1e1fa4b1808d2aa375b36a1dd698808dd1711c83f898f2b25971b6df4c5e5b0"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/restart_step0.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/restart_step0.py",
+      "sha256": "5734a2283d19bf2da81d0c136c213b9639b496eccff445ee7e706b7dd64268c7"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/run_step0_suite.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/run_step0_suite.py",
+      "sha256": "e5b5b76224db732fb299c69e3e0566dfd31a86088fd3d51248748de238a95796"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/smoke_reference.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/smoke_reference.py",
+      "sha256": "27830c98a07c3db35568ccd289a402d0728b546241bad002c2fb3456984c6f86"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/snapshot_workspace.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/snapshot_workspace.py",
+      "sha256": "bc0f7ae225d8b905f97dc255111203d99b616e0cd176024812dc24f5eb6a5ece"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/tools/validate_mellum_components.py",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/tools/validate_mellum_components.py",
+      "sha256": "67221c3b478c8dbbaaa5ebcda67568daef1883281bb430f731af9205d4f631c1"
+    },
+    {
+      "source": "/workspace/backups/abandoned-adapter-20261103T081334Z/working.patch",
+      "path": "mellum/history/snapshots/abandoned-adapter-20261103T081334Z/working.patch",
+      "sha256": "a0208ed8e8b072bf2ec77b85df076a88a4503dea554e5e9cb27734810cf8c304"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-precision-linears-20261104T071648+0800/measure_mellum_rocm_precision.py",
+      "path": "mellum/history/snapshots/before-mellum-precision-linears-20261104T071648+0800/measure_mellum_rocm_precision.py",
+      "sha256": "723aa30ca694e8d3e9a69859c82be01d3a4a658009f0e63c2dfe79684b368c90"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-precision-linears-20261104T071648+0800/mellum_rocm_precision.py",
+      "path": "mellum/history/snapshots/before-mellum-precision-linears-20261104T071648+0800/mellum_rocm_precision.py",
+      "sha256": "f400c8664dc76e9dfe6ba9bd8f21d6ab1b1ad879451e06d398f8645d1f51f9b2"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-precision-linears-20261104T071648+0800/run_mellum_rocm_precision_checks.py",
+      "path": "mellum/history/snapshots/before-mellum-precision-linears-20261104T071648+0800/run_mellum_rocm_precision_checks.py",
+      "sha256": "f3a1d3978472a8e0f73847c2b8ece0103f44c3aea2604177976beb6ffe4354be"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rne-norm-20261103T223558/envs.py",
+      "path": "mellum/history/snapshots/before-mellum-rne-norm-20261103T223558/envs.py",
+      "sha256": "c52bfc7c77a237a395bbfb7b2f88f09892326801e8f1fee99a2f989faeb32ee3"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rne-norm-20261103T223558/mellum_torch_experts.py",
+      "path": "mellum/history/snapshots/before-mellum-rne-norm-20261103T223558/mellum_torch_experts.py",
+      "sha256": "c1dfc4a928188e84d54613ef1aeb03dc38dd425cc15fb5eaa5b183a3b27708de"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rne-norm-20261103T223558/run_torch_experts_route_bf16.sh",
+      "path": "mellum/history/snapshots/before-mellum-rne-norm-20261103T223558/run_torch_experts_route_bf16.sh",
+      "sha256": "1c18d10fbc7ff0131c321f80876a527bdd8b1c469d77a3171fe4341e411f2e26"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/atom/model_engine/model_runner.py",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/atom/model_engine/model_runner.py",
+      "sha256": "a963fd01f22d48efc18d07878267c28884ffd8a01fe13a6b0dd196e3fe46a442"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/atom/utils/envs.py",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/atom/utils/envs.py",
+      "sha256": "88d3723503fae690ce6a56624c724d3aa88572a35f4d2432c087ce61687a9997"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/changes.json",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/changes.json",
+      "sha256": "38caa7e4763b2d5ecd933ce6738ba1f707078ba2123167141e33899cc2ba1d7d"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/final_changes.json",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/final_changes.json",
+      "sha256": "394a1e2799b2a1d441a7df4f86cf75de7492fddc2f8b7a0a2e4c86db5c195afd"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/final_review.patch",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/final_review.patch",
+      "sha256": "dc43ce940fb3453e13ee147c9725a2986fa74d8d684318499b0402459087c574"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/registration.patch",
+      "path": "mellum/history/snapshots/before-mellum-rocm-precision-20261104T070813+0800/registration.patch",
+      "sha256": "6c56b18893af05b11d49311e60ea97a9475a6cfc153080cbb1707f95ef8904bf"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/config.py",
+      "path": "mellum/history/snapshots/before-mtp-entry-20261103T082929Z/atom/config.py",
+      "sha256": "ed65883849b1bf329fa1864f0875d81d14a739bdc6760902e82642e972f0a720"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/before-mtp-entry-20261103T082929Z/atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/atom/spec_decode/eagle.py",
+      "path": "mellum/history/snapshots/before-mtp-entry-20261103T082929Z/atom/spec_decode/eagle.py",
+      "sha256": "f1dc4e6f9e59b9765636f9d9b74eb27b8bc11785e3bcffdc95127e1c11ee6e45"
+    },
+    {
+      "source": "/workspace/backups/before-mtp-entry-20261103T082929Z/working.patch",
+      "path": "mellum/history/snapshots/before-mtp-entry-20261103T082929Z/working.patch",
+      "sha256": "0c748ec502533d68bfdc6a3d5f522c05aa47ec3f8352a6045963e2f66585282a"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/config.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/config.py",
+      "sha256": "d403081c081c543a4503753b2a69d072ffb7c32a54e823975afa0a486e665af1"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/model_engine/model_runner.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/model_engine/model_runner.py",
+      "sha256": "4b73dd581f174d604924a2d0552d29da73dc212b84c16e343a1ac2c368677e14"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/models/qwen3_moe.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/models/qwen3_moe.py",
+      "sha256": "fd74a9d09d661f441eaa5e6c8207afee15143fb3c262cc488dac3bfe69367ef9"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/spec_decode/eagle.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/spec_decode/eagle.py",
+      "sha256": "e304453eb375717f7a4f8939e53bec9dd25456338be64531bc110751d601ed2b"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/utils/envs.py",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/ATOM/atom/utils/envs.py",
+      "sha256": "70b865e60f942062e7a28d5bedfd807951ccd77b40d590743868c08a05941c4a"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/git_head.txt",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/git_head.txt",
+      "sha256": "90d6efc2fed838bb549987e566e08a3d41773e5fdd4864d50360ef05252552c4"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/run0.sh",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/run0.sh",
+      "sha256": "a5be29584c5ed127e6f33668a8dc5fe4a231cdfabcd53afab111182232039d0e"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/source_sha256.json",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/source_sha256.json",
+      "sha256": "3254c2f2041694fd17031597bd6704d12ec9e2c829527d3e686b433f2ccacb31"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/working-tree.patch",
+      "path": "mellum/history/snapshots/before-naive-baseline-20261103T105328Z/working-tree.patch",
+      "sha256": "3995e0d3ff2f8b487750d9b77c15254bb97267c0dd8462a92d41046286692902"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/docs/CURRENT_STATUS.md",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/docs/CURRENT_STATUS.md",
+      "sha256": "fae87fd0e430192b80551c8a9957fa690cd0fc26bad6e9159ca75fc74bd178d4"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/docs/FILE_CHANGES.md",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/docs/FILE_CHANGES.md",
+      "sha256": "4077b09885474730c2e501162599d079fb84a8e97faa3a77d9b653e02cdbf421"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/docs/MELLUM_NAIVE_BASELINE.md",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/docs/MELLUM_NAIVE_BASELINE.md",
+      "sha256": "085f08d4b112dd830c0061c3f5ad5fceee22b4b9def961df8dbad1686ffeb360"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/docs/WORKLOG.md",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/docs/WORKLOG.md",
+      "sha256": "05250b8a8d9a7f915404941e9469be727cd880ca5ecd69b7fcdb8e403fc83450"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/docs/report.md",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/docs/report.md",
+      "sha256": "d25370b9bdee677983436d74daecc98c21ed28f34f72356990251bc6e64ae720"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/mellum_naive.py",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/mellum_naive.py",
+      "sha256": "34898d6560a56b4e941532daa937e4389ac514b3885a8fe5f81299571795044c"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/mellum_naive_ops.py",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/mellum_naive_ops.py",
+      "sha256": "5502ca17d52e9f2288ae5fd8f4741b29e9645344eb6784f40b476b84e7336875"
+    },
+    {
+      "source": "/workspace/backups/before-naive-sdpa-fix-20261103T224503+0800/metadata.json",
+      "path": "mellum/history/snapshots/before-naive-sdpa-fix-20261103T224503+0800/metadata.json",
+      "sha256": "c39f83df42727812d2b6131df33f507bc10a4db250ba829e3865d457a9e3f69a"
+    },
+    {
+      "source": "/workspace/backups/before-native-order-rne-trial-20261103T224425/envs.py",
+      "path": "mellum/history/snapshots/before-native-order-rne-trial-20261103T224425/envs.py",
+      "sha256": "701d5edddb99b857653697ab630753e331c550407cf3934e1ddc2c3196edc54c"
+    },
+    {
+      "source": "/workspace/backups/before-native-order-rne-trial-20261103T224425/mellum_rne_norm.py",
+      "path": "mellum/history/snapshots/before-native-order-rne-trial-20261103T224425/mellum_rne_norm.py",
+      "sha256": "338b4f1decbbc2b4ee291f4664c8b462bd6a06cd224e61403b795ad5a185ffa2"
+    },
+    {
+      "source": "/workspace/backups/before-native-order-rne-trial-20261103T224425/mellum_torch_experts.py",
+      "path": "mellum/history/snapshots/before-native-order-rne-trial-20261103T224425/mellum_torch_experts.py",
+      "sha256": "f413f148b812a892195d0d342c23f49f676dab76832db6345372af08a59d2505"
+    },
+    {
+      "source": "/workspace/backups/before-native-order-rne-trial-20261103T224425/run_torch_experts_route_bf16.sh",
+      "path": "mellum/history/snapshots/before-native-order-rne-trial-20261103T224425/run_torch_experts_route_bf16.sh",
+      "sha256": "bba263bbf81318f45fdc99ded03f4c2dfac1d36d26cac4a89ccbeed546fd35ac"
+    },
+    {
+      "source": "/workspace/backups/before-native-torch-experts-20261103T210000/envs.py",
+      "path": "mellum/history/snapshots/before-native-torch-experts-20261103T210000/envs.py",
+      "sha256": "95a7bc03125bef96bfdcf6aec00a5adb29a71e8fc0054a18928f8ce5b98cc5e2"
+    },
+    {
+      "source": "/workspace/backups/before-native-torch-experts-20261103T210000/model_runner.py",
+      "path": "mellum/history/snapshots/before-native-torch-experts-20261103T210000/model_runner.py",
+      "sha256": "d700e1a49319bd6419e4a8cc167c7e9aef6f91d1b4353cfc71ac7121c45cf123"
+    },
+    {
+      "source": "/workspace/backups/before-route-weight-bf16-20261103T214958/envs.py",
+      "path": "mellum/history/snapshots/before-route-weight-bf16-20261103T214958/envs.py",
+      "sha256": "189df859bf22cb2bff1f8b94f82bdb4d971d3e9567f26dbb7472926d13413e71"
+    },
+    {
+      "source": "/workspace/backups/before-route-weight-bf16-20261103T214958/mellum_torch_experts.py",
+      "path": "mellum/history/snapshots/before-route-weight-bf16-20261103T214958/mellum_torch_experts.py",
+      "sha256": "bbffa70aa05d0ee761c6f3466e2601f781c9158872608a58e891d02641eb73a0"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/model_ops/attention_mha.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/atom/model_ops/attention_mha.py",
+      "sha256": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/model_ops/sampler.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/atom/model_ops/sampler.py",
+      "sha256": "d4934602f18982dd81dc7dd3a5fc4b8522c3ac0fbda11bbca7ce79beeee3984c"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive.py",
+      "sha256": "34898d6560a56b4e941532daa937e4389ac514b3885a8fe5f81299571795044c"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive_ops.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive_ops.py",
+      "sha256": "5502ca17d52e9f2288ae5fd8f4741b29e9645344eb6784f40b476b84e7336875"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/tests/test_sampler_greedy.py",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/ATOM/tests/test_sampler_greedy.py",
+      "sha256": "c48b1ae35c710cdceb55ae989326f201938c78f37de61d3149649e48d9a1f67a"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/run0.sh",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/run0.sh",
+      "sha256": "a5be29584c5ed127e6f33668a8dc5fe4a231cdfabcd53afab111182232039d0e"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/run_naive_baseline.sh",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/run_naive_baseline.sh",
+      "sha256": "8c127f01c7e91dea6b365a653d657b4c33bc986c64916573697f23dcb7db901d"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/source_sha256.json",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/source_sha256.json",
+      "sha256": "2f4ba1fe8792f42df36ff9743e26b08bb685f810f941775fb13ccd8967b43c88"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/working-tree.patch",
+      "path": "mellum/history/snapshots/before-sampler-v017-20261103T113750Z/working-tree.patch",
+      "sha256": "a68b0cb89971a8da70a93bbbb3e9f87f6b592ef2880bdcaa08eab878dcb60ee3"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/model_ops/attention_mha.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/model_ops/attention_mha.py",
+      "sha256": "db158659f422101ab8588f5e62d134604a4a8efa057de08369ca36e8fa523e64"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/model_ops/sampler.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/model_ops/sampler.py",
+      "sha256": "9894d4df387452cc0ee11bed3d80632a7d7cf5b06d831362ff0c4085161de92b"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum_naive.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum_naive.py",
+      "sha256": "34898d6560a56b4e941532daa937e4389ac514b3885a8fe5f81299571795044c"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum_naive_ops.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/models/mellum_naive_ops.py",
+      "sha256": "5502ca17d52e9f2288ae5fd8f4741b29e9645344eb6784f40b476b84e7336875"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/ATOM/atom/plugin/attention_mha.py",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/ATOM/atom/plugin/attention_mha.py",
+      "sha256": "fed37a4d7428c5b989c2401386c15aeebd20d4ab0caf3a16c88fd024febbf936"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/FILE_CHANGES.md",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/FILE_CHANGES.md",
+      "sha256": "1c953cc35d03e4a194a062a0ee1ffa0d4f4c558be274a105c9a7141c94de0b46"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/MELLUM_ADAPTATION_PLAN.md",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/MELLUM_ADAPTATION_PLAN.md",
+      "sha256": "eb8a5cf9d9b243d4122d352faf5b15cd9d1b4d49ed26d9266cd95b88b51b7318"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/MELLUM_COMPATIBILITY_AUDIT.md",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/MELLUM_COMPATIBILITY_AUDIT.md",
+      "sha256": "7d850aabb7cceff38141341e4254421a2017287e9e4ea294e1cbbaa41bbce356"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/run0.sh",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/run0.sh",
+      "sha256": "a5be29584c5ed127e6f33668a8dc5fe4a231cdfabcd53afab111182232039d0e"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/run_naive_baseline.sh",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/run_naive_baseline.sh",
+      "sha256": "8c127f01c7e91dea6b365a653d657b4c33bc986c64916573697f23dcb7db901d"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/source_sha256.json",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/source_sha256.json",
+      "sha256": "47060236e03354d91ad25946b3700d2c3fa402b475d2bc400c2c9bd43df65938"
+    },
+    {
+      "source": "/workspace/backups/before-swa-fix-20261103T115942Z/working-tree.patch",
+      "path": "mellum/history/snapshots/before-swa-fix-20261103T115942Z/working-tree.patch",
+      "sha256": "6276ca32eca575db242c0eca41ab911a5f4509714cc4e520d83123725ac0fb3e"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/config.py",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/config.py",
+      "sha256": "1df6d10ad772a0ca44d0c66a32770a3a8816c08a126ded17b317376b5a0bc4dd"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/models/mellum.py",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/models/mellum.py",
+      "sha256": "30559bc408e465a096870ee95e30c5ed3fe0571855179c786f400b788d3969da"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/models/mellum_ops.py",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/ATOM/atom/models/mellum_ops.py",
+      "sha256": "ee005347889565634ff067ae53ae912697f479b74623c6a71072db8b64f235ec"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/manifest.json",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/manifest.json",
+      "sha256": "bbc33f3c541b2dea311b431e20ca7a0bf4be508637b3bc910d01881e3551d1b6"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement.json",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement.json",
+      "sha256": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement.paused.json",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement.paused.json",
+      "sha256": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement_control.json",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/results/native_token_agreement_control.json",
+      "sha256": "ff70214b688db3fa6c2266626582f434ea735890b1beb3e57a29ccbda10bff7b"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/run0.sh",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/run0.sh",
+      "sha256": "a188228319d27ac51e5194ad73e25c4ce3108fc23057c2f21c9e91d4726e854d"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/tools/evaluate_humaneval.py",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/tools/evaluate_humaneval.py",
+      "sha256": "23767833d30fddcc4afa03a3d9d172397cd60331a8e96cbf64d54b49286acc79"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/tools/measure_native_token_agreement.py",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/tools/measure_native_token_agreement.py",
+      "sha256": "ef83f1e1ebad6ae1b1843dc6a5189db3e0afe529c943386ecd6702ff29744f5a"
+    },
+    {
+      "source": "/workspace/backups/mellum-before-native-adapter-20261103T075935Z/uncommitted.patch",
+      "path": "mellum/history/snapshots/mellum-before-native-adapter-20261103T075935Z/uncommitted.patch",
+      "sha256": "9a57127c79dbb3d465140b01d4858f77833281a90335a7cce72a39a68270de69"
+    },
+    {
+      "source": "/workspace/backups/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_atom_status.json",
+      "path": "mellum/history/snapshots/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_atom_status.json",
+      "sha256": "f6afddb0678d83d3b8c17fd2955ae43e45afe6c97b596fa53532c98783036439"
+    },
+    {
+      "source": "/workspace/backups/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_control.json",
+      "path": "mellum/history/snapshots/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_control.json",
+      "sha256": "51d1808b2880bec452168eb8207b54cc45492fa807450b18a6c63bacca30a684"
+    },
+    {
+      "source": "/workspace/backups/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_hf_status.json",
+      "path": "mellum/history/snapshots/mtp-off-200-config-check-failure-20261103T083530Z/results/atom_reuse_mtp_off_200_hf_status.json",
+      "sha256": "e41afbd1c57e6f94c9ee8586b65fc153dd039bf99cf302aaf4b20405312f82a7"
+    },
+    {
+      "source": "/workspace/results/mellum_target600_fEKFtjbf/REPORT.md",
+      "path": "mellum/evidence/speed/REPORT.md",
+      "sha256": "0e90456e9b47b0f793290ab2a3ec5619dcc1876c33a24ae2af41b54c6028e4b6"
+    },
+    {
+      "source": "/workspace/results/mellum_target600_fEKFtjbf/summary.json",
+      "path": "mellum/evidence/speed/summary.json",
+      "sha256": "d019e01f6dffa6f62955a4f78d47472cdf1e57eb6a88c70f83e79ecb164021e0"
+    },
+    {
+      "source": "/workspace/results/mellum_target600_fEKFtjbf/components.json",
+      "path": "mellum/evidence/speed/components.json",
+      "sha256": "c4a58c9138ef85ab711da86857ef3f30655487edb0baaeb1d9d2bd8bf013dab9"
+    },
+    {
+      "source": "/workspace/results/mellum_target600_fEKFtjbf/source.sha256",
+      "path": "mellum/evidence/speed/source.sha256",
+      "sha256": "f6d135d0d3a2892cbb136dda88f64b8f5631f2e1648fa090de25e2c1e5d69af1"
+    }
+  ]
+}

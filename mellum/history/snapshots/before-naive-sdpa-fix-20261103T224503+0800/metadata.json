@@ -1,0 +1,4 @@
+{
+  "reason": "User requested fixing naive SDPA numerical call-path mismatch",
+  "stamp": "20261103T224503+0800"
+}

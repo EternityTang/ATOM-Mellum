@@ -1,0 +1,575 @@
+--- before/ATOM/atom/model_engine/model_runner.py
++++ after/ATOM/atom/model_engine/model_runner.py
+@@ -57,7 +57,9 @@
+ 
+ support_model_arch_dict = {
+     "MellumForCausalLM": (
+-        "atom.models.mellum_naive.MellumNaiveForCausalLM"
++        "atom.models.mellum_rocm_precision.MellumRocmPrecisionForCausalLM"
++        if envs.ATOM_MELLUM_ROCM_PRECISION
++        else "atom.models.mellum_naive.MellumNaiveForCausalLM"
+         if envs.ATOM_MELLUM_NAIVE_BASELINE
+         else (
+             "atom.models.mellum_torch_experts.MellumTorchExpertsForCausalLM"
+--- before/ATOM/atom/utils/envs.py
++++ after/ATOM/atom/utils/envs.py
+@@ -32,6 +32,12 @@
+     # Independent torch-loop / explicit-mask SDPA Mellum baseline.
+     "ATOM_MELLUM_NAIVE_BASELINE": lambda: (
+         os.getenv("ATOM_MELLUM_NAIVE_BASELINE", "0") == "1"
++    ),
++    "ATOM_MELLUM_ROCM_PRECISION": lambda: (
++        os.getenv("ATOM_MELLUM_ROCM_PRECISION", "0") == "1"
++    ),
++    "ATOM_MELLUM_ROCM_PRECISION_PROFILE": lambda: os.getenv(
++        "ATOM_MELLUM_ROCM_PRECISION_PROFILE", "correctness"
+     ),
+     "ATOM_MELLUM_TORCH_EXPERTS": lambda: (
+         os.getenv("ATOM_MELLUM_TORCH_EXPERTS", "0") == "1"
+--- /dev/null
++++ after/ATOM/atom/models/mellum_rocm_precision.py
+@@ -0,0 +1,187 @@
++# SPDX-License-Identifier: MIT
++"""Mellum-local correctness path on ROCm, retaining the Qwen backbone/loader.
++
++The CK API choice follows vLLM's AITER provider. Separate BF16 residual adds,
++RoPE and external HF routing follow its Transformers-backend organization.
++SDPA is a local correctness fallback, not a port of vLLM's attention kernels.
++All replacements retain the original checkpoint Parameters and names.
++"""
++
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++from atom.model_ops.layernorm import RMSNorm
++from atom.models.mellum_naive_ops import NaiveRoPE, NaiveSDPAAttention, rotate
++from atom.models.mellum_torch_experts import (
++    MellumTorchExpertsForCausalLM,
++    TorchExpertMethod,
++    torch_expert_forward,
++)
++from atom.utils import envs
++from atom.utils.forward_context import get_forward_context
++
++
++PROFILES = {
++    "ck_native": dict(norm="ck", qkv="packed", attention="native", routing="hf"),
++    "torch_native": dict(norm="torch", qkv="packed", attention="native", routing="hf"),
++    "torch_sdpa_packed": dict(norm="torch", qkv="packed", attention="sdpa", routing="hf"),
++    "torch_sdpa_split": dict(norm="torch", qkv="split", attention="sdpa", routing="hf"),
++    "torch_gate": dict(norm="torch", qkv="split", attention="sdpa", routing="hf", gate="torch"),
++    "correctness": dict(norm="torch", qkv="split", attention="sdpa", routing="hf", gate="torch", head="torch"),
++}
++
++
++class MellumPrecisionLinear(nn.Module):
++    def __init__(self, original, settings, role):
++        super().__init__()
++        self.weight = original.weight
++        self.bias = original.bias
++        self.settings = settings
++        self.role = role
++        self._native_forward = original.forward
++
++    def forward(self, x):
++        if self.settings.get(self.role, "native") == "native":
++            return self._native_forward(x)
++        if self.role == "head":
++            context = get_forward_context()
++            if context.context.is_prefill and not context.context.is_draft:
++                x = x[context.attn_metadata.cu_seqlens_q[1:] - 1].contiguous()
++        return F.linear(x, self.weight, self.bias)
++
++
++class MellumPrecisionNorm(nn.Module):
++    def __init__(self, original, settings):
++        super().__init__()
++        self.weight = original.weight
++        self.eps = original.eps
++        self.settings = settings
++
++    def forward(self, x, residual=None, x_scale=None):
++        if x_scale is not None:
++            raise ValueError("Mellum precision norm does not accept quantized inputs")
++        # Materialize the BF16 residual boundary before either norm provider.
++        values = x if residual is None else x + residual
++        if self.settings["norm"] == "ck":
++            from aiter import rms_norm
++
++            shape = values.shape
++            output = rms_norm(
++                values.reshape(-1, shape[-1]).contiguous(), self.weight, self.eps
++            ).view(shape)
++        else:
++            fp32 = values.float()
++            normalized = fp32 * torch.rsqrt(fp32.square().mean(-1, keepdim=True) + self.eps)
++            # Same standalone norm convention as vLLM IR native / HF Mellum.
++            output = self.weight * normalized.to(values.dtype)
++        return output if residual is None else (output, values)
++
++
++class MellumPrecisionAttention(nn.Module):
++    def __init__(self, original, config, index, rope, settings):
++        super().__init__()
++        for name in ("qkv_proj", "o_proj", "q_norm", "k_norm", "attn"):
++            setattr(self, name, getattr(original, name))
++        self.num_heads = original.num_heads
++        self.num_kv_heads = original.num_kv_heads
++        self.head_dim = original.head_dim
++        self.q_size, self.kv_size = original.q_size, original.kv_size
++        self.layer_num = index
++        self.kind = config.layer_types[index]
++        self.window = config.sliding_window if self.kind == "sliding_attention" else None
++        self.scale = self.head_dim ** -0.5
++        self.rope = rope
++        self.settings = settings
++        # RoPE is applied once, before cache insertion, for BOTH attention paths.
++        self.attn.impl.rotary_emb = None
++        if self.attn.impl.q_norm is not None or self.attn.impl.k_norm is not None:
++            raise ValueError("Disable fused QK norm/RoPE/cache for Mellum precision")
++
++    def forward(self, positions, hidden_states, **model_kwargs):
++        weight, bias = self.qkv_proj.weight, self.qkv_proj.bias
++        if self.settings["qkv"] == "split":
++            sizes = (self.q_size, self.kv_size, self.kv_size)
++            offset = 0
++            outputs = []
++            for size in sizes:
++                outputs.append(F.linear(hidden_states, weight[offset:offset + size],
++                    None if bias is None else bias[offset:offset + size]))
++                offset += size
++            query, key, value = outputs
++        else:
++            query, key, value = F.linear(hidden_states, weight, bias).split(
++                (self.q_size, self.kv_size, self.kv_size), dim=-1)
++        query = self.q_norm(query.view(-1, self.num_heads, self.head_dim))
++        key = self.k_norm(key.view(-1, self.num_kv_heads, self.head_dim))
++        value = value.view(-1, self.num_kv_heads, self.head_dim)
++        query, key = rotate(query, key, *self.rope(hidden_states, positions)[self.kind])
++        if self.settings["attention"] == "sdpa":
++            # Reuse the validated BF16 page read/write and causal/SWA boundary code.
++            output = NaiveSDPAAttention.forward(self, query, key, value, positions)
++        else:
++            output = self.attn(query=query.flatten(1), key=key.flatten(1),
++                value=value.flatten(1), positions=positions, **model_kwargs)
++        output = output.reshape(len(hidden_states), -1).contiguous()
++        return F.linear(output, self.o_proj.weight, self.o_proj.bias)
++
++
++class MellumPrecisionExpertMethod(TorchExpertMethod):
++    def __init__(self, moe, settings):
++        super().__init__(moe)
++        self.settings = settings
++
++    def apply(self, layer, x, router_logits, top_k, renormalize, **options):
++        if options.get("expert_map") is not None or options.get("apply_router_weight_on_input", False):
++            raise ValueError("Mellum precision requires local, output-weighted experts")
++        if options.get("use_grouped_topk", False) or options.get("custom_routing_function") is not None:
++            raise ValueError("Mellum precision requires ordinary softmax top-k routing")
++        weights, indices = router_logits.float().softmax(-1).topk(top_k, dim=-1)
++        if renormalize:
++            weights = weights / weights.sum(-1, keepdim=True)
++        weights = weights.to(router_logits.dtype)
++        return torch_expert_forward(x, layer.w13_weight, layer.w2_weight, indices, weights)
++
++
++class MellumRocmPrecisionForCausalLM(MellumTorchExpertsForCausalLM):
++    def __init__(self, atom_config, prefix=""):
++        if envs.ATOM_MELLUM_RNE_NORM:
++            raise ValueError("Mellum ROCm precision owns norm selection; disable the RNE override")
++        if (atom_config.kv_cache_dtype != "bf16" or atom_config.torch_dtype != torch.bfloat16
++                or atom_config.kv_cache_block_size != 16 or atom_config.enable_prefix_caching):
++            raise ValueError("Mellum precision requires BF16 weights/KV, block16, prefix cache off")
++        super().__init__(atom_config, prefix)
++        before = {name: id(value) for name, value in self.named_parameters()}
++        self.precision_settings = {}
++        self.configure_precision_profile(envs.ATOM_MELLUM_ROCM_PRECISION_PROFILE)
++        count = 0
++        for module in list(self.modules()):
++            for name, child in list(module.named_children()):
++                if type(child) is RMSNorm:
++                    if child.use_fused_quant or child.x_pad_to_multiple or child.tp_size != 1:
++                        raise ValueError("Unsupported Mellum precision norm configuration")
++                    setattr(module, name, MellumPrecisionNorm(child, self.precision_settings))
++                    count += 1
++        self.precision_norm_count = count
++        rope = NaiveRoPE(self.config)
++        for index, layer in enumerate(self.model.layers):
++            layer.self_attn = MellumPrecisionAttention(
++                layer.self_attn, self.config, index, rope, self.precision_settings)
++            experts = layer.mlp.experts
++            experts.quant_method = MellumPrecisionExpertMethod(
++                experts.moe_config, self.precision_settings)
++            layer.mlp.gate = MellumPrecisionLinear(
++                layer.mlp.gate, self.precision_settings, "gate")
++        self.lm_head = MellumPrecisionLinear(self.lm_head, self.precision_settings, "head")
++        after = {name: id(value) for name, value in self.named_parameters()}
++        if before != after or count != 4 * self.config.num_hidden_layers + 1:
++            raise RuntimeError("Mellum precision must preserve all checkpoint Parameter identities")
++        self.precision_parameter_identity_preserved = True
++
++    def configure_precision_profile(self, name):
++        """Select a profile before inference; callers must not change it in-flight."""
++        if name not in PROFILES:
++            raise ValueError(f"Unknown Mellum precision profile: {name}")
++        self.precision_settings.clear()
++        self.precision_settings.update(PROFILES[name])
++        self.precision_profile = name
+--- /dev/null
++++ after/run_rocm_precision.sh
+@@ -0,0 +1,9 @@
++#!/usr/bin/env bash
++set -euo pipefail
++export ATOM_MELLUM_ROCM_PRECISION=1
++export ATOM_MELLUM_ROCM_PRECISION_PROFILE="${ATOM_MELLUM_ROCM_PRECISION_PROFILE:-correctness}"
++export ATOM_MELLUM_NAIVE_BASELINE=0
++export ATOM_MELLUM_TORCH_EXPERTS=1
++export ATOM_MELLUM_ROUTE_WEIGHT_BF16=1
++export ATOM_MELLUM_RNE_NORM=0
++exec bash /workspace/run0.sh "$@"
+--- /dev/null
++++ after/tools/measure_mellum_rocm_precision.py
+@@ -0,0 +1,156 @@
++"""Frozen ten-prompt ablations of the Mellum-local ROCm precision adapter."""
++import hashlib
++import importlib.util
++import json
++import os
++from pathlib import Path
++import time
++
++W = Path('/workspace')
++OUT = Path(os.environ['MELLUM_ROCM_OUT'])
++CONTROL = OUT / 'profile.json'
++
++
++def write(name, value):
++    p = OUT / name
++    temp = p.with_suffix('.tmp')
++    temp.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
++    temp.replace(p)
++
++
++def install():
++    import atom.utils.debug_helper as helper
++
++    def audit(model):
++        import torch
++        from transformers.models.mellum.modeling_mellum import MellumRMSNorm, MellumRotaryEmbedding
++        from atom.models.mellum_rocm_precision import (
++            MellumRocmPrecisionForCausalLM, MellumPrecisionNorm, MellumPrecisionExpertMethod)
++        assert isinstance(model, MellumRocmPrecisionForCausalLM)
++        assert model.precision_parameter_identity_preserved and model.precision_norm_count == 113
++        assert all(type(layer.mlp.experts.quant_method) is MellumPrecisionExpertMethod
++                   for layer in model.model.layers)
++        # Independent upstream HF modules, real checkpoint norm weights.
++        norm_checks = []
++        model.configure_precision_profile('correctness')
++        with torch.inference_mode():
++            torch.manual_seed(0)
++            for name, norm in model.named_modules():
++                if not isinstance(norm, MellumPrecisionNorm):
++                    continue
++                width = norm.weight.numel()
++                x = torch.randn((7, width), device='cuda', dtype=torch.bfloat16)
++                residual = torch.randn_like(x)
++                hf = MellumRMSNorm(width, eps=norm.eps).cuda().to(torch.bfloat16)
++                hf.weight = norm.weight
++                expected = hf(x)
++                value, saved = norm(x, residual)
++                row = dict(name=name, standalone_exact=torch.equal(norm(x), expected),
++                    residual_exact=torch.equal(saved, x + residual),
++                    fused_exact=torch.equal(value, hf(x + residual)))
++                model.configure_precision_profile('ck_native')
++                ck = norm(x)
++                row.update(ck_finite=bool(torch.isfinite(ck).all()),
++                    ck_relative_l2=float((ck.float() - expected.float()).norm()
++                        / expected.float().norm().clamp_min(1e-12)))
++                model.configure_precision_profile('correctness')
++                norm_checks.append(row)
++            rope_checks = []
++            positions = torch.tensor([0, 7, 8191, 8192, 16383, 32767], device='cuda')
++            x = torch.zeros((len(positions), model.config.hidden_size), device='cuda', dtype=torch.bfloat16)
++            reference = MellumRotaryEmbedding(model.config).cuda()
++            local = model.model.layers[0].self_attn.rope(x, positions)
++            for kind in local:
++                cos, sin = reference(x[None], positions[None], layer_type=kind)
++                rope_checks.append(dict(kind=kind,
++                    cos_exact=torch.equal(local[kind][0], cos[0, :, None, :]),
++                    sin_exact=torch.equal(local[kind][1], sin[0, :, None, :])))
++        checks = dict(norm_count=len(norm_checks),norms=norm_checks,rope=rope_checks)
++        write('component_checks.json', checks)
++        assert all(r['standalone_exact'] and r['residual_exact'] and r['fused_exact']
++                   and r['ck_finite'] and r['ck_relative_l2'] < .02 for r in norm_checks)
++        assert all(r['cos_exact'] and r['sin_exact'] for r in rope_checks)
++        spec = importlib.util.spec_from_file_location('weight_audit', W / 'tools/compare_mellum_variants.py')
++        module = importlib.util.module_from_spec(spec)
++        spec.loader.exec_module(module)
++        module.audit_weights(model, 'native_torch')
++        write('model_audit.json', dict(model_class=type(model).__name__,norms=113,
++            parameter_identity_preserved=True,expert_method='MellumPrecisionExpertMethod',
++            level=0,eager=True,mtp=False,prefix_cache=False,parameter_count=len(dict(model.named_parameters()))))
++
++        def select_profile(mod, args):
++            wanted = json.loads(CONTROL.read_text())['profile']
++            if mod.precision_profile != wanted:
++                mod.configure_precision_profile(wanted)
++        model.register_forward_pre_hook(select_profile)
++        return 1
++    helper.install_block_forward_hooks = audit
++
++
++def main():
++    import torch
++    from atom import SamplingParams
++    from atom.model_engine.arg_utils import EngineArgs
++    torch.set_num_threads(8)
++    torch.manual_seed(0)
++    selection_path = W / 'results/mellum_naive_baseline/quick10_selection.json'
++    selection = json.loads(selection_path.read_text())
++    reference_path = Path(selection['source'])
++    assert hashlib.sha256(reference_path.read_bytes()).hexdigest() == selection['source_sha256']
++    reference = json.loads(reference_path.read_text())
++    assert reference['metadata']['hf']['attention'] == 'sdpa'
++    assert reference['metadata']['hf']['experts'] == 'eager'
++    rows = {r['id']: r for r in reference['results']}
++    chosen = [r['id'] for r in selection['samples']]
++    assert len(chosen) == len(set(chosen)) == 10
++    write('selection.json', selection)
++    state = dict(status='loading',profiles={},selected_ids=chosen,
++        reference_sha256=selection['source_sha256'],reference_metadata=reference['metadata']['hf'])
++    write('validation.json', state)
++    write('profile.json', dict(profile='correctness'))
++    engine = EngineArgs(model='/data/models/Mellum2.1-12B-A2.5B-Thinking',port=8073,
++        level=0,enforce_eager=True,enable_prefix_caching=False,kv_cache_dtype='bf16',
++        max_model_len=32768,max_num_seqs=512,gpu_memory_utilization=.65).create_engine()
++    params = SamplingParams(temperature=0,max_tokens=64,ignore_eos=True)
++    try:
++        profiles = os.environ.get('MELLUM_ROCM_PROFILES',
++            'ck_native,torch_native,torch_sdpa_packed,torch_sdpa_split,torch_gate,correctness').split(',')
++        for profile in profiles:
++            write('profile.json', dict(profile=profile))
++            entry = dict(samples=[],repeats=[])
++            state['profiles'][profile] = entry
++            state.update(status='running',current_profile=profile)
++            write('validation.json', state)
++            for repeat in range(2 if profile == 'correctness' else 1):
++                for identity in chosen + ['HumanEval/61']:
++                    row = rows[identity]
++                    started = time.monotonic()
++                    output = engine.generate([row['input_ids']],params)[0]['token_ids']
++                    assert len(output) == 64
++                    sample = dict(id=identity,output_ids=output,reference_ids=row['reference_ids'],
++                        input_sha256=row['input_sha256'],input_ids=row['input_ids'],
++                        matching_tokens=sum(a == b for a,b in zip(output,row['reference_ids'])),
++                        exact=output == row['reference_ids'],elapsed_s=time.monotonic()-started)
++                    if repeat:
++                        first = next(r for r in entry['samples'] if r['id'] == identity)
++                        sample['equals_first'] = output == first['output_ids']
++                    entry['repeats' if repeat else 'samples'].append(sample)
++                    write('validation.json', state)
++                    print(json.dumps(dict(profile=profile,round=repeat+1,id=identity,
++                        matching_tokens=sample['matching_tokens'])),flush=True)
++            quick = [r for r in entry['samples'] if r['id'] in chosen]
++            entry.update(matching_tokens=sum(r['matching_tokens'] for r in quick),total_tokens=640,
++                exact_sequences=sum(r['exact'] for r in quick),
++                stable_sequences=sum(r.get('equals_first',False) for r in entry['repeats'] if r['id'] in chosen))
++            write('validation.json', state)
++        assert hashlib.sha256(reference_path.read_bytes()).hexdigest() == selection['source_sha256']
++        state['status'] = 'complete'
++        write('validation.json', state)
++    finally:
++        engine.close()
++
++
++if os.environ.get('MELLUM_ROCM_AUDIT') == '1':
++    install()
++if __name__ == '__main__':
++    main()
+--- /dev/null
++++ after/tools/run_mellum_rocm_precision_checks.py
+@@ -0,0 +1,124 @@
++"""GPU0-only validation, immutable measurement inputs, guaranteed service restore."""
++import datetime
++import hashlib
++import json
++import os
++from pathlib import Path
++import signal
++import subprocess
++import time
++import traceback
++import urllib.request
++
++W = Path('/workspace')
++STAMP = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y%m%dT%H%M%S%z')
++OUT = W / 'results' / (os.environ.get('MELLUM_ROCM_RUN_LABEL', 'mellum_rocm_precision_') + STAMP)
++OUT.mkdir()
++STATE = dict(status='preparing',directory=str(OUT),gpu=0,driver_pid=os.getpid())
++
++
++def save():
++    (OUT/'control.json').write_text(json.dumps(STATE,indent=2)+'\n')
++
++
++def frozen():
++    files = [p for p in (W/'ATOM/atom').rglob('*.py')]
++    files += [W/'run0.sh', W/'datasets/correctness_200.jsonl',
++        W/'results/atom_reuse_mtp_off_eager_200.json',
++        W/'results/mellum_naive_baseline/quick10_selection.json',
++        W/'tools/measure_mellum_rocm_precision.py',
++        Path('/app/aiter-test/aiter/ops/rmsnorm.py'),
++        Path('/app/aiter-test/aiter/rotary_embedding.py'),
++        Path('/app/aiter-test/csrc/include/opus/opus.hpp')]
++    return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
++
++
++def archive(label):
++    p=Path('/root/.cache/atom')
++    if p.exists():p.rename(p.with_name('atom.backup-rocm-precision-'+STAMP+'-'+label))
++    p.mkdir(parents=True,exist_ok=True)
++
++
++def generate(port):
++    request=urllib.request.Request(f'http://127.0.0.1:{port}/v1/completions',data=json.dumps(dict(
++        model='/data/models/Mellum2.1-12B-A2.5B-Thinking',prompt='def add(a, b):\n',
++        max_tokens=8,temperature=0,ignore_eos=True)).encode(),headers={'Content-Type':'application/json'})
++    with urllib.request.urlopen(request,timeout=90) as response:result=json.load(response)
++    assert result['usage']['completion_tokens']==8
++    return result
++
++
++def main():
++    snapshot=frozen()
++    (OUT/'source_sha256.json').write_text(json.dumps(snapshot,indent=2)+'\n')
++    STATE['head']=subprocess.check_output(['git','-C',str(W/'ATOM'),'rev-parse','HEAD'],text=True).strip()
++    save()
++    stopped=False
++    worker=None
++    try:
++        pid=int((W/'logs/run0.pid').read_text())
++        cmd=Path(f'/proc/{pid}/cmdline').read_bytes()
++        assert b'atom.entrypoints.openai_server' in cmd and b'8000' in cmd and os.getpgid(pid)==pid
++        os.killpg(pid,signal.SIGTERM)
++        stopped=True
++        time.sleep(4)
++        try:os.killpg(pid,signal.SIGKILL)
++        except ProcessLookupError:pass
++        archive('worker')
++        env=dict(os.environ,HIP_VISIBLE_DEVICES='0',PYTHONPATH='/workspace/ATOM',AITER_LOG_LEVEL='WARNING',
++            ATOM_MELLUM_NAIVE_BASELINE='0',ATOM_MELLUM_TORCH_EXPERTS='1',ATOM_MELLUM_ROCM_PRECISION='1',
++            ATOM_MELLUM_ROCM_PRECISION_PROFILE='correctness',ATOM_MELLUM_ROUTE_WEIGHT_BF16='1',ATOM_MELLUM_RNE_NORM='0',
++            ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION='0',ATOM_ENABLE_ALLREDUCE_RMSNORM_FUSION='0',
++            MELLUM_ROCM_OUT=str(OUT),MELLUM_ROCM_AUDIT='1',MELLUM_VARIANT_OUT=str(OUT),MELLUM_VARIANT_ROLE='precision')
++        with (OUT/'worker.log').open('w') as log:
++            worker=subprocess.Popen(['/opt/venv/bin/python',str(W/'tools/measure_mellum_rocm_precision.py')],
++                cwd=W/'ATOM',env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
++        STATE.update(status='running',worker_pid=worker.pid)
++        save()
++        assert worker.wait(timeout=2400)==0,'Worker failed; inspect log and debug guide before retry'
++        assert json.loads((OUT/'validation.json').read_text())['status']=='complete'
++        STATE['measurement_status']='complete'
++    except BaseException:
++        STATE.update(measurement_status='failed',error=traceback.format_exc())
++    finally:
++        if worker is not None and worker.poll() is None:
++            os.killpg(worker.pid,signal.SIGTERM)
++        try:
++            if stopped:
++                archive('restore')
++                env=dict(os.environ,PATH='/opt/venv/bin:'+os.environ.get('PATH',''),STEP0_GPU='0',SERVER_PORT='8000',
++                    ATOM_MELLUM_NAIVE_BASELINE='0',ATOM_MELLUM_TORCH_EXPERTS='0',ATOM_MELLUM_ROCM_PRECISION='0',
++                    ATOM_MELLUM_ROUTE_WEIGHT_BF16='0',ATOM_MELLUM_RNE_NORM='0')
++                with (W/'logs/run0.log').open('a') as log:
++                    server=subprocess.Popen(['bash',str(W/'run0.sh')],cwd=W/'ATOM',env=env,
++                        stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
++                (W/'logs/run0.pid').write_text(str(server.pid)+'\n')
++                STATE.update(status='restoring',server_restart_pid=server.pid)
++                save()
++                ready=False
++                for _ in range(100):
++                    try:
++                        with urllib.request.urlopen('http://127.0.0.1:8000/v1/models',timeout=2):pass
++                        ready=True
++                        break
++                    except Exception:
++                        if server.poll() is not None:break
++                        time.sleep(2)
++                assert ready
++            STATE['services']={str(port):generate(port) for port in [8000,8001]}
++            STATE['gpu_memory']=subprocess.check_output(['rocm-smi','--showmeminfo','vram'],text=True)
++            STATE['source_unchanged']=frozen()==snapshot
++            assert STATE['source_unchanged']
++            final_head=subprocess.check_output(['git','-C',str(W/'ATOM'),'rev-parse','HEAD'],text=True).strip()
++            assert final_head==STATE['head']
++            old=W/'results/mellum_torch_experts_route_bf16_200_20261103T215005+0800/status.json'
++            STATE['bf16_full200_status']=json.loads(old.read_text())['status']
++            assert STATE['bf16_full200_status']=='stopped_by_user'
++        except BaseException:
++            STATE['restore_error']=traceback.format_exc()
++        STATE['status']='complete' if STATE.get('measurement_status')=='complete' and not STATE.get('restore_error') else 'failed'
++        save()
++
++
++if __name__=='__main__':
++    main()
+--- /dev/null
++++ after/tools/review_mellum_rocm_precision.py
+@@ -0,0 +1,56 @@
++"""Independently recompute generation counts, input identity and frozen hashes."""
++import hashlib
++import json
++from pathlib import Path
++import sys
++
++root = Path(sys.argv[1])
++state = json.loads((root/'validation.json').read_text())
++control = json.loads((root/'control.json').read_text())
++selection = json.loads((root/'selection.json').read_text())
++source = Path(selection['source'])
++assert hashlib.sha256(source.read_bytes()).hexdigest() == selection['source_sha256']
++reference = {r['id']: r for r in json.loads(source.read_text())['results']}
++chosen = [r['id'] for r in selection['samples']]
++assert state['status'] == control['status'] == 'complete'
++assert state['selected_ids'] == chosen and len(set(chosen)) == 10
++assert 'HumanEval/61' not in chosen
++summary = {}
++for name, entry in state['profiles'].items():
++    assert len(entry['samples']) == 11
++    assert {r['id'] for r in entry['samples']} == set(chosen + ['HumanEval/61'])
++    for row in entry['samples'] + entry['repeats']:
++        target = reference[row['id']]
++        assert row['input_ids'] == target['input_ids']
++        assert row['input_sha256'] == target['input_sha256']
++        assert row['reference_ids'] == target['reference_ids']
++        assert len(row['output_ids']) == 64
++        assert row['matching_tokens'] == sum(a == b for a,b in zip(row['output_ids'],target['reference_ids']))
++        assert row['exact'] == (row['output_ids'] == target['reference_ids'])
++    quick = [r for r in entry['samples'] if r['id'] in chosen]
++    matches = sum(r['matching_tokens'] for r in quick)
++    exact = sum(r['exact'] for r in quick)
++    assert matches == entry['matching_tokens'] and exact == entry['exact_sequences']
++    primary = next(r for r in entry['samples'] if r['id'] == 'HumanEval/61')
++    if name == 'correctness':
++        assert len(entry['repeats']) == 11
++        for row in entry['repeats']:
++            first = next(r for r in entry['samples'] if r['id'] == row['id'])
++            assert row['equals_first'] == (row['output_ids'] == first['output_ids'])
++        assert entry['stable_sequences'] == sum(r['equals_first'] for r in entry['repeats'] if r['id'] in chosen)
++    summary[name] = dict(matching_tokens=matches,total_tokens=640,token_match_rate=matches/640,
++        exact_sequences=exact,stable_sequences=entry['stable_sequences'],humaneval61=primary['matching_tokens'])
++hashes = json.loads((root/'source_sha256.json').read_text())
++def frozen_path(name):
++    archived = root/'source_snapshot'/name.lstrip('/')
++    return archived if archived.exists() else Path(name)
++assert all(hashlib.sha256(frozen_path(name).read_bytes()).hexdigest() == value for name,value in hashes.items())
++weights = json.loads((root/'native_torch_weights.json').read_text())
++assert weights['all_equal'] and weights['checkpoint_tensors'] == 5631 and weights['target_parameters'] == 255
++assert not weights['unmapped_sources'] and not weights['unverified_parameters']
++assert control['bf16_full200_status'] == 'stopped_by_user'
++result = dict(passed=True,profiles=summary,frozen_files=len(hashes),source_unchanged=True,
++    source_check='archived snapshot when available; control also records live freeze at completion',
++    checkpoint_tensors=5631,parameters=255,scope='fixed ten plus separate H61; not full200/pass@1/16k')
++(root/'independent_review.json').write_text(json.dumps(result,indent=2)+'\n')
++print(json.dumps(result,indent=2))

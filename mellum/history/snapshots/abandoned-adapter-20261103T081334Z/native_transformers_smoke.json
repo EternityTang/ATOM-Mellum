@@ -1,0 +1,86 @@
+{
+  "transformers_version": "5.10.1",
+  "torch_version": "2.10.0+rocm7.2.4.git3d3aa833",
+  "model_class": "MellumForCausalLM",
+  "model_module": "transformers.models.mellum.modeling_mellum",
+  "dtype": "torch.bfloat16",
+  "device": "cuda:0",
+  "results": [
+    {
+      "prompt": "def add(a, b):\n    return",
+      "input_ids": [
+        910,
+        846,
+        42,
+        99,
+        46,
+        321,
+        800,
+        233,
+        308,
+        587
+      ],
+      "output_ids": [
+        255,
+        99,
+        523,
+        321,
+        233,
+        233,
+        910,
+        14189,
+        42,
+        99,
+        46,
+        321,
+        800,
+        233,
+        308,
+        587
+      ],
+      "text": " a + b\n\ndef subtract(a, b):\n    return"
+    },
+    {
+      "prompt": "<|im_start|>user\nWrite a Python function that adds two numbers.<|im_end|>\n<|im_start|>assistant\n",
+      "input_ids": [
+        27,
+        1397,
+        233,
+        3969,
+        255,
+        99,
+        2717,
+        669,
+        410,
+        8541,
+        1011,
+        2010,
+        48,
+        28,
+        233,
+        27,
+        8091,
+        233
+      ],
+      "output_ids": [
+        23,
+        233,
+        2116,
+        895,
+        333,
+        6246,
+        434,
+        255,
+        99,
+        2717,
+        669,
+        410,
+        8541,
+        1011,
+        2010,
+        48
+      ],
+      "text": "<think>\nWe need to respond with a Python function that adds two numbers."
+    }
+  ]
+}

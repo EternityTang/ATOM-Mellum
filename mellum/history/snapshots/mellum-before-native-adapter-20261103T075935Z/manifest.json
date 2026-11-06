@@ -1,0 +1,11 @@
+{
+  "ATOM/atom/config.py": "1df6d10ad772a0ca44d0c66a32770a3a8816c08a126ded17b317376b5a0bc4dd",
+  "ATOM/atom/models/mellum.py": "30559bc408e465a096870ee95e30c5ed3fe0571855179c786f400b788d3969da",
+  "ATOM/atom/models/mellum_ops.py": "ee005347889565634ff067ae53ae912697f479b74623c6a71072db8b64f235ec",
+  "run0.sh": "a188228319d27ac51e5194ad73e25c4ce3108fc23057c2f21c9e91d4726e854d",
+  "tools/measure_native_token_agreement.py": "ef83f1e1ebad6ae1b1843dc6a5189db3e0afe529c943386ecd6702ff29744f5a",
+  "tools/evaluate_humaneval.py": "23767833d30fddcc4afa03a3d9d172397cd60331a8e96cbf64d54b49286acc79",
+  "results/native_token_agreement.json": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307",
+  "results/native_token_agreement.paused.json": "c611ffb05c671122e91b10f1e0b8bb9b409ccd7cc942ea296dbbfe37b42ea307",
+  "results/native_token_agreement_control.json": "ff70214b688db3fa6c2266626582f434ea735890b1beb3e57a29ccbda10bff7b"
+}

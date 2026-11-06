@@ -1,0 +1,15 @@
+6c86378f Record boundary checks and freeze public correctness prompts
+450ec964 Add eager single-GPU Mellum adapter and baseline audit
+26f23a0b Revert "Qwen3.5-35B-A3B-FP8: GDN decode lossy fast path + fused MRoPE QK (#838)"
+f51d7be8 Revert "Remove qkv 256 tok limitation (#999)"
+e3c97b9d Remove qkv 256 tok limitation (#999)
+4c4ae4f4 fix(spec_decode): support DP attention with MTP in Deepseek V4 (#1001)
+dfb8eda4 Qwen3.5-35B-A3B-FP8: GDN decode lossy fast path + fused MRoPE QK (#838)
+6260cc1e Debug 'no such file or directory benchmark_matrix.json' (#994)
+11be15ec [atom-vllm benchmark] refine model case name (#995)
+9f9e97be Debug name 'AWS_P0' is not defined (#991)
+bdcc62e9 ci(benchmark): run DP-attention up to c=1024 at util 0.85, rename suffix to -dpa (#986)
+f9b96bdc Fix benchmark summary Black formatting (#983)
+7df93a18 feat: chunked prefill toggle + auto-disable for DeepSeek-V4 (#982)
+73e43838 Change the P0 benchmark workload in vLLM-ATOM (#981)
+b104cf91 align api change with fused_qk_norm_rope_cache_quant_shuffle (#979)

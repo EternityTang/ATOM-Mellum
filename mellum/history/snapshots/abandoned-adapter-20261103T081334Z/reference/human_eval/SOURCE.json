@@ -1,0 +1,6 @@
+{
+  "commit": "37c4dd63798c3c9ba32fa69a2fb49c5e2c43a181",
+  "url": "https://raw.githubusercontent.com/openai/human-eval/37c4dd63798c3c9ba32fa69a2fb49c5e2c43a181/human_eval/execution.py",
+  "license": "MIT",
+  "use": "official execution harness; locally isolated unprivileged worker"
+}
