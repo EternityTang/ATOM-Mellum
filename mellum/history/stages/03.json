@@ -1,0 +1,29 @@
+{
+  "stage": 3,
+  "title": "Preserve the original Torch naive Mellum baseline",
+  "notes": "Snapshot before the later SDPA precision fix; historical candidate, not current acceptance.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:41.957380+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive.py",
+      "path": "atom/models/mellum_naive.py",
+      "sha256": "34898d6560a56b4e941532daa937e4389ac514b3885a8fe5f81299571795044c"
+    },
+    {
+      "source": "/workspace/backups/before-sampler-v017-20261103T113750Z/ATOM/atom/models/mellum_naive_ops.py",
+      "path": "atom/models/mellum_naive_ops.py",
+      "sha256": "5502ca17d52e9f2288ae5fd8f4741b29e9645344eb6784f40b476b84e7336875"
+    },
+    {
+      "source": "/workspace/backups/before-native-torch-experts-20261103T210000/envs.py",
+      "path": "atom/utils/envs.py",
+      "sha256": "95a7bc03125bef96bfdcf6aec00a5adb29a71e8fc0054a18928f8ce5b98cc5e2"
+    },
+    {
+      "source": "/workspace/backups/before-native-torch-experts-20261103T210000/model_runner.py",
+      "path": "atom/model_engine/model_runner.py",
+      "sha256": "d700e1a49319bd6419e4a8cc167c7e9aef6f91d1b4353cfc71ac7121c45cf123"
+    }
+  ]
+}
