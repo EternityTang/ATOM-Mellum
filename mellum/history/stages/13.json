@@ -1,0 +1,19 @@
+{
+  "stage": 13,
+  "title": "Reuse per-step RoPE and native KV cache writes",
+  "notes": "Separate cache/address optimization stage; includes independent mode switches.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.094819+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_step_cache/serve_candidate.py",
+      "path": "mellum/tools/mellum_step_cache/serve_candidate.py",
+      "sha256": "0a2d107728593617b072df840f8bb73001f5374c66fa1ec6b2fcab9131a1ec83"
+    },
+    {
+      "source": "/workspace/tools/mellum_step_cache/step_cache.py",
+      "path": "mellum/tools/mellum_step_cache/step_cache.py",
+      "sha256": "f1f19a79295c38b48bf7e1d64a5dd719201f1da23caf83ef59a2a8038d8b50fc"
+    }
+  ]
+}
