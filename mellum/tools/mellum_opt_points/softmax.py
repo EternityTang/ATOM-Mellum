@@ -5,7 +5,7 @@ from triton.language.extra import libdevice
 
 @triton.jit
 def _softmax(X,Y,N:tl.constexpr,B:tl.constexpr):
-    row=tl.program_id(0)
+    row=tl.program_id(0).to(tl.int64)
     col=tl.arange(0,B)
     x=tl.load(X+row*N+col,col<N,other=-float('inf')).to(tl.float32)
     m=tl.max(x,0)
