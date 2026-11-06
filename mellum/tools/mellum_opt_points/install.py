@@ -68,7 +68,9 @@ def install(model,attention='off',moe='off',dispatch='off'):
         def linear(x,w,b=None):
             counts['linear_script_calls']+=1
             if dispatch=='script':return linear_rows(x,w,b)
-            def fn(z):return torch.cat([F.linear(z[i:i+1],w,b) for i in range(len(z))],0)
+            def fn(z):
+                cap=int(os.environ.get('DENSE_CAP','1'))
+                return torch.cat([F.linear(z[i:i+cap],w,b) for i in range(0,len(z),cap)],0)
             return regions.run(('linear',w.data_ptr(),tuple(w.shape),tuple(w.stride())),fn,x)
         for layer in model.model.layers:
             a=layer.self_attn;old=a.forward
