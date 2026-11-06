@@ -1,0 +1,19 @@
+{
+  "stage": 4,
+  "title": "Backport deterministic greedy argmax sampling",
+  "notes": "Preserves the user-authorized shared sampler fix following the v0.1.7 sampling approach.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:41.995633+00:00",
+  "sources": [
+    {
+      "source": "/workspace/ATOM/atom/model_ops/sampler.py",
+      "path": "atom/model_ops/sampler.py",
+      "sha256": "9894d4df387452cc0ee11bed3d80632a7d7cf5b06d831362ff0c4085161de92b"
+    },
+    {
+      "source": "/workspace/ATOM/tests/test_sampler_greedy.py",
+      "path": "tests/test_sampler_greedy.py",
+      "sha256": "4b1097eebe3709bb8632add2c9de6d062d063e445c3ed88f93c9ac8d1db7644c"
+    }
+  ]
+}

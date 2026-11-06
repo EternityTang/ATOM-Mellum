@@ -31,6 +31,22 @@ _NATIVE_SAMPLING_WARNING_ISSUED = False
 SAMPLER_EPS = 1e-10
 
 
+def _apply_greedy_tokens(
+    scores: torch.Tensor, temperatures: torch.Tensor, next_tokens: torch.Tensor
+) -> torch.Tensor:
+    """Backport v0.1.7's fixed-shape, device-side mixed-batch greedy selection.
+
+    Source: ROCm/ATOM v0.1.7, commit a526f0d557eeed08396670249af58bd85fa57338.
+    Frozen AITER has no topk_select(tie="low"); torch.argmax has the same
+    lowest-token-ID tie rule. The runner clamps requested zero temperatures
+    to SAMPLER_EPS, so equality to literal zero would miss greedy rows.
+    """
+    greedy_tokens = scores.argmax(dim=-1).to(torch.int)
+    return torch.where(
+        temperatures <= SAMPLER_EPS, greedy_tokens, next_tokens.view(-1).to(torch.int)
+    )
+
+
 def get_per_token_exponential(vocab_size: int, device) -> torch.Tensor:
     """Returns a tensor of shape (1, vocab_size) filled with exponential random values.
     This is key to deterministic inference, as it ensures that the same random values are used for each token across different runs.
@@ -73,11 +89,16 @@ class Sampler(nn.Module):
         Returns:
             Sampled token IDs (num_tokens,)
         """
+        # Greedy must also bypass random sampling when no filters are set.
+        if all_greedy:
+            return logits.argmax(dim=-1).to(torch.int)
+
         # No Top-K Top-P parameters, perform temperature-based sampling
         if not self._needs_filtering(top_ks, top_ps):
-            return self._temperature_sample(
+            sampled = self._temperature_sample(
                 logits, temperatures, needs_independent_noise=needs_independent_noise
             )
+            return _apply_greedy_tokens(logits, temperatures, sampled)
 
         # Apply top-k/top-p filtering
         return self._topk_topp_sample(
@@ -220,12 +241,7 @@ class Sampler(nn.Module):
             # Neither - just multinomial from probs
             next_tokens = torch.multinomial(probs, num_samples=1)
 
-        # Handle greedy sampling (temperature=0)
-        greedy_mask = temperatures == 0
-        if greedy_mask.any():
-            next_tokens[greedy_mask] = probs[greedy_mask].argmax(dim=-1).unsqueeze(-1)
-
-        return next_tokens.view(-1).to(torch.int)
+        return _apply_greedy_tokens(probs, temperatures, next_tokens)
 
     def _native_sample(
         self,
@@ -287,12 +303,7 @@ class Sampler(nn.Module):
         sampled_idx = torch.multinomial(filtered_probs, num_samples=1).squeeze(-1)
         next_tokens = sorted_indices.gather(1, sampled_idx.unsqueeze(-1)).squeeze(-1)
 
-        # Handle greedy (temperature=0)
-        greedy_mask = temperatures == 0
-        if greedy_mask.any():
-            next_tokens[greedy_mask] = probs[greedy_mask].argmax(dim=-1)
-
-        return next_tokens.to(torch.int)
+        return _apply_greedy_tokens(probs, temperatures, next_tokens)
 
     # Legacy methods kept for reference
     def greedy_sample(
