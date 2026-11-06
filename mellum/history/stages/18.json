@@ -1,0 +1,39 @@
+{
+  "stage": 18,
+  "title": "Introduce native-HF eager boundaries and address-only KV optimizations",
+  "notes": "Recovered eager adapter before the full-chain SWA chunk correction; old accuracy claims are scoped in the reports.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.323198+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_eager_precision/__init__.py",
+      "path": "mellum/tools/mellum_eager_precision/__init__.py",
+      "sha256": "bcd1bfb95e0794c92e003fdebfb0e73e91659ec9f187db75fbd5146fa579b05d"
+    },
+    {
+      "source": "/workspace/tools/mellum_eager_precision/install.py",
+      "path": "mellum/tools/mellum_eager_precision/install.py",
+      "sha256": "a2bcb06654494ad2f8956c455ca9d75134b1bd816d5662123fabd205230f8c13"
+    },
+    {
+      "source": "/workspace/tools/mellum_eager_precision/repeat_ops.py",
+      "path": "mellum/tools/mellum_eager_precision/repeat_ops.py",
+      "sha256": "266974c570ae2064855d808dee0fe618acefe55dca075dee137666ea4a543570"
+    },
+    {
+      "source": "/workspace/tools/mellum_eager_precision/safe_ops.py",
+      "path": "mellum/tools/mellum_eager_precision/safe_ops.py",
+      "sha256": "e887eb58fbc7354090214ef3910c9db563555e041c64bf1a3368a773547da318"
+    },
+    {
+      "source": "/workspace/tools/mellum_eager_precision/serve.py",
+      "path": "mellum/tools/mellum_eager_precision/serve.py",
+      "sha256": "6c7d02114dbdd4a0ac1a45bc08db8bf5c89c7ba4fbd988fa4217ad10b82cb2bf"
+    },
+    {
+      "source": "/workspace/results/mellum_chain_audit_20261105/source-before/install.py",
+      "path": "mellum/tools/mellum_eager_precision/install.py",
+      "sha256": "5b87bfca60b63401821d1d3dcd313cb2a8ad8d2fc5a121c6c643d6dd1e6f3069"
+    }
+  ]
+}
