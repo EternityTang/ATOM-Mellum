@@ -1,0 +1,13 @@
+{
+  "variant": "precision",
+  "http_success": 33,
+  "single64_hf_matches": 64,
+  "batch32_first8_hf_matches": 256,
+  "batch32_total": 256,
+  "counts": {
+    "max_decode_batch": 32,
+    "packed_decode_steps": 0
+  },
+  "checkout_imports_verified": true,
+  "scope": "Branch launch/import smoke only, not a new performance or A200 acceptance run"
+}

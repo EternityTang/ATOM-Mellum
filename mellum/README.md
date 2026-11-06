@@ -28,3 +28,7 @@ Thus C performance is NOT passed. Local graphs are on despite engine level0/enfo
 Full measurement provenance is in history/reports and evidence/; large traces, datasets, model weights,
 virtualenvs and GPU core dumps are not placed in Git. Their server locations/checksums are recorded.
 Original dirty /workspace/ATOM and /workspace/tools remain untouched.
+
+## Checkout validation
+
+HTTP smoke completed33 requests: one64-token request and32 concurrent8-token requests. All imports used this checkout, maximum actual decode batch32. See evidence/branch-validation. This is launch validation, not a replacement full acceptance run.

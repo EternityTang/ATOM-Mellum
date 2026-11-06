@@ -1,0 +1,17 @@
+{
+  "custom_history_blobs_scanned": 250,
+  "credential_findings": [],
+  "large_files": [],
+  "checks": {
+    "speed": {
+      "python_syntax_files": 21,
+      "shell_syntax": true,
+      "original_history_ancestor": true
+    },
+    "precision": {
+      "python_syntax_files": 44,
+      "shell_syntax": true,
+      "original_history_ancestor": true
+    }
+  }
+}

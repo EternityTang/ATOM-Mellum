@@ -1,3 +1,15 @@
+# Mellum / ATOM — 精度版本
+
+当前分支：`codex/mellum-precision`。启动和验证范围见 [Mellum 使用说明](mellum/README.md)；
+优化过程见 [历史说明](mellum/HISTORY.md)、[阶段来源清单](mellum/history/stages/)及[实验报告](mellum/history/reports/)。
+
+保留原ATOM和先前Mellum提交。新增阶段提交是2026-11-06依据留存快照的补录，不伪造过去的提交时间；
+缺失的中间编辑无法凭空恢复。模型源码与原保存版本一致；完整Git历史不做squash。
+
+精度版A200为12800/12800，16k四条组256/256；正式A67.0115、B19.0020 token/s。C200全部超时，不能宣称ABC整体通过。
+
+---
+
 <div align="center" id="logo">
 <img src="docs/assets/atom_logo.png" alt="logo" width="400" margin="10px"></img>
 
