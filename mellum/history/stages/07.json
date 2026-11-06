@@ -1,0 +1,24 @@
+{
+  "stage": 7,
+  "title": "Introduce Torch expert computation as a fused-MoE alternative",
+  "notes": "Recovered source before the BF16 routing-weight change.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.038903+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-route-weight-bf16-20261103T214958/mellum_torch_experts.py",
+      "path": "atom/models/mellum_torch_experts.py",
+      "sha256": "bbffa70aa05d0ee761c6f3466e2601f781c9158872608a58e891d02641eb73a0"
+    },
+    {
+      "source": "/workspace/backups/before-route-weight-bf16-20261103T214958/envs.py",
+      "path": "atom/utils/envs.py",
+      "sha256": "189df859bf22cb2bff1f8b94f82bdb4d971d3e9567f26dbb7472926d13413e71"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/atom/model_engine/model_runner.py",
+      "path": "atom/model_engine/model_runner.py",
+      "sha256": "a963fd01f22d48efc18d07878267c28884ffd8a01fe13a6b0dd196e3fe46a442"
+    }
+  ]
+}

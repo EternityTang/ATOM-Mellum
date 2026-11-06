@@ -33,6 +33,9 @@ environment_variables: dict[str, Callable[[], Any]] = {
     "ATOM_MELLUM_NAIVE_BASELINE": lambda: (
         os.getenv("ATOM_MELLUM_NAIVE_BASELINE", "0") == "1"
     ),
+    "ATOM_MELLUM_TORCH_EXPERTS": lambda: (
+        os.getenv("ATOM_MELLUM_TORCH_EXPERTS", "0") == "1"
+    ),
     "ATOM_USE_TRITON_GEMM": lambda: os.getenv("ATOM_USE_TRITON_GEMM", "0") == "1",
     "ATOM_USE_TRITON_MXFP4_BMM": lambda: (
         os.getenv("ATOM_USE_TRITON_MXFP4_BMM", "0") == "1"
