@@ -1,0 +1,34 @@
+{
+  "stage": 10,
+  "title": "Add the ROCm precision model route",
+  "notes": "Recovered model before the later linear-shape correction, with final registration interfaces.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.067388+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-mellum-precision-linears-20261104T071648+0800/mellum_rocm_precision.py",
+      "path": "atom/models/mellum_rocm_precision.py",
+      "sha256": "f400c8664dc76e9dfe6ba9bd8f21d6ab1b1ad879451e06d398f8645d1f51f9b2"
+    },
+    {
+      "source": "/workspace/ATOM/atom/utils/envs.py",
+      "path": "atom/utils/envs.py",
+      "sha256": "1851722cb7b721417183521c6301649b479b814d17dc4e40b6b3e8af8be11741"
+    },
+    {
+      "source": "/workspace/ATOM/atom/model_engine/model_runner.py",
+      "path": "atom/model_engine/model_runner.py",
+      "sha256": "cb172e17847c39a1d3a5b5e0c36c7ea54f46dcbfe5cba15132d6873c444fb077"
+    },
+    {
+      "source": "/workspace/ATOM/atom/config.py",
+      "path": "atom/config.py",
+      "sha256": "d403081c081c543a4503753b2a69d072ffb7c32a54e823975afa0a486e665af1"
+    },
+    {
+      "source": "/workspace/ATOM/atom/spec_decode/eagle.py",
+      "path": "atom/spec_decode/eagle.py",
+      "sha256": "e304453eb375717f7a4f8939e53bec9dd25456338be64531bc110751d601ed2b"
+    }
+  ]
+}

@@ -57,7 +57,9 @@ logger = logging.getLogger("atom")
 
 support_model_arch_dict = {
     "MellumForCausalLM": (
-        "atom.models.mellum_naive.MellumNaiveForCausalLM"
+        "atom.models.mellum_rocm_precision.MellumRocmPrecisionForCausalLM"
+        if envs.ATOM_MELLUM_ROCM_PRECISION
+        else "atom.models.mellum_naive.MellumNaiveForCausalLM"
         if envs.ATOM_MELLUM_NAIVE_BASELINE
         else (
             "atom.models.mellum_torch_experts.MellumTorchExpertsForCausalLM"
