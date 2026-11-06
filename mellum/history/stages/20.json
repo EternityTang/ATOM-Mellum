@@ -1,0 +1,29 @@
+{
+  "stage": 20,
+  "title": "Preserve the full per-request Torch correctness reconstruction",
+  "notes": "Independent numerical reference path retaining ATOM loaded parameters, metadata and KV pages.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.472369+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_plain_request/README.md",
+      "path": "mellum/tools/mellum_plain_request/README.md",
+      "sha256": "cb94dd2266750f7ef93a2703797c775417f94fdce34a3eb794fede4c0e669d46"
+    },
+    {
+      "source": "/workspace/tools/mellum_plain_request/__init__.py",
+      "path": "mellum/tools/mellum_plain_request/__init__.py",
+      "sha256": "a56f1399bad88c67753d61b403217fb66ed63334c636f6e25a46d09124dddce1"
+    },
+    {
+      "source": "/workspace/tools/mellum_plain_request/plain.py",
+      "path": "mellum/tools/mellum_plain_request/plain.py",
+      "sha256": "ed1c810d7be283b386ef3744d09309d619feebe003db7f724694dc83c1bfd289"
+    },
+    {
+      "source": "/workspace/tools/mellum_plain_request/serve.py",
+      "path": "mellum/tools/mellum_plain_request/serve.py",
+      "sha256": "977525d147092a6216ae037b09c143f9454f0cdd133c3c8db10194cd81948cc0"
+    }
+  ]
+}
