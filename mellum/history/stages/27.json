@@ -1,0 +1,34 @@
+{
+  "stage": 27,
+  "title": "Bucket independent row graphs for variable request counts",
+  "notes": "Supports1/2/4/8/16/32 rows without padding the backbone or expert routing.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.988849+00:00",
+  "sources": [
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v5/__init__.py",
+      "path": "mellum/tools/mellum_opt_points/__init__.py",
+      "sha256": "10108d4dc6dff6ae3dd6cf3777abe4870d04312bf0ee8da001aa229d67f74bd8"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v5/graph.py",
+      "path": "mellum/tools/mellum_opt_points/graph.py",
+      "sha256": "18f7b0b45a5fff55e8fc8ec00b5f8aa4764dadd457e5eb91c8c714a2e2e3aa7a"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v5/install.py",
+      "path": "mellum/tools/mellum_opt_points/install.py",
+      "sha256": "4633de7a89bb5497689a3c0506af7a0f22c538e98d3431b3b5e430a7183413e6"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v5/ops.py",
+      "path": "mellum/tools/mellum_opt_points/ops.py",
+      "sha256": "badbef5b69aa3eef69050b192be3d59a62495d05d4c64f28ed81c00a96c45ab9"
+    },
+    {
+      "source": "/workspace/results/mellum_opt_points_20261105T172604/implementation-v5/softmax.py",
+      "path": "mellum/tools/mellum_opt_points/softmax.py",
+      "sha256": "921604125447a22e5151487d6de6e13c61c1b3ec67b1b89b10034825ee6c22ba"
+    }
+  ]
+}

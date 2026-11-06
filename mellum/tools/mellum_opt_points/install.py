@@ -10,7 +10,7 @@ from .ops import linear_rows,norm_rows,projected_cap8
 def install(model,attention='off',moe='off',dispatch='off'):
     assert attention in ('off','bounded','triton','triton_full','triton_swa')
     assert moe in ('off','script','triton')
-    assert dispatch in ('off','script','graph')
+    assert dispatch in ('off','script','graph','graph_bucket')
     import adapter
     original_fused_experts=adapter.grouped_experts
     install_base(model,'norm_cap8')
@@ -61,9 +61,9 @@ def install(model,attention='off',moe='off',dispatch='off'):
             counts['fused_expert_calls']=counts.get('fused_expert_calls',0)+1
             return original_fused_experts(x,w13,w2,ids,weights)
         adapter.grouped_experts=fused
-    if dispatch in ('script','graph'):
+    if dispatch in ('script','graph','graph_bucket'):
         from .graph import RegionGraphs
-        regions=RegionGraphs()
+        regions=RegionGraphs(max_shapes=6 if dispatch=='graph_bucket' else 2,bucket=dispatch=='graph_bucket')
         counts['graphs']=regions.counts
         def linear(x,w,b=None):
             counts['linear_script_calls']+=1
