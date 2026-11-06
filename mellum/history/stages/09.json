@@ -1,0 +1,24 @@
+{
+  "stage": 9,
+  "title": "Preserve the optional RNE normalization experiment",
+  "notes": "The experiment did not establish overall accuracy and remains off in final launchers.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.058235+00:00",
+  "sources": [
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_torch_experts.py",
+      "path": "atom/models/mellum_torch_experts.py",
+      "sha256": "b900ace57ce534e8cdcb287678bf40749ed3abbb94d082b6f340cc642c75b8c6"
+    },
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_rne_norm.py",
+      "path": "atom/models/mellum_rne_norm.py",
+      "sha256": "7f69ae78e9ccf7bea465fd891c357f98e65bf3aa8628311f69b8a87fa744a468"
+    },
+    {
+      "source": "/workspace/backups/before-mellum-rocm-precision-20261104T070813+0800/atom/utils/envs.py",
+      "path": "atom/utils/envs.py",
+      "sha256": "88d3723503fae690ce6a56624c724d3aa88572a35f4d2432c087ce61687a9997"
+    }
+  ]
+}

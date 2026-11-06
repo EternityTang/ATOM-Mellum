@@ -39,6 +39,13 @@ environment_variables: dict[str, Callable[[], Any]] = {
     "ATOM_MELLUM_ROUTE_WEIGHT_BF16": lambda: (
         os.getenv("ATOM_MELLUM_ROUTE_WEIGHT_BF16", "0") == "1"
     ),
+    # Model-scoped RNE path, opt-in while numerical validation is in progress.
+    "ATOM_MELLUM_RNE_NORM": lambda: (
+        os.getenv("ATOM_MELLUM_RNE_NORM", "0") == "1"
+    ),
+    "ATOM_MELLUM_RNE_NORM_STYLE": lambda: os.getenv(
+        "ATOM_MELLUM_RNE_NORM_STYLE", "native"
+    ),
     "ATOM_USE_TRITON_GEMM": lambda: os.getenv("ATOM_USE_TRITON_GEMM", "0") == "1",
     "ATOM_USE_TRITON_MXFP4_BMM": lambda: (
         os.getenv("ATOM_USE_TRITON_MXFP4_BMM", "0") == "1"

@@ -3,8 +3,8 @@
 
 The Qwen MoE container, native routing and checkpoint loaders are retained.
 Only expert matrix operations/combination and their post-load layout differ.
-The loop follows the existing local naive baseline; native routing weights
-keep their original dtype rather than being changed to HF's BF16 convention.
+The loop follows the existing local naive baseline. Optional route-weight BF16
+and model-scoped RNE normalization are controlled independently.
 """
 import torch
 import torch.nn.functional as F
@@ -12,6 +12,7 @@ from aiter import ActivationType
 
 from atom.model_ops.moe import FusedMoE, UnquantizedFusedMoEMethod
 from atom.models.mellum import MellumForCausalLM
+from atom.models.mellum_rne_norm import install_mellum_rne_norms
 from atom.utils import envs
 
 
@@ -74,6 +75,15 @@ class MellumTorchExpertsForCausalLM(MellumForCausalLM):
         if atom_config.speculative_config is not None or atom_config.enable_tbo:
             raise ValueError('Mellum torch experts currently require MTP/TBO off')
         super().__init__(atom_config, prefix)
+        if envs.ATOM_MELLUM_RNE_NORM and envs.ATOM_MELLUM_RNE_NORM_STYLE not in (
+            "native", "hf"
+        ):
+            raise ValueError("Mellum RNE norm style must be native or hf")
+        self.rne_norm_count = (
+            install_mellum_rne_norms(
+                self, hf_rounding=envs.ATOM_MELLUM_RNE_NORM_STYLE == "hf"
+            ) if envs.ATOM_MELLUM_RNE_NORM else 0
+        )
         for layer in self.model.layers:
             experts = getattr(layer.mlp, 'experts', None)
             if experts is None:
