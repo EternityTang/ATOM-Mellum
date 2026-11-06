@@ -1,0 +1,39 @@
+{
+  "stage": 22,
+  "title": "Batch the backbone and cap expert GEMMs at eight rows",
+  "notes": "Preserves norm_cap8 partial batching plus failed numerical batching ablations.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:42.619390+00:00",
+  "sources": [
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/README.md",
+      "path": "mellum/tools/mellum_parallel_precision/README.md",
+      "sha256": "6ccb6764ea506aeee084a2b3b1b1d8f5ed646a192747f8387721c2c78ef2f541"
+    },
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/__init__.py",
+      "path": "mellum/tools/mellum_parallel_precision/__init__.py",
+      "sha256": "10108d4dc6dff6ae3dd6cf3777abe4870d04312bf0ee8da001aa229d67f74bd8"
+    },
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/attention.py",
+      "path": "mellum/tools/mellum_parallel_precision/attention.py",
+      "sha256": "2ae1570136df61969d0c8a81e5d5cfe8a4890320f54a3e5526500a1e50efe8d2"
+    },
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/audit.py",
+      "path": "mellum/tools/mellum_parallel_precision/audit.py",
+      "sha256": "5a7e28286d2cdf14da51b734fcc6cff1cd24006f55cc82318165b2a24bbb8b7e"
+    },
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/install.py",
+      "path": "mellum/tools/mellum_parallel_precision/install.py",
+      "sha256": "a78befd66aaf5b80336a7c159353b888f566d037625cb81697b5b931ef3a7d95"
+    },
+    {
+      "source": "/workspace/tools/mellum_parallel_precision/serve.py",
+      "path": "mellum/tools/mellum_parallel_precision/serve.py",
+      "sha256": "149256a0d98abe662bdd1f2a120a109deff8a11242d0428b7d015c3340a9d850"
+    }
+  ]
+}
