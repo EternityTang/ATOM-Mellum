@@ -1,0 +1,29 @@
+{
+  "stage": 2,
+  "title": "Register Mellum MTP compatibility with missing-head protection",
+  "notes": "Restores the MTP registration stage. MTP is disabled in both final launchers; no usable checkpoint head is claimed.",
+  "retrospective": true,
+  "recorded_utc": "2026-11-06T01:41:41.919192+00:00",
+  "sources": [
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/config.py",
+      "path": "atom/config.py",
+      "sha256": "d403081c081c543a4503753b2a69d072ffb7c32a54e823975afa0a486e665af1"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/models/mellum.py",
+      "path": "atom/models/mellum.py",
+      "sha256": "5b9d38adab4b2229f8ee8f22404072144f652c287c187fbac8069851ca26c9f4"
+    },
+    {
+      "source": "/workspace/backups/before-naive-baseline-20261103T105328Z/ATOM/atom/spec_decode/eagle.py",
+      "path": "atom/spec_decode/eagle.py",
+      "sha256": "e304453eb375717f7a4f8939e53bec9dd25456338be64531bc110751d601ed2b"
+    },
+    {
+      "source": "/workspace/ATOM/atom/models/mellum_mtp.py",
+      "path": "atom/models/mellum_mtp.py",
+      "sha256": "cd43622088f205daff07054a1dd2171ee0cc44d01a0d6a342eb7b397bb9f85b7"
+    }
+  ]
+}

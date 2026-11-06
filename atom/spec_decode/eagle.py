@@ -22,6 +22,7 @@ logger = logging.getLogger("atom")
 
 
 support_eagle_model_arch_dict = {
+    "MellumMTPModel": "atom.models.mellum_mtp.MellumMTP",
     "DeepSeekMTPModel": "atom.models.deepseek_mtp.DeepSeekMTP",
     "DeepseekV4MTPModel": "atom.models.deepseek_v4_mtp.DeepseekV4MTP",
     "Qwen3NextMTPModel": "atom.models.qwen3_next_mtp.Qwen3NextMTP",

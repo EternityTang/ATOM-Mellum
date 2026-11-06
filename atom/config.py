@@ -815,6 +815,7 @@ class SpeculativeConfig:
         "qwen3_5_text": "qwen3_5_mtp",
         "qwen3_5_moe_text": "qwen3_5_mtp",
         "mimo_v2_flash": "mimo_v2_flash_mtp",
+        "mellum": "mellum_mtp",
     }
 
     # mtp_model_type → (n_predict_attr, architecture)
@@ -916,6 +917,12 @@ class SpeculativeConfig:
                     updates["n_shared_experts"] = n_shared
 
             hf_config.update(updates)
+
+        # Mellum uses the existing proposer/verifier, but needs an official head.
+        if hf_config.model_type == "mellum_mtp":
+            from atom.models.mellum_mtp import prepare_mellum_mtp_config
+
+            prepare_mellum_mtp_config(hf_config, model_path)
 
         # MiMo-V2 has not MTP related information in HF config.json,
         # override n_predict with the actual layer count (default 3).
