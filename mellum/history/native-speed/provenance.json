@@ -1,0 +1,7 @@
+{
+  "base": "26f23a0bdbf50b9010c07ee3a71171189723e767",
+  "validated_source_patch_sha256": "7d405c9b27a51fbbc91732dafdfcd3a09c354fbc1e5f4f66afb8596f595d4b8f",
+  "validated_evidence_sha256": "0f800aec96b48f9ebdee75cd56988f507281843693a1439aa331304cc3aadfd3",
+  "server_evidence_directory": "/workspace/results/mellum_speed_abc_20261107T064400Z",
+  "history_policy": "Commits reconstructed from saved stages at the current time; existing branches and hashes retained."
+}

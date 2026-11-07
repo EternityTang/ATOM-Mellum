@@ -1,0 +1,229 @@
+{
+  "component_count": 24,
+  "fixed": {
+    "control": {
+      "runs": [
+        3084.818914471935,
+        3271.709914179237,
+        3264.2728710018882
+      ],
+      "tps": 3264.2728710018882,
+      "inputs_sha256": "b6a558f7c4a0f2d740ede1ee5383fc6a0467f03df0fc53521cfc5555e7e7b922"
+    },
+    "direct": {
+      "runs": [
+        3025.597149834041,
+        3269.648662410187,
+        3249.1830784579906
+      ],
+      "tps": 3249.1830784579906,
+      "inputs_sha256": "b6a558f7c4a0f2d740ede1ee5383fc6a0467f03df0fc53521cfc5555e7e7b922"
+    },
+    "qk": {
+      "runs": [
+        2801.146763905271,
+        2950.186410813716,
+        2954.3004748979142
+      ],
+      "tps": 2950.186410813716,
+      "inputs_sha256": "b6a558f7c4a0f2d740ede1ee5383fc6a0467f03df0fc53521cfc5555e7e7b922"
+    }
+  },
+  "full_A": {
+    "direct": {
+      "performance": {
+        "Test Duration (s)": 69.0083,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 512,
+        "Success Requests": 512,
+        "Failed Requests": 0,
+        "Stream Requests": 512,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 7.4194,
+        "Avg Latency (s)": 4.2997,
+        "Avg Input Tokens": 2361.7812,
+        "Output Throughput (tok/s)": 1899.3653,
+        "Total Throughput (tok/s)": 19422.3549,
+        "Avg TTFT (ms)": 1522.99,
+        "Avg TPOT (ms)": 10.89,
+        "Avg ITL (ms)": 10.89,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "peak": 32,
+      "inputs_sha256": "244f57ef296761067a0e8807f37f01ac0513f2443aee305a7d8b5e56a07e585f"
+    },
+    "qk": {
+      "performance": {
+        "Test Duration (s)": 65.3654,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 512,
+        "Success Requests": 512,
+        "Failed Requests": 0,
+        "Stream Requests": 512,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 7.8329,
+        "Avg Latency (s)": 4.073,
+        "Avg Input Tokens": 2361.7812,
+        "Output Throughput (tok/s)": 2005.2197,
+        "Total Throughput (tok/s)": 20504.7913,
+        "Avg TTFT (ms)": 1425.03,
+        "Avg TPOT (ms)": 10.38,
+        "Avg ITL (ms)": 10.63,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "peak": 32,
+      "inputs_sha256": "244f57ef296761067a0e8807f37f01ac0513f2443aee305a7d8b5e56a07e585f"
+    },
+    "direct-known": {
+      "performance": {
+        "Test Duration (s)": 68.3985,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 512,
+        "Success Requests": 512,
+        "Failed Requests": 0,
+        "Stream Requests": 512,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 7.4855,
+        "Avg Latency (s)": 4.2625,
+        "Avg Input Tokens": 2361.7812,
+        "Output Throughput (tok/s)": 1916.298,
+        "Total Throughput (tok/s)": 19595.5037,
+        "Avg TTFT (ms)": 1175.64,
+        "Avg TPOT (ms)": 12.11,
+        "Avg ITL (ms)": 12.11,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "peak": 32,
+      "inputs_sha256": "244f57ef296761067a0e8807f37f01ac0513f2443aee305a7d8b5e56a07e585f"
+    },
+    "qk-known": {
+      "performance": {
+        "Test Duration (s)": 64.9185,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 512,
+        "Success Requests": 512,
+        "Failed Requests": 0,
+        "Stream Requests": 512,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 7.8868,
+        "Avg Latency (s)": 4.0445,
+        "Avg Input Tokens": 2361.7812,
+        "Output Throughput (tok/s)": 2019.0251,
+        "Total Throughput (tok/s)": 20645.9609,
+        "Avg TTFT (ms)": 1112.23,
+        "Avg TPOT (ms)": 11.5,
+        "Avg ITL (ms)": 11.78,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "peak": 32,
+      "inputs_sha256": "244f57ef296761067a0e8807f37f01ac0513f2443aee305a7d8b5e56a07e585f"
+    }
+  },
+  "previous_control_A": {
+    "Test Duration (s)": 87.7549,
+    "Concurrency": 32,
+    "Request Rate (req/s)": -1.0,
+    "Total Requests": 512,
+    "Success Requests": 512,
+    "Failed Requests": 0,
+    "Stream Requests": 512,
+    "Non-Stream Requests": 0,
+    "Req Throughput (req/s)": 5.8344,
+    "Avg Latency (s)": 5.4708,
+    "Avg Input Tokens": 2361.7812,
+    "Output Throughput (tok/s)": 1493.6148,
+    "Total Throughput (tok/s)": 15273.2692,
+    "Avg TTFT (ms)": 2232.89,
+    "Avg TPOT (ms)": 12.7,
+    "Avg ITL (ms)": 12.7,
+    "Avg Output Tokens": 256.0,
+    "Input Throughput (tok/s)": 0.0
+  },
+  "direct_trace": {
+    "repeat_syncs": 280,
+    "repeat_sync_ms": 1945.232181,
+    "path": "direct/trace-mixed/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_123235_363.pt.trace.json.gz",
+    "new_tokens": 84186,
+    "prefill_gpu_span_ms": 2291.795826,
+    "direct_copy_ms": 28.299276000000003,
+    "over_1ms_copy_kernels": 0,
+    "over_1ms_copy_ms": 0.0,
+    "decode_gpu_span_ms": 7.487075
+  },
+  "extra_traces": {
+    "direct": {
+      "repeat_syncs": 280,
+      "repeat_sync_ms": 1945.232181,
+      "path": "direct/trace-mixed/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_123235_363.pt.trace.json.gz",
+      "new_tokens": 84186,
+      "prefill_gpu_span_ms": 2291.795826,
+      "direct_copy_ms": 28.299276000000003,
+      "over_1ms_copy_kernels": 0,
+      "over_1ms_copy_ms": 0.0,
+      "decode_gpu_span_ms": 7.487075
+    },
+    "direct-known": {
+      "repeat_syncs": 0,
+      "repeat_sync_ms": 0.0,
+      "path": "direct-known/trace-mixed/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_123651_840.pt.trace.json.gz",
+      "new_tokens": 84186,
+      "prefill_gpu_span_ms": 2289.289738,
+      "direct_copy_ms": 28.155664,
+      "over_1ms_copy_kernels": 0,
+      "over_1ms_copy_ms": 0.0,
+      "decode_gpu_span_ms": 7.543552
+    },
+    "qk-known": {
+      "repeat_syncs": 0,
+      "repeat_sync_ms": 0.0,
+      "path": "qk-known/trace-mixed/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_123918_253.pt.trace.json.gz",
+      "new_tokens": 84186,
+      "prefill_gpu_span_ms": 2119.1414569999997,
+      "direct_copy_ms": 0.887381,
+      "over_1ms_copy_kernels": 0,
+      "over_1ms_copy_ms": 0.0,
+      "decode_gpu_span_ms": 8.155417
+    }
+  },
+  "previous_traces": {
+    "p12": {
+      "new_tokens": 84186,
+      "prefill_gpu_span_ms": 3440.160263,
+      "direct_copy_kernels": 622,
+      "direct_copy_ms": 1173.4829920000002,
+      "over_1ms_copy_kernels": 168,
+      "over_1ms_copy_ms": 1145.4504399999998,
+      "example_grid": [
+        [
+          990880,
+          1,
+          1
+        ],
+        [
+          990880,
+          1,
+          1
+        ]
+      ]
+    },
+    "p123": {
+      "new_tokens": 84186,
+      "prefill_gpu_span_ms": 2157.979236,
+      "direct_copy_kernels": 147,
+      "direct_copy_ms": 0.7595069999999999,
+      "over_1ms_copy_kernels": 0,
+      "over_1ms_copy_ms": 0.0,
+      "example_grid": []
+    }
+  },
+  "direct_vs_qk_A_percent": -5.2789427512606295,
+  "direct_vs_qk_fixed_percent": 10.134839837520836
+}
