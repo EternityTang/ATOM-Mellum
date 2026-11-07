@@ -692,7 +692,28 @@ def rocm_aiter_fused_moe_impl(
     activation_ = ActivationType(activation)
     quant_type_ = QuantType(quant_type)
 
-    return fused_moe(
+    tokens = hidden_states.size(0)
+    min_tokens = int(os.getenv("MELLUM_FP8_MOE_MIN_TOKENS", "0"))
+    pad_tokens = (
+        min_tokens - tokens
+        if tokens < min_tokens
+        and quant_type_ == QuantType.per_Token
+        and w1.dtype == dtypes.fp8
+        and w1.size(0) == 64
+        and hidden_states.size(1) == 2304
+        and w2.size(-1) == 896
+        and a1_scale is None
+        and a2_scale is None
+        else 0
+    )
+    if pad_tokens:
+        # The frozen gfx942 CK stage2 rejects the small-M FP8 shape.
+        # Extra zero-weight routes are discarded at the layer boundary.
+        hidden_states = torch.nn.functional.pad(hidden_states, (0, 0, 0, pad_tokens))
+        topk_weight = torch.nn.functional.pad(topk_weight, (0, 0, 0, pad_tokens))
+        topk_ids = torch.nn.functional.pad(topk_ids, (0, 0, 0, pad_tokens))
+
+    output = fused_moe(
         hidden_states,
         w1,
         w2,
@@ -707,6 +728,8 @@ def rocm_aiter_fused_moe_impl(
         a1_scale,
         a2_scale,
     )
+
+    return output[:tokens] if pad_tokens else output
 
 
 def rocm_aiter_fused_moe_fake(
