@@ -472,6 +472,13 @@ class PagedAttentionImpl(nn.Module):
             compute_type = (
                 torch.bfloat16 if self.kv_cache_dtype == "bf16" else aiter.dtypes.fp8
             )
+            # Gluon selects the value-cache address calculation by rank.
+            # The fused writer stores SHUFFLE data through a five-dimensional view.
+            if self._cache_format == "SHUFFLE" and v_cache.dim() == 4:
+                blocks, heads, head_dim, page_size = v_cache.shape
+                x = 16 // v_cache.element_size()
+                v_cache = v_cache.view(blocks, heads, page_size // x, head_dim, x)
+
             torch.ops.aiter.pa_decode_gluon(
                 o,
                 q,
