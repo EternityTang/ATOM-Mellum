@@ -492,7 +492,12 @@ class PagedAttentionImpl(nn.Module):
                 temporary_output=temporary_output,
                 alibi_slopes=None,
                 sinks=self.sinks,
-                sliding_window=self.sliding_window,
+                # Frozen Gluon masks at L - kernel_window + query_index + 1.
+                # Include the query span so the model's oldest valid key survives.
+                sliding_window=(
+                    self.sliding_window + attn_metadata.max_seqlen_q
+                    if self.sliding_window > 0 else self.sliding_window
+                ),
                 ps=True,
             )
 
@@ -557,9 +562,10 @@ class PagedAttentionImpl(nn.Module):
     ):
 
         # variable lenth attention use key value as input
+        # The model window includes self; AITER expects a left distance.
         attn_metadata = fwd_ctx.attn_metadata
         sliding_window = (
-            (self.sliding_window, 0, 0) if self.sliding_window > 0 else (-1, -1, 0)
+            (self.sliding_window - 1, 0, 0) if self.sliding_window > 0 else (-1, -1, 0)
         )
         o = aiter.flash_attn_varlen_func(
             q,
