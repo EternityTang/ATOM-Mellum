@@ -1,0 +1,1663 @@
+{
+  "passed": true,
+  "http_requests": 132,
+  "source_unchanged": true,
+  "stages": [
+    {
+      "single": {
+        "request_id": "cmpl-7d5c72dbb6384e8c916dc9d67740f388",
+        "usage": {
+          "prompt_tokens": 13,
+          "completion_tokens": 64,
+          "total_tokens": 77,
+          "ttft_s": 0.5071,
+          "tpot_s": 0.0295,
+          "latency_s": 2.3631
+        },
+        "finish": "max_tokens"
+      },
+      "concurrent32": [
+        {
+          "request_id": "cmpl-19186e7ecaca4a5aa243ed2a4cc50210",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0815,
+            "tpot_s": 0.0387,
+            "latency_s": 0.3531
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-332212c3ec3d4239a043846594257e4f",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1217,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3505
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-1563f04020c54fb998ce59f1640f48d6",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1209,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3501
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5ace3f86d2fd4867bfe2347adbfc4783",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1203,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3497
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-501104df34a64fcd94509baf4786f02c",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1202,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3498
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a83dbd1ab409499ebde7a76bc3d150fe",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1196,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3495
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c01bd12371e74cabb3c212bd1846f88b",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1195,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3496
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-40c12a1315104fc194becbcaf725fc6a",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1187,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3493
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-73726b5e4f0a4bcdb18877c7d83c8fc4",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.1185,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3489
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5b4127d2bbed4942a80aa96c4b52428d",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1178,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3486
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-4b1ae1ee620e4e058d9be38e218f75c6",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1177,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3488
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-88645120553d4d378e9c3c09bb8a6a21",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1144,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3457
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7fcffe626eac4637aba23ba25671e8a6",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1143,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3458
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b1dd8c41f70c4970a76b9d2fd00de9e5",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1142,
+            "tpot_s": 0.0325,
+            "latency_s": 0.346
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-8b2a46395a3041b295f0c8a55631d1bb",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1132,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3453
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e9dfab19aa0e41b0adb8d0b92ed8b85a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1131,
+            "tpot_s": 0.0325,
+            "latency_s": 0.345
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-6e48b5aa551a4a0e917f0ff8b7726011",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1123,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3452
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-f43e03b02f4b45c988434428117f0a1d",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1122,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3445
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-4470de78fd4f43758cb734da814cb124",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.112,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3452
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-d1e567fad8f94801b91fa6830366e2ba",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1115,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3449
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-99d1eeb9ff004e1ba0bc060bb1b45ec3",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1106,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3442
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-0e82bd86fd8c43439d4c49088e856d4b",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1105,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3443
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-56164ff005434338a078a60bfa511453",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1097,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3437
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c7d418f815524f07aee88a7435165a3d",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1096,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3439
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-85c8b15d6ad04de9b92d4fb47b27dc4a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1095,
+            "tpot_s": 0.0325,
+            "latency_s": 0.344
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3dc00ba5d3904e14a283db5887b46d00",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1086,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3433
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b90dd0a263bb4447b3e0f27ac14b1063",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1085,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3434
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-65211098cd8a4ed08328452a499fa900",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1079,
+            "tpot_s": 0.0325,
+            "latency_s": 0.343
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a25248cf3a7a4cb7b02e13fea95018da",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1078,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3431
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c6fb43dbc92c4fc48fab520f56a8d94e",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1071,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3426
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a92722ef0b61484b9579bad4d2240933",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.107,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3427
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-38965a42ca004b43bd6a471e3867da00",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.1063,
+            "tpot_s": 0.0325,
+            "latency_s": 0.3423
+          },
+          "finish": "max_tokens"
+        }
+      ],
+      "flags": "000",
+      "cwd": "/tmp",
+      "command": [
+        "bash",
+        "/workspace/run0.sh"
+      ],
+      "effective_environment": {
+        "MELLUM_SPEED_GRAPH": "0",
+        "MELLUM_SPEED_EXPERT_FP8": "0",
+        "MELLUM_SPEED_QK_FUSION": "0",
+        "NATIVE_PROFILE": "aiter-graph",
+        "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+        "MELLUM_FP8_MOE_MIN_TOKENS": "0"
+      }
+    },
+    {
+      "single": {
+        "request_id": "cmpl-5fe40fe5622d4bf5985ab6319415365c",
+        "usage": {
+          "prompt_tokens": 13,
+          "completion_tokens": 64,
+          "total_tokens": 77,
+          "ttft_s": 0.0523,
+          "tpot_s": 0.0043,
+          "latency_s": 0.321
+        },
+        "finish": "max_tokens"
+      },
+      "concurrent32": [
+        {
+          "request_id": "cmpl-5c67f43960be4c53918f0ff53fe80ec0",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0725,
+            "tpot_s": 0.0125,
+            "latency_s": 0.1606
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c290945a968647a7807e87bef5db8402",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0782,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1576
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a565b2c182b84b3f8f466b39a704648d",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0778,
+            "tpot_s": 0.0111,
+            "latency_s": 0.157
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-cd185b632b0044d781a59357187f5ce4",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0774,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1569
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b5c5abae18624fc3b1caa04bad475f0f",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0768,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1565
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-fc046819de9040e8890e2f63f2f2f088",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0762,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1561
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5a4fac8b4c064cc58455adac82085360",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0739,
+            "tpot_s": 0.0111,
+            "latency_s": 0.154
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-04e344491a43416687cc98b6ab4c9860",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0738,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1541
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-0ca7f8e1a36d44e1ad60d9e30ec0f4f1",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0731,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1537
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-938b5e82fef644259ee59e925766fbd3",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0729,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1534
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c31c71d39c6c459d902cbfb8524bae22",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0725,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1534
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-98b3ce39a99f4d49a9d39b08a15e0b8c",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0724,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1532
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7c304cbacd7e4ad7a3462d415ef70c46",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0715,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1527
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7850a0ecc74e4b2b95aa001f302aa330",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0715,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1528
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3b3fb4b6fe95451fafd1e961182a9dec",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0714,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1528
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-8018fe1277f149a2a9ee064920911e0f",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0708,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1524
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c9347749cdf3448dbf4d3a4968c0a1b6",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0707,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1525
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-067182cc2e35413da821c540ecac7ab2",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0702,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1522
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-f7b8a31cd44f4c29a9753b0dc68f6122",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0695,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1516
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5adc9ccad40c4103829d3b46b4d4438a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0694,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1517
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7b93ed916a17402c8da843f0a7fb1504",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0689,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1515
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-96d7e3fd761341d98ca597cb343e0575",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0688,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1512
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c1e5be0d79754037849893079195d2b9",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0687,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1514
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-9b93d31c3bc44b86a7a5faa289277513",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0686,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1515
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-dd70b6c129dc4465a816666844f67660",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.068,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1516
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-28a2d09e4ad945469be43d069040a941",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0679,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1513
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-8d5d392108024247a3ef536f1767eb39",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0673,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1511
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-66fa19099e3a4969bb2c09aed9ef40ca",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0673,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1512
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-09cc2e42c6924a9489dbc3888772fb9f",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.066,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1502
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-23c4bf42d93c491eb69ead2183f30426",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.066,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1502
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-743d92757f084566bc89a595fec22e6a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0659,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1503
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-615ec620159a40509eed1eed926ec9e8",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0658,
+            "tpot_s": 0.0111,
+            "latency_s": 0.1504
+          },
+          "finish": "max_tokens"
+        }
+      ],
+      "flags": "100",
+      "cwd": "/tmp",
+      "command": [
+        "bash",
+        "/workspace/run1.sh"
+      ],
+      "effective_environment": {
+        "MELLUM_SPEED_GRAPH": "1",
+        "MELLUM_SPEED_EXPERT_FP8": "0",
+        "MELLUM_SPEED_QK_FUSION": "0",
+        "NATIVE_PROFILE": "aiter-graph",
+        "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+        "MELLUM_FP8_MOE_MIN_TOKENS": "0"
+      }
+    },
+    {
+      "single": {
+        "request_id": "cmpl-c4adb6fbd28c42fdb19207a990295664",
+        "usage": {
+          "prompt_tokens": 13,
+          "completion_tokens": 64,
+          "total_tokens": 77,
+          "ttft_s": 0.0518,
+          "tpot_s": 0.0057,
+          "latency_s": 0.4096
+        },
+        "finish": "max_tokens"
+      },
+      "concurrent32": [
+        {
+          "request_id": "cmpl-b92c10d56dd24adfb961598f3bc82fe3",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0805,
+            "tpot_s": 0.0078,
+            "latency_s": 0.1357
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-20322f4daf9041ae9738a64ba4a62ffc",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0879,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1333
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b88d00b40c0e4e289fd9f44300c6fd5e",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0875,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1332
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-329bd5e5583d4ea2b71951c123ffcde2",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.087,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1329
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c0256847f2d94835af4fb9de42a1e523",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0869,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1329
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3e2bfe2303c14e799a64a58b4f3bbd54",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0863,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1325
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e0bfaadf32914b9893f17dbb002324c9",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0847,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1311
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5840b95ad5ae4b4d9d578c182e47477c",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0842,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1308
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c9180517a2c34966b2079f2089292c36",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0841,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1309
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a8676cf31691481cb14717743d4ae713",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0841,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1311
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-033fa5a103cc4015995d9867888961ce",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0829,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1298
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-55838ace313f4e15acbd5a22fcdb6a7e",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0821,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1294
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7a8535a67b6b45d8bcf9132bcc093ac3",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0821,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1295
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-7db62a9a105d425e9ccabff6bee4ec73",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.082,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1296
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b95d1493ed3f48f2b93004710a1788bc",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0812,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1291
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-9e731e86140241039f0a9e319017f210",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0811,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1292
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-0eecba57ff314ee4bdbe48fe2ff7e8ed",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.081,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1288
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e8827b21f799455eb1d09ffbaa607784",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0804,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1286
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-0ef4ca2e2fcf4643824985741cfeb175",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0803,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1287
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e7cce1ddf06c4c318f786ae97a372726",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0796,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1283
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a757583271d84d29a0b8477fe2014ec5",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0795,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1281
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-daee6c7e8458414690f2fef0bf8477d3",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0789,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1278
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-166d1d6af01b48ddbb500601d8dfb3a0",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0789,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1279
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c2031ce8231442f79de93db401c43856",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0787,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1279
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-86aecd71f2804b82b5daf56235c77541",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0782,
+            "tpot_s": 0.0063,
+            "latency_s": 0.128
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-059f081438e4481587e8e8d4052b3d93",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0782,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1281
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-17323664902748899c9025c085f19e25",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0775,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1276
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-042147facfbb4948acf5a2ebe4e03127",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0774,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1277
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-08c24b006c1a4dd88045821793bedfc2",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0768,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1273
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-f306872090a9464e9e7f106854947eb5",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0757,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1263
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-57f64d66d71e40b9a2d53d222192168d",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0756,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1265
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e856ba5c5d6c4f9096983432133b9fc0",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0755,
+            "tpot_s": 0.0063,
+            "latency_s": 0.1263
+          },
+          "finish": "max_tokens"
+        }
+      ],
+      "flags": "110",
+      "cwd": "/tmp",
+      "command": [
+        "bash",
+        "/workspace/run2.sh"
+      ],
+      "effective_environment": {
+        "MELLUM_SPEED_GRAPH": "1",
+        "MELLUM_SPEED_EXPERT_FP8": "1",
+        "MELLUM_SPEED_QK_FUSION": "0",
+        "NATIVE_PROFILE": "aiter-graph",
+        "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "0",
+        "MELLUM_FP8_MOE_MIN_TOKENS": "24"
+      }
+    },
+    {
+      "single": {
+        "request_id": "cmpl-312d78a3c467498cb68b02f8e1e68095",
+        "usage": {
+          "prompt_tokens": 13,
+          "completion_tokens": 64,
+          "total_tokens": 77,
+          "ttft_s": 0.0518,
+          "tpot_s": 0.0054,
+          "latency_s": 0.3903
+        },
+        "finish": "max_tokens"
+      },
+      "concurrent32": [
+        {
+          "request_id": "cmpl-19822db59b684784ae6a1e1550126cf1",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0754,
+            "tpot_s": 0.0072,
+            "latency_s": 0.1264
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-590417a5a90a401a899875ac836b9aba",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0821,
+            "tpot_s": 0.0058,
+            "latency_s": 0.124
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5e7399432be6475e877ce2ab08d51249",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0817,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1238
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-a9c93cbf2daf403da3388ee1ba5f1ec8",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0812,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1235
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-58e9c90455e2476fa76787a117094932",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0811,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1235
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-8318c8bbcb984337ad978f6fe36bf4d3",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0806,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1232
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e927d2a9507b40ee967d18fd8a51625a",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.078,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1208
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-54b081bc6b3542a89852ffbcff80bd19",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0779,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1209
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-83685b0cb4144e1ab4c075bc7f5ea634",
+          "usage": {
+            "prompt_tokens": 13,
+            "completion_tokens": 8,
+            "total_tokens": 21,
+            "ttft_s": 0.0774,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1209
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-1865b426aa4b4889838fe9e18c1aebc3",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0773,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1204
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-ad09a6090c154eac869be4c63a1209ea",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0771,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1205
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-070b9547b8d64123aecc6de5bc6a36ef",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0771,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1208
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-e69dc0292a98463f984cc1537c078c4a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0765,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1204
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-55cdfe59cea845fea6dea2e0ab44b539",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0758,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1198
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-ef6e2f46ac62405aaea49ceb0e0ba5e1",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0757,
+            "tpot_s": 0.0058,
+            "latency_s": 0.12
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-522842dd0a814a08b25c1d07558b7637",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0756,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1198
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3b684c1f8c874dc5bfe84de08be5df44",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.075,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1197
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-c4d9e1feab1f425a8c7464dc6d7c2794",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0749,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1194
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-4dd85b338c56441d85ddb349ddac82c4",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0748,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1197
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3506af03006b41e295e6624809504b20",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0742,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1194
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-0d00192e109d4de4b25cebeccd8fbd9a",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0741,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1191
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b0b52f765902413c951cb5c41153ae19",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0735,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1189
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-99eb180863b349c89ae6adae1e631278",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0735,
+            "tpot_s": 0.0058,
+            "latency_s": 0.119
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-6d1999e65e904efb92bb63bd42745608",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0728,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1185
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-98fabd51c9a14ec09872234e311bb4ad",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0724,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1186
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-3df4d4adb89f489e849842c099dca971",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0723,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1187
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-1f0e59a4ecb4482ca9ae8d59eb426008",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.072,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1186
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-bebdfde023dd44499095ac0bf77afcf4",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0714,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1181
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-5556d5e97a8d4a0cb57122addc7ba6c2",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0703,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1172
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-b17678aa16e2481db7a9e8097d067242",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0702,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1173
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-8792d25a881e41d2b502f84c2c042771",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0701,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1174
+          },
+          "finish": "max_tokens"
+        },
+        {
+          "request_id": "cmpl-d16abcb7466b4a50bc778eba35af45e4",
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 8,
+            "total_tokens": 22,
+            "ttft_s": 0.0701,
+            "tpot_s": 0.0058,
+            "latency_s": 0.1175
+          },
+          "finish": "max_tokens"
+        }
+      ],
+      "flags": "111",
+      "cwd": "/tmp",
+      "command": [
+        "bash",
+        "/workspace/run3.sh"
+      ],
+      "effective_environment": {
+        "MELLUM_SPEED_GRAPH": "1",
+        "MELLUM_SPEED_EXPERT_FP8": "1",
+        "MELLUM_SPEED_QK_FUSION": "1",
+        "NATIVE_PROFILE": "aiter-fused-graph",
+        "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "1",
+        "MELLUM_FP8_MOE_MIN_TOKENS": "24"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "report_sha256": "cff8dfafaddb9aa78cfdde7cb320a1f4b1cf13c21f21e3bbe51433ef7da4ed08",
+  "page_count": 4,
+  "format": "A4",
+  "renderer": "ReportLab; Poppler visual verification",
+  "markdown_pagebreaks": 3,
+  "visual_pages_verified": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "rendered_pdf_sha256": "0d0b6a0b7d5dfcba571e1d587d9163e858bbeefd23d129189f26d61bf07feb7d"
+}

@@ -1,0 +1,414 @@
+{
+  "single": {
+    "request_id": "cmpl-312d78a3c467498cb68b02f8e1e68095",
+    "usage": {
+      "prompt_tokens": 13,
+      "completion_tokens": 64,
+      "total_tokens": 77,
+      "ttft_s": 0.0518,
+      "tpot_s": 0.0054,
+      "latency_s": 0.3903
+    },
+    "finish": "max_tokens"
+  },
+  "concurrent32": [
+    {
+      "request_id": "cmpl-19822db59b684784ae6a1e1550126cf1",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0754,
+        "tpot_s": 0.0072,
+        "latency_s": 0.1264
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-590417a5a90a401a899875ac836b9aba",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0821,
+        "tpot_s": 0.0058,
+        "latency_s": 0.124
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-5e7399432be6475e877ce2ab08d51249",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0817,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1238
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-a9c93cbf2daf403da3388ee1ba5f1ec8",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0812,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1235
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-58e9c90455e2476fa76787a117094932",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0811,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1235
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-8318c8bbcb984337ad978f6fe36bf4d3",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0806,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1232
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-e927d2a9507b40ee967d18fd8a51625a",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.078,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1208
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-54b081bc6b3542a89852ffbcff80bd19",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0779,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1209
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-83685b0cb4144e1ab4c075bc7f5ea634",
+      "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 8,
+        "total_tokens": 21,
+        "ttft_s": 0.0774,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1209
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-1865b426aa4b4889838fe9e18c1aebc3",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0773,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1204
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-ad09a6090c154eac869be4c63a1209ea",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0771,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1205
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-070b9547b8d64123aecc6de5bc6a36ef",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0771,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1208
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-e69dc0292a98463f984cc1537c078c4a",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0765,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1204
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-55cdfe59cea845fea6dea2e0ab44b539",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0758,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1198
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-ef6e2f46ac62405aaea49ceb0e0ba5e1",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0757,
+        "tpot_s": 0.0058,
+        "latency_s": 0.12
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-522842dd0a814a08b25c1d07558b7637",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0756,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1198
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-3b684c1f8c874dc5bfe84de08be5df44",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.075,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1197
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-c4d9e1feab1f425a8c7464dc6d7c2794",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0749,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1194
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-4dd85b338c56441d85ddb349ddac82c4",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0748,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1197
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-3506af03006b41e295e6624809504b20",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0742,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1194
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-0d00192e109d4de4b25cebeccd8fbd9a",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0741,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1191
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-b0b52f765902413c951cb5c41153ae19",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0735,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1189
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-99eb180863b349c89ae6adae1e631278",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0735,
+        "tpot_s": 0.0058,
+        "latency_s": 0.119
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-6d1999e65e904efb92bb63bd42745608",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0728,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1185
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-98fabd51c9a14ec09872234e311bb4ad",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0724,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1186
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-3df4d4adb89f489e849842c099dca971",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0723,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1187
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-1f0e59a4ecb4482ca9ae8d59eb426008",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.072,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1186
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-bebdfde023dd44499095ac0bf77afcf4",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0714,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1181
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-5556d5e97a8d4a0cb57122addc7ba6c2",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0703,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1172
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-b17678aa16e2481db7a9e8097d067242",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0702,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1173
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-8792d25a881e41d2b502f84c2c042771",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0701,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1174
+      },
+      "finish": "max_tokens"
+    },
+    {
+      "request_id": "cmpl-d16abcb7466b4a50bc778eba35af45e4",
+      "usage": {
+        "prompt_tokens": 14,
+        "completion_tokens": 8,
+        "total_tokens": 22,
+        "ttft_s": 0.0701,
+        "tpot_s": 0.0058,
+        "latency_s": 0.1175
+      },
+      "finish": "max_tokens"
+    }
+  ],
+  "flags": "111",
+  "cwd": "/tmp",
+  "command": [
+    "bash",
+    "/workspace/run3.sh"
+  ],
+  "effective_environment": {
+    "MELLUM_SPEED_GRAPH": "1",
+    "MELLUM_SPEED_EXPERT_FP8": "1",
+    "MELLUM_SPEED_QK_FUSION": "1",
+    "NATIVE_PROFILE": "aiter-fused-graph",
+    "ATOM_ENABLE_QK_NORM_ROPE_CACHE_QUANT_FUSION": "1",
+    "MELLUM_FP8_MOE_MIN_TOKENS": "24"
+  }
+}

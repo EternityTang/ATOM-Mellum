@@ -1,0 +1,1482 @@
+{
+  "trace": "/workspace/results/mellum_native_ablation_20261106T103715Z/expert-fp8-pad/trace/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_104922_494.pt.trace.json.gz",
+  "decode_samples": [
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.29502300000000004,
+      "gpu_span_ms": 6.744962999999999,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.744531,
+      "gpu_kernel_busy_ms": 6.74453466796875,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.336998,
+        "norm": 0.646742,
+        "dense GEMM": 1.5705780000000003,
+        "RoPE/KV write": 0.304656,
+        "attention": 1.177028,
+        "MoE routing/sort": 0.561654,
+        "quant/cast": 0.15700099999999997,
+        "expert GEMM": 1.9898740000000001
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9898740000000001
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9594940000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.516412
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48824599999999996
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32755199999999995
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.325921
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.32454299999999997
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.3138310000000002
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.286387
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.27526699999999993
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241377
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.217534
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.175803
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15700099999999997
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.087065
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.041788
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005759
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005359
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.236799,
+      "gpu_span_ms": 6.795038,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.794606000000001,
+      "gpu_kernel_busy_ms": 6.794607421875,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.33526199999999984,
+        "norm": 0.6583179999999996,
+        "dense GEMM": 1.586375,
+        "RoPE/KV write": 0.30453699999999995,
+        "attention": 1.183386,
+        "MoE routing/sort": 0.5679770000000002,
+        "quant/cast": 0.158475,
+        "expert GEMM": 2.0002760000000004
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.0002760000000004
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9634940000000002
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.5222859999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.49617100000000003
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.3319929999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.32818100000000006
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.32374499999999984
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.320206
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.28594900000000006
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.282028
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.239737
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.21989199999999998
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.17872400000000002
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.158475
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.08574599999999999
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.040067
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.0061189999999999994
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005998
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.22621,
+      "gpu_span_ms": 6.773161,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.772729,
+      "gpu_kernel_busy_ms": 6.77272607421875,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.34039,
+        "norm": 0.6461879999999999,
+        "dense GEMM": 1.5889790000000004,
+        "RoPE/KV write": 0.307577,
+        "attention": 1.1771860000000003,
+        "MoE routing/sort": 0.5565339999999999,
+        "quant/cast": 0.15528000000000003,
+        "expert GEMM": 2.000595
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.000595
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9576540000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.52421
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.4945680000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33026300000000003
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.329473
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.322671
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.318078
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.278987
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.27754700000000004
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.23993799999999998
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.219532
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.179323
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15528000000000003
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.08734399999999999
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.04091
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005598
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005439
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.2245,
+      "gpu_span_ms": 6.792279000000001,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.791847,
+      "gpu_kernel_busy_ms": 6.79185693359375,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.33703400000000006,
+        "norm": 0.6449030000000001,
+        "dense GEMM": 1.580056,
+        "RoPE/KV write": 0.3011800000000001,
+        "attention": 1.179547,
+        "MoE routing/sort": 0.565816,
+        "quant/cast": 0.154759,
+        "expert GEMM": 2.028552
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.028552
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.959174
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.5258459999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.490567
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.326792
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.32571799999999995
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.32194500000000004
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.31167199999999995
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.289588
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.27622800000000003
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241698
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22037299999999999
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.17336500000000002
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.154759
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.087585
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.040229999999999995
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006439
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005718
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.22195099999999998,
+      "gpu_span_ms": 6.762722,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.76229,
+      "gpu_kernel_busy_ms": 6.76229736328125,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.3410280000000002,
+        "norm": 0.6509950000000001,
+        "dense GEMM": 1.5748929999999999,
+        "RoPE/KV write": 0.295418,
+        "attention": 1.188109,
+        "MoE routing/sort": 0.5605349999999999,
+        "quant/cast": 0.1554,
+        "expert GEMM": 1.9959120000000001
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9959120000000001
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.966534
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.520762
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48689
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.3288710000000002
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.328277
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.3263829999999999
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.31740000000000007
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.28194800000000003
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.278587
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.24085800000000002
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22157500000000002
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.16992300000000002
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.1554
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.086586
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.038909
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.006878
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005318
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.22268000000000002,
+      "gpu_span_ms": 6.78092,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.780488,
+      "gpu_kernel_busy_ms": 6.78049609375,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.3522230000000001,
+        "norm": 0.6485889999999996,
+        "dense GEMM": 1.5819789999999996,
+        "RoPE/KV write": 0.29957999999999996,
+        "attention": 1.179346,
+        "MoE routing/sort": 0.5672960000000001,
+        "quant/cast": 0.15535599999999997,
+        "expert GEMM": 1.9961190000000002
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9961190000000002
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9588139999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.522246
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.4938529999999999
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.34046500000000013
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.324503
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32256199999999985
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.31942900000000013
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.28874800000000006
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.278548
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241377
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.220532
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.17292700000000003
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15535599999999997
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.086986
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.039666999999999994
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006598
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.0065190000000000005
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.234359,
+      "gpu_span_ms": 6.793599,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.793167,
+      "gpu_kernel_busy_ms": 6.793171875,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.3461120000000001,
+        "norm": 0.6515889999999999,
+        "dense GEMM": 1.5882159999999999,
+        "RoPE/KV write": 0.30157699999999993,
+        "attention": 1.1805889999999999,
+        "MoE routing/sort": 0.5664920000000001,
+        "quant/cast": 0.15671900000000002,
+        "expert GEMM": 2.0018730000000002
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.0018730000000002
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.960775
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.525886
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.49141
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.33459400000000006
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.328663
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.324595
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32131599999999993
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.28702599999999995
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.279466
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.242257
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.219814
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.175203
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15671900000000002
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.086265
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.040109
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006199
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005678
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.21999100000000002,
+      "gpu_span_ms": 6.806712,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.806445,
+      "gpu_kernel_busy_ms": 6.80628564453125,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.3391559999999999,
+        "norm": 0.6616630000000001,
+        "dense GEMM": 1.5938130000000001,
+        "RoPE/KV write": 0.30601700000000004,
+        "attention": 1.1863089999999998,
+        "MoE routing/sort": 0.559494,
+        "quant/cast": 0.15724,
+        "expert GEMM": 2.0027530000000002
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.0027530000000002
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9658939999999998
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.524047
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.496526
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.33467199999999997
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.332263
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.32855899999999993
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32163199999999986
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.28262600000000004
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.27686799999999995
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.240977
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.220415
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.174843
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15724
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.090226
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.040948
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005359
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005318
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.229919,
+      "gpu_span_ms": 6.759362,
+      "gpu_kernel_count": 431,
+      "gpu_kernel_sum_ms": 6.758929999999999,
+      "gpu_kernel_busy_ms": 6.7589365234375,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.33711299999999994,
+        "norm": 0.6479900000000001,
+        "dense GEMM": 1.5883729999999994,
+        "RoPE/KV write": 0.294657,
+        "attention": 1.1831479999999996,
+        "MoE routing/sort": 0.5523760000000001,
+        "quant/cast": 0.154197,
+        "expert GEMM": 2.0010759999999994
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.0010759999999994
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.9618140000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.519607
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.498728
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.329501
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32603599999999994
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 0.32475499999999996
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.316156
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.276508
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.275868
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.240537
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22133400000000003
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 0.165524
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.154197
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 1, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.08910399999999999
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.040028999999999995
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006199
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.0061589999999999995
+        }
+      ]
+    }
+  ],
+  "decode_median": {
+    "cpu_ms": 0.22621,
+    "gpu_span_ms": 6.78092,
+    "gpu_kernel_count": 431,
+    "gpu_kernel_sum_ms": 6.780488,
+    "gpu_kernel_busy_ms": 6.78049609375,
+    "cpu_launch_calls": 0,
+    "graph_replay_calls": 1,
+    "categories_ms": {
+      "other": 0.3391559999999999,
+      "quant/cast": 0.1554,
+      "norm": 0.6485889999999996,
+      "MoE routing/sort": 0.561654,
+      "dense GEMM": 1.586375,
+      "RoPE/KV write": 0.30157699999999993,
+      "attention": 1.1805889999999999,
+      "expert GEMM": 2.000595
+    }
+  },
+  "prefills": [
+    {
+      "label": "prefill[bs=3 tok=3072 ctx=[1024, 1024, 1024]]",
+      "cpu_ms": 38.854779,
+      "gpu_span_ms": 97.393413,
+      "gpu_kernel_count": 517,
+      "gpu_kernel_sum_ms": 96.734949,
+      "gpu_kernel_busy_ms": 96.73491845703126,
+      "cpu_launch_calls": 517,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 1.25011,
+        "norm": 3.847062999999999,
+        "dense GEMM": 39.594884999999984,
+        "RoPE/KV write": 5.540714,
+        "attention": 10.083999999999998,
+        "MoE routing/sort": 1.4423700000000004,
+        "quant/cast": 0.42885599999999996,
+        "expert GEMM": 34.546951
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 34.546951
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 27.821226000000003
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_2_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 10.990155999999999
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 7.376926
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 4.955059
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 2.707074
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 2.418489
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 1.4112960000000003
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 1.2155970000000003
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.660595
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x48x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 0.5746420000000001
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.42885599999999996
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.33354399999999995
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 2, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 0.295129
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 0.290526
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.208861
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+          "calls": 28,
+          "ms": 0.15343500000000002
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.148281
+        }
+      ]
+    },
+    {
+      "label": "prefill[bs=16 tok=16384 ctx=[1024, 1024, 1024]...+13]",
+      "cpu_ms": 37.03476,
+      "gpu_span_ms": 386.94196500000004,
+      "gpu_kernel_count": 517,
+      "gpu_kernel_sum_ms": 386.9336339999999,
+      "gpu_kernel_busy_ms": 386.9334814453125,
+      "cpu_launch_calls": 517,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 5.360544,
+        "norm": 18.590764999999998,
+        "dense GEMM": 104.18032100000005,
+        "RoPE/KV write": 28.590388000000004,
+        "attention": 50.199924,
+        "MoE routing/sort": 3.861357,
+        "quant/cast": 1.8182530000000003,
+        "expert GEMM": 174.33208199999993
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 174.33208199999993
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 57.39096299999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 45.07741600000001
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 37.934856999999994
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 25.737177
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 12.265066999999998
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 12.027442999999996
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 6.495969000000001
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 5.274196
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 2.8592410000000004
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 1.8182530000000003
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 2, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 1.4965789999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 1.4839630000000001
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 1.356632
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.49912899999999993
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.22797900000000001
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.18658999999999998
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+          "calls": 28,
+          "ms": 0.15987300000000004
+        }
+      ]
+    },
+    {
+      "label": "prefill[bs=13 tok=13312 ctx=[1024, 1024, 1024]...+10]",
+      "cpu_ms": 38.7256,
+      "gpu_span_ms": 387.39146999999997,
+      "gpu_kernel_count": 517,
+      "gpu_kernel_sum_ms": 387.384753,
+      "gpu_kernel_busy_ms": 387.38475146484376,
+      "cpu_launch_calls": 517,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 4.429224,
+        "norm": 15.234904000000004,
+        "dense GEMM": 157.409407,
+        "RoPE/KV write": 23.229146000000004,
+        "attention": 40.62493,
+        "MoE routing/sort": 3.3821219999999985,
+        "quant/cast": 1.491359,
+        "expert GEMM": 141.583661
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 141.583661
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA4_LPB4_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 119.36247499999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 36.27328
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 30.726934000000004
+        },
+        {
+          "name": "_fused_qk_rope_reshape_and_cache_kernel",
+          "calls": 21,
+          "ms": 20.919804000000003
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 9.897996
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 9.826674
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 5.352356
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 56,
+          "ms": 4.356954999999999
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 2.39088
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x128x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_2_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG16_16_1",
+          "calls": 28,
+          "ms": 1.5426730000000002
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 1.491359
+        },
+        {
+          "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 2, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+          "calls": 7,
+          "ms": 1.200567
+        },
+        {
+          "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+          "calls": 7,
+          "ms": 1.108775
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.49060999999999994
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.23097900000000002
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.18351699999999999
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+          "calls": 28,
+          "ms": 0.16059700000000005
+        }
+      ]
+    }
+  ],
+  "largest_prefill": {
+    "label": "prefill[bs=16 tok=16384 ctx=[1024, 1024, 1024]...+13]",
+    "cpu_ms": 37.03476,
+    "gpu_span_ms": 386.94196500000004,
+    "gpu_kernel_count": 517,
+    "gpu_kernel_sum_ms": 386.9336339999999,
+    "gpu_kernel_busy_ms": 386.9334814453125,
+    "cpu_launch_calls": 517,
+    "graph_replay_calls": 0,
+    "categories_ms": {
+      "other": 5.360544,
+      "norm": 18.590764999999998,
+      "dense GEMM": 104.18032100000005,
+      "RoPE/KV write": 28.590388000000004,
+      "attention": 50.199924,
+      "MoE routing/sort": 3.861357,
+      "quant/cast": 1.8182530000000003,
+      "expert GEMM": 174.33208199999993
+    },
+    "top_kernels": [
+      {
+        "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+        "calls": 28,
+        "ms": 174.33208199999993
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 28,
+        "ms": 57.39096299999999
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 28,
+        "ms": 45.07741600000001
+      },
+      {
+        "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+        "calls": 21,
+        "ms": 37.934856999999994
+      },
+      {
+        "name": "_fused_qk_rope_reshape_and_cache_kernel",
+        "calls": 21,
+        "ms": 25.737177
+      },
+      {
+        "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+        "calls": 7,
+        "ms": 12.265066999999998
+      },
+      {
+        "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 64, 8, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+        "calls": 56,
+        "ms": 12.027442999999996
+      },
+      {
+        "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+        "calls": 56,
+        "ms": 6.495969000000001
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1})",
+        "calls": 56,
+        "ms": 5.274196
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+        "calls": 28,
+        "ms": 2.8592410000000004
+      },
+      {
+        "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+        "calls": 28,
+        "ms": 1.8182530000000003
+      },
+      {
+        "name": "void aiter::kn_entry_2c_sbhd_cached_indirect_inplace<aiter::OpCachedFwd, 0, true, false, true, true, 2, true, c10::BFloat16, c10::BFloat16, long>(c10::BFloat16*, c10::BFloat16*, c10::BFloat16 const*, c10::BFloat16 const*, long const*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+        "calls": 7,
+        "ms": 1.4965789999999999
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+        "calls": 28,
+        "ms": 1.4839630000000001
+      },
+      {
+        "name": "void aiter::reshape_and_cache_kernel<std::bfloat16_t, std::bfloat16_t, (vllm::Fp8KVCacheDataType)0, true, long>(std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t*, std::bfloat16_t*, long const*, int, int, int, int, int, int, float const*, float const*)",
+        "calls": 7,
+        "ms": 1.356632
+      },
+      {
+        "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+        "calls": 28,
+        "ms": 0.49912899999999993
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 1,
+        "ms": 0.22797900000000001
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+        "calls": 28,
+        "ms": 0.18658999999999998
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+        "calls": 28,
+        "ms": 0.15987300000000004
+      }
+    ]
+  }
+}

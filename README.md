@@ -1,3 +1,13 @@
+# Mellum 服务交付
+
+在题面提供的现有容器内，从仓库根目录启动 ATOM 推理服务：
+
+    CANDIDATE_GPU=0 bash ./run3.sh
+
+默认 HTTP 地址为 http://127.0.0.1:8830/v1。run0.sh、run1.sh、run2.sh、run3.sh 分别对应000、100、110、111配置。
+
+[服务入口和独立开关](submission/README.md) · [四页正式报告](report.md) · [Profiling与测量证据](submission/evidence/README.md) · [验证记录](submission/validation/summary.json)
+
 <div align="center" id="logo">
 <img src="docs/assets/atom_logo.png" alt="logo" width="400" margin="10px"></img>
 

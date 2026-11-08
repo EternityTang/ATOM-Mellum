@@ -1,0 +1,289 @@
+{
+  "commit": "372601f7baa8d44fd7dd0d98d1904d98e849e6fb",
+  "flags": "111",
+  "gpu": 0,
+  "temperature": 0.2,
+  "top_p": 0.95,
+  "top_k": -1,
+  "seed": 43,
+  "max_output_tokens": 4096,
+  "thinking": true,
+  "max_concurrency": 32,
+  "samples_per_task": 1,
+  "summary": {
+    "flags": "111",
+    "n": 164,
+    "passed": 148,
+    "pass_at_1": 0.9024390243902439,
+    "pass_at_1_percent": 90.2439024390244,
+    "status_counts": {
+      "passed": 148,
+      "execution": 3,
+      "extraction": 13
+    },
+    "truncated": 13,
+    "output_tokens": 256928,
+    "independently_regraded": 151,
+    "failed": [
+      {
+        "id": "HumanEval/54",
+        "status": "execution",
+        "detail": "failed: ",
+        "code": "def same_chars(s0: str, s1: str):\n    \"\"\"\n    Check if two words have the same characters.\n    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\n    True\n    >>> same_chars('abcd', 'dddddddabc')\n    True\n    >>> same_chars('dddddddabc', 'abcd')\n    True\n    >>> same_chars('eabcd', 'dddddddabc')\n    False\n    >>> same_chars('abcd', 'dddddddabce')\n    False\n    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\n    False\n    \"\"\"\n    return sorted(s0) == sorted(s1)",
+        "truncated": false
+      },
+      {
+        "id": "HumanEval/92",
+        "status": "execution",
+        "detail": "failed: This prints if this assert fails 10 (also good for debugging!)",
+        "code": "def any_int(x, y, z):\n    '''\n    Create a function that takes 3 numbers.\n    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.\n    Returns false in any other cases.\n    \n    Examples\n    any_int(5, 2, 7) \u279e True\n    \n    any_int(3, 2, 2) \u279e False\n\n    any_int(3, -2, 1) \u279e True\n    \n    any_int(3.6, -2.2, 2) \u279e False\n  \n\n    \n    '''\n    # Check if all numbers are integers\n    if not (x == int(x) and y == int(y) and z == int(z)):\n        return False\n    # Check if any number equals the sum of the other two\n    return x == y + z or y == x + z or z == x + y",
+        "truncated": false
+      },
+      {
+        "id": "HumanEval/32",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/47",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/81",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/86",
+        "status": "extraction",
+        "detail": "syntax_error: invalid syntax (<unknown>, line 20)",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/93",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/99",
+        "status": "extraction",
+        "detail": "syntax_error: unterminated triple-quoted string literal (detected at line 16) (<unknown>, line 3)",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/125",
+        "status": "execution",
+        "detail": "failed: ",
+        "code": "def split_words(txt):\n    '''\n    Given a string of words, return a list of words split on whitespace, if no whitespaces exists in the text you\n    should split on commas ',' if no commas exists you should return the number of lower-case letters with odd order in the\n    alphabet, ord('a') = 0, ord('b') = 1, ... ord('z') = 25\n    Examples\n    split_words(\"Hello world!\") \u279e [\"Hello\", \"world!\"]\n    split_words(\"Hello,world!\") \u279e [\"Hello\", \"world!\"]\n    split_words(\"abcdef\") == 3 \n    '''\n    # Check for any whitespace character\n    if any(ch.isspace() for ch in txt):\n        return txt.split()\n    # Check for commas\n    if ',' in txt:\n        return txt.split(',')\n    # Count lower-case letters with odd order in alphabet\n    return sum(1 for ch in txt if ch.islower() and (ord(ch) % 2 == 1))",
+        "truncated": false
+      },
+      {
+        "id": "HumanEval/113",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/115",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/116",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/130",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/132",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/134",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/145",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      }
+    ]
+  },
+  "previous_seed42": {
+    "flags": "111",
+    "n": 164,
+    "passed": 146,
+    "pass_at_1": 0.8902439024390244,
+    "pass_at_1_percent": 89.02439024390245,
+    "status_counts": {
+      "passed": 146,
+      "extraction": 17,
+      "execution": 1
+    },
+    "truncated": 16,
+    "output_tokens": 264895,
+    "independently_regraded": 147,
+    "failed": [
+      {
+        "id": "HumanEval/32",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/40",
+        "status": "extraction",
+        "detail": "syntax_error: unterminated triple-quoted string literal (detected at line 5) (<unknown>, line 3)",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/41",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/109",
+        "status": "extraction",
+        "detail": "syntax_error: invalid syntax (<unknown>, line 38)",
+        "code": null,
+        "truncated": false
+      },
+      {
+        "id": "HumanEval/47",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/77",
+        "status": "extraction",
+        "detail": "syntax_error: invalid syntax (<unknown>, line 1)",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/91",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/115",
+        "status": "execution",
+        "detail": "failed: Error",
+        "code": "def max_fill(grid, capacity):\n    import math\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n    total_water = 0\n    for row in grid:\n        total_water += sum(row)\n    return math.ceil(total_water / capacity)",
+        "truncated": false
+      },
+      {
+        "id": "HumanEval/93",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/99",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/113",
+        "status": "extraction",
+        "detail": "syntax_error: unterminated triple-quoted string literal (detected at line 4) (<unknown>, line 3)",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/116",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/129",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/130",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/132",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/145",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/154",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      },
+      {
+        "id": "HumanEval/160",
+        "status": "extraction",
+        "detail": "unfinished_thinking",
+        "code": null,
+        "truncated": true
+      }
+    ]
+  },
+  "target_percent": 89.5,
+  "meets_target": true,
+  "two_sampling_runs_mean_percent": 89.63414634146342,
+  "prompts_sha256": "57fb3df40023e8eaac2aa96364b06e461410028a26967ddbcbb0463eb1cd059b"
+}

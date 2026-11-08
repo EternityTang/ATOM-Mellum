@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-07",
+  "branch": "codex/mellum-native-speed-final",
+  "base_commit": "372601f7baa8d44fd7dd0d98d1904d98e849e6fb",
+  "declared_inference_gpus": 1,
+  "entrypoints": {
+    "run0.sh": "000",
+    "run1.sh": "100",
+    "run2.sh": "110",
+    "run3.sh": "111"
+  },
+  "http_port": 8830,
+  "engine_port": 8831,
+  "model": "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+  "report": "report.md",
+  "report_pages": 4,
+  "http_validation_requests": 132,
+  "delivery_files_status": "included_in_delivery_commit",
+  "source_tested_commit_unchanged": true,
+  "history_bundle_sha256": "2f887e6bdd84ab01ecaac3370f0630bbe7f5b13937fd95ef76d823dba998d7e9",
+  "report_sha256": "cff8dfafaddb9aa78cfdde7cb320a1f4b1cf13c21f21e3bbe51433ef7da4ed08",
+  "service_start_command": "CANDIDATE_GPU=0 bash ./run3.sh",
+  "execution_context": "Inside the provided existing container"
+}

@@ -1,0 +1,1347 @@
+{
+  "trace": "/workspace/results/mellum_speed_moe_replay_20261106T130400Z/layout-fixed/trace/trace/rank_0/Mellum2.1-12B-A2.5B-Thinking_ts_20261106_131121_508.pt.trace.json.gz",
+  "decode_samples": [
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.191403,
+      "gpu_span_ms": 5.985975000000001,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.9856620000000005,
+      "gpu_kernel_busy_ms": 5.98566015625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.011837,
+        "norm": 0.34011,
+        "dense GEMM": 1.5867729999999995,
+        "RoPE/KV write": 0.21351299999999993,
+        "attention": 1.10743,
+        "MoE routing/sort": 0.5729320000000001,
+        "quant/cast": 0.161831,
+        "expert GEMM": 1.9912360000000005
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9912360000000005
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8864969999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.522443
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.488371
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33382200000000006
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.333471
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.28914599999999996
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.28378600000000004
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.242137
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.220933
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.21351299999999993
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.161831
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006639
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.0062380000000000005
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005599
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.176574,
+      "gpu_span_ms": 5.978535,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.978222000000001,
+      "gpu_kernel_busy_ms": 5.978224609375,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.010676,
+        "norm": 0.33591200000000004,
+        "dense GEMM": 1.588375,
+        "RoPE/KV write": 0.20814800000000003,
+        "attention": 1.107473,
+        "MoE routing/sort": 0.5704889999999998,
+        "quant/cast": 0.15896300000000005,
+        "expert GEMM": 1.998186
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.998186
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8857400000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.525247
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48932800000000004
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33314299999999997
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32967300000000005
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.28526500000000005
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.28522400000000003
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.240657
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.221733
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.20814800000000003
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15896300000000005
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006239
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005398
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005278
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.168765,
+      "gpu_span_ms": 5.959458,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.9591449999999995,
+      "gpu_kernel_busy_ms": 5.9591484375,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.011477999999999999,
+        "norm": 0.332556,
+        "dense GEMM": 1.583287,
+        "RoPE/KV write": 0.20583199999999996,
+        "attention": 1.108153,
+        "MoE routing/sort": 0.566893,
+        "quant/cast": 0.15939699999999998,
+        "expert GEMM": 1.9915489999999998
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9915489999999998
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.887779
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.5227620000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.4872859999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33178199999999997
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.326998
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.2839480000000001
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.2829450000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241457
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.220374
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.20583199999999996
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15939699999999998
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006279
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005558
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005199
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.167345,
+      "gpu_span_ms": 5.9836149999999995,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.983302,
+      "gpu_kernel_busy_ms": 5.98330712890625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.012437,
+        "norm": 0.34002999999999994,
+        "dense GEMM": 1.5869639999999998,
+        "RoPE/KV write": 0.20475900000000002,
+        "attention": 1.1062699999999999,
+        "MoE routing/sort": 0.5711759999999999,
+        "quant/cast": 0.155717,
+        "expert GEMM": 2.005949
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.005949
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.885737
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.5300840000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48536200000000007
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.33363199999999993
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.328941
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.287911
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.2832650000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.242577
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22053299999999998
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.20475900000000002
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.155717
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006558
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006398
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005879
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.176584,
+      "gpu_span_ms": 5.982855,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.9825420000000005,
+      "gpu_kernel_busy_ms": 5.9825390625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.011636,
+        "norm": 0.336429,
+        "dense GEMM": 1.581456,
+        "RoPE/KV write": 0.206311,
+        "attention": 1.1103899999999998,
+        "MoE routing/sort": 0.578611,
+        "quant/cast": 0.156797,
+        "expert GEMM": 2.000912
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.000912
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8910970000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.520926
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.491131
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32915
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.32766200000000006
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.29018399999999994
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.288427
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241737
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.219293
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.206311
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.156797
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.007279
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006278
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005358
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.164605,
+      "gpu_span_ms": 5.974376,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.974063,
+      "gpu_kernel_busy_ms": 5.97406640625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.012357,
+        "norm": 0.33007999999999993,
+        "dense GEMM": 1.5876450000000002,
+        "RoPE/KV write": 0.20699499999999998,
+        "attention": 1.105712,
+        "MoE routing/sort": 0.5662929999999999,
+        "quant/cast": 0.15607399999999996,
+        "expert GEMM": 2.008907
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.008907
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8846179999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.526921
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.4836069999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.3348999999999999
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32388199999999995
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.288547
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.27774599999999994
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.24221700000000002
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.221094
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.20699499999999998
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15607399999999996
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.0068390000000000005
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006198
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.0055179999999999995
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.187773,
+      "gpu_span_ms": 5.991854999999999,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.991542,
+      "gpu_kernel_busy_ms": 5.9915400390625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.011678000000000001,
+        "norm": 0.33459300000000003,
+        "dense GEMM": 1.5870130000000002,
+        "RoPE/KV write": 0.20619200000000001,
+        "attention": 1.1127510000000003,
+        "MoE routing/sort": 0.5698099999999999,
+        "quant/cast": 0.156239,
+        "expert GEMM": 2.0132660000000002
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 2.0132660000000002
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.890256
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.519245
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.493048
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.333943
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.3289950000000001
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.288345
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.28146499999999997
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.240777
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22249500000000003
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.20619200000000001
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.156239
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006199
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005598
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005479
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.170774,
+      "gpu_span_ms": 5.968896,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.968583,
+      "gpu_kernel_busy_ms": 5.968587890625,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.010915999999999999,
+        "norm": 0.337351,
+        "dense GEMM": 1.586935,
+        "RoPE/KV write": 0.21135199999999998,
+        "attention": 1.10307,
+        "MoE routing/sort": 0.56361,
+        "quant/cast": 0.158076,
+        "expert GEMM": 1.9972729999999999
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9972729999999999
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8835770000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.523365
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48873
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33378300000000005
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.330592
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.283905
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.279705
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.241057
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.219493
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.21135199999999998
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.158076
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.006759
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005558
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005358
+        }
+      ]
+    },
+    {
+      "label": "decode[bs=32 tok=32 d=32]",
+      "cpu_ms": 0.18260400000000002,
+      "gpu_span_ms": 5.97043,
+      "gpu_kernel_count": 312,
+      "gpu_kernel_sum_ms": 5.970263,
+      "gpu_kernel_busy_ms": 5.9701220703125,
+      "cpu_launch_calls": 0,
+      "graph_replay_calls": 1,
+      "categories_ms": {
+        "other": 0.011677,
+        "norm": 0.3301930000000001,
+        "dense GEMM": 1.5837299999999996,
+        "RoPE/KV write": 0.205396,
+        "attention": 1.1116300000000001,
+        "MoE routing/sort": 0.57173,
+        "quant/cast": 0.15671099999999996,
+        "expert GEMM": 1.9991959999999998
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 1.9991959999999998
+        },
+        {
+          "name": "paged_attention_decode_sliding_window",
+          "calls": 21,
+          "ms": 0.8903779999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.525761
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.48600799999999994
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4",
+          "calls": 28,
+          "ms": 0.33098400000000006
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.32423500000000016
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.290904
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >, aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs>(aiter::MoeSortingKernel<aiter::MoeSortingProblemEx<int, float, 4, true, false, false, true, 0> >::Kargs)",
+          "calls": 28,
+          "ms": 0.2808260000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 1,
+          "ms": 0.240977
+        },
+        {
+          "name": "aiter::pa_bf16_noquant_gqa8_1tg_4w",
+          "calls": 7,
+          "ms": 0.22125199999999998
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 0.205396
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.15671099999999996
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006039
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.005958
+        },
+        {
+          "name": "__amd_rocclr_copyBuffer",
+          "calls": 1,
+          "ms": 0.005638
+        }
+      ]
+    }
+  ],
+  "decode_median": {
+    "cpu_ms": 0.176574,
+    "gpu_span_ms": 5.978535,
+    "gpu_kernel_count": 312,
+    "gpu_kernel_sum_ms": 5.978222000000001,
+    "gpu_kernel_busy_ms": 5.978224609375,
+    "cpu_launch_calls": 0,
+    "graph_replay_calls": 1,
+    "categories_ms": {
+      "attention": 1.107473,
+      "other": 0.011677,
+      "expert GEMM": 1.9991959999999998,
+      "norm": 0.33591200000000004,
+      "dense GEMM": 1.586935,
+      "quant/cast": 0.156797,
+      "RoPE/KV write": 0.206311,
+      "MoE routing/sort": 0.5704889999999998
+    }
+  },
+  "prefills": [
+    {
+      "label": "prefill[bs=1 tok=1024 ctx=1024]",
+      "cpu_ms": 32.470119,
+      "gpu_span_ms": 32.56387,
+      "gpu_kernel_count": 342,
+      "gpu_kernel_sum_ms": 28.115366,
+      "gpu_kernel_busy_ms": 28.11536767578125,
+      "cpu_launch_calls": 342,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 0.024394999999999997,
+        "norm": 0.588491,
+        "dense GEMM": 8.394982,
+        "RoPE/KV write": 1.4504840000000003,
+        "attention": 3.649559,
+        "MoE routing/sort": 0.8068839999999997,
+        "quant/cast": 0.19355,
+        "expert GEMM": 13.007021000000003
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 13.007021000000003
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 4.028122999999999
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x128x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT8_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW8_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA8_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 3.800102
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 2.72709
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 1.4504840000000003
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 0.9224690000000001
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 0.579733
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 0.358737
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.3212610000000001
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.31378399999999995
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.20802
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 0.19355
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P0_v2<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P0_v2<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P0_v2<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.17183900000000002
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.008757999999999998
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.008398999999999998
+        },
+        {
+          "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+          "calls": 1,
+          "ms": 0.005959
+        },
+        {
+          "name": "void at::native::unrolled_elementwise_kernel<at::native::CUDAFunctorOnSelf_add<int>, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast>(int, at::native::CUDAFunctorOnSelf_add<int>, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithoutCast, at::native::memory::StoreWithoutCast)",
+          "calls": 1,
+          "ms": 0.005078999999999999
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 1,
+          "ms": 0.004958000000000001
+        }
+      ]
+    },
+    {
+      "label": "prefill[bs=16 tok=16384 ctx=[1024, 1024, 1024]...+13]",
+      "cpu_ms": 31.462712,
+      "gpu_span_ms": 361.551282,
+      "gpu_kernel_count": 399,
+      "gpu_kernel_sum_ms": 361.445466,
+      "gpu_kernel_busy_ms": 361.4387788085937,
+      "cpu_launch_calls": 398,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 0.08758699999999998,
+        "norm": 6.569425000000001,
+        "dense GEMM": 104.27744200000004,
+        "RoPE/KV write": 20.063302,
+        "attention": 50.167234,
+        "MoE routing/sort": 3.860266,
+        "quant/cast": 1.8106460000000002,
+        "expert GEMM": 174.60956400000003
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 174.60956400000003
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 57.433291
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 28,
+          "ms": 45.138774999999995
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 37.898761
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 20.063302
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 12.268473
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 6.501632000000001
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 2.8550720000000007
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 1.8106460000000002
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 1.474438
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.5074860000000001
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.23093799999999998
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.18555399999999997
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.15667600000000004
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+          "calls": 28,
+          "ms": 0.15547799999999998
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.067793
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.063674
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.006477999999999999
+        }
+      ]
+    },
+    {
+      "label": "prefill[bs=15 tok=15360 ctx=[1024, 1024, 1024]...+12]",
+      "cpu_ms": 31.621637,
+      "gpu_span_ms": 337.473565,
+      "gpu_kernel_count": 398,
+      "gpu_kernel_sum_ms": 337.46617699999996,
+      "gpu_kernel_busy_ms": 337.4661796875,
+      "cpu_launch_calls": 398,
+      "graph_replay_calls": 0,
+      "categories_ms": {
+        "other": 0.08218800000000001,
+        "norm": 6.172422000000001,
+        "dense GEMM": 96.57410599999997,
+        "RoPE/KV write": 18.823132999999995,
+        "attention": 46.957967999999994,
+        "MoE routing/sort": 3.7032829999999977,
+        "quant/cast": 1.707212,
+        "expert GEMM": 163.445865
+      },
+      "top_kernels": [
+        {
+          "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+          "calls": 28,
+          "ms": 163.445865
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 56,
+          "ms": 94.84376999999998
+        },
+        {
+          "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+          "calls": 21,
+          "ms": 35.49986
+        },
+        {
+          "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+          "calls": 28,
+          "ms": 18.823132999999995
+        },
+        {
+          "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+          "calls": 7,
+          "ms": 11.458108
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 56,
+          "ms": 6.108948000000002
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 2.6878090000000006
+        },
+        {
+          "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+          "calls": 28,
+          "ms": 1.707212
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+          "calls": 28,
+          "ms": 1.499398
+        },
+        {
+          "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+          "calls": 28,
+          "ms": 0.506767
+        },
+        {
+          "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+          "calls": 1,
+          "ms": 0.23093799999999998
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.191752
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+          "calls": 28,
+          "ms": 0.158633
+        },
+        {
+          "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs)",
+          "calls": 28,
+          "ms": 0.15832200000000002
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.06467300000000001
+        },
+        {
+          "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+          "calls": 1,
+          "ms": 0.063474
+        },
+        {
+          "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1})",
+          "calls": 1,
+          "ms": 0.006278
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+          "calls": 1,
+          "ms": 0.005678
+        }
+      ]
+    }
+  ],
+  "largest_prefill": {
+    "label": "prefill[bs=16 tok=16384 ctx=[1024, 1024, 1024]...+13]",
+    "cpu_ms": 31.462712,
+    "gpu_span_ms": 361.551282,
+    "gpu_kernel_count": 399,
+    "gpu_kernel_sum_ms": 361.445466,
+    "gpu_kernel_busy_ms": 361.4387788085937,
+    "cpu_launch_calls": 398,
+    "graph_replay_calls": 0,
+    "categories_ms": {
+      "other": 0.08758699999999998,
+      "norm": 6.569425000000001,
+      "dense GEMM": 104.27744200000004,
+      "RoPE/KV write": 20.063302,
+      "attention": 50.167234,
+      "MoE routing/sort": 3.860266,
+      "quant/cast": 1.8106460000000002,
+      "expert GEMM": 174.60956400000003
+    },
+    "top_kernels": [
+      {
+        "name": "aiter::fmoe_bf16_pertokenFp8_g1u1_vs_silu_1tg_ps_32x448",
+        "calls": 28,
+        "ms": 174.60956400000003
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x256x32_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_4_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 28,
+        "ms": 57.433291
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x192x64_MI32x32x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB128_LBSPPM0_LPA8_LPB8_LPM0_LRVW8_LWPMn1_MIAV0_MIWT4_3_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO4_SVW4_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA4_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 28,
+        "ms": 45.138774999999995
+      },
+      {
+        "name": "std::enable_if<!(kattr_no_packed_fp32_ops_v<ck_tile::gfx9_t>), void>::type ck_tile::kentry<ck_tile::gfx9_t, 2, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >, ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs>(ck_tile::FmhaFwdKernel<ck_tile::BlockFmhaPipelineQRKSVSAsync<ck_tile::BlockFmhaPipelineProblem<std::bfloat16_t, std::bfloat16_t, std::bfloat16_t, float, float, std::bfloat16_t, unsigned char, float, std::bfloat16_t, float, std::bfloat16_t, ck_tile::TileFmhaShape<ck_tile::sequence<128, 128, 32, 128, 32, 128>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, ck_tile::sequence<4, 1, 1>, ck_tile::sequence<32, 32, 16>, true>, true, ck_tile::ComposedAttention<0u, true>, ck_tile::SimplifiedGenericAttentionMask<true>, false, ck_tile::TileFmhaTraits<true, true, true, true, false, (ck_tile::BlockAttentionBiasEnum)0, false, false, false, (ck_tile::BlockAttentionQuantScaleEnum)0, -1, false, false> >, ck_tile::BlockFmhaPipelineQXKSVSCustomPolicy<true, true, 3, 3> >, ck_tile::Default2DEpilogue<ck_tile::Default2DEpilogueProblem<float, std::bfloat16_t, true, true, true>, void> >::FmhaFwdGroupModeKargs)",
+        "calls": 21,
+        "ms": 37.898761
+      },
+      {
+        "name": "void (anonymous namespace)::fusedQKNormRopeQuantCacheShuffleKernel<std::bfloat16_t, std::bfloat16_t, 128, false, 4, (vllm::Fp8KVCacheDataType)0>(std::bfloat16_t*, bool, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, long, long, long, long, long, long, long, long, long, int, int, int, float, std::bfloat16_t const*, std::bfloat16_t const*, std::bfloat16_t const*, long const*, std::bfloat16_t*, std::bfloat16_t*, long*, float*, float*, int, int, int)",
+        "calls": 28,
+        "ms": 20.063302
+      },
+      {
+        "name": "aiter::fmha_fwd_hd128_bf16_causal_rtna_group",
+        "calls": 7,
+        "ms": 12.268473
+      },
+      {
+        "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, true, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+        "calls": 56,
+        "ms": 6.501632000000001
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P23<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+        "calls": 28,
+        "ms": 2.8550720000000007
+      },
+      {
+        "name": "_ZN5aiter37dynamic_per_token_scaled_quant_kernelIDF16bDB8_Li16EEEvPT0_PfPT_PKfiPKii",
+        "calls": 28,
+        "ms": 1.8106460000000002
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x224x64_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB128_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_7_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1",
+        "calls": 28,
+        "ms": 1.474438
+      },
+      {
+        "name": "void vllm::moe::topkGatingSoftmax<std::bfloat16_t, 16, 64, 8, 32, true, 0, (vllm::moe::SharedExpertScoringFunc)0>(std::bfloat16_t const*, bool const*, float*, int, int*, int*, int, int, int, int, int, int)",
+        "calls": 28,
+        "ms": 0.5074860000000001
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16x128_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA256_LBSPPB256_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG64_4_1",
+        "calls": 1,
+        "ms": 0.23093799999999998
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P1<aiter::MoeSortingProblemMp<int, float, unsigned char, 16, false, false, true> >::Kargs)",
+        "calls": 28,
+        "ms": 0.18555399999999997
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >, aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs>(aiter::MoeSortingMultiPhaseKernel_P0_v1<aiter::MoeSortingProblemMp<int, float, unsigned char, 4, false, false, true> >::Kargs)",
+        "calls": 28,
+        "ms": 0.15667600000000004
+      },
+      {
+        "name": "void aiter::opus_moe_sorting_entry<aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >, aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs>(aiter::MoeSortingClearWorkspaceKernel<aiter::MoeSortingClearWorkspaceProblem<false, 1024, 1> >::Kargs)",
+        "calls": 28,
+        "ms": 0.15547799999999998
+      },
+      {
+        "name": "void aiter::add_rmsnorm_quant_kernel<std::bfloat16_t, std::bfloat16_t, 256, 16, false, false, true, 1>(std::bfloat16_t*, std::bfloat16_t*, float*, std::bfloat16_t*, std::bfloat16_t*, std::bfloat16_t*, double, int, int, int, int, int, int, int, bool)",
+        "calls": 1,
+        "ms": 0.067793
+      },
+      {
+        "name": "void at::native::vectorized_gather_kernel<16, int>(char*, char*, int*, int, long, long, long, long, bool)",
+        "calls": 1,
+        "ms": 0.063674
+      },
+      {
+        "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+        "calls": 1,
+        "ms": 0.006477999999999999
+      }
+    ]
+  }
+}

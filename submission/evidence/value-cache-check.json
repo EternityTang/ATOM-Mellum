@@ -1,0 +1,58 @@
+[
+  {
+    "length": 13,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.3834909200668335,
+      "correct_5d": 0.0019224098650738597
+    }
+  },
+  {
+    "length": 16,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.406130313873291,
+      "correct_5d": 0.002069813199341297
+    }
+  },
+  {
+    "length": 17,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.394330382347107,
+      "correct_5d": 0.0020950313191860914
+    }
+  },
+  {
+    "length": 511,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.391168236732483,
+      "correct_5d": 0.0024059773422777653
+    }
+  },
+  {
+    "length": 1024,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.3871570825576782,
+      "correct_5d": 0.0023614114616066217
+    }
+  },
+  {
+    "length": 1025,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.3956482410430908,
+      "correct_5d": 0.002334050601348281
+    }
+  },
+  {
+    "length": 1200,
+    "write_matches": true,
+    "rel_l2": {
+      "old_4d": 1.4308931827545166,
+      "correct_5d": 0.002529604360461235
+    }
+  }
+]

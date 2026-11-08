@@ -1,0 +1,104 @@
+[
+  {
+    "file": "abc-final-summary.json",
+    "source": "server-step0/speed-abc-final/final-summary.json",
+    "bytes": 23395,
+    "sha256": "15a1127351c18d5b0c1ef2dcc991036f6db68efb781aa395b499698e63174543"
+  },
+  {
+    "file": "humaneval-seed43-summary.json",
+    "source": "server-step0/humaneval-111-seed43/final-summary.json",
+    "bytes": 10421,
+    "sha256": "6e7b6544f6cc57f7861fdf3773426727ba18486b7e4ddfc906c80a5d492d8e44"
+  },
+  {
+    "file": "value-cache-check.json",
+    "source": "server-step0/native-speed-moe-replay/value-cache-check.json",
+    "bytes": 1081,
+    "sha256": "cf4327875e7c4e1190ff5ad41c4e3e591e3a035fba7685f7b05c1e66f9224937"
+  },
+  {
+    "file": "trace-eager.json.gz",
+    "source": "server-step0\\native-speed-ablation\\eager\\trace\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_103844_676.pt.trace.json.gz",
+    "bytes": 1816943,
+    "sha256": "ce0e69a0f38c9904f70a60c51d2d66603698527a88abd61969fdca45360a5a86"
+  },
+  {
+    "file": "trace-eager-analysis.json",
+    "source": "server-step0\\native-speed-ablation\\eager\\trace\\analysis.json",
+    "bytes": 169334,
+    "sha256": "d3384b2d1ebaf725ed01b4fe26fcb5753d4043a9ac361c2be84fdcd30df6b596"
+  },
+  {
+    "file": "trace-graph.json.gz",
+    "source": "server-step0\\native-speed-ablation\\graph\\trace\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_104021_137.pt.trace.json.gz",
+    "bytes": 594239,
+    "sha256": "752748fe41f1f111ff93766b42e88e5f97da0fcd786ca580941fe998f0dd9fdb"
+  },
+  {
+    "file": "trace-graph-analysis.json",
+    "source": "server-step0\\native-speed-ablation\\graph\\trace\\analysis.json",
+    "bytes": 157832,
+    "sha256": "f69c7ebbab314bc0f05badafa464ea517a17aa2aad65a5afe2b1fd89a2dc212f"
+  },
+  {
+    "file": "trace-expert-fp8.json.gz",
+    "source": "server-step0\\native-speed-ablation\\expert-fp8-pad\\trace\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_104922_494.pt.trace.json.gz",
+    "bytes": 503795,
+    "sha256": "927689adc30c8b003533a9b379f77a533f2be5cdaa91fefecbf68ff634dfadc6"
+  },
+  {
+    "file": "trace-expert-fp8-analysis.json",
+    "source": "server-step0\\native-speed-ablation\\expert-fp8-pad\\trace\\analysis.json",
+    "bytes": 109340,
+    "sha256": "dc295ba89250add60c7e1af501c629e48c54a4ac14c41d8fc2aac344f2a1de15"
+  },
+  {
+    "file": "trace-before-mixed.json.gz",
+    "source": "server-step0\\native-speed-ablation\\p12\\trace-mixed\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_113313_337.pt.trace.json.gz",
+    "bytes": 1312971,
+    "sha256": "3a19723cc1186a2d33a855959efd1a7d1e266a84d753e2989673fb0b0814c6c5"
+  },
+  {
+    "file": "trace-before-mixed-analysis.json",
+    "source": "server-step0\\native-speed-ablation\\p12\\trace-mixed\\analysis.json",
+    "bytes": 140094,
+    "sha256": "785e31c3ec23777fce67b099147d2f32f1351050b1d02ec9ad3ed25a505f08cc"
+  },
+  {
+    "file": "trace-final-fixed.json.gz",
+    "source": "server-step0\\native-speed-moe-replay\\layout-fixed\\trace\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_131121_508.pt.trace.json.gz",
+    "bytes": 376936,
+    "sha256": "27ce554fec65b6d7f11cb9364cc0517ee1f0217325b7a182a8ca0c87d1838499"
+  },
+  {
+    "file": "trace-final-fixed-analysis.json",
+    "source": "server-step0\\native-speed-moe-replay\\layout-fixed\\trace\\analysis.json",
+    "bytes": 95778,
+    "sha256": "d4e5f47c3c61f795841a514be038dd68a2300d749dc0d6442ffc33f006923891"
+  },
+  {
+    "file": "trace-final-mixed.json.gz",
+    "source": "server-step0\\native-speed-moe-replay\\layout-fixed\\trace-mixed\\trace\\rank_0\\Mellum2.1-12B-A2.5B-Thinking_ts_20261106_131646_669.pt.trace.json.gz",
+    "bytes": 1113188,
+    "sha256": "a236f721a865c631b920726ce102535fa46b3e2b4019f7c256c11c1afca6a6cb"
+  },
+  {
+    "file": "trace-final-mixed-analysis.json",
+    "source": "server-step0\\native-speed-moe-replay\\layout-fixed\\trace-mixed\\analysis.json",
+    "bytes": 151778,
+    "sha256": "cae7ccbfbed966ef718014ef5d256df10433bbb97909485210fcfd63848f488e"
+  },
+  {
+    "file": "baseline.json",
+    "source": "/data/datasets/baseline.json",
+    "bytes": 1070,
+    "sha256": "14674cbbc641709358e197bd5ad71c3cac8f41ed3932b3091266f5636b0dd6c8"
+  },
+  {
+    "file": "README.md",
+    "source": "delivery evidence index",
+    "bytes": 2338,
+    "sha256": "195e96a769c553b4d360d060059e9487a9765567f017fb4bb06f0ef357999723"
+  }
+]
