@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "sample": "HumanEval/120",
+  "input_tokens": 271,
+  "runs": 16,
+  "predictions_checked": 96,
+  "all_predictions_are_argmax": true,
+  "first_prefill_difference_counts": {
+    "L00.moe_output": 15
+  },
+  "sixth_token_counts": {
+    "3559": 5,
+    "2339": 11
+  },
+  "fixed_route_trials": 24,
+  "route_ids_stable": true,
+  "route_weights_stable": true,
+  "weights_unchanged": true,
+  "fixed_route_outputs_differing_from_first": 23,
+  "max_fixed_route_difference": 0.03125,
+  "located_path": "atom UnquantizedFusedMoEMethod -> aiter.fused_moe.fused_moe",
+  "scope": "module-level cause confirmed; exact internal kernel mechanism not yet isolated"
+}

@@ -1,0 +1,338 @@
+{
+  "track": "precision",
+  "kv": "direct",
+  "dense_cap": 8,
+  "counts": {
+    "kv_gathers": 1904,
+    "prefill_pack_calls": 1792,
+    "attention_mode": "swa_softmax",
+    "swa_batch_groups": 3633,
+    "swa_batched_requests": 42063,
+    "kv_gather_tuning": "shared8x32x4",
+    "kv_write_mode": "torch",
+    "kv_write_calls": 0
+  },
+  "base": {
+    "attention": "bounded",
+    "moe": "off",
+    "dispatch": "graph_bucket",
+    "norm": "pointwise_batch",
+    "counts": {
+      "attention_tiled": 56,
+      "expert_script_calls": 0,
+      "linear_script_calls": 9587,
+      "norm_script_calls": 7684,
+      "graphs": {
+        "captures": 254,
+        "replays": 17017,
+        "fallbacks": 0,
+        "static_input_bytes": 48922624
+      }
+    },
+    "baseline": {
+      "mode": "norm_cap8",
+      "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+      "counts": {
+        "decode_batches": 68,
+        "max_decode_batch": 32,
+        "batch_qkv_calls": 0,
+        "batch_moe_calls": 1904,
+        "segmented_moe_calls": 0,
+        "batched_attention_calls": 0,
+        "expert_matrix_calls": 108932,
+        "max_expert_matrix_rows": 8,
+        "max_expert_tokens_before_chunk": 32
+      },
+      "prefill": "per-request full prefill",
+      "decode": "one shared backbone forward for all requests",
+      "projections": "per-request F.linear",
+      "experts": "cross-request expert grouping",
+      "backbone": {
+        "stage": "framework_eager",
+        "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+        "backbone_forward": "Qwen3MoeModel.forward",
+        "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+        "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+        "attention_components": [
+          {
+            "layer": 0,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 1,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 2,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 3,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 4,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 5,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 6,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 7,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 8,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 9,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 10,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 11,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 12,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 13,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 14,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 15,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 16,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 17,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 18,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 19,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 20,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 21,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 22,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 23,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          },
+          {
+            "layer": 24,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 25,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 26,
+            "kind": "sliding_attention",
+            "component": "PagedAttention",
+            "window": 1024
+          },
+          {
+            "layer": 27,
+            "kind": "full_attention",
+            "component": "PagedAttention",
+            "window": -1
+          }
+        ],
+        "parameter_identity_preserved": true,
+        "counts": {
+          "backbone": 0,
+          "decoder_layers": 3696,
+          "moe_blocks": 3696,
+          "framework_attention": 1792,
+          "eager_swa": 1344,
+          "eager_full": 448,
+          "native_swa_prefill": 0,
+          "native_swa_decode": 0,
+          "outer_batches": 12,
+          "max_outer_n": 6
+        }
+      }
+    }
+  },
+  "aggressive": {
+    "norm": "off",
+    "role": "all",
+    "selected_norms": [
+      "model.layers.14.self_attn.q_norm",
+      "model.layers.14.self_attn.k_norm",
+      "model.layers.14.input_layernorm",
+      "model.layers.14.post_attention_layernorm",
+      "model.layers.15.self_attn.q_norm",
+      "model.layers.15.self_attn.k_norm",
+      "model.layers.15.input_layernorm",
+      "model.layers.15.post_attention_layernorm",
+      "model.layers.16.self_attn.q_norm",
+      "model.layers.16.self_attn.k_norm",
+      "model.layers.16.input_layernorm",
+      "model.layers.16.post_attention_layernorm",
+      "model.layers.17.self_attn.q_norm",
+      "model.layers.17.self_attn.k_norm",
+      "model.layers.17.input_layernorm",
+      "model.layers.17.post_attention_layernorm",
+      "model.layers.18.self_attn.q_norm",
+      "model.layers.18.self_attn.k_norm",
+      "model.layers.18.input_layernorm",
+      "model.layers.18.post_attention_layernorm",
+      "model.layers.19.self_attn.q_norm",
+      "model.layers.19.self_attn.k_norm",
+      "model.layers.19.input_layernorm",
+      "model.layers.19.post_attention_layernorm",
+      "model.layers.20.self_attn.q_norm",
+      "model.layers.20.self_attn.k_norm",
+      "model.layers.20.input_layernorm",
+      "model.layers.20.post_attention_layernorm",
+      "model.layers.21.self_attn.q_norm",
+      "model.layers.21.self_attn.k_norm",
+      "model.layers.21.input_layernorm",
+      "model.layers.21.post_attention_layernorm",
+      "model.layers.22.self_attn.q_norm",
+      "model.layers.22.self_attn.k_norm",
+      "model.layers.22.input_layernorm",
+      "model.layers.22.post_attention_layernorm",
+      "model.layers.23.self_attn.q_norm",
+      "model.layers.23.self_attn.k_norm",
+      "model.layers.23.input_layernorm",
+      "model.layers.23.post_attention_layernorm",
+      "model.layers.24.self_attn.q_norm",
+      "model.layers.24.self_attn.k_norm",
+      "model.layers.24.input_layernorm",
+      "model.layers.24.post_attention_layernorm",
+      "model.layers.25.self_attn.q_norm",
+      "model.layers.25.self_attn.k_norm",
+      "model.layers.25.input_layernorm",
+      "model.layers.25.post_attention_layernorm",
+      "model.layers.26.self_attn.q_norm",
+      "model.layers.26.self_attn.k_norm",
+      "model.layers.26.input_layernorm",
+      "model.layers.26.post_attention_layernorm",
+      "model.layers.27.self_attn.q_norm",
+      "model.layers.27.self_attn.k_norm",
+      "model.layers.27.input_layernorm",
+      "model.layers.27.post_attention_layernorm"
+    ],
+    "layer_start": 14,
+    "layer_end": 28,
+    "experts": "triton",
+    "expert_phase": "decode",
+    "expert_layers": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "fp8_cache_dtypes": [],
+    "counts": {
+      "norm_computations": 0,
+      "fused_expert_calls": 952,
+      "fp8_calls": 0
+    }
+  },
+  "phase_timing": {
+    "prefill_calls": 0,
+    "prefill_s": 0.0,
+    "decode_calls": 0,
+    "decode_s": 0.0
+  },
+  "cuda_peak_allocated_bytes": 105942021120,
+  "cuda_peak_reserved_bytes": 120632377344
+}

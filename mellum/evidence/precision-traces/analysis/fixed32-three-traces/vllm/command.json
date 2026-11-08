@@ -1,0 +1,23 @@
+[
+  "/workspace/venvs/vllm-rocm-fixed32/bin/vllm",
+  "serve",
+  "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+  "--port",
+  "8312",
+  "--host",
+  "127.0.0.1",
+  "--dtype",
+  "bfloat16",
+  "--kv-cache-dtype",
+  "auto",
+  "--enforce-eager",
+  "--no-enable-prefix-caching",
+  "--max-model-len",
+  "32768",
+  "--gpu-memory-utilization",
+  "0.65",
+  "--generation-config",
+  "vllm",
+  "--max-num-batched-tokens",
+  "16384"
+]

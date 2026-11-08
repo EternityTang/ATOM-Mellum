@@ -1,0 +1,22 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 35.67112516902853,
+    "phase_timing": false,
+    "output_tps": 57.41338380259945,
+    "profile": false,
+    "flags": {
+      "track": "moe_trial",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control"
+    },
+    "gpu": "0"
+  }
+]

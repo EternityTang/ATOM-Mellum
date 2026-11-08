@@ -1,0 +1,19 @@
+[
+  {
+    "repetition": 0,
+    "n": 17,
+    "tokens": 64,
+    "matches": 1088,
+    "total": 1088,
+    "exact": 17,
+    "elapsed_s": 32.02314523793757,
+    "output_tps": 33.975425958817276,
+    "profile": false,
+    "flags": {
+      "attention": "bounded",
+      "moe": "off",
+      "dispatch": "graph_bucket"
+    },
+    "gpu": "0"
+  }
+]

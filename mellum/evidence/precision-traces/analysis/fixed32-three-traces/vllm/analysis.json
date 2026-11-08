@@ -1,0 +1,801 @@
+{
+  "control": {
+    "schedule": [
+      21,
+      0.52947
+    ],
+    "update_from_output": [
+      21,
+      0.15264
+    ],
+    "forward_stream_ms": 34.58836,
+    "forward_cadence_ms": 37.1049,
+    "client_chunk_gap_ms": 37.10032
+  },
+  "positions": [
+    1033,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1032,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031,
+    1031
+  ],
+  "model_trace_ms": 59.148486,
+  "gpu_busy_union_ms": 13.065829,
+  "broad_cpu_ms": {
+    "attn": 26.440576,
+    "moe": 19.508639
+  },
+  "gpu_events": 868,
+  "gpu_types": {
+    "other": [
+      {
+        "name": "kernel",
+        "count": 133,
+        "ms": 0.534424
+      }
+    ],
+    "attn": [
+      {
+        "name": "kernel",
+        "count": 511,
+        "ms": 6.426417
+      }
+    ],
+    "moe": [
+      {
+        "name": "kernel",
+        "count": 224,
+        "ms": 6.104978
+      }
+    ]
+  },
+  "gpu_by_cpu_op": {
+    "other": [
+      {
+        "name": "_C::rms_norm",
+        "count": 57,
+        "ms": 0.265604
+      },
+      {
+        "name": "aten::add",
+        "count": 56,
+        "ms": 0.180608
+      },
+      {
+        "name": "aten::copy_",
+        "count": 7,
+        "ms": 0.026952
+      },
+      {
+        "name": "aten::mul",
+        "count": 6,
+        "ms": 0.01939
+      },
+      {
+        "name": "aten::sin",
+        "count": 2,
+        "ms": 0.014037
+      },
+      {
+        "name": "aten::cos",
+        "count": 2,
+        "ms": 0.013597
+      },
+      {
+        "name": "aten::cat",
+        "count": 2,
+        "ms": 0.010837
+      },
+      {
+        "name": "aten::gather",
+        "count": 1,
+        "ms": 0.003399
+      }
+    ],
+    "attn": [
+      {
+        "name": "vllm::unified_attention_with_output",
+        "count": 21,
+        "ms": 2.726689
+      },
+      {
+        "name": "aten::mm",
+        "count": 56,
+        "ms": 0.946257
+      },
+      {
+        "name": "aten::mul",
+        "count": 112,
+        "ms": 0.657983
+      },
+      {
+        "name": "aten::cat",
+        "count": 56,
+        "ms": 0.422628
+      },
+      {
+        "name": "aten::add",
+        "count": 56,
+        "ms": 0.381272
+      },
+      {
+        "name": "_rocm_C::paged_attention",
+        "count": 14,
+        "ms": 0.29372
+      },
+      {
+        "name": "_C::rms_norm",
+        "count": 56,
+        "ms": 0.268356
+      },
+      {
+        "name": "aten::copy_",
+        "count": 56,
+        "ms": 0.267959
+      },
+      {
+        "name": "aten::neg",
+        "count": 56,
+        "ms": 0.245921
+      },
+      {
+        "name": "_C_cache_ops::reshape_and_cache",
+        "count": 28,
+        "ms": 0.215632
+      }
+    ],
+    "moe": [
+      {
+        "name": "vllm::moe_forward",
+        "count": 56,
+        "ms": 4.375707
+      },
+      {
+        "name": "_moe_C::moe_align_block_size",
+        "count": 28,
+        "ms": 0.621474
+      },
+      {
+        "name": "_moe_C::topk_softmax",
+        "count": 28,
+        "ms": 0.364178
+      },
+      {
+        "name": "aten::mm",
+        "count": 28,
+        "ms": 0.321743
+      },
+      {
+        "name": "_moe_C::moe_sum",
+        "count": 28,
+        "ms": 0.156714
+      },
+      {
+        "name": "_C::silu_and_mul",
+        "count": 28,
+        "ms": 0.152359
+      },
+      {
+        "name": "aten::copy_",
+        "count": 28,
+        "ms": 0.112803
+      }
+    ]
+  },
+  "kernels": {
+    "other": [
+      {
+        "name": "void vllm::rms_norm_kernel<c10::BFloat16, 8, 2, true>(c10::BFloat16*, c10::BFloat16 const*, long, long, long, long, long, c10::BFloat16 const*, long, float, int, int) [clone .kd]",
+        "count": 57,
+        "ms": 0.265604
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>) [clone .kd]",
+        "count": 56,
+        "ms": 0.180608
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::sin_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+        "count": 2,
+        "ms": 0.014037
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::cos_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+        "count": 2,
+        "ms": 0.013597
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>) [clone .kd]",
+        "count": 4,
+        "ms": 0.012356
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>) [clone .kd]",
+        "count": 4,
+        "ms": 0.011113
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 3, 128, 1>(at::native::(anonymous namespace)::OpaqueType<4u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 128, 1>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int) [clone .kd]",
+        "count": 2,
+        "ms": 0.010837
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 2,
+        "ms": 0.009118
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 2,
+        "ms": 0.008277
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#4}::operator()() const::{lambda(long)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 1,
+        "ms": 0.005478
+      },
+      {
+        "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool) [clone .kd]",
+        "count": 1,
+        "ms": 0.003399
+      }
+    ],
+    "attn": [
+      {
+        "name": "kernel_paged_attention_2d.kd",
+        "count": 21,
+        "ms": 2.726689
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 112,
+        "ms": 0.657983
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT2_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW2_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA2_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1.kd",
+        "count": 28,
+        "ms": 0.481327
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x32x256_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA512_LBSPPB512_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG32_8_1.kd",
+        "count": 28,
+        "ms": 0.46493
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 4, 64, 64>(at::native::(anonymous namespace)::OpaqueType<2u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<2u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int) [clone .kd]",
+        "count": 56,
+        "ms": 0.422628
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::BFloat16> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::BFloat16> const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::BFloat16> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<c10::BFloat16> const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 56,
+        "ms": 0.381272
+      },
+      {
+        "name": "void vllm::rms_norm_kernel<c10::BFloat16, 8, 2, true>(c10::BFloat16*, c10::BFloat16 const*, long, long, long, long, long, c10::BFloat16 const*, long, float, int, int) [clone .kd]",
+        "count": 56,
+        "ms": 0.268356
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 56,
+        "ms": 0.267959
+      },
+      {
+        "name": "void at::native::elementwise_kernel_manual_unroll<128, 8, at::native::gpu_kernel_impl_nocast<at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::neg_kernel_cuda(at::TensorIteratorBase&)::{lambda()#2}::operator()() const::{lambda()#9}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int, bool)#1}) [clone .kd]",
+        "count": 56,
+        "ms": 0.245921
+      },
+      {
+        "name": "void paged_attention_ll4mi_QKV_mfma16_kernel<__hip_bfloat16, __hip_bfloat16, (vllm::Fp8KVCacheDataType)0, __hip_bfloat16, 16, 128, 256, false, 8, (MFMAType)0, false>(__hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16 const*, int, float, int const*, int const*, int const*, int, float const*, int, int, int, float*, float*, __hip_bfloat16*, __hip_bfloat16*, int, float const*, float const*) [clone .kd]",
+        "count": 7,
+        "ms": 0.239092
+      },
+      {
+        "name": "void vllm::reshape_and_cache_kernel<__hip_bfloat16, __hip_bfloat16, (vllm::Fp8KVCacheDataType)0>(__hip_bfloat16 const*, __hip_bfloat16 const*, __hip_bfloat16*, __hip_bfloat16*, long const*, int, int, int, int, int, int, float const*, float const*, bool) [clone .kd]",
+        "count": 28,
+        "ms": 0.215632
+      },
+      {
+        "name": "void paged_attention_ll4mi_reduce_kernel<__hip_bfloat16, __hip_bfloat16, 128, 128, 256, 1>(__hip_bfloat16*, float const*, float const*, __hip_bfloat16 const*, int const*, int const*, int, float const*) [clone .kd]",
+        "count": 7,
+        "ms": 0.054628
+      }
+    ],
+    "moe": [
+      {
+        "name": "fused_moe_kernel.kd",
+        "count": 56,
+        "ms": 4.375707
+      },
+      {
+        "name": "void vllm::moe::moe_align_block_size_small_batch_expert_kernel<int, 256>(int const*, int*, int*, int*, int*, int, int, unsigned long, int, int, bool, int*) [clone .kd]",
+        "count": 28,
+        "ms": 0.621474
+      },
+      {
+        "name": "void vllm::moe::topkGating<8, 64, 4, 16, 64, int, __hip_bfloat16, (vllm::moe::ScoringFunc)0>(__hip_bfloat16 const*, bool const*, float*, int, int*, int*, int, int, int, bool, float const*, double, bool const*) [clone .kd]",
+        "count": 28,
+        "ms": 0.364178
+      },
+      {
+        "name": "Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16x512_MI16x16x1_SN_LDSB1_AFC1_AFEM1_AFEM1_ASEM1_CLR1_CADS0_DTLA0_DTLB0_DTVA0_DTVB0_EPS0_FDSI0_GRPM1_GRVWA8_GRVWB8_GSUAMBSK_GLS0_ISA942_IU1_K1_LDSTI0_LBSPPA1024_LBSPPB1024_LBSPPM0_LPA16_LPB16_LPM0_LRVW8_LWPMn1_MIAV0_MIWT1_1_MO40_NTn1_NTA0_NTB0_NTC0_NTD4_NTM0_NEPBS8_NLCA1_NLCB1_ONLL1_PGR2_PLR1_PKA1_SIA3_SS1_SPO0_SRVW0_SSO0_SVW1_SK0_SKFTR0_SKXCCM0_TLDS1_ULSGRO0_USL1_UIOFGRO0_USFGROn1_VSn1_VWA1_VWB1_WSGRA0_WSGRB0_WS64_WG16_4_4.kd",
+        "count": 28,
+        "ms": 0.321743
+      },
+      {
+        "name": "void vllm::moe::moe_sum_vec_kernel<c10::BFloat16, int, 8, false>(c10::BFloat16*, c10::BFloat16 const*, long, int, long, long, int const*, int const*, long, long) [clone .kd]",
+        "count": 28,
+        "ms": 0.156714
+      },
+      {
+        "name": "_ZN4vllm18act_and_mul_kernelIN3c108BFloat16E15__hip_bfloat162TnPFT_RKS4_fEXadL_ZNS_11silu_kernelIS2_EES4_S6_fEETnPFT0_RKSA_fEXadL_ZNS_18packed_silu_kernelIS3_EES4_S6_fEELb1ELb1ELb0ELb0EEEvPS4_PS5_ifff.kd",
+        "count": 28,
+        "ms": 0.152359
+      },
+      {
+        "name": "__amd_rocclr_copyBuffer.kd",
+        "count": 28,
+        "ms": 0.112803
+      }
+    ]
+  },
+  "cpu_ops_inclusive": {
+    "other": [
+      {
+        "name": "aten::add",
+        "count": 56,
+        "ms": 1.294364
+      },
+      {
+        "name": "_C::rms_norm",
+        "count": 57,
+        "ms": 1.030752
+      },
+      {
+        "name": "aten::to",
+        "count": 9,
+        "ms": 0.196303
+      },
+      {
+        "name": "aten::_to_copy",
+        "count": 7,
+        "ms": 0.189034
+      },
+      {
+        "name": "aten::reshape",
+        "count": 115,
+        "ms": 0.187418
+      },
+      {
+        "name": "aten::empty",
+        "count": 58,
+        "ms": 0.155848
+      },
+      {
+        "name": "aten::copy_",
+        "count": 7,
+        "ms": 0.147027
+      },
+      {
+        "name": "aten::mul",
+        "count": 6,
+        "ms": 0.087631
+      },
+      {
+        "name": "aten::view",
+        "count": 117,
+        "ms": 0.082075
+      },
+      {
+        "name": "aten::embedding",
+        "count": 1,
+        "ms": 0.058604
+      },
+      {
+        "name": "aten::index_select",
+        "count": 1,
+        "ms": 0.051235
+      },
+      {
+        "name": "aten::cat",
+        "count": 2,
+        "ms": 0.031476
+      },
+      {
+        "name": "aten::cos",
+        "count": 2,
+        "ms": 0.029537
+      },
+      {
+        "name": "aten::gather",
+        "count": 1,
+        "ms": 0.027397
+      },
+      {
+        "name": "aten::sin",
+        "count": 2,
+        "ms": 0.027048
+      },
+      {
+        "name": "aten::empty_strided",
+        "count": 7,
+        "ms": 0.021238
+      },
+      {
+        "name": "aten::unsqueeze",
+        "count": 4,
+        "ms": 0.020797
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 8,
+        "ms": 0.006379
+      },
+      {
+        "name": "aten::select",
+        "count": 1,
+        "ms": 0.003609
+      },
+      {
+        "name": "aten::resize_",
+        "count": 1,
+        "ms": 0.00325
+      },
+      {
+        "name": "aten::expand",
+        "count": 1,
+        "ms": 0.00276
+      }
+    ],
+    "attn": [
+      {
+        "name": "vllm::rocm_unquantized_gemm",
+        "count": 56,
+        "ms": 5.651074
+      },
+      {
+        "name": "vllm::unified_attention_with_output",
+        "count": 28,
+        "ms": 4.368502
+      },
+      {
+        "name": "aten::linear",
+        "count": 56,
+        "ms": 4.349081
+      },
+      {
+        "name": "aten::matmul",
+        "count": 56,
+        "ms": 3.938538
+      },
+      {
+        "name": "aten::mm",
+        "count": 56,
+        "ms": 3.579774
+      },
+      {
+        "name": "aten::reshape",
+        "count": 280,
+        "ms": 1.979134
+      },
+      {
+        "name": "vllm::unified_kv_cache_update",
+        "count": 28,
+        "ms": 1.880739
+      },
+      {
+        "name": "aten::mul",
+        "count": 112,
+        "ms": 1.440876
+      },
+      {
+        "name": "aten::clone",
+        "count": 56,
+        "ms": 1.419218
+      },
+      {
+        "name": "aten::copy_",
+        "count": 56,
+        "ms": 1.036711
+      },
+      {
+        "name": "aten::cat",
+        "count": 56,
+        "ms": 0.851581
+      },
+      {
+        "name": "_C::rms_norm",
+        "count": 56,
+        "ms": 0.850295
+      },
+      {
+        "name": "aten::neg",
+        "count": 56,
+        "ms": 0.771321
+      },
+      {
+        "name": "aten::add",
+        "count": 56,
+        "ms": 0.749632
+      },
+      {
+        "name": "aten::transpose",
+        "count": 280,
+        "ms": 0.728702
+      },
+      {
+        "name": "_C_cache_ops::reshape_and_cache",
+        "count": 28,
+        "ms": 0.619574
+      },
+      {
+        "name": "aten::empty",
+        "count": 182,
+        "ms": 0.472041
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 756,
+        "ms": 0.404267
+      },
+      {
+        "name": "aten::slice",
+        "count": 224,
+        "ms": 0.366398
+      },
+      {
+        "name": "aten::view",
+        "count": 532,
+        "ms": 0.30925
+      },
+      {
+        "name": "aten::empty_like",
+        "count": 63,
+        "ms": 0.292262
+      },
+      {
+        "name": "aten::t",
+        "count": 56,
+        "ms": 0.287876
+      },
+      {
+        "name": "aten::select",
+        "count": 112,
+        "ms": 0.277204
+      },
+      {
+        "name": "_rocm_C::paged_attention",
+        "count": 7,
+        "ms": 0.229079
+      },
+      {
+        "name": "aten::split_with_sizes",
+        "count": 28,
+        "ms": 0.173025
+      },
+      {
+        "name": "aten::unsqueeze",
+        "count": 56,
+        "ms": 0.088193
+      },
+      {
+        "name": "aten::new_empty",
+        "count": 28,
+        "ms": 0.073399
+      },
+      {
+        "name": "aten::_unsafe_view",
+        "count": 112,
+        "ms": 0.073323
+      },
+      {
+        "name": "aten::_reshape_alias",
+        "count": 28,
+        "ms": 0.015688
+      },
+      {
+        "name": "aten::empty_strided",
+        "count": 7,
+        "ms": 0.01551
+      },
+      {
+        "name": "aten::flatten",
+        "count": 28,
+        "ms": 0.00913
+      },
+      {
+        "name": "aten::to",
+        "count": 21,
+        "ms": 0.008779
+      }
+    ],
+    "moe": [
+      {
+        "name": "vllm::moe_forward",
+        "count": 28,
+        "ms": 17.933892
+      },
+      {
+        "name": "vllm::rocm_unquantized_gemm",
+        "count": 28,
+        "ms": 2.550129
+      },
+      {
+        "name": "aten::linear",
+        "count": 28,
+        "ms": 1.975358
+      },
+      {
+        "name": "aten::matmul",
+        "count": 28,
+        "ms": 1.775356
+      },
+      {
+        "name": "aten::mm",
+        "count": 28,
+        "ms": 1.74505
+      },
+      {
+        "name": "_moe_C::topk_softmax",
+        "count": 28,
+        "ms": 0.810384
+      },
+      {
+        "name": "_moe_C::moe_align_block_size",
+        "count": 28,
+        "ms": 0.75183
+      },
+      {
+        "name": "aten::empty",
+        "count": 252,
+        "ms": 0.485112
+      },
+      {
+        "name": "aten::copy_",
+        "count": 28,
+        "ms": 0.460349
+      },
+      {
+        "name": "_C::silu_and_mul",
+        "count": 28,
+        "ms": 0.427279
+      },
+      {
+        "name": "_moe_C::moe_sum",
+        "count": 28,
+        "ms": 0.400012
+      },
+      {
+        "name": "aten::slice",
+        "count": 224,
+        "ms": 0.392226
+      },
+      {
+        "name": "aten::view",
+        "count": 420,
+        "ms": 0.246235
+      },
+      {
+        "name": "aten::new_empty",
+        "count": 84,
+        "ms": 0.240009
+      },
+      {
+        "name": "aten::reshape",
+        "count": 112,
+        "ms": 0.211149
+      },
+      {
+        "name": "aten::t",
+        "count": 28,
+        "ms": 0.142657
+      },
+      {
+        "name": "aten::flatten",
+        "count": 140,
+        "ms": 0.120907
+      },
+      {
+        "name": "aten::as_strided",
+        "count": 252,
+        "ms": 0.115667
+      },
+      {
+        "name": "aten::transpose",
+        "count": 28,
+        "ms": 0.080211
+      }
+    ]
+  },
+  "hip_runtime": {
+    "other": [
+      {
+        "name": "hipLaunchKernel",
+        "count": 133,
+        "ms": 1.265544
+      },
+      {
+        "name": "hipDeviceSynchronize",
+        "count": 2,
+        "ms": 0.019378
+      }
+    ],
+    "attn": [
+      {
+        "name": "hipLaunchKernel",
+        "count": 434,
+        "ms": 3.390092
+      },
+      {
+        "name": "hipExtModuleLaunchKernel",
+        "count": 56,
+        "ms": 0.709563
+      },
+      {
+        "name": "hipModuleLaunchKernel",
+        "count": 21,
+        "ms": 0.231598
+      },
+      {
+        "name": "hipPointerGetAttribute",
+        "count": 189,
+        "ms": 0.071062
+      }
+    ],
+    "moe": [
+      {
+        "name": "hipLaunchKernel",
+        "count": 112,
+        "ms": 1.046077
+      },
+      {
+        "name": "hipModuleLaunchKernel",
+        "count": 56,
+        "ms": 0.474075
+      },
+      {
+        "name": "hipExtModuleLaunchKernel",
+        "count": 28,
+        "ms": 0.363199
+      },
+      {
+        "name": "hipMemcpyAsync",
+        "count": 28,
+        "ms": 0.228628
+      },
+      {
+        "name": "hipPointerGetAttribute",
+        "count": 364,
+        "ms": 0.13089
+      }
+    ]
+  }
+}

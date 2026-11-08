@@ -3,6 +3,10 @@
 当前分支：`codex/mellum-precision`。启动和验证范围见 [Mellum 使用说明](mellum/README.md)；
 优化过程见 [历史说明](mellum/HISTORY.md)、[阶段来源清单](mellum/history/stages/)及[实验报告](mellum/history/reports/)。
 
+完整精度开发原始 trace 已补齐：[原始 Trace、阶段分析与逐份索引](mellum/evidence/precision-traces/README.md)。
+包含 47 份算子 profiler、9 份请求/调度时间线和 1 份层级诊断，附来源与 SHA256 校验。
+后期独立候选的 trace 入库不等于其模型计算已合入默认入口，下列性能记录仍对应原入库实现。
+
 保留原ATOM和先前Mellum提交。新增阶段提交是2026-11-06依据留存快照的补录，不伪造过去的提交时间；
 缺失的中间编辑无法凭空恢复。模型源码与原保存版本一致；完整Git历史不做squash。
 

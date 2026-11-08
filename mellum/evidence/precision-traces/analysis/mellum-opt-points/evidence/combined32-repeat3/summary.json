@@ -1,0 +1,53 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 47.69920373999048,
+    "output_tps": 42.935727211793676,
+    "profile": false,
+    "flags": {
+      "attention": "bounded",
+      "moe": "off",
+      "dispatch": "graph"
+    },
+    "gpu": "0"
+  },
+  {
+    "repetition": 1,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 47.500738956965506,
+    "output_tps": 43.11511873226725,
+    "profile": false,
+    "flags": {
+      "attention": "bounded",
+      "moe": "off",
+      "dispatch": "graph"
+    },
+    "gpu": "0"
+  },
+  {
+    "repetition": 2,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 47.48019267304335,
+    "output_tps": 43.13377610118129,
+    "profile": false,
+    "flags": {
+      "attention": "bounded",
+      "moe": "off",
+      "dispatch": "graph"
+    },
+    "gpu": "0"
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "source": "/app/aiter-test/aiter/ops/triton/_triton_kernels/moe/moe_op.py",
+  "sha256": "5a215e613bf2151d059d05faa005df8a9e2db5c654c45879dd31168ac1169be4",
+  "change": "BF16 accumulator += dot(block) -> dot(block, acc=accumulator); model-local only"
+}

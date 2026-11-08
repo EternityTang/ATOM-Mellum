@@ -1,0 +1,35 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 27.66039621597156,
+    "phase_timing": false,
+    "output_tps": 74.04087721698838,
+    "profile": false,
+    "flags": {
+      "track": "aggressive",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "swa_softmax",
+      "kv_tuning": "shared8x32x4",
+      "kv_write": "torch",
+      "swa_graph": "0",
+      "prefill_pack": "1",
+      "bold_norm": "off",
+      "norm_role": "all",
+      "bold_experts": "off",
+      "expert_phase": "decode",
+      "layer_start": "0",
+      "layer_end": "28"
+    },
+    "gpu": "1"
+  }
+]

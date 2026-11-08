@@ -1,0 +1,9 @@
+{
+  "mode": "exact_fast",
+  "n": 200,
+  "matching": 12800,
+  "total": 12800,
+  "exact": 200,
+  "reference": "/workspace/results/mellum_eager_opt_4k8RQUX2/hf-frozen-C200.jsonl",
+  "reference_sha256": "d05a173791a4496cef736cf060654a9431f72b1fb87e1b507feacd721599743f"
+}

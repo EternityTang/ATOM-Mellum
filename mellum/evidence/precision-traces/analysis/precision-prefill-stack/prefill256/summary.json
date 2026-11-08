@@ -1,0 +1,48 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 256,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 71.54447814798914,
+    "phase_timing": false,
+    "output_tps": 114.50219796215326,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "swa_softmax"
+    },
+    "gpu": "1"
+  },
+  {
+    "repetition": 1,
+    "n": 32,
+    "tokens": 256,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 71.6487488480052,
+    "phase_timing": false,
+    "output_tps": 114.33556247267362,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "swa_softmax"
+    },
+    "gpu": "1"
+  }
+]

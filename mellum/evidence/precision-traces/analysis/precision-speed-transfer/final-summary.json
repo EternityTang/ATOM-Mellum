@@ -1,0 +1,1272 @@
+{
+  "decision": {
+    "control_tps": 116.13458267127434,
+    "candidate_tps": 126.30776934025323,
+    "short_gain": 0.08759825398240495,
+    "long4": {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 32.38609930803068,
+      "phase_timing": false,
+      "output_tps": 7.9046259188280965,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control",
+        "graph": "1",
+        "norm": "pointwise_batch",
+        "attention": "swa_softmax",
+        "kv_tuning": "shared8x32x4",
+        "kv_write": "torch",
+        "swa_graph": "0",
+        "prefill_pack": "1"
+      },
+      "gpu": "1"
+    },
+    "http_control": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "http_best": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "http_summaries": {
+      "http-control": {
+        "Test Duration (s)": 438.7117,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4559,
+        "Avg Latency (s)": 66.7246,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 116.7053,
+        "Total Throughput (tok/s)": 1189.4258,
+        "Avg TTFT (ms)": 9395.85,
+        "Avg TPOT (ms)": 224.82,
+        "Avg ITL (ms)": 224.82,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "http-best": {
+        "Test Duration (s)": 418.2782,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4782,
+        "Avg Latency (s)": 63.3609,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 122.4066,
+        "Total Throughput (tok/s)": 1247.5309,
+        "Avg TTFT (ms)": 9654.34,
+        "Avg TPOT (ms)": 210.61,
+        "Avg ITL (ms)": 210.62,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      }
+    },
+    "retained": true
+  },
+  "short": {
+    "grouped-graph64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 29.455217837006785,
+        "phase_timing": false,
+        "output_tps": 69.52927699712833,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "grouped",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "grouped-graph256": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 72.21602948498912,
+        "phase_timing": false,
+        "output_tps": 113.4374190663971,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "grouped",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 73.32209031598177,
+        "phase_timing": false,
+        "output_tps": 111.72622008860564,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "grouped",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "writer-gather64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 29.04465968790464,
+        "phase_timing": false,
+        "output_tps": 70.51210177728022,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "32x8",
+          "kv_write": "triton",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "shared-gather64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 27.651513621909544,
+        "phase_timing": false,
+        "output_tps": 74.06466163129953,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "swa-graph256": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 70.88298974896315,
+        "phase_timing": false,
+        "output_tps": 115.57074594359685,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "1",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 70.67918007192202,
+        "phase_timing": false,
+        "output_tps": 115.90400442766808,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "1",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "control64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 28.947471911087632,
+        "phase_timing": false,
+        "output_tps": 70.74883797419156,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "control256": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 70.2416080191033,
+        "phase_timing": false,
+        "output_tps": 116.62603165024437,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 70.8386199719971,
+        "phase_timing": false,
+        "output_tps": 115.64313369230432,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "gather64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 28.84905834402889,
+        "phase_timing": false,
+        "output_tps": 70.9901853841233,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "32x8",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "grouped-trace": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 22.863872807007283,
+        "phase_timing": false,
+        "output_tps": 11.19670329523271,
+        "profile": true,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "grouped",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "shared-long4": [
+      {
+        "repetition": 0,
+        "n": 4,
+        "tokens": 64,
+        "matches": 256,
+        "total": 256,
+        "exact": 4,
+        "elapsed_s": 32.38609930803068,
+        "phase_timing": false,
+        "output_tps": 7.9046259188280965,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "shared-trace": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 24.465542744961567,
+        "phase_timing": false,
+        "output_tps": 10.463695928132255,
+        "profile": true,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "control-trace": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 24.99258728895802,
+        "phase_timing": false,
+        "output_tps": 10.243037146982514,
+        "profile": true,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "writer64": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 29.01938075502403,
+        "phase_timing": false,
+        "output_tps": 70.57352523435347,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "triton",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "shared-gather256": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 64.70253418199718,
+        "phase_timing": false,
+        "output_tps": 126.61018773943695,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 65.01311205292586,
+        "phase_timing": false,
+        "output_tps": 126.00535094106952,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ],
+    "cap16-10": [
+      {
+        "repetition": 0,
+        "n": 10,
+        "tokens": 64,
+        "matches": 260,
+        "total": 640,
+        "exact": 2,
+        "elapsed_s": 12.23406264197547,
+        "phase_timing": false,
+        "output_tps": 52.31295757830592,
+        "profile": false,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "16",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "off",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1"
+        },
+        "gpu": "1"
+      }
+    ]
+  },
+  "http": {
+    "http-control": {
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 12800,
+        "exact": 200,
+        "percent": 100.0,
+        "passed": true
+      },
+      "performance": {
+        "Test Duration (s)": 438.7117,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4559,
+        "Avg Latency (s)": 66.7246,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 116.7053,
+        "Total Throughput (tok/s)": 1189.4258,
+        "Avg TTFT (ms)": 9395.85,
+        "Avg TPOT (ms)": 224.82,
+        "Avg ITL (ms)": 224.82,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "http_peak": 32,
+      "model_peak": 32,
+      "runtime": {
+        "track": "precision",
+        "kv": "direct",
+        "dense_cap": 8,
+        "counts": {
+          "kv_gathers": 48636,
+          "prefill_pack_calls": 7364,
+          "attention_mode": "swa_softmax",
+          "swa_batch_groups": 101094,
+          "swa_batched_requests": 957852,
+          "kv_gather_tuning": "off",
+          "kv_write_mode": "torch",
+          "kv_write_calls": 0
+        },
+        "base": {
+          "attention": "bounded",
+          "moe": "off",
+          "dispatch": "graph_bucket",
+          "norm": "pointwise_batch",
+          "counts": {
+            "attention_tiled": 84,
+            "expert_script_calls": 0,
+            "linear_script_calls": 244916,
+            "norm_script_calls": 196281,
+            "graphs": {
+              "captures": 1524,
+              "replays": 439673,
+              "fallbacks": 0,
+              "static_input_bytes": 96316416
+            }
+          },
+          "baseline": {
+            "mode": "norm_cap8",
+            "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+            "counts": {
+              "decode_batches": 1737,
+              "max_decode_batch": 32,
+              "batch_qkv_calls": 0,
+              "batch_moe_calls": 48636,
+              "segmented_moe_calls": 0,
+              "batched_attention_calls": 0,
+              "expert_matrix_calls": 5374318,
+              "max_expert_matrix_rows": 8,
+              "max_expert_tokens_before_chunk": 32
+            },
+            "prefill": "per-request full prefill",
+            "decode": "one shared backbone forward for all requests",
+            "projections": "per-request F.linear",
+            "experts": "cross-request expert grouping",
+            "backbone": {
+              "stage": "framework_eager",
+              "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+              "backbone_forward": "Qwen3MoeModel.forward",
+              "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+              "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+              "attention_components": [
+                {
+                  "layer": 0,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 1,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 2,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 3,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 4,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 5,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 6,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 7,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 8,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 9,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 10,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 11,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 12,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 13,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 14,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 15,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 16,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 17,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 18,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 19,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 20,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 21,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 22,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 23,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 24,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 25,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 26,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 27,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                }
+              ],
+              "parameter_identity_preserved": true,
+              "counts": {
+                "backbone": 0,
+                "decoder_layers": 56000,
+                "moe_blocks": 56000,
+                "framework_attention": 7364,
+                "eager_swa": 5523,
+                "eager_full": 1841,
+                "native_swa_prefill": 0,
+                "native_swa_decode": 0,
+                "outer_batches": 47,
+                "max_outer_n": 32
+              }
+            }
+          }
+        },
+        "max_decode_batch": 32
+      }
+    },
+    "http-best": {
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 12800,
+        "exact": 200,
+        "percent": 100.0,
+        "passed": true
+      },
+      "performance": {
+        "Test Duration (s)": 418.2782,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4782,
+        "Avg Latency (s)": 63.3609,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 122.4066,
+        "Total Throughput (tok/s)": 1247.5309,
+        "Avg TTFT (ms)": 9654.34,
+        "Avg TPOT (ms)": 210.61,
+        "Avg ITL (ms)": 210.62,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "http_peak": 32,
+      "model_peak": 32,
+      "runtime": {
+        "track": "precision",
+        "kv": "direct",
+        "dense_cap": 8,
+        "counts": {
+          "kv_gathers": 48608,
+          "prefill_pack_calls": 7364,
+          "attention_mode": "swa_softmax",
+          "swa_batch_groups": 88074,
+          "swa_batched_requests": 970263,
+          "kv_gather_tuning": "shared8x32x4",
+          "kv_write_mode": "torch",
+          "kv_write_calls": 0
+        },
+        "base": {
+          "attention": "bounded",
+          "moe": "off",
+          "dispatch": "graph_bucket",
+          "norm": "pointwise_batch",
+          "counts": {
+            "attention_tiled": 84,
+            "expert_script_calls": 0,
+            "linear_script_calls": 244775,
+            "norm_script_calls": 196168,
+            "graphs": {
+              "captures": 1524,
+              "replays": 439419,
+              "fallbacks": 0,
+              "static_input_bytes": 96316416
+            }
+          },
+          "baseline": {
+            "mode": "norm_cap8",
+            "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+            "counts": {
+              "decode_batches": 1736,
+              "max_decode_batch": 32,
+              "batch_qkv_calls": 0,
+              "batch_moe_calls": 48608,
+              "segmented_moe_calls": 0,
+              "batched_attention_calls": 0,
+              "expert_matrix_calls": 5372698,
+              "max_expert_matrix_rows": 8,
+              "max_expert_tokens_before_chunk": 32
+            },
+            "prefill": "per-request full prefill",
+            "decode": "one shared backbone forward for all requests",
+            "projections": "per-request F.linear",
+            "experts": "cross-request expert grouping",
+            "backbone": {
+              "stage": "framework_eager",
+              "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+              "backbone_forward": "Qwen3MoeModel.forward",
+              "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+              "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+              "attention_components": [
+                {
+                  "layer": 0,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 1,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 2,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 3,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 4,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 5,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 6,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 7,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 8,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 9,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 10,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 11,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 12,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 13,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 14,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 15,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 16,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 17,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 18,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 19,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 20,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 21,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 22,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 23,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 24,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 25,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 26,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 27,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                }
+              ],
+              "parameter_identity_preserved": true,
+              "counts": {
+                "backbone": 0,
+                "decoder_layers": 55972,
+                "moe_blocks": 55972,
+                "framework_attention": 7364,
+                "eager_swa": 5523,
+                "eager_full": 1841,
+                "native_swa_prefill": 0,
+                "native_swa_decode": 0,
+                "outer_batches": 48,
+                "max_outer_n": 32
+              }
+            }
+          }
+        },
+        "max_decode_batch": 32
+      }
+    }
+  },
+  "full_gain": 0.04885210868743761,
+  "retained": true,
+  "source": {
+    "python_files": 417,
+    "changed": []
+  },
+  "gpu_overlap": {
+    "startup": {
+      "samples": 1,
+      "other_gpu_busy": 0
+    },
+    "control64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "cap16-10": {
+      "samples": 3,
+      "other_gpu_busy": 0
+    },
+    "writer64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "gather64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "writer-gather64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "control256": {
+      "samples": 12,
+      "other_gpu_busy": 0
+    },
+    "swa-graph256": {
+      "samples": 29,
+      "other_gpu_busy": 0
+    },
+    "grouped-graph64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "grouped-graph256": {
+      "samples": 13,
+      "other_gpu_busy": 0
+    },
+    "shared-gather64": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "shared-gather256": {
+      "samples": 12,
+      "other_gpu_busy": 0
+    },
+    "shared-long4": {
+      "samples": 6,
+      "other_gpu_busy": 0
+    },
+    "control-trace": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "shared-trace": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "grouped-trace": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "http-control": {
+      "samples": 33,
+      "other_gpu_busy": 0
+    },
+    "http-best": {
+      "samples": 31,
+      "other_gpu_busy": 0
+    }
+  },
+  "commit": "0bb1b726a4558f5f628ab70a0f8466a46364885e",
+  "correctness_scope": "A200 concurrency32, generate256 compare first64 vs Torch2.10 HF5.20.2 eager sequential; independent long4 first64"
+}

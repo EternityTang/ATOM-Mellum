@@ -1,0 +1,46 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                               aten::mm        13.29%     585.628ms        15.84%     697.929ms      48.827us     805.323ms        26.36%     805.323ms      56.340us         14294  
+                                          aten::nonzero         3.39%     149.397ms        30.71%        1.353s     187.455us     431.319ms        14.12%     475.565ms      65.895us          7217  
+                                         aten::_softmax         0.03%       1.454ms         0.08%       3.551ms      12.682us     427.094ms        13.98%     427.094ms       1.525ms           280  
+                                              aten::bmm         0.32%      13.974ms         0.38%      16.619ms      59.353us     366.167ms        11.98%     366.167ms       1.308ms           280  
+void at::native::(anonymous namespace)::cunn_SoftMax...         0.00%       0.000us         0.00%       0.000us       0.000us     335.291ms        10.97%     335.291ms       3.992ms            84  
+                                            aten::copy_         0.72%      31.881ms         2.03%      89.262ms       9.527us     273.458ms         8.95%     273.458ms      29.188us          9369  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us     263.942ms         8.64%     263.942ms     637.540us           414  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x1...         0.00%       0.000us         0.00%       0.000us       0.000us     233.700ms         7.65%     233.700ms       2.782ms            84  
+void rocprim::ROCPRIM_400200_NS::detail::trampoline_...         0.00%       0.000us         0.00%       0.000us       0.000us     228.416ms         7.48%     228.416ms      41.598us          5491  
+                                              aten::mul         1.57%      68.996ms         3.36%     147.849ms       9.567us     215.028ms         7.04%     215.028ms      13.914us         15454  
+                                              aten::add         0.14%       6.201ms         0.30%      13.030ms      10.301us     154.586ms         5.06%     154.586ms     122.202us          1265  
+                                       aten::index_add_         0.71%      31.320ms         1.56%      68.644ms      10.099us     144.795ms         4.74%     144.795ms      21.303us          6797  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us     141.648ms         4.64%     141.648ms       1.012ms           140  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us     130.107ms         4.26%     130.107ms       9.306us         13981  
+void at::native::indexFuncLargeIndex<c10::BFloat16, ...         0.00%       0.000us         0.00%       0.000us       0.000us     120.753ms         3.95%     120.753ms      31.381us          3848  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     110.953ms         3.63%     110.953ms     131.306us           845  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      88.176ms         2.89%      88.176ms     101.937us           865  
+void at::native::(anonymous namespace)::cunn_SoftMax...         0.00%       0.000us         0.00%       0.000us       0.000us      87.344ms         2.86%      87.344ms       3.119ms            28  
+                                            aten::index         2.37%     104.559ms         8.15%     358.822ms      25.605us      77.143ms         2.52%      87.933ms       6.275us         14014  
+Cijk_Ailk_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT128x2...         0.00%       0.000us         0.00%       0.000us       0.000us      68.952ms         2.26%      68.952ms     820.860us            84  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      63.194ms         2.07%      63.194ms     451.386us           140  
+void rocprim::ROCPRIM_400200_NS::detail::trampoline_...         0.00%       0.000us         0.00%       0.000us       0.000us      58.026ms         1.90%      58.026ms       8.537us          6797  
+                                             aten::silu         0.86%      37.776ms         1.64%      72.375ms      10.648us      56.796ms         1.86%      56.796ms       8.356us          6797  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us      55.330ms         1.81%      55.330ms     260.990us           212  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      52.277ms         1.71%      52.277ms       8.628us          6059  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT128x3...         0.00%       0.000us         0.00%       0.000us       0.000us      48.301ms         1.58%      48.301ms     862.511us            56  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      44.246ms         1.45%      44.246ms       6.510us          6797  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      40.249ms         1.32%      40.249ms       5.342us          7535  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us      40.166ms         1.31%      40.166ms      13.620us          2949  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us      39.812ms         1.30%      39.812ms      13.500us          2949  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us      37.907ms         1.24%      37.907ms     124.286us           305  
+void at::native::vectorized_gather_kernel<16, long>(...         0.00%       0.000us         0.00%       0.000us       0.000us      35.907ms         1.18%      35.907ms       5.664us          6339  
+void rocprim::ROCPRIM_400200_NS::detail::trampoline_...         0.00%       0.000us         0.00%       0.000us       0.000us      33.695ms         1.10%      33.695ms       4.669us          7217  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us      32.450ms         1.06%      32.450ms     205.380us           158  
+                         Memcpy DtoD (Device -> Device)         0.00%       0.000us         0.00%       0.000us       0.000us      32.103ms         1.05%      32.103ms       4.364us          7357  
+void at::native::(anonymous namespace)::write_indice...         0.00%       0.000us         0.00%       0.000us       0.000us      28.050ms         0.92%      28.050ms       4.127us          6797  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      27.599ms         0.90%      27.599ms      65.712us           420  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us      25.442ms         0.83%      25.442ms     233.412us           109  
+void at::native::indexFuncSmallIndex<c10::BFloat16, ...         0.00%       0.000us         0.00%       0.000us       0.000us      24.042ms         0.79%      24.042ms       8.153us          2949  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x1...         0.00%       0.000us         0.00%       0.000us       0.000us      22.807ms         0.75%      22.807ms      64.976us           351  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 4.405s
+Self CUDA time total: 3.055s

@@ -1,0 +1,5 @@
+{
+  "mode": "cfix_exact_decode",
+  "decode_step": 6,
+  "batch": 32
+}

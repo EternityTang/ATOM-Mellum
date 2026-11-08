@@ -1,0 +1,21 @@
+[
+  {
+    "repetition": 0,
+    "n": 10,
+    "tokens": 64,
+    "matches": 640,
+    "total": 640,
+    "exact": 10,
+    "elapsed_s": 17.436075801961124,
+    "output_tps": 36.70550686227322,
+    "profile": false,
+    "flags": {
+      "track": "points",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "moe_last1"
+    },
+    "gpu": "0"
+  }
+]

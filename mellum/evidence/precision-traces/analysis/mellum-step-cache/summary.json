@@ -1,0 +1,226 @@
+{
+  "control": {
+    "perf": {
+      "output_tps": 216.68717646037928,
+      "tpot_p50_ms": 136.71521745284326,
+      "ttft_p50_s": 2.93959556997288
+    },
+    "quick_hf": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 329,
+      "total": 512,
+      "exact": 12
+    }
+  },
+  "rope": {
+    "perf": {
+      "output_tps": 228.85066705343283,
+      "tpot_p50_ms": 128.89325125508157,
+      "ttft_p50_s": 2.924875046010129
+    },
+    "quick_hf": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 329,
+      "total": 512,
+      "exact": 12
+    }
+  },
+  "address": {
+    "perf": {
+      "output_tps": 215.38724242362932,
+      "tpot_p50_ms": 137.53483754139867,
+      "ttft_p50_s": 2.95885369455209
+    },
+    "quick_hf": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 329,
+      "total": 512,
+      "exact": 12
+    }
+  },
+  "native": {
+    "perf": {
+      "output_tps": 214.09970542557753,
+      "tpot_p50_ms": 137.7681952864662,
+      "ttft_p50_s": 3.1280880295089446
+    },
+    "quick_hf": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 329,
+      "total": 512,
+      "exact": 12
+    }
+  },
+  "combined": {
+    "perf": {
+      "output_tps": 232.0551951762275,
+      "tpot_p50_ms": 126.89706929982184,
+      "ttft_p50_s": 2.938911365577951
+    },
+    "quick_hf": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 329,
+      "total": 512,
+      "exact": 12
+    }
+  },
+  "fast_control": {
+    "perf": {
+      "output_tps": 425.7497709625452,
+      "tpot_p50_ms": 63.89944120789603,
+      "ttft_p50_s": 2.9434439239557832
+    },
+    "quick_hf": {
+      "matches": 356,
+      "total": 640,
+      "exact": 4
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 345,
+      "total": 512,
+      "exact": 13
+    }
+  },
+  "fast_combined": {
+    "perf": {
+      "output_tps": 555.4480563003965,
+      "tpot_p50_ms": 46.44719442927881,
+      "ttft_p50_s": 2.9000385504914448
+    },
+    "quick_hf": {
+      "matches": 356,
+      "total": 640,
+      "exact": 4
+    },
+    "quick_parent": {
+      "matches": 640,
+      "total": 640,
+      "exact": 10
+    },
+    "long_parent": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_prior": {
+      "matches": 512,
+      "total": 512,
+      "exact": 32
+    },
+    "long_hf": {
+      "matches": 345,
+      "total": 512,
+      "exact": 13
+    }
+  }
+}

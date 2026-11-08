@@ -1,0 +1,7 @@
+{
+  "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+  "torch_file": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "transformers": "5.20.2",
+  "hf_file": "/workspace/results/mellum_eager_opt_4k8RQUX2/hf520/transformers/__init__.py",
+  "source_sha256": "a490c86fad8214663a5b6003633b2c50340510daafddb65743ed29d2086b07fc"
+}

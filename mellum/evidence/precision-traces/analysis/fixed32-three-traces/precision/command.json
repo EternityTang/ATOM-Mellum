@@ -1,0 +1,18 @@
+[
+  "/opt/venv/bin/python",
+  "/workspace/tools/serve_mellum_perf.py",
+  "--model",
+  "/data/models/Mellum2.1-12B-A2.5B-Thinking",
+  "--kv_cache_dtype",
+  "bf16",
+  "--level",
+  "0",
+  "--enforce-eager",
+  "--no-enable_prefix_caching",
+  "--max-model-len",
+  "32768",
+  "--gpu-memory-utilization",
+  "0.65",
+  "--server-port",
+  "8312"
+]

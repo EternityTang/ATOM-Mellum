@@ -1,0 +1,3092 @@
+{
+  "decision": {
+    "short_selection": {
+      "choice": {
+        "name": "norm-full",
+        "tps": 74.53799490692514,
+        "ratio": 0.9189453125,
+        "settings": {
+          "BOLD_NORM": "full",
+          "BOLD_NORM_ROLE": "all",
+          "BOLD_NORM_START": 0,
+          "BOLD_NORM_END": 28,
+          "BOLD_EXPERTS": "off",
+          "BOLD_EXPERT_PHASE": "decode",
+          "BOLD_EXPERT_START": 0,
+          "BOLD_EXPERT_END": 28
+        }
+      },
+      "long4": {
+        "repetition": 0,
+        "n": 4,
+        "tokens": 64,
+        "matches": 244,
+        "total": 256,
+        "exact": 3,
+        "elapsed_s": 32.39924720302224,
+        "phase_timing": false,
+        "output_tps": 7.901418153200794,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      "perf": [
+        {
+          "repetition": 0,
+          "n": 32,
+          "tokens": 256,
+          "matches": 1882,
+          "total": 2048,
+          "exact": 23,
+          "elapsed_s": 61.459462972939946,
+          "phase_timing": false,
+          "output_tps": 133.29110935458164,
+          "profile": false,
+          "flags": {
+            "track": "aggressive",
+            "stage": "0",
+            "kv": "direct",
+            "dense_cap": "8",
+            "point": "control",
+            "graph": "1",
+            "norm": "pointwise_batch",
+            "attention": "swa_softmax",
+            "kv_tuning": "shared8x32x4",
+            "kv_write": "torch",
+            "swa_graph": "0",
+            "prefill_pack": "1",
+            "bold_norm": "full",
+            "norm_role": "all",
+            "bold_experts": "off",
+            "expert_phase": "decode",
+            "layer_start": "0",
+            "layer_end": "28"
+          },
+          "gpu": "1"
+        },
+        {
+          "repetition": 1,
+          "n": 32,
+          "tokens": 256,
+          "matches": 1882,
+          "total": 2048,
+          "exact": 23,
+          "elapsed_s": 61.43750668305438,
+          "phase_timing": false,
+          "output_tps": 133.33874439698752,
+          "profile": false,
+          "flags": {
+            "track": "aggressive",
+            "stage": "0",
+            "kv": "direct",
+            "dense_cap": "8",
+            "point": "control",
+            "graph": "1",
+            "norm": "pointwise_batch",
+            "attention": "swa_softmax",
+            "kv_tuning": "shared8x32x4",
+            "kv_write": "torch",
+            "swa_graph": "0",
+            "prefill_pack": "1",
+            "bold_norm": "full",
+            "norm_role": "all",
+            "bold_experts": "off",
+            "expert_phase": "decode",
+            "layer_start": "0",
+            "layer_end": "28"
+          },
+          "gpu": "1"
+        }
+      ],
+      "median_tps": 133.31492687578458,
+      "gain": 0.042651051885393976,
+      "eligible": true
+    },
+    "control": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "attempts": [
+      {
+        "name": "http-norm-full",
+        "choice": {
+          "name": "norm-full",
+          "tps": 74.53799490692514,
+          "ratio": 0.9189453125,
+          "settings": {
+            "BOLD_NORM": "full",
+            "BOLD_NORM_ROLE": "all",
+            "BOLD_NORM_START": 0,
+            "BOLD_NORM_END": 28,
+            "BOLD_EXPERTS": "off",
+            "BOLD_EXPERT_PHASE": "decode",
+            "BOLD_EXPERT_START": 0,
+            "BOLD_EXPERT_END": 28
+          }
+        },
+        "score": {
+          "n": 200,
+          "total": 12800,
+          "matches": 11616,
+          "exact": 155,
+          "percent": 90.75,
+          "passed": true
+        },
+        "throughput_gain": 0.059769297428099666
+      }
+    ],
+    "selected": "http-norm-full",
+    "retained": true
+  },
+  "http": {
+    "http-control": {
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 12800,
+        "exact": 200,
+        "percent": 100.0,
+        "passed": true
+      },
+      "performance": {
+        "Test Duration (s)": 418.5673,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4778,
+        "Avg Latency (s)": 63.4692,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 122.322,
+        "Total Throughput (tok/s)": 1246.6693,
+        "Avg TTFT (ms)": 9621.16,
+        "Avg TPOT (ms)": 211.17,
+        "Avg ITL (ms)": 211.17,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "runtime": {
+        "track": "precision",
+        "kv": "direct",
+        "dense_cap": 8,
+        "counts": {
+          "kv_gathers": 48636,
+          "prefill_pack_calls": 7364,
+          "attention_mode": "swa_softmax",
+          "swa_batch_groups": 99855,
+          "swa_batched_requests": 968982,
+          "kv_gather_tuning": "shared8x32x4",
+          "kv_write_mode": "torch",
+          "kv_write_calls": 0
+        },
+        "base": {
+          "attention": "bounded",
+          "moe": "off",
+          "dispatch": "graph_bucket",
+          "norm": "pointwise_batch",
+          "counts": {
+            "attention_tiled": 84,
+            "expert_script_calls": 0,
+            "linear_script_calls": 244916,
+            "norm_script_calls": 196281,
+            "graphs": {
+              "captures": 1524,
+              "replays": 439673,
+              "fallbacks": 0,
+              "static_input_bytes": 96316416
+            }
+          },
+          "baseline": {
+            "mode": "norm_cap8",
+            "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+            "counts": {
+              "decode_batches": 1737,
+              "max_decode_batch": 32,
+              "batch_qkv_calls": 0,
+              "batch_moe_calls": 48636,
+              "segmented_moe_calls": 0,
+              "batched_attention_calls": 0,
+              "expert_matrix_calls": 5374318,
+              "max_expert_matrix_rows": 8,
+              "max_expert_tokens_before_chunk": 32
+            },
+            "prefill": "per-request full prefill",
+            "decode": "one shared backbone forward for all requests",
+            "projections": "per-request F.linear",
+            "experts": "cross-request expert grouping",
+            "backbone": {
+              "stage": "framework_eager",
+              "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+              "backbone_forward": "Qwen3MoeModel.forward",
+              "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+              "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+              "attention_components": [
+                {
+                  "layer": 0,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 1,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 2,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 3,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 4,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 5,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 6,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 7,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 8,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 9,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 10,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 11,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 12,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 13,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 14,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 15,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 16,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 17,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 18,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 19,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 20,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 21,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 22,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 23,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 24,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 25,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 26,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 27,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                }
+              ],
+              "parameter_identity_preserved": true,
+              "counts": {
+                "backbone": 0,
+                "decoder_layers": 56000,
+                "moe_blocks": 56000,
+                "framework_attention": 7364,
+                "eager_swa": 5523,
+                "eager_full": 1841,
+                "native_swa_prefill": 0,
+                "native_swa_decode": 0,
+                "outer_batches": 47,
+                "max_outer_n": 32
+              }
+            }
+          }
+        },
+        "aggressive": {
+          "norm": "off",
+          "role": "all",
+          "selected_norms": [
+            "model.layers.0.self_attn.q_norm",
+            "model.layers.0.self_attn.k_norm",
+            "model.layers.0.input_layernorm",
+            "model.layers.0.post_attention_layernorm",
+            "model.layers.1.self_attn.q_norm",
+            "model.layers.1.self_attn.k_norm",
+            "model.layers.1.input_layernorm",
+            "model.layers.1.post_attention_layernorm",
+            "model.layers.2.self_attn.q_norm",
+            "model.layers.2.self_attn.k_norm",
+            "model.layers.2.input_layernorm",
+            "model.layers.2.post_attention_layernorm",
+            "model.layers.3.self_attn.q_norm",
+            "model.layers.3.self_attn.k_norm",
+            "model.layers.3.input_layernorm",
+            "model.layers.3.post_attention_layernorm",
+            "model.layers.4.self_attn.q_norm",
+            "model.layers.4.self_attn.k_norm",
+            "model.layers.4.input_layernorm",
+            "model.layers.4.post_attention_layernorm",
+            "model.layers.5.self_attn.q_norm",
+            "model.layers.5.self_attn.k_norm",
+            "model.layers.5.input_layernorm",
+            "model.layers.5.post_attention_layernorm",
+            "model.layers.6.self_attn.q_norm",
+            "model.layers.6.self_attn.k_norm",
+            "model.layers.6.input_layernorm",
+            "model.layers.6.post_attention_layernorm",
+            "model.layers.7.self_attn.q_norm",
+            "model.layers.7.self_attn.k_norm",
+            "model.layers.7.input_layernorm",
+            "model.layers.7.post_attention_layernorm",
+            "model.layers.8.self_attn.q_norm",
+            "model.layers.8.self_attn.k_norm",
+            "model.layers.8.input_layernorm",
+            "model.layers.8.post_attention_layernorm",
+            "model.layers.9.self_attn.q_norm",
+            "model.layers.9.self_attn.k_norm",
+            "model.layers.9.input_layernorm",
+            "model.layers.9.post_attention_layernorm",
+            "model.layers.10.self_attn.q_norm",
+            "model.layers.10.self_attn.k_norm",
+            "model.layers.10.input_layernorm",
+            "model.layers.10.post_attention_layernorm",
+            "model.layers.11.self_attn.q_norm",
+            "model.layers.11.self_attn.k_norm",
+            "model.layers.11.input_layernorm",
+            "model.layers.11.post_attention_layernorm",
+            "model.layers.12.self_attn.q_norm",
+            "model.layers.12.self_attn.k_norm",
+            "model.layers.12.input_layernorm",
+            "model.layers.12.post_attention_layernorm",
+            "model.layers.13.self_attn.q_norm",
+            "model.layers.13.self_attn.k_norm",
+            "model.layers.13.input_layernorm",
+            "model.layers.13.post_attention_layernorm",
+            "model.layers.14.self_attn.q_norm",
+            "model.layers.14.self_attn.k_norm",
+            "model.layers.14.input_layernorm",
+            "model.layers.14.post_attention_layernorm",
+            "model.layers.15.self_attn.q_norm",
+            "model.layers.15.self_attn.k_norm",
+            "model.layers.15.input_layernorm",
+            "model.layers.15.post_attention_layernorm",
+            "model.layers.16.self_attn.q_norm",
+            "model.layers.16.self_attn.k_norm",
+            "model.layers.16.input_layernorm",
+            "model.layers.16.post_attention_layernorm",
+            "model.layers.17.self_attn.q_norm",
+            "model.layers.17.self_attn.k_norm",
+            "model.layers.17.input_layernorm",
+            "model.layers.17.post_attention_layernorm",
+            "model.layers.18.self_attn.q_norm",
+            "model.layers.18.self_attn.k_norm",
+            "model.layers.18.input_layernorm",
+            "model.layers.18.post_attention_layernorm",
+            "model.layers.19.self_attn.q_norm",
+            "model.layers.19.self_attn.k_norm",
+            "model.layers.19.input_layernorm",
+            "model.layers.19.post_attention_layernorm",
+            "model.layers.20.self_attn.q_norm",
+            "model.layers.20.self_attn.k_norm",
+            "model.layers.20.input_layernorm",
+            "model.layers.20.post_attention_layernorm",
+            "model.layers.21.self_attn.q_norm",
+            "model.layers.21.self_attn.k_norm",
+            "model.layers.21.input_layernorm",
+            "model.layers.21.post_attention_layernorm",
+            "model.layers.22.self_attn.q_norm",
+            "model.layers.22.self_attn.k_norm",
+            "model.layers.22.input_layernorm",
+            "model.layers.22.post_attention_layernorm",
+            "model.layers.23.self_attn.q_norm",
+            "model.layers.23.self_attn.k_norm",
+            "model.layers.23.input_layernorm",
+            "model.layers.23.post_attention_layernorm",
+            "model.layers.24.self_attn.q_norm",
+            "model.layers.24.self_attn.k_norm",
+            "model.layers.24.input_layernorm",
+            "model.layers.24.post_attention_layernorm",
+            "model.layers.25.self_attn.q_norm",
+            "model.layers.25.self_attn.k_norm",
+            "model.layers.25.input_layernorm",
+            "model.layers.25.post_attention_layernorm",
+            "model.layers.26.self_attn.q_norm",
+            "model.layers.26.self_attn.k_norm",
+            "model.layers.26.input_layernorm",
+            "model.layers.26.post_attention_layernorm",
+            "model.layers.27.self_attn.q_norm",
+            "model.layers.27.self_attn.k_norm",
+            "model.layers.27.input_layernorm",
+            "model.layers.27.post_attention_layernorm"
+          ],
+          "layer_start": 0,
+          "layer_end": 28,
+          "experts": "off",
+          "expert_phase": "decode",
+          "norm_start": 0,
+          "norm_end": 28,
+          "expert_start": 0,
+          "expert_end": 28,
+          "expert_layers": [],
+          "fp8_cache_dtypes": [],
+          "counts": {
+            "norm_computations": 0,
+            "fused_expert_calls": 0,
+            "fp8_calls": 0
+          },
+          "expert_kernel": {
+            "acc": "carry",
+            "mfma": "16",
+            "k": "128",
+            "act": "torch",
+            "cast": "triton"
+          }
+        },
+        "max_decode_batch": 32
+      },
+      "http_peak": 32
+    },
+    "http-norm-full": {
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 11616,
+        "exact": 155,
+        "percent": 90.75,
+        "passed": true
+      },
+      "performance": {
+        "Test Duration (s)": 394.9607,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.5064,
+        "Avg Latency (s)": 59.8971,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 129.6331,
+        "Total Throughput (tok/s)": 1321.182,
+        "Avg TTFT (ms)": 9457.91,
+        "Avg TPOT (ms)": 197.8,
+        "Avg ITL (ms)": 197.8,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "runtime": {
+        "track": "precision",
+        "kv": "direct",
+        "dense_cap": 8,
+        "counts": {
+          "kv_gathers": 48636,
+          "prefill_pack_calls": 7364,
+          "attention_mode": "swa_softmax",
+          "swa_batch_groups": 103173,
+          "swa_batched_requests": 969003,
+          "kv_gather_tuning": "shared8x32x4",
+          "kv_write_mode": "torch",
+          "kv_write_calls": 0
+        },
+        "base": {
+          "attention": "bounded",
+          "moe": "off",
+          "dispatch": "graph_bucket",
+          "norm": "pointwise_batch",
+          "counts": {
+            "attention_tiled": 84,
+            "expert_script_calls": 0,
+            "linear_script_calls": 244916,
+            "norm_script_calls": 196281,
+            "graphs": {
+              "captures": 1524,
+              "replays": 439673,
+              "fallbacks": 0,
+              "static_input_bytes": 96316416
+            }
+          },
+          "baseline": {
+            "mode": "norm_cap8",
+            "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+            "counts": {
+              "decode_batches": 1737,
+              "max_decode_batch": 32,
+              "batch_qkv_calls": 0,
+              "batch_moe_calls": 48636,
+              "segmented_moe_calls": 0,
+              "batched_attention_calls": 0,
+              "expert_matrix_calls": 5370742,
+              "max_expert_matrix_rows": 8,
+              "max_expert_tokens_before_chunk": 32
+            },
+            "prefill": "per-request full prefill",
+            "decode": "one shared backbone forward for all requests",
+            "projections": "per-request F.linear",
+            "experts": "cross-request expert grouping",
+            "backbone": {
+              "stage": "framework_eager",
+              "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+              "backbone_forward": "Qwen3MoeModel.forward",
+              "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+              "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+              "attention_components": [
+                {
+                  "layer": 0,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 1,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 2,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 3,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 4,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 5,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 6,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 7,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 8,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 9,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 10,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 11,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 12,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 13,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 14,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 15,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 16,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 17,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 18,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 19,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 20,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 21,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 22,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 23,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                },
+                {
+                  "layer": 24,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 25,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 26,
+                  "kind": "sliding_attention",
+                  "component": "PagedAttention",
+                  "window": 1024
+                },
+                {
+                  "layer": 27,
+                  "kind": "full_attention",
+                  "component": "PagedAttention",
+                  "window": -1
+                }
+              ],
+              "parameter_identity_preserved": true,
+              "counts": {
+                "backbone": 0,
+                "decoder_layers": 56000,
+                "moe_blocks": 56000,
+                "framework_attention": 7364,
+                "eager_swa": 5523,
+                "eager_full": 1841,
+                "native_swa_prefill": 0,
+                "native_swa_decode": 0,
+                "outer_batches": 47,
+                "max_outer_n": 32
+              }
+            }
+          }
+        },
+        "aggressive": {
+          "norm": "full",
+          "role": "all",
+          "selected_norms": [
+            "model.layers.0.self_attn.q_norm",
+            "model.layers.0.self_attn.k_norm",
+            "model.layers.0.input_layernorm",
+            "model.layers.0.post_attention_layernorm",
+            "model.layers.1.self_attn.q_norm",
+            "model.layers.1.self_attn.k_norm",
+            "model.layers.1.input_layernorm",
+            "model.layers.1.post_attention_layernorm",
+            "model.layers.2.self_attn.q_norm",
+            "model.layers.2.self_attn.k_norm",
+            "model.layers.2.input_layernorm",
+            "model.layers.2.post_attention_layernorm",
+            "model.layers.3.self_attn.q_norm",
+            "model.layers.3.self_attn.k_norm",
+            "model.layers.3.input_layernorm",
+            "model.layers.3.post_attention_layernorm",
+            "model.layers.4.self_attn.q_norm",
+            "model.layers.4.self_attn.k_norm",
+            "model.layers.4.input_layernorm",
+            "model.layers.4.post_attention_layernorm",
+            "model.layers.5.self_attn.q_norm",
+            "model.layers.5.self_attn.k_norm",
+            "model.layers.5.input_layernorm",
+            "model.layers.5.post_attention_layernorm",
+            "model.layers.6.self_attn.q_norm",
+            "model.layers.6.self_attn.k_norm",
+            "model.layers.6.input_layernorm",
+            "model.layers.6.post_attention_layernorm",
+            "model.layers.7.self_attn.q_norm",
+            "model.layers.7.self_attn.k_norm",
+            "model.layers.7.input_layernorm",
+            "model.layers.7.post_attention_layernorm",
+            "model.layers.8.self_attn.q_norm",
+            "model.layers.8.self_attn.k_norm",
+            "model.layers.8.input_layernorm",
+            "model.layers.8.post_attention_layernorm",
+            "model.layers.9.self_attn.q_norm",
+            "model.layers.9.self_attn.k_norm",
+            "model.layers.9.input_layernorm",
+            "model.layers.9.post_attention_layernorm",
+            "model.layers.10.self_attn.q_norm",
+            "model.layers.10.self_attn.k_norm",
+            "model.layers.10.input_layernorm",
+            "model.layers.10.post_attention_layernorm",
+            "model.layers.11.self_attn.q_norm",
+            "model.layers.11.self_attn.k_norm",
+            "model.layers.11.input_layernorm",
+            "model.layers.11.post_attention_layernorm",
+            "model.layers.12.self_attn.q_norm",
+            "model.layers.12.self_attn.k_norm",
+            "model.layers.12.input_layernorm",
+            "model.layers.12.post_attention_layernorm",
+            "model.layers.13.self_attn.q_norm",
+            "model.layers.13.self_attn.k_norm",
+            "model.layers.13.input_layernorm",
+            "model.layers.13.post_attention_layernorm",
+            "model.layers.14.self_attn.q_norm",
+            "model.layers.14.self_attn.k_norm",
+            "model.layers.14.input_layernorm",
+            "model.layers.14.post_attention_layernorm",
+            "model.layers.15.self_attn.q_norm",
+            "model.layers.15.self_attn.k_norm",
+            "model.layers.15.input_layernorm",
+            "model.layers.15.post_attention_layernorm",
+            "model.layers.16.self_attn.q_norm",
+            "model.layers.16.self_attn.k_norm",
+            "model.layers.16.input_layernorm",
+            "model.layers.16.post_attention_layernorm",
+            "model.layers.17.self_attn.q_norm",
+            "model.layers.17.self_attn.k_norm",
+            "model.layers.17.input_layernorm",
+            "model.layers.17.post_attention_layernorm",
+            "model.layers.18.self_attn.q_norm",
+            "model.layers.18.self_attn.k_norm",
+            "model.layers.18.input_layernorm",
+            "model.layers.18.post_attention_layernorm",
+            "model.layers.19.self_attn.q_norm",
+            "model.layers.19.self_attn.k_norm",
+            "model.layers.19.input_layernorm",
+            "model.layers.19.post_attention_layernorm",
+            "model.layers.20.self_attn.q_norm",
+            "model.layers.20.self_attn.k_norm",
+            "model.layers.20.input_layernorm",
+            "model.layers.20.post_attention_layernorm",
+            "model.layers.21.self_attn.q_norm",
+            "model.layers.21.self_attn.k_norm",
+            "model.layers.21.input_layernorm",
+            "model.layers.21.post_attention_layernorm",
+            "model.layers.22.self_attn.q_norm",
+            "model.layers.22.self_attn.k_norm",
+            "model.layers.22.input_layernorm",
+            "model.layers.22.post_attention_layernorm",
+            "model.layers.23.self_attn.q_norm",
+            "model.layers.23.self_attn.k_norm",
+            "model.layers.23.input_layernorm",
+            "model.layers.23.post_attention_layernorm",
+            "model.layers.24.self_attn.q_norm",
+            "model.layers.24.self_attn.k_norm",
+            "model.layers.24.input_layernorm",
+            "model.layers.24.post_attention_layernorm",
+            "model.layers.25.self_attn.q_norm",
+            "model.layers.25.self_attn.k_norm",
+            "model.layers.25.input_layernorm",
+            "model.layers.25.post_attention_layernorm",
+            "model.layers.26.self_attn.q_norm",
+            "model.layers.26.self_attn.k_norm",
+            "model.layers.26.input_layernorm",
+            "model.layers.26.post_attention_layernorm",
+            "model.layers.27.self_attn.q_norm",
+            "model.layers.27.self_attn.k_norm",
+            "model.layers.27.input_layernorm",
+            "model.layers.27.post_attention_layernorm"
+          ],
+          "layer_start": 0,
+          "layer_end": 28,
+          "experts": "off",
+          "expert_phase": "decode",
+          "norm_start": 0,
+          "norm_end": 28,
+          "expert_start": 0,
+          "expert_end": 28,
+          "expert_layers": [],
+          "fp8_cache_dtypes": [],
+          "counts": {
+            "norm_computations": 2016,
+            "fused_expert_calls": 0,
+            "fp8_calls": 0
+          },
+          "expert_kernel": {
+            "acc": "carry",
+            "mfma": "16",
+            "k": "128",
+            "act": "torch",
+            "cast": "triton"
+          }
+        },
+        "max_decode_batch": 32
+      },
+      "http_peak": 32
+    }
+  },
+  "selected": "http-norm-full",
+  "full_gain": 0.059769297428099666,
+  "short": {
+    "moe-fp8-prefill-from24": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1542,
+        "total": 2048,
+        "exact": 19,
+        "elapsed_s": 26.90527440106962,
+        "phase_timing": false,
+        "output_tps": 76.11890402866814,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "fp8",
+          "expert_phase": "prefill",
+          "layer_start": "24",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-native-hf": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 915,
+        "total": 2048,
+        "exact": 7,
+        "elapsed_s": 27.643453525961377,
+        "phase_timing": false,
+        "output_tps": 74.08625691708957,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native_hf",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "long-norm-mean2": [
+      {
+        "repetition": 0,
+        "n": 4,
+        "tokens": 64,
+        "matches": 256,
+        "total": 256,
+        "exact": 4,
+        "elapsed_s": 32.40098773990758,
+        "phase_timing": false,
+        "output_tps": 7.900993699790531,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean2",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "control32": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 27.66039621597156,
+        "phase_timing": false,
+        "output_tps": 74.04087721698838,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "perf-norm-full": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1882,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 61.459462972939946,
+        "phase_timing": false,
+        "output_tps": 133.29110935458164,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1882,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 61.43750668305438,
+        "phase_timing": false,
+        "output_tps": 133.33874439698752,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-triton-decode-from14": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1350,
+        "total": 2048,
+        "exact": 16,
+        "elapsed_s": 25.122920774971135,
+        "phase_timing": false,
+        "output_tps": 81.51918394935721,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "triton",
+          "expert_phase": "decode",
+          "layer_start": "14",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-native-from14": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1177,
+        "total": 2048,
+        "exact": 14,
+        "elapsed_s": 27.579402133007534,
+        "phase_timing": false,
+        "output_tps": 74.25831749807644,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "14",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-mean2": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1968,
+        "total": 2048,
+        "exact": 26,
+        "elapsed_s": 27.408640027977526,
+        "phase_timing": false,
+        "output_tps": 74.72096382416247,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean2",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-triton-both-from21": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1400,
+        "total": 2048,
+        "exact": 18,
+        "elapsed_s": 26.755609984975308,
+        "phase_timing": false,
+        "output_tps": 76.54469478176952,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "triton",
+          "expert_phase": "both",
+          "layer_start": "21",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "trace-native-fp8": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 224,
+        "total": 256,
+        "exact": 24,
+        "elapsed_s": 23.51698561909143,
+        "phase_timing": false,
+        "output_tps": 10.885748885783027,
+        "profile": true,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "fp8",
+          "expert_phase": "both",
+          "layer_start": "24",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "perf-norm-mean4": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1879,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 62.833130085025914,
+        "phase_timing": false,
+        "output_tps": 130.37707955842038,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean4",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1879,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 62.7490766440751,
+        "phase_timing": false,
+        "output_tps": 130.55172184391824,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean4",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-carry-both-all": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 427,
+        "total": 2048,
+        "exact": 1,
+        "elapsed_s": 22.894178797956556,
+        "phase_timing": false,
+        "output_tps": 89.45505397130891,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "tuned",
+          "expert_phase": "both",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "perf-norm-mean2": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1968,
+        "total": 2048,
+        "exact": 26,
+        "elapsed_s": 62.69814185996074,
+        "phase_timing": false,
+        "output_tps": 130.6577795925311,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean2",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 1968,
+        "total": 2048,
+        "exact": 26,
+        "elapsed_s": 62.59761243604589,
+        "phase_timing": false,
+        "output_tps": 130.8676110988981,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean2",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "expert-components": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 16.896416715928353,
+        "phase_timing": false,
+        "output_tps": 15.151141470053071,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-hip-fp32": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1415,
+        "total": 2048,
+        "exact": 11,
+        "elapsed_s": 27.130595751921646,
+        "phase_timing": false,
+        "output_tps": 75.48673161203772,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "hip_fp32",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "trace-triton-experts": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 234,
+        "total": 256,
+        "exact": 26,
+        "elapsed_s": 22.605618185014464,
+        "phase_timing": false,
+        "output_tps": 11.324618415863782,
+        "profile": true,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "triton",
+          "expert_phase": "decode",
+          "layer_start": "14",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-ck-hf": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 936,
+        "total": 2048,
+        "exact": 7,
+        "elapsed_s": 27.90744071698282,
+        "phase_timing": false,
+        "output_tps": 73.38544658284299,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "ck_hf",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-torchcast-decode-all": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 815,
+        "total": 2048,
+        "exact": 8,
+        "elapsed_s": 22.819004436023533,
+        "phase_timing": false,
+        "output_tps": 89.74975248117735,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "tuned",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-torchcast-both-all": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 427,
+        "total": 2048,
+        "exact": 1,
+        "elapsed_s": 22.55937209504191,
+        "phase_timing": false,
+        "output_tps": 90.78266856771731,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "tuned",
+          "expert_phase": "both",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-full": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1882,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 27.475920200929977,
+        "phase_timing": false,
+        "output_tps": 74.53799490692514,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "long-norm-mean4": [
+      {
+        "repetition": 0,
+        "n": 4,
+        "tokens": 64,
+        "matches": 244,
+        "total": 256,
+        "exact": 3,
+        "elapsed_s": 32.382675761007704,
+        "phase_timing": false,
+        "output_tps": 7.905461608217444,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean4",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-triton-prefill-from0": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 555,
+        "total": 2048,
+        "exact": 2,
+        "elapsed_s": 27.96642829605844,
+        "phase_timing": false,
+        "output_tps": 73.23065992980746,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "triton",
+          "expert_phase": "prefill",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "trace-candidate": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 24.203894029953517,
+        "phase_timing": false,
+        "output_tps": 10.576810478643946,
+        "profile": true,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-native-from21": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1467,
+        "total": 2048,
+        "exact": 17,
+        "elapsed_s": 28.14782082696911,
+        "phase_timing": false,
+        "output_tps": 72.75874081299258,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "21",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-native_sep-body": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 917,
+        "total": 2048,
+        "exact": 7,
+        "elapsed_s": 27.696925967931747,
+        "phase_timing": false,
+        "output_tps": 73.94322396540431,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native_sep",
+          "norm_role": "body",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "trace-control": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 256,
+        "total": 256,
+        "exact": 32,
+        "elapsed_s": 24.52297186094802,
+        "phase_timing": false,
+        "output_tps": 10.439191524240629,
+        "profile": true,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "long-norm-full": [
+      {
+        "repetition": 0,
+        "n": 4,
+        "tokens": 64,
+        "matches": 244,
+        "total": 256,
+        "exact": 3,
+        "elapsed_s": 32.39924720302224,
+        "phase_timing": false,
+        "output_tps": 7.901418153200794,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "full",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "trace-native-norm": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 8,
+        "matches": 202,
+        "total": 256,
+        "exact": 21,
+        "elapsed_s": 24.638234317069873,
+        "phase_timing": false,
+        "output_tps": 10.390354954236228,
+        "profile": true,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native",
+          "norm_role": "q",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-fp8-from26": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1440,
+        "total": 2048,
+        "exact": 17,
+        "elapsed_s": 27.628674772917293,
+        "phase_timing": false,
+        "output_tps": 74.12588612493023,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "fp8",
+          "expert_phase": "both",
+          "layer_start": "26",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-mean4": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1879,
+        "total": 2048,
+        "exact": 23,
+        "elapsed_s": 27.055738770985045,
+        "phase_timing": false,
+        "output_tps": 75.6955859655292,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "mean4",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "norm-native-q": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 939,
+        "total": 2048,
+        "exact": 9,
+        "elapsed_s": 27.45982863008976,
+        "phase_timing": false,
+        "output_tps": 74.58167447395704,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "native",
+          "norm_role": "q",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-carry-decode-all": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 815,
+        "total": 2048,
+        "exact": 8,
+        "elapsed_s": 22.8172221200075,
+        "phase_timing": false,
+        "output_tps": 89.75676308134773,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "tuned",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "validation-control256": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 64.13479306502268,
+        "phase_timing": false,
+        "output_tps": 127.73098046320332,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 64.00399105099496,
+        "phase_timing": false,
+        "output_tps": 127.9920183957443,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "moe-fp8-from24": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 64,
+        "matches": 1339,
+        "total": 2048,
+        "exact": 14,
+        "elapsed_s": 26.161851527984254,
+        "phase_timing": false,
+        "output_tps": 78.28192120918273,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "fp8",
+          "expert_phase": "both",
+          "layer_start": "24",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ]
+  },
+  "validation": {
+    "control": [
+      {
+        "repetition": 0,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 64.13479306502268,
+        "phase_timing": false,
+        "output_tps": 127.73098046320332,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      },
+      {
+        "repetition": 1,
+        "n": 32,
+        "tokens": 256,
+        "matches": 2048,
+        "total": 2048,
+        "exact": 32,
+        "elapsed_s": 64.00399105099496,
+        "phase_timing": false,
+        "output_tps": 127.9920183957443,
+        "profile": false,
+        "flags": {
+          "track": "aggressive",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax",
+          "kv_tuning": "shared8x32x4",
+          "kv_write": "torch",
+          "swa_graph": "0",
+          "prefill_pack": "1",
+          "bold_norm": "off",
+          "norm_role": "all",
+          "bold_experts": "off",
+          "expert_phase": "decode",
+          "layer_start": "0",
+          "layer_end": "28"
+        },
+        "gpu": "1"
+      }
+    ],
+    "baseline_tps": 127.86149942947381,
+    "candidates": [
+      {
+        "choice": {
+          "name": "norm-mean4",
+          "tps": 75.6955859655292,
+          "ratio": 0.91748046875,
+          "settings": {
+            "BOLD_NORM": "mean4",
+            "BOLD_NORM_ROLE": "all",
+            "BOLD_NORM_START": 0,
+            "BOLD_NORM_END": 28,
+            "BOLD_EXPERTS": "off",
+            "BOLD_EXPERT_PHASE": "decode",
+            "BOLD_EXPERT_START": 0,
+            "BOLD_EXPERT_END": 28
+          }
+        },
+        "long4": {
+          "repetition": 0,
+          "n": 4,
+          "tokens": 64,
+          "matches": 244,
+          "total": 256,
+          "exact": 3,
+          "elapsed_s": 32.382675761007704,
+          "phase_timing": false,
+          "output_tps": 7.905461608217444,
+          "profile": false,
+          "flags": {
+            "track": "aggressive",
+            "stage": "0",
+            "kv": "direct",
+            "dense_cap": "8",
+            "point": "control",
+            "graph": "1",
+            "norm": "pointwise_batch",
+            "attention": "swa_softmax",
+            "kv_tuning": "shared8x32x4",
+            "kv_write": "torch",
+            "swa_graph": "0",
+            "prefill_pack": "1",
+            "bold_norm": "mean4",
+            "norm_role": "all",
+            "bold_experts": "off",
+            "expert_phase": "decode",
+            "layer_start": "0",
+            "layer_end": "28"
+          },
+          "gpu": "1"
+        },
+        "perf": [
+          {
+            "repetition": 0,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1879,
+            "total": 2048,
+            "exact": 23,
+            "elapsed_s": 62.833130085025914,
+            "phase_timing": false,
+            "output_tps": 130.37707955842038,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "mean4",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          },
+          {
+            "repetition": 1,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1879,
+            "total": 2048,
+            "exact": 23,
+            "elapsed_s": 62.7490766440751,
+            "phase_timing": false,
+            "output_tps": 130.55172184391824,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "mean4",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          }
+        ],
+        "median_tps": 130.46440070116932,
+        "gain": 0.020357193395273976,
+        "eligible": false
+      },
+      {
+        "choice": {
+          "name": "norm-mean2",
+          "tps": 74.72096382416247,
+          "ratio": 0.9609375,
+          "settings": {
+            "BOLD_NORM": "mean2",
+            "BOLD_NORM_ROLE": "all",
+            "BOLD_NORM_START": 0,
+            "BOLD_NORM_END": 28,
+            "BOLD_EXPERTS": "off",
+            "BOLD_EXPERT_PHASE": "decode",
+            "BOLD_EXPERT_START": 0,
+            "BOLD_EXPERT_END": 28
+          }
+        },
+        "long4": {
+          "repetition": 0,
+          "n": 4,
+          "tokens": 64,
+          "matches": 256,
+          "total": 256,
+          "exact": 4,
+          "elapsed_s": 32.40098773990758,
+          "phase_timing": false,
+          "output_tps": 7.900993699790531,
+          "profile": false,
+          "flags": {
+            "track": "aggressive",
+            "stage": "0",
+            "kv": "direct",
+            "dense_cap": "8",
+            "point": "control",
+            "graph": "1",
+            "norm": "pointwise_batch",
+            "attention": "swa_softmax",
+            "kv_tuning": "shared8x32x4",
+            "kv_write": "torch",
+            "swa_graph": "0",
+            "prefill_pack": "1",
+            "bold_norm": "mean2",
+            "norm_role": "all",
+            "bold_experts": "off",
+            "expert_phase": "decode",
+            "layer_start": "0",
+            "layer_end": "28"
+          },
+          "gpu": "1"
+        },
+        "perf": [
+          {
+            "repetition": 0,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1968,
+            "total": 2048,
+            "exact": 26,
+            "elapsed_s": 62.69814185996074,
+            "phase_timing": false,
+            "output_tps": 130.6577795925311,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "mean2",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          },
+          {
+            "repetition": 1,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1968,
+            "total": 2048,
+            "exact": 26,
+            "elapsed_s": 62.59761243604589,
+            "phase_timing": false,
+            "output_tps": 130.8676110988981,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "mean2",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          }
+        ],
+        "median_tps": 130.7626953457146,
+        "gain": 0.02269014464233665,
+        "eligible": false
+      },
+      {
+        "choice": {
+          "name": "norm-full",
+          "tps": 74.53799490692514,
+          "ratio": 0.9189453125,
+          "settings": {
+            "BOLD_NORM": "full",
+            "BOLD_NORM_ROLE": "all",
+            "BOLD_NORM_START": 0,
+            "BOLD_NORM_END": 28,
+            "BOLD_EXPERTS": "off",
+            "BOLD_EXPERT_PHASE": "decode",
+            "BOLD_EXPERT_START": 0,
+            "BOLD_EXPERT_END": 28
+          }
+        },
+        "long4": {
+          "repetition": 0,
+          "n": 4,
+          "tokens": 64,
+          "matches": 244,
+          "total": 256,
+          "exact": 3,
+          "elapsed_s": 32.39924720302224,
+          "phase_timing": false,
+          "output_tps": 7.901418153200794,
+          "profile": false,
+          "flags": {
+            "track": "aggressive",
+            "stage": "0",
+            "kv": "direct",
+            "dense_cap": "8",
+            "point": "control",
+            "graph": "1",
+            "norm": "pointwise_batch",
+            "attention": "swa_softmax",
+            "kv_tuning": "shared8x32x4",
+            "kv_write": "torch",
+            "swa_graph": "0",
+            "prefill_pack": "1",
+            "bold_norm": "full",
+            "norm_role": "all",
+            "bold_experts": "off",
+            "expert_phase": "decode",
+            "layer_start": "0",
+            "layer_end": "28"
+          },
+          "gpu": "1"
+        },
+        "perf": [
+          {
+            "repetition": 0,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1882,
+            "total": 2048,
+            "exact": 23,
+            "elapsed_s": 61.459462972939946,
+            "phase_timing": false,
+            "output_tps": 133.29110935458164,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "full",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          },
+          {
+            "repetition": 1,
+            "n": 32,
+            "tokens": 256,
+            "matches": 1882,
+            "total": 2048,
+            "exact": 23,
+            "elapsed_s": 61.43750668305438,
+            "phase_timing": false,
+            "output_tps": 133.33874439698752,
+            "profile": false,
+            "flags": {
+              "track": "aggressive",
+              "stage": "0",
+              "kv": "direct",
+              "dense_cap": "8",
+              "point": "control",
+              "graph": "1",
+              "norm": "pointwise_batch",
+              "attention": "swa_softmax",
+              "kv_tuning": "shared8x32x4",
+              "kv_write": "torch",
+              "swa_graph": "0",
+              "prefill_pack": "1",
+              "bold_norm": "full",
+              "norm_role": "all",
+              "bold_experts": "off",
+              "expert_phase": "decode",
+              "layer_start": "0",
+              "layer_end": "28"
+            },
+            "gpu": "1"
+          }
+        ],
+        "median_tps": 133.31492687578458,
+        "gain": 0.042651051885393976,
+        "eligible": true
+      }
+    ]
+  },
+  "source": {
+    "python_files": 423,
+    "changed": [],
+    "aiter_original_unchanged": true
+  },
+  "normal_smoke": {
+    "requests": [
+      {
+        "id": 0,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 1,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 2,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 3,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 4,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 5,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 6,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 7,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 8,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 9,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 10,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 11,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 12,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 13,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 14,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 15,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 16,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 17,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 18,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 19,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 20,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 21,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 22,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 23,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 24,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 25,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 26,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 27,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 28,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 29,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 30,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 31,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 32,
+        "status": 200,
+        "stream": false
+      },
+      {
+        "id": 33,
+        "status": 200,
+        "stream": true
+      }
+    ],
+    "mode": "full",
+    "passed": true
+  },
+  "gpu_overlap": {
+    "startup": {
+      "samples": 1,
+      "other_gpu_busy": 0
+    },
+    "control32": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "norm-mean2": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-mean4": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-full": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-native-q": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-native_sep-body": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-native-from14": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-native-from21": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-triton-decode-from14": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-triton-both-from21": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-triton-prefill-from0": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-fp8-from24": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-ck-hf": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-native-hf": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-fp8-from26": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "expert-components": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "moe-carry-decode-all": {
+      "samples": 5,
+      "other_gpu_busy": 5
+    },
+    "moe-carry-both-all": {
+      "samples": 5,
+      "other_gpu_busy": 3
+    },
+    "moe-fp8-prefill-from24": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "norm-hip-fp32": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "moe-torchcast-decode-all": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "moe-torchcast-both-all": {
+      "samples": 24,
+      "other_gpu_busy": 0
+    },
+    "validation-control256": {
+      "samples": 11,
+      "other_gpu_busy": 0
+    },
+    "long-norm-mean4": {
+      "samples": 6,
+      "other_gpu_busy": 0
+    },
+    "perf-norm-mean4": {
+      "samples": 11,
+      "other_gpu_busy": 0
+    },
+    "long-norm-mean2": {
+      "samples": 6,
+      "other_gpu_busy": 0
+    },
+    "perf-norm-mean2": {
+      "samples": 12,
+      "other_gpu_busy": 0
+    },
+    "long-norm-full": {
+      "samples": 6,
+      "other_gpu_busy": 0
+    },
+    "perf-norm-full": {
+      "samples": 11,
+      "other_gpu_busy": 0
+    },
+    "trace-control": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "trace-candidate": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "trace-triton-experts": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "trace-native-fp8": {
+      "samples": 5,
+      "other_gpu_busy": 0
+    },
+    "trace-native-norm": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    },
+    "http-control": {
+      "samples": 31,
+      "other_gpu_busy": 0
+    },
+    "http-norm-full": {
+      "samples": 30,
+      "other_gpu_busy": 0
+    },
+    "normal-smoke": {
+      "samples": 4,
+      "other_gpu_busy": 0
+    }
+  },
+  "scope": "Torch2.10 HF5.20.2 eager sequential reference, A200 HTTP concurrency32 generate256 compare first64; independent long4"
+}

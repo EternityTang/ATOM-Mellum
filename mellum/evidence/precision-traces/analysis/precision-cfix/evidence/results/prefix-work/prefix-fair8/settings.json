@@ -1,0 +1,7 @@
+{
+  "CFIX_PREFIX": "1",
+  "CFIX_DECODE_STEPS": "8",
+  "PREFIX_FLAG": "--enable_prefix_caching",
+  "BOLD_NORM": "full",
+  "CANDIDATE_GPU": "1"
+}

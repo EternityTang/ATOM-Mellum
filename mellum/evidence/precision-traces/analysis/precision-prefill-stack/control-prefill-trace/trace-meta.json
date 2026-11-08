@@ -1,0 +1,1 @@
+{"decode_step": 0, "prefill_step": 2, "phase": "prefill", "batch": 5, "flags": {"track": "precision", "stage": "0", "kv": "direct", "dense_cap": "8", "point": "control", "graph": "1", "norm": "pointwise_batch", "attention": "swa_softmax"}}

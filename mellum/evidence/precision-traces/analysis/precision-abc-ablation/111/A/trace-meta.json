@@ -1,0 +1,17 @@
+{
+  "phase": "trace",
+  "decode_step": 6,
+  "batch": 32,
+  "settings": {
+    "graph": "1",
+    "norm": "pointwise_batch",
+    "bold_norm": "full",
+    "direct_kv": true,
+    "common": {
+      "dense_cap": 8,
+      "attention": "swa_softmax",
+      "prefill_pack": 1
+    },
+    "legacy_kv": "Torch page indexing + existing contiguous GQA repeat + same attention"
+  }
+}

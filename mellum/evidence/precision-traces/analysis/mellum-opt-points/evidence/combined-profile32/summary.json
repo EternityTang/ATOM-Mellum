@@ -1,0 +1,19 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 8,
+    "matches": 256,
+    "total": 256,
+    "exact": 32,
+    "elapsed_s": 37.49903693504166,
+    "output_tps": 6.826841991794625,
+    "profile": true,
+    "flags": {
+      "attention": "bounded",
+      "moe": "off",
+      "dispatch": "graph"
+    },
+    "gpu": "0"
+  }
+]

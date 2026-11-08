@@ -1,0 +1,5 @@
+{
+  "mode": "cfix_hfsoftmax",
+  "decode_step": 6,
+  "batch": 32
+}

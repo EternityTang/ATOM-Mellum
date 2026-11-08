@@ -1,0 +1,516 @@
+{
+  "mixed_packed": {
+    "marker_ms": {
+      "attn": 64.723,
+      "moe": 63.577,
+      "total": 134.228,
+      "rest": 5.576
+    },
+    "count": 5,
+    "control": {
+      "schedule": [
+        24,
+        0.12773
+      ],
+      "postprocess": [
+        24,
+        0.42423
+      ],
+      "forward_stream_ms": 131.54021,
+      "forward_cadence_ms": 134.1994,
+      "client_chunk_gap_ms": 134.083
+    },
+    "gpu_kernel_count": {
+      "other": 513,
+      "attn": 2763,
+      "moe": 3836
+    },
+    "gpu_kernel_ms": {
+      "other": 2.228,
+      "attn": 41.892,
+      "moe": 29.57
+    },
+    "positions": [
+      1031
+    ],
+    "selected_ops": {
+      "attn": [
+        [
+          "aten::index",
+          339,
+          17.982296
+        ],
+        [
+          "aten::_efficient_attention_forward",
+          63,
+          6.919025
+        ],
+        [
+          "aten::_flash_attention_forward",
+          21,
+          4.849099
+        ],
+        [
+          "aten::copy_",
+          524,
+          2.062235
+        ],
+        [
+          "aten::nonzero",
+          504,
+          1.997275
+        ],
+        [
+          "aten::mm",
+          112,
+          1.770293
+        ],
+        [
+          "aten::mul",
+          336,
+          1.483201
+        ],
+        [
+          "aten::cat",
+          112,
+          0.757823
+        ],
+        [
+          "aten::_index_put_impl_",
+          56,
+          0.462939
+        ],
+        [
+          "aten::index_copy_",
+          84,
+          0.425235
+        ],
+        [
+          "aten::bmm",
+          56,
+          0.383712
+        ],
+        [
+          "aten::cos",
+          56,
+          0.374312
+        ],
+        [
+          "aten::sin",
+          56,
+          0.371235
+        ],
+        [
+          "aten::add",
+          112,
+          0.319147
+        ]
+      ],
+      "moe": [
+        [
+          "aten::mm",
+          1120,
+          13.910485
+        ],
+        [
+          "aten::index_add_",
+          546,
+          3.575267
+        ],
+        [
+          "aten::silu",
+          546,
+          3.185433
+        ],
+        [
+          "aten::mul_",
+          546,
+          2.506389
+        ],
+        [
+          "aten::mul",
+          546,
+          2.366576
+        ],
+        [
+          "aten::topk",
+          56,
+          1.109684
+        ],
+        [
+          "aten::copy_",
+          252,
+          0.979498
+        ],
+        [
+          "aten::sort",
+          28,
+          0.969844
+        ],
+        [
+          "aten::index",
+          56,
+          0.212129
+        ],
+        [
+          "aten::max",
+          28,
+          0.193993
+        ],
+        [
+          "aten::min",
+          28,
+          0.180995
+        ],
+        [
+          "aten::_local_scalar_dense",
+          28,
+          0.176235
+        ],
+        [
+          "aten::sum",
+          28,
+          0.158639
+        ],
+        [
+          "aten::remainder",
+          28,
+          0.15072
+        ]
+      ]
+    },
+    "launch_gaps": {
+      "inter_device_activity_gap_ms": 127.5189716796875,
+      "gap_before_next_hip_call_entered_ms": 74.90569921875,
+      "unassigned_gap_ms": 0.0,
+      "stream_counts": {
+        "0": 7452
+      }
+    }
+  },
+  "paged_grouped": {
+    "marker_ms": {
+      "attn": 39.753,
+      "moe": 19.073,
+      "total": 65.56,
+      "rest": 6.703
+    },
+    "count": 5,
+    "control": {
+      "schedule": [
+        24,
+        0.12119
+      ],
+      "postprocess": [
+        24,
+        0.40145
+      ],
+      "forward_stream_ms": 61.97459,
+      "forward_cadence_ms": 64.50275,
+      "client_chunk_gap_ms": 64.53163
+    },
+    "gpu_kernel_count": {
+      "other": 513,
+      "attn": 1932,
+      "moe": 924
+    },
+    "gpu_kernel_ms": {
+      "other": 2.039,
+      "attn": 13.474,
+      "moe": 12.026
+    },
+    "positions": [
+      1031
+    ],
+    "selected_ops": {
+      "attn": [
+        [
+          "(no CPU op)",
+          28,
+          3.611003
+        ],
+        [
+          "aten::nonzero",
+          504,
+          1.926348
+        ],
+        [
+          "aten::mm",
+          112,
+          1.759567
+        ],
+        [
+          "aten::mul",
+          336,
+          1.487804
+        ],
+        [
+          "aten::copy_",
+          280,
+          0.883802
+        ],
+        [
+          "aten::cat",
+          112,
+          0.751337
+        ],
+        [
+          "aten::_index_put_impl_",
+          56,
+          0.460941
+        ],
+        [
+          "aten::bmm",
+          56,
+          0.384465
+        ],
+        [
+          "aten::sin",
+          56,
+          0.377551
+        ],
+        [
+          "aten::cos",
+          56,
+          0.377429
+        ],
+        [
+          "aten::add",
+          112,
+          0.321657
+        ],
+        [
+          "aten::rsqrt",
+          56,
+          0.270992
+        ],
+        [
+          "aten::index",
+          84,
+          0.268529
+        ],
+        [
+          "aten::mean",
+          56,
+          0.266838
+        ]
+      ],
+      "moe": [
+        [
+          "aiter::moe_forward",
+          168,
+          7.159137
+        ],
+        [
+          "aten::topk",
+          56,
+          1.153038
+        ],
+        [
+          "aten::copy_",
+          196,
+          1.015346
+        ],
+        [
+          "aten::add",
+          196,
+          0.911206
+        ],
+        [
+          "aten::mm",
+          28,
+          0.32226
+        ],
+        [
+          "aten::gather",
+          28,
+          0.321503
+        ],
+        [
+          "aten::mul",
+          56,
+          0.305516
+        ],
+        [
+          "aten::silu",
+          28,
+          0.195672
+        ],
+        [
+          "aten::fill_",
+          84,
+          0.189576
+        ],
+        [
+          "aten::sort",
+          28,
+          0.188638
+        ],
+        [
+          "aten::sum",
+          28,
+          0.159875
+        ],
+        [
+          "aten::div",
+          28,
+          0.133123
+        ],
+        [
+          "aten::arange",
+          28,
+          0.126759
+        ],
+        [
+          "aten::_softmax",
+          28,
+          0.094966
+        ]
+      ]
+    },
+    "launch_gaps": {
+      "inter_device_activity_gap_ms": 67.24046728515626,
+      "gap_before_next_hip_call_entered_ms": 38.61011962890625,
+      "unassigned_gap_ms": 0.0,
+      "stream_counts": {
+        "0": 3593
+      }
+    }
+  },
+  "vllm": {
+    "marker_ms": {
+      "attn": 18.192,
+      "moe": 15.228,
+      "total": 37.843,
+      "rest": 4.53
+    },
+    "count": 5,
+    "control": {
+      "schedule": [
+        21,
+        0.54495
+      ],
+      "update_from_output": [
+        21,
+        0.15352
+      ],
+      "forward_stream_ms": 34.81139,
+      "forward_cadence_ms": 37.36068,
+      "client_chunk_gap_ms": 37.39589
+    },
+    "gpu_kernel_count": {
+      "other": 133,
+      "attn": 511,
+      "moe": 224
+    },
+    "gpu_kernel_ms": {
+      "other": 0.503,
+      "attn": 6.314,
+      "moe": 6.105
+    },
+    "positions": [
+      1031,
+      1032,
+      1033
+    ],
+    "selected_ops": {
+      "attn": [
+        [
+          "vllm::unified_attention_with_output",
+          21,
+          2.726809
+        ],
+        [
+          "aten::mm",
+          56,
+          0.939218
+        ],
+        [
+          "aten::mul",
+          112,
+          0.618669
+        ],
+        [
+          "aten::cat",
+          56,
+          0.404825
+        ],
+        [
+          "aten::add",
+          56,
+          0.377268
+        ],
+        [
+          "_rocm_C::paged_attention",
+          14,
+          0.284598
+        ],
+        [
+          "_C::rms_norm",
+          56,
+          0.253042
+        ],
+        [
+          "aten::neg",
+          56,
+          0.250832
+        ],
+        [
+          "aten::copy_",
+          56,
+          0.248721
+        ],
+        [
+          "_C_cache_ops::reshape_and_cache",
+          28,
+          0.210072
+        ]
+      ],
+      "moe": [
+        [
+          "vllm::moe_forward",
+          56,
+          4.369023
+        ],
+        [
+          "_moe_C::moe_align_block_size",
+          28,
+          0.619637
+        ],
+        [
+          "_moe_C::topk_softmax",
+          28,
+          0.359018
+        ],
+        [
+          "aten::mm",
+          28,
+          0.35246
+        ],
+        [
+          "_moe_C::moe_sum",
+          28,
+          0.148121
+        ],
+        [
+          "_C::silu_and_mul",
+          28,
+          0.148
+        ],
+        [
+          "aten::copy_",
+          28,
+          0.109198
+        ]
+      ]
+    },
+    "launch_gaps": {
+      "inter_device_activity_gap_ms": 40.64178076171875,
+      "gap_before_next_hip_call_entered_ms": 30.7195947265625,
+      "unassigned_gap_ms": 0.0,
+      "stream_counts": {
+        "1": 868
+      }
+    }
+  }
+}

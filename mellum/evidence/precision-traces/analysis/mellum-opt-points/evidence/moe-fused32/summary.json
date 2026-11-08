@@ -1,0 +1,19 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 815,
+    "total": 2048,
+    "exact": 8,
+    "elapsed_s": 56.70467143598944,
+    "output_tps": 36.11695382649146,
+    "profile": false,
+    "flags": {
+      "attention": "off",
+      "moe": "triton",
+      "dispatch": "off"
+    },
+    "gpu": "0"
+  }
+]

@@ -1,0 +1,6 @@
+[
+  "bash",
+  "/workspace/results/mellum_precision_speed_transfer_20261107T111000Z/http-best/code/server.sh",
+  "--port",
+  "8961"
+]

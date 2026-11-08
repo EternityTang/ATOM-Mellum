@@ -1,0 +1,7 @@
+{
+  "source": "long4.json and hf-long4.jsonl",
+  "unique_prompts": 4,
+  "repeats_per_prompt": 2,
+  "requests": 8,
+  "purpose": "Exercise fused expert path requiring batch>=8 on 16k inputs; not eight unique prompts"
+}

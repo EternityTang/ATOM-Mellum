@@ -1,0 +1,6 @@
+{
+  "reason": "Model short test regressed: 59.94 vs 74.04 tok/s despite bitwise-equal components; stop 256-output expansion and skip streams8 full model.",
+  "controller": 497853,
+  "process_group": 499286,
+  "timestamp": 1794058755.2841814
+}

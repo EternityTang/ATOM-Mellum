@@ -1,0 +1,20 @@
+{
+  "A200": {
+    "cached": 180,
+    "new": 20,
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "transformers": "5.20.2",
+    "source_sha256": "a490c86fad8214663a5b6003633b2c50340510daafddb65743ed29d2086b07fc",
+    "argmax_checked": true
+  },
+  "long4": {
+    "source": "/workspace/results/mellum_eager_opt_4k8RQUX2/hf-frozen-C200.jsonl",
+    "script": "/workspace/results/mellum_eager_opt_4k8RQUX2/code/hf_full.py",
+    "input_source": "/workspace/results/mellum_eager_opt_4k8RQUX2/all400.json",
+    "torch": "2.10",
+    "attention": "eager",
+    "experts": "eager",
+    "decode": "greedy",
+    "prefill": "full"
+  }
+}

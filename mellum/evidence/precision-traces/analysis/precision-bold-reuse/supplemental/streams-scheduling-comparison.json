@@ -1,0 +1,14 @@
+{
+  "control": {
+    "gpu_span_ms": 239.2768544921875,
+    "gpu_kernel_union_ms": 136.5333037109375,
+    "hip_graph_count": 253,
+    "hip_graph_cpu_ms": 7.797613
+  },
+  "streams4": {
+    "gpu_span_ms": 319.320287109375,
+    "gpu_kernel_union_ms": 127.1989013671875,
+    "hip_graph_count": 253,
+    "hip_graph_cpu_ms": 18.786812
+  }
+}

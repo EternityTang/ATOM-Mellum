@@ -1,0 +1,220 @@
+{
+  "attention": "off",
+  "moe": "off",
+  "dispatch": "off",
+  "counts": {
+    "attention_tiled": 0,
+    "expert_script_calls": 0,
+    "linear_script_calls": 0,
+    "norm_script_calls": 0
+  },
+  "baseline": {
+    "mode": "norm_cap8",
+    "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+    "counts": {
+      "decode_batches": 196,
+      "max_decode_batch": 32,
+      "batch_qkv_calls": 0,
+      "batch_moe_calls": 5488,
+      "segmented_moe_calls": 0,
+      "batched_attention_calls": 0,
+      "expert_matrix_calls": 626524,
+      "max_expert_matrix_rows": 8,
+      "max_expert_tokens_before_chunk": 32
+    },
+    "prefill": "per-request full prefill",
+    "decode": "one shared backbone forward for all requests",
+    "projections": "per-request F.linear",
+    "experts": "cross-request expert grouping",
+    "backbone": {
+      "stage": "framework_eager",
+      "torch": "2.10.0+rocm7.2.4.git3d3aa833",
+      "backbone_forward": "Qwen3MoeModel.forward",
+      "decoder_forward": "Qwen3MoeDecoderLayer.forward",
+      "moe_forward": "Qwen3MoeSparseMoeBlock.forward",
+      "attention_components": [
+        {
+          "layer": 0,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 1,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 2,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 3,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 4,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 5,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 6,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 7,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 8,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 9,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 10,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 11,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 12,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 13,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 14,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 15,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 16,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 17,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 18,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 19,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 20,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 21,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 22,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 23,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        },
+        {
+          "layer": 24,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 25,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 26,
+          "kind": "sliding_attention",
+          "component": "PagedAttention",
+          "window": 1024
+        },
+        {
+          "layer": 27,
+          "kind": "full_attention",
+          "component": "PagedAttention",
+          "window": -1
+        }
+      ],
+      "parameter_identity_preserved": true,
+      "counts": {
+        "backbone": 0,
+        "decoder_layers": 9072,
+        "moe_blocks": 9072,
+        "framework_attention": 9072,
+        "eager_swa": 6804,
+        "eager_full": 2268,
+        "native_swa_prefill": 0,
+        "native_swa_decode": 0,
+        "outer_batches": 24,
+        "max_outer_n": 6
+      }
+    }
+  }
+}

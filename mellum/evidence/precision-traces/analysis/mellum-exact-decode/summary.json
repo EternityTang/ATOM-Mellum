@@ -1,0 +1,91 @@
+{
+  "quick": {
+    "combined": {
+      "prompts": 10,
+      "exact": 10,
+      "matches": 640,
+      "positions": 640,
+      "HE135_first_split_1based": null
+    },
+    "tile64": {
+      "prompts": 10,
+      "exact": 5,
+      "matches": 394,
+      "positions": 640,
+      "HE135_first_split_1based": null
+    },
+    "hybrid64": {
+      "prompts": 10,
+      "exact": 5,
+      "matches": 384,
+      "positions": 640,
+      "HE135_first_split_1based": 6
+    },
+    "exact": {
+      "prompts": 10,
+      "exact": 10,
+      "matches": 640,
+      "positions": 640,
+      "HE135_first_split_1based": null
+    },
+    "both": {
+      "prompts": 10,
+      "exact": 10,
+      "matches": 640,
+      "positions": 640,
+      "HE135_first_split_1based": null
+    }
+  },
+  "full": {
+    "prompts": 200,
+    "exact": 200,
+    "matches": 12800,
+    "positions": 12800
+  },
+  "by_source": {
+    "HumanEval": {
+      "prompts": 164,
+      "exact": 164,
+      "matches": 10496,
+      "positions": 10496
+    },
+    "MBPP": {
+      "prompts": 36,
+      "exact": 36,
+      "matches": 2304,
+      "positions": 2304
+    }
+  },
+  "throughput": {
+    "exact": {
+      "output_tps": 278.36962321639396,
+      "ttft_p50_s": 2.973013187525794,
+      "tpot_p50_ms": 103.73285498410718
+    },
+    "combined": {
+      "output_tps": 223.5485916489297,
+      "ttft_p50_s": 2.9937012305599637,
+      "tpot_p50_ms": 131.95162070778144
+    },
+    "round2/both-1": {
+      "output_tps": 316.3229094551251,
+      "ttft_p50_s": 2.909601419523824,
+      "tpot_p50_ms": 90.13441748456006
+    },
+    "round2/combined-1": {
+      "output_tps": 232.88772533078645,
+      "ttft_p50_s": 2.9122147020534612,
+      "tpot_p50_ms": 126.50935572147479
+    },
+    "round2/both-2": {
+      "output_tps": 314.621996200272,
+      "ttft_p50_s": 2.9230200560414232,
+      "tpot_p50_ms": 90.63141015266962
+    }
+  },
+  "both_vs_combined_pct": 35.461176573222716,
+  "long": {
+    "parent": 512,
+    "single_hf": 329
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "platform": "Linux-5.4.119-19.0009.60-x86_64-with-glibc2.39",
+  "packages": {
+    "torch": "2.10.0+rocm7.2.4.lw.git3d3aa833",
+    "transformers": "5.20.2",
+    "triton": "3.6.0",
+    "tokenizers": "0.23.3",
+    "huggingface-hub": "2.4.0",
+    "safetensors": "0.8.0"
+  },
+  "torch_file": "/opt/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "hf_file": "/workspace/results/mellum_eager_opt_4k8RQUX2/hf520/transformers/__init__.py",
+  "hip": "7.2.53211",
+  "gpu_names": [
+    "AMD Instinct MI308X",
+    "AMD Instinct MI308X"
+  ],
+  "model_json_sha256": {
+    "config.json": "f43d018246094dee6dca455b3072766b6acbefd1ac8e7fe664df34710606a541",
+    "special_tokens_map.json": "20e1ead0b0986b55989aa8116bafe63efcbae0daf8ed047970cd28b36aada4d9",
+    "tokenizer.json": "58548a346eb073e5132bf7d8ad17dc6971bca36ade378ca4d2bfbc49bf60da2a",
+    "chat_template.jinja": "4593a34d52f3364ac13ce57f4bea5688924e8942da6df8201e411db17e729f48",
+    "generation_config.json": "a9dc104ca398a2ef376d3f2fbb03037d99950ddb2db0cd041b98398cf1fc8d7c",
+    "tokenizer_config.json": "e2950960d2a3040a1938e6357c8c3628d531133c464286a7869b2e0504fcc59e",
+    "model.safetensors.index.json": "a6ad930e5bb35ea92d5b734c4df4649bfcfdcd899f64b0a83efe40fe0ab9b60e"
+  }
+}

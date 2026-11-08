@@ -1,0 +1,71 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 64.68382625503,
+    "phase_timing": false,
+    "output_tps": 63.32340303819741,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "per_request",
+      "attention": "control"
+    },
+    "gpu": "1"
+  },
+  {
+    "repetition": 1,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 64.63886879198253,
+    "phase_timing": false,
+    "output_tps": 63.367445571820504,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "per_request",
+      "attention": "control"
+    },
+    "gpu": "1"
+  },
+  {
+    "repetition": 2,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 64.58975992305204,
+    "phase_timing": false,
+    "output_tps": 63.4156250910315,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "per_request",
+      "attention": "control"
+    },
+    "gpu": "1"
+  }
+]

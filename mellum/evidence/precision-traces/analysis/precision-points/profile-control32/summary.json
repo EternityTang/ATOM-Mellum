@@ -1,0 +1,22 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 56.639619517023675,
+    "phase_timing": true,
+    "output_tps": 36.15843498709327,
+    "profile": true,
+    "flags": {
+      "track": "points",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control"
+    },
+    "gpu": "0"
+  }
+]

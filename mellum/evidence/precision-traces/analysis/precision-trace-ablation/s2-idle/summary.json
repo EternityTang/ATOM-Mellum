@@ -1,0 +1,25 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 53.069945124094374,
+    "phase_timing": false,
+    "output_tps": 77.18116139789201,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "control"
+    },
+    "gpu": "1"
+  }
+]

@@ -1,0 +1,503 @@
+{
+  "short": {
+    "attention-long4": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        256
+      ],
+      "total": 256,
+      "min_percent": 100.0,
+      "median_tps": 7.07353456187643,
+      "median_s": 36.191241841064766,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "attention10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        640
+      ],
+      "total": 640,
+      "min_percent": 100.0,
+      "median_tps": 27.088525018635195,
+      "median_s": 23.626240245997906,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "attention32-repeat3": {
+      "runs": 3,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        2048,
+        2048,
+        2048
+      ],
+      "total": 2048,
+      "min_percent": 100.0,
+      "median_tps": 33.77652623566495,
+      "median_s": 60.63382556603756,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "bucket-long4-all-shapes": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        256
+      ],
+      "total": 256,
+      "min_percent": 100.0,
+      "median_tps": 7.365614181311987,
+      "median_s": 34.756096870987676,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph_bucket"
+      },
+      "profile": false
+    },
+    "bucket10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        640
+      ],
+      "total": 640,
+      "min_percent": 100.0,
+      "median_tps": 33.483919526943055,
+      "median_s": 19.113652435014956,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph_bucket"
+      },
+      "profile": false
+    },
+    "bucket17": {
+      "runs": 1,
+      "n": 17,
+      "tokens": 64,
+      "matches": [
+        1088
+      ],
+      "total": 1088,
+      "min_percent": 100.0,
+      "median_tps": 33.975425958817276,
+      "median_s": 32.02314523793757,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph_bucket"
+      },
+      "profile": false
+    },
+    "combined-long4": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        256
+      ],
+      "total": 256,
+      "min_percent": 100.0,
+      "median_tps": 7.457206288570765,
+      "median_s": 34.329209906980395,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph"
+      },
+      "profile": false
+    },
+    "combined-profile32": {
+      "runs": 1,
+      "n": 32,
+      "tokens": 8,
+      "matches": [
+        256
+      ],
+      "total": 256,
+      "min_percent": 100.0,
+      "median_tps": 6.826841991794625,
+      "median_s": 37.49903693504166,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph"
+      },
+      "profile": true
+    },
+    "combined32-repeat3": {
+      "runs": 3,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        2048,
+        2048,
+        2048
+      ],
+      "total": 2048,
+      "min_percent": 100.0,
+      "median_tps": 43.11511873226725,
+      "median_s": 47.500738956965506,
+      "flags": {
+        "attention": "bounded",
+        "moe": "off",
+        "dispatch": "graph"
+      },
+      "profile": false
+    },
+    "control-profile32": {
+      "runs": 1,
+      "n": 32,
+      "tokens": 8,
+      "matches": [
+        256
+      ],
+      "total": 256,
+      "min_percent": 100.0,
+      "median_tps": 4.8259407709081525,
+      "median_s": 53.04665186593775,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": true
+    },
+    "control10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        640
+      ],
+      "total": 640,
+      "min_percent": 100.0,
+      "median_tps": 28.69274957241257,
+      "median_s": 22.305286510963924,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "control32-repeat3": {
+      "runs": 3,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        2048,
+        2048,
+        2048
+      ],
+      "total": 2048,
+      "min_percent": 100.0,
+      "median_tps": 33.97647373986814,
+      "median_s": 60.27700271899812,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "dispatch10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        510
+      ],
+      "total": 640,
+      "min_percent": 79.6875,
+      "median_tps": 30.014399755255052,
+      "median_s": 21.323098420049064,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "script"
+      },
+      "profile": false
+    },
+    "graph10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        640
+      ],
+      "total": 640,
+      "min_percent": 100.0,
+      "median_tps": 36.29599894485502,
+      "median_s": 17.632797515019774,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "graph"
+      },
+      "profile": false
+    },
+    "graph32-repeat3": {
+      "runs": 3,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        2048,
+        2048,
+        2048
+      ],
+      "total": 2048,
+      "min_percent": 100.0,
+      "median_tps": 42.41930536820614,
+      "median_s": 48.2799042139668,
+      "flags": {
+        "attention": "off",
+        "moe": "off",
+        "dispatch": "graph"
+      },
+      "profile": false
+    },
+    "moe-fused10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        193
+      ],
+      "total": 640,
+      "min_percent": 30.15625,
+      "median_tps": 31.82046150064124,
+      "median_s": 20.11284468602389,
+      "flags": {
+        "attention": "off",
+        "moe": "triton",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "moe-fused32": {
+      "runs": 1,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        815
+      ],
+      "total": 2048,
+      "min_percent": 39.794921875,
+      "median_tps": 36.11695382649146,
+      "median_s": 56.70467143598944,
+      "flags": {
+        "attention": "off",
+        "moe": "triton",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "moe10": {
+      "runs": 1,
+      "n": 10,
+      "tokens": 64,
+      "matches": [
+        640
+      ],
+      "total": 640,
+      "min_percent": 100.0,
+      "median_tps": 27.24374675142529,
+      "median_s": 23.491629321011715,
+      "flags": {
+        "attention": "off",
+        "moe": "script",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "moe32-repeat3": {
+      "runs": 3,
+      "n": 32,
+      "tokens": 64,
+      "matches": [
+        2048,
+        2048,
+        2048
+      ],
+      "total": 2048,
+      "min_percent": 100.0,
+      "median_tps": 33.50926261784718,
+      "median_s": 61.11742963001598,
+      "flags": {
+        "attention": "off",
+        "moe": "script",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "softmax-triton-full-long4": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        125
+      ],
+      "total": 256,
+      "min_percent": 48.828125,
+      "median_tps": 7.464546933806242,
+      "median_s": 34.295450516976416,
+      "flags": {
+        "attention": "triton_full",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "softmax-triton-long4-int64": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        177
+      ],
+      "total": 256,
+      "min_percent": 69.140625,
+      "median_tps": 9.50027456430255,
+      "median_s": 26.946589624043554,
+      "flags": {
+        "attention": "triton",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    },
+    "softmax-triton-swa-long4": {
+      "runs": 1,
+      "n": 4,
+      "tokens": 64,
+      "matches": [
+        106
+      ],
+      "total": 256,
+      "min_percent": 41.40625,
+      "median_tps": 8.76374016253108,
+      "median_s": 29.21127227100078,
+      "flags": {
+        "attention": "triton_swa",
+        "moe": "off",
+        "dispatch": "off"
+      },
+      "profile": false
+    }
+  },
+  "formal": {
+    "A": {
+      "requests": 512,
+      "success": 512,
+      "failed": 0,
+      "coverage_verified": true,
+      "successful_lengths": {
+        "256": 512
+      },
+      "failed_messages": {},
+      "output_tps": 67.0115,
+      "duration_s": 1955.9639,
+      "ttft_p50_ms": 15333.2078,
+      "ttft_p99_ms": 20685.9197,
+      "tpot_p50_ms": 421.7549,
+      "tpot_p99_ms": 465.1526,
+      "raw_finished": 512,
+      "raw_records": 512
+    },
+    "B": {
+      "requests": 50,
+      "success": 50,
+      "failed": 0,
+      "coverage_verified": true,
+      "successful_lengths": {
+        "256": 50
+      },
+      "failed_messages": {},
+      "output_tps": 19.002,
+      "duration_s": 673.6131,
+      "ttft_p50_ms": 466.3331,
+      "ttft_p99_ms": 485.8059,
+      "tpot_p50_ms": 51.2094,
+      "tpot_p99_ms": 51.8919,
+      "raw_finished": 50,
+      "raw_records": 50
+    },
+    "C": {
+      "requests": 200,
+      "success": 0,
+      "failed": 200,
+      "coverage_verified": true,
+      "successful_lengths": {},
+      "failed_messages": {
+        "TimeoutError": 200
+      },
+      "failed_request_elapsed_range_s": [
+        180.00762824795675,
+        180.99891398404725
+      ],
+      "output_tps": 0.0,
+      "duration_s": 845.0574,
+      "ttft_p50_ms": null,
+      "ttft_p99_ms": null,
+      "tpot_p50_ms": null,
+      "tpot_p99_ms": null,
+      "note": "No complete256-token requests; successful-output throughput is zero and no valid latency percentiles exist.",
+      "raw_finished": 0,
+      "raw_records": 200
+    }
+  },
+  "baseline_A200": {
+    "n": 200,
+    "matches": 12800,
+    "total": 12800,
+    "exact": 200,
+    "source": "/workspace/results/norm_cap8_abc_20261105T160808",
+    "mode": "actual HTTP closed-loop32; generated256, comparefirst64; HF native eager single Torch2.10",
+    "percent": 100.0
+  },
+  "precision_A200": {
+    "n": 200,
+    "total": 12800,
+    "matches": 12800,
+    "exact": 200,
+    "percent": 100.0
+  },
+  "precision_C": {
+    "expected": 200,
+    "requests_with_64": 1,
+    "matches_on_available": 388,
+    "positions_available": 388,
+    "full_denominator": 12800,
+    "exact_64": 1,
+    "full64_subset_percent": 100.0
+  },
+  "selected": {
+    "attention": "bounded",
+    "moe": "off",
+    "dispatch": "graph_bucket"
+  },
+  "original_sources_unchanged": true,
+  "source_count": 419
+}

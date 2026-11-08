@@ -1,5 +1,11 @@
 # Mellum precision branch
 
+Raw profiling evidence across precision development is committed under
+[precision-traces](evidence/precision-traces/README.md): 47 operator profiles,
+9 request/scheduler timelines, and 1 layer diagnostic, with provenance,
+compressed/uncompressed SHA256 checks, analyses, and historical reports.
+Later experimental traces do not imply their model code is integrated here.
+
 This branch preserves the existing ATOM history and recovered Mellum optimization stages.
 The stage commits were created retrospectively on 2026-11-06; source provenance is in history/stages.
 Original commits 450ec964 and 6c86378f are ancestors and have not been rewritten or squashed.

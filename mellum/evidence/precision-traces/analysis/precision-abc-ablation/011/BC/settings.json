@@ -1,0 +1,9 @@
+{
+  "PRECISION_LOCAL_GRAPH": "0",
+  "PRECISION_NORM": "pointwise_batch",
+  "BOLD_NORM": "full",
+  "ABLATION_DIRECT_KV": "1",
+  "CANDIDATE_GPU": "0",
+  "SERVER_PORT": "8992",
+  "ENGINE_PORT": "8993"
+}

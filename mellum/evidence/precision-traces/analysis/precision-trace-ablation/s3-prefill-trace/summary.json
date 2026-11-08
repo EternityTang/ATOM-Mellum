@@ -1,0 +1,25 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 8,
+    "matches": 256,
+    "total": 256,
+    "exact": 32,
+    "elapsed_s": 23.856213232968003,
+    "phase_timing": false,
+    "output_tps": 10.730957067663269,
+    "profile": true,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "swa_softmax"
+    },
+    "gpu": "1"
+  }
+]

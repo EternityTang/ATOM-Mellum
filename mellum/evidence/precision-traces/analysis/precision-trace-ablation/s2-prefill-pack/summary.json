@@ -1,0 +1,71 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 48.89250973507296,
+    "phase_timing": false,
+    "output_tps": 83.77561352842031,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "control"
+    },
+    "gpu": "1"
+  },
+  {
+    "repetition": 1,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 49.013362167053856,
+    "phase_timing": false,
+    "output_tps": 83.56904768212938,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "control"
+    },
+    "gpu": "1"
+  },
+  {
+    "repetition": 2,
+    "n": 32,
+    "tokens": 128,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 49.00387937796768,
+    "phase_timing": false,
+    "output_tps": 83.58521921106467,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "control"
+    },
+    "gpu": "1"
+  }
+]

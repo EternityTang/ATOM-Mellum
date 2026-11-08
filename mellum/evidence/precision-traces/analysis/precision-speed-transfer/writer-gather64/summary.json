@@ -1,0 +1,29 @@
+[
+  {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 29.04465968790464,
+    "phase_timing": false,
+    "output_tps": 70.51210177728022,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control",
+      "graph": "1",
+      "norm": "pointwise_batch",
+      "attention": "swa_softmax",
+      "kv_tuning": "32x8",
+      "kv_write": "triton",
+      "swa_graph": "0",
+      "prefill_pack": "1"
+    },
+    "gpu": "1"
+  }
+]

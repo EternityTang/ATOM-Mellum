@@ -1,0 +1,110 @@
+{
+  "baseline_commit": "0bb1b726",
+  "baseline_attention": "swa_softmax",
+  "quick32": {
+    "control32": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 35.276034487993456,
+      "phase_timing": false,
+      "output_tps": 58.056412227883975,
+      "profile": false,
+      "flags": {
+        "track": "moe_trial",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "histogram32": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 35.191140177077614,
+      "phase_timing": false,
+      "output_tps": 58.19646620412719,
+      "profile": false,
+      "flags": {
+        "track": "moe_trial",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "fused32": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 34.79991618893109,
+      "phase_timing": false,
+      "output_tps": 58.85071644659343,
+      "profile": false,
+      "flags": {
+        "track": "moe_trial",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "grouped32": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 36.141172207077034,
+      "phase_timing": false,
+      "output_tps": 56.66667335153473,
+      "profile": false,
+      "flags": {
+        "track": "moe_trial",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "write32": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 35.67112516902853,
+      "phase_timing": false,
+      "output_tps": 57.41338380259945,
+      "profile": false,
+      "flags": {
+        "track": "moe_trial",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    }
+  },
+  "meta_cases": 96,
+  "grouped_cases": 6,
+  "write_cases": 28,
+  "retained": false
+}

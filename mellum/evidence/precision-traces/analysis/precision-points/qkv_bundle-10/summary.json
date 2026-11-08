@@ -1,0 +1,21 @@
+[
+  {
+    "repetition": 0,
+    "n": 10,
+    "tokens": 64,
+    "matches": 640,
+    "total": 640,
+    "exact": 10,
+    "elapsed_s": 17.996110089006834,
+    "output_tps": 35.56324099122691,
+    "profile": false,
+    "flags": {
+      "track": "points",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "qkv_bundle"
+    },
+    "gpu": "0"
+  }
+]

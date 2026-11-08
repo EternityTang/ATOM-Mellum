@@ -1,0 +1,46 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                              aten::bmm         8.95%      61.009ms        10.81%      73.720ms      41.138us      40.417ms        14.87%      40.417ms      22.554us          1792  
+                                               aten::mm         9.48%      64.627ms        12.08%      82.358ms      26.914us      37.213ms        13.69%      37.213ms      12.161us          3060  
+                                              aten::mul         4.41%      30.077ms         9.21%      62.825ms       7.593us      34.338ms        12.63%      34.338ms       4.150us          8274  
+                                            aten::copy_         2.84%      19.364ms         8.46%      57.701ms       6.062us      34.022ms        12.52%      34.022ms       3.574us          9519  
+              aiter::unified_attention_with_output_base        16.41%     111.929ms        44.81%     305.607ms      10.915ms      32.952ms        12.12%     104.638ms       3.737ms            28  
+                                              aten::add         2.81%      19.196ms         6.23%      42.497ms       6.926us      25.069ms         9.22%      25.069ms       4.086us          6136  
+                                                _repeat         0.00%       0.000us         0.00%       0.000us       0.000us      20.190ms         7.43%      20.190ms      22.533us           896  
+                                             aten::mean         1.94%      13.199ms         4.26%      29.080ms       8.042us      19.152ms         7.05%      19.152ms       5.296us          3616  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us      19.152ms         7.05%      19.152ms       5.296us          3616  
+Cijk_Ailk_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x1...         0.00%       0.000us         0.00%       0.000us       0.000us      17.829ms         6.56%      17.829ms      19.898us           896  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      17.720ms         6.52%      17.720ms       3.903us          4540  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us      16.985ms         6.25%      16.985ms      12.471us          1362  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us      15.283ms         5.62%      15.283ms      12.226us          1250  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT64x16...         0.00%       0.000us         0.00%       0.000us       0.000us      14.875ms         5.47%      14.875ms      20.433us           728  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      14.762ms         5.43%      14.762ms       3.249us          4544  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      14.106ms         5.19%      14.106ms       7.633us          1848  
+                                            aten::rsqrt         1.18%       8.051ms         3.21%      21.891ms       6.054us      12.841ms         4.72%      12.841ms       3.551us          3616  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      12.841ms         4.72%      12.841ms       3.551us          3616  
+                                          _gather_heads         0.00%       0.000us         0.00%       0.000us       0.000us      12.762ms         4.69%      12.762ms      14.244us           896  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      11.450ms         4.21%      11.450ms       3.165us          3618  
+                                              aten::pow         2.02%      13.765ms         4.22%      28.803ms       7.966us      10.882ms         4.00%      10.882ms       3.010us          3616  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      10.882ms         4.00%      10.882ms       3.010us          3616  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      10.600ms         3.90%      10.600ms       5.811us          1824  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       7.932ms         2.92%       7.932ms       2.193us          3616  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us       7.750ms         2.85%       7.750ms       4.011us          1932  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT192x1...         0.00%       0.000us         0.00%       0.000us       0.000us       6.571ms         2.42%       6.571ms      52.155us           126  
+                                         aten::_softmax         0.48%       3.293ms         1.09%       7.439ms       8.050us       5.779ms         2.13%       5.779ms       6.255us           924  
+                                            aten::index         1.37%       9.333ms         2.43%      16.596ms      17.360us       5.469ms         2.01%       5.577ms       5.834us           956  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       5.119ms         1.88%       5.119ms       5.714us           896  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us       4.529ms         1.67%       4.529ms       5.055us           896  
+void (anonymous namespace)::softmax_warp_forward<flo...         0.00%       0.000us         0.00%       0.000us       0.000us       4.019ms         1.48%       4.019ms       5.800us           693  
+                                      aten::index_copy_         0.83%       5.693ms         1.43%       9.758ms      10.891us       3.712ms         1.37%       3.712ms       4.143us           896  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       3.712ms         1.37%       3.712ms       4.143us           896  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT16x16...         0.00%       0.000us         0.00%       0.000us       0.000us       3.457ms         1.27%       3.457ms      10.290us           336  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us       3.032ms         1.12%       3.032ms       4.511us           672  
+                                              aten::cat         0.42%       2.871ms         1.16%       7.916ms      18.715us       2.378ms         0.87%       2.378ms       5.622us           423  
+                                             aten::sort         0.10%     694.929us         0.57%       3.858ms      45.932us       2.087ms         0.77%       3.047ms      36.268us            84  
+void at::native::radixSortKVInPlace<-2, -1, 128, 8, ...         0.00%       0.000us         0.00%       0.000us       0.000us       1.909ms         0.70%       1.909ms      34.082us            56  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us       1.665ms         0.61%       1.665ms       5.388us           309  
+                                            aten::fill_         0.33%       2.236ms         0.79%       5.413ms       7.732us       1.661ms         0.61%       1.661ms       2.373us           700  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 681.975ms
+Self CUDA time total: 271.840ms

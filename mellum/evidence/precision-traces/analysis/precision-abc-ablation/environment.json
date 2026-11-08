@@ -1,0 +1,15 @@
+{
+  "torch": "2.10.0+rocm7.2.4.lw.git3d3aa833",
+  "transformers": "5.10.1",
+  "triton": "3.6.0",
+  "evalscope": "1.14.1",
+  "formal_precision_head": "0bb1b726a4558f5f628ab70a0f8466a46364885e",
+  "formal_precision_status": "",
+  "harness_hashes": {
+    "run.py": "372ebdca2582eca8cfedd0523287cc48739dd056e72b92fb2fa1d692ae3be855",
+    "code/ablation.py": "1ac9ae27446e26e9594eb22bd57468d3f1c7e27957a1f3da4d61bdda0af3bfd2",
+    "code/components.py": "362d76a2760ccce4b42c5c8e52471b590b52c8700ee13407fec131876db89f15",
+    "code/server.py": "1f5c387dbd827ad9953cb66c332649af0d89768606978b79e0696ed7f50e64de",
+    "code/server.sh": "dccd46f92b67b8fa59dd8d791469fc170ebc2c1139941db2eceb0b011e11b6b4"
+  }
+}

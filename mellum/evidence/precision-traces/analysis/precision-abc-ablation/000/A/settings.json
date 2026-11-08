@@ -1,0 +1,9 @@
+{
+  "PRECISION_LOCAL_GRAPH": "0",
+  "PRECISION_NORM": "per_request",
+  "BOLD_NORM": "off",
+  "ABLATION_DIRECT_KV": "0",
+  "CANDIDATE_GPU": "1",
+  "SERVER_PORT": "8990",
+  "ENGINE_PORT": "8991"
+}

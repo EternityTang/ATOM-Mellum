@@ -1,0 +1,46 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                              aten::bmm         0.11%       3.353ms         0.13%       4.038ms      72.111us        1.176s        38.74%        1.176s      21.008ms            56  
+              aiter::unified_attention_with_output_base         0.24%       7.251ms        16.62%     509.566ms      18.199ms        1.008s        33.20%        2.229s      79.604ms            28  
+void fused<false>(c10::BFloat16*, c10::BFloat16 cons...         0.00%       0.000us         0.00%       0.000us       0.000us        1.008s        33.20%        1.008s      36.009ms            28  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us     958.000ms        31.55%     958.000ms       3.446ms           278  
+                                               aten::mm         2.61%      79.967ms         3.30%     101.125ms      32.705us     472.836ms        15.57%     472.836ms     152.922us          3092  
+Cijk_Ailk_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT128x2...         0.00%       0.000us         0.00%       0.000us       0.000us     293.544ms         9.67%     293.544ms      10.484ms            28  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x1...         0.00%       0.000us         0.00%       0.000us       0.000us     187.432ms         6.17%     187.432ms     833.032us           225  
+                                       aten::index_add_         0.20%       6.223ms         0.41%      12.548ms       8.502us     113.187ms         3.73%     113.187ms      76.685us          1476  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us     110.100ms         3.63%     110.100ms     764.581us           144  
+void at::native::indexFuncLargeIndex<c10::BFloat16, ...         0.00%       0.000us         0.00%       0.000us       0.000us     108.873ms         3.59%     108.873ms     110.083us           989  
+                                              aten::mul         0.42%      12.823ms         0.83%      25.411ms       7.710us      93.993ms         3.10%      93.993ms      28.517us          3296  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      78.797ms         2.59%      78.797ms      25.550us          3084  
+                                            aten::copy_         0.08%       2.325ms        74.23%        2.276s       3.979ms      41.277ms         1.36%      41.277ms      72.162us           572  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      25.416ms         0.84%      25.416ms     226.926us           112  
+                                             aten::silu         0.25%       7.813ms         0.45%      13.808ms       9.355us      23.676ms         0.78%      23.676ms      16.040us          1476  
+                                            aten::index         0.39%      12.042ms        16.45%     504.379ms     323.320us      23.397ms         0.77%      25.845ms      16.567us          1560  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      23.082ms         0.76%      23.082ms      16.690us          1383  
+void at::native::vectorized_gather_kernel<16, long>(...         0.00%       0.000us         0.00%       0.000us       0.000us      22.620ms         0.74%      22.620ms      15.719us          1439  
+void at::native::elementwise_kernel_manual_unroll<12...         0.00%       0.000us         0.00%       0.000us       0.000us      14.638ms         0.48%      14.638ms     127.290us           115  
+                                              aten::cat         0.01%     428.466us         0.03%     845.396us      14.329us      14.531ms         0.48%      14.531ms     246.291us            59  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      14.460ms         0.48%      14.460ms     258.208us            56  
+                                             aten::mean         0.03%     910.566us         0.05%       1.449ms      12.819us      12.536ms         0.41%      12.536ms     110.934us           113  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us      12.536ms         0.41%      12.536ms     110.934us           113  
+                                             aten::topk         0.02%     463.961us         0.03%     849.691us      30.346us      12.117ms         0.40%      12.117ms     432.754us            28  
+void at::native::sbtopk::gatherTopK<float, unsigned ...         0.00%       0.000us         0.00%       0.000us       0.000us      11.355ms         0.37%      11.355ms     405.549us            28  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       8.367ms         0.28%       8.367ms      59.339us           141  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us       8.267ms         0.27%       8.267ms     175.895us            47  
+                                              aten::pow         0.03%     777.852us         0.05%       1.423ms      12.592us       8.032ms         0.26%       8.032ms      71.077us           113  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       8.032ms         0.26%       8.032ms      71.077us           113  
+                                 aten::_index_put_impl_         0.02%     498.989us         0.03%     978.370us      17.471us       7.752ms         0.26%       7.752ms     138.423us            56  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       7.752ms         0.26%       7.752ms     138.423us            56  
+                                              aten::add         0.04%       1.227ms         0.07%       2.183ms       9.704us       7.409ms         0.24%       7.409ms      32.930us           225  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT256x2...         0.00%       0.000us         0.00%       0.000us       0.000us       6.993ms         0.23%       6.993ms     155.399us            45  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.815ms         0.22%       6.815ms      60.851us           112  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us       6.670ms         0.22%       6.670ms      13.696us           487  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.589ms         0.22%       6.589ms      45.444us           145  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT32x16...         0.00%       0.000us         0.00%       0.000us       0.000us       6.487ms         0.21%       6.487ms      13.321us           487  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x2...         0.00%       0.000us         0.00%       0.000us       0.000us       5.975ms         0.20%       5.975ms     284.522us            21  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x2...         0.00%       0.000us         0.00%       0.000us       0.000us       4.998ms         0.16%       4.998ms     312.388us            16  
+Cijk_Alik_Bljk_BBS_BH_Bias_HA_S_SAV_UserArgs_MT224x2...         0.00%       0.000us         0.00%       0.000us       0.000us       4.338ms         0.14%       4.338ms     619.691us             7  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 3.066s
+Self CUDA time total: 3.037s

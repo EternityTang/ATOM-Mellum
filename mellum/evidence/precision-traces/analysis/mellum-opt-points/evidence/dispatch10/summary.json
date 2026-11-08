@@ -1,0 +1,19 @@
+[
+  {
+    "repetition": 0,
+    "n": 10,
+    "tokens": 64,
+    "matches": 510,
+    "total": 640,
+    "exact": 4,
+    "elapsed_s": 21.323098420049064,
+    "output_tps": 30.014399755255052,
+    "profile": false,
+    "flags": {
+      "attention": "off",
+      "moe": "off",
+      "dispatch": "script"
+    },
+    "gpu": "0"
+  }
+]

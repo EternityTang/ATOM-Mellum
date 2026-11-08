@@ -1,0 +1,8 @@
+{
+  "inter_device_activity_gap_ms": 150.57475341796874,
+  "gap_before_next_hip_call_entered_ms": 95.882205078125,
+  "unassigned_gap_ms": 0.0,
+  "stream_counts": {
+    "0": 6455
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "commit": "0bb1b726a4558f5f628ab70a0f8466a46364885e",
+  "base32": {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 38.84178409294691,
+    "phase_timing": false,
+    "output_tps": 52.726723239571434,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control"
+    },
+    "gpu": "0"
+  },
+  "swa_batch": {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 1127,
+    "total": 2048,
+    "exact": 10,
+    "elapsed_s": 35.267875617952086,
+    "phase_timing": false,
+    "output_tps": 58.06984299778819,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control"
+    },
+    "gpu": "0"
+  },
+  "swa_softmax": {
+    "repetition": 0,
+    "n": 32,
+    "tokens": 64,
+    "matches": 2048,
+    "total": 2048,
+    "exact": 32,
+    "elapsed_s": 34.93905676796567,
+    "phase_timing": false,
+    "output_tps": 58.61635056724644,
+    "profile": false,
+    "flags": {
+      "track": "precision",
+      "stage": "0",
+      "kv": "direct",
+      "dense_cap": "8",
+      "point": "control"
+    },
+    "gpu": "0"
+  },
+  "selected": {
+    "mode": "swa_softmax",
+    "baseline": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 38.84178409294691,
+      "phase_timing": false,
+      "output_tps": 52.726723239571434,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "short": {
+      "repetition": 0,
+      "n": 32,
+      "tokens": 64,
+      "matches": 2048,
+      "total": 2048,
+      "exact": 32,
+      "elapsed_s": 34.93905676796567,
+      "phase_timing": false,
+      "output_tps": 58.61635056724644,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    },
+    "long4": {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 33.36881757993251,
+      "phase_timing": false,
+      "output_tps": 7.671833123447396,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control"
+      },
+      "gpu": "0"
+    }
+  },
+  "control": {
+    "score": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "perf": {
+      "Test Duration (s)": 549.4427,
+      "Concurrency": 32,
+      "Request Rate (req/s)": -1.0,
+      "Total Requests": 200,
+      "Success Requests": 200,
+      "Failed Requests": 0,
+      "Stream Requests": 200,
+      "Non-Stream Requests": 0,
+      "Req Throughput (req/s)": 0.364,
+      "Avg Latency (s)": 83.6826,
+      "Avg Input Tokens": 2353.075,
+      "Output Throughput (tok/s)": 93.1853,
+      "Total Throughput (tok/s)": 949.7168,
+      "Avg TTFT (ms)": 14038.51,
+      "Avg TPOT (ms)": 273.11,
+      "Avg ITL (ms)": 273.12,
+      "Avg Output Tokens": 256.0,
+      "Input Throughput (tok/s)": 0.0
+    },
+    "http_peak": 32,
+    "decode_peak": 32,
+    "counts": {
+      "kv_gathers": 48664,
+      "attention_mode": "control",
+      "swa_batch_groups": 0,
+      "swa_batched_requests": 0
+    }
+  },
+  "candidate": {
+    "score": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "perf": {
+      "Test Duration (s)": 484.1196,
+      "Concurrency": 32,
+      "Request Rate (req/s)": -1.0,
+      "Total Requests": 200,
+      "Success Requests": 200,
+      "Failed Requests": 0,
+      "Stream Requests": 200,
+      "Non-Stream Requests": 0,
+      "Req Throughput (req/s)": 0.4131,
+      "Avg Latency (s)": 73.7256,
+      "Avg Input Tokens": 2353.075,
+      "Output Throughput (tok/s)": 105.759,
+      "Total Throughput (tok/s)": 1077.8639,
+      "Avg TTFT (ms)": 14048.02,
+      "Avg TPOT (ms)": 234.03,
+      "Avg ITL (ms)": 234.03,
+      "Avg Output Tokens": 256.0,
+      "Input Throughput (tok/s)": 0.0
+    },
+    "http_peak": 32,
+    "decode_peak": 32,
+    "counts": {
+      "kv_gathers": 48608,
+      "attention_mode": "swa_softmax",
+      "swa_batch_groups": 97335,
+      "swa_batched_requests": 954639
+    }
+  },
+  "speedup_percent": 13.493222643485625,
+  "retained": true
+}

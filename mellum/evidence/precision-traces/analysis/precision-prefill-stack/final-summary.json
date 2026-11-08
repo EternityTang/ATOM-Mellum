@@ -1,0 +1,193 @@
+{
+  "screen": {
+    "control_tps": 108.40001110076315,
+    "candidate_tps": 114.41888021741343,
+    "speedup": 0.05552461716129753,
+    "short_quality_passed": true,
+    "long4": {
+      "repetition": 0,
+      "n": 4,
+      "tokens": 64,
+      "matches": 256,
+      "total": 256,
+      "exact": 4,
+      "elapsed_s": 32.78020314802416,
+      "phase_timing": false,
+      "output_tps": 7.809591625896636,
+      "profile": false,
+      "flags": {
+        "track": "precision",
+        "stage": "0",
+        "kv": "direct",
+        "dense_cap": "8",
+        "point": "control",
+        "graph": "1",
+        "norm": "pointwise_batch",
+        "attention": "swa_softmax"
+      },
+      "gpu": "1"
+    },
+    "http_control": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    },
+    "http_best": {
+      "n": 200,
+      "total": 12800,
+      "matches": 12800,
+      "exact": 200,
+      "percent": 100.0,
+      "passed": true
+    }
+  },
+  "gpu_audit": {
+    "control256": [
+      12,
+      0
+    ],
+    "prefill256": [
+      12,
+      0
+    ],
+    "prefill-long4": [
+      5,
+      0
+    ],
+    "control-prefill-trace": [
+      8,
+      0
+    ],
+    "before": [
+      3,
+      0
+    ],
+    "pack-prefill-trace": [
+      6,
+      0
+    ],
+    "http-control": [
+      33,
+      0
+    ],
+    "http-best": [
+      32,
+      0
+    ]
+  },
+  "traces": {
+    "control-prefill-trace": {
+      "meta": {
+        "decode_step": 0,
+        "prefill_step": 2,
+        "phase": "prefill",
+        "batch": 5,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax"
+        }
+      },
+      "gpu_kernels": 109293,
+      "mm": 14294,
+      "nonzero": 7217,
+      "memcpy": 7789
+    },
+    "pack-prefill-trace": {
+      "meta": {
+        "decode_step": 0,
+        "prefill_step": 2,
+        "phase": "prefill",
+        "batch": 5,
+        "flags": {
+          "track": "precision",
+          "stage": "0",
+          "kv": "direct",
+          "dense_cap": "8",
+          "point": "control",
+          "graph": "1",
+          "norm": "pointwise_batch",
+          "attention": "swa_softmax"
+        }
+      },
+      "gpu_kernels": 62414,
+      "mm": 14294,
+      "nonzero": 420,
+      "memcpy": 1132
+    }
+  },
+  "retained": true,
+  "http": {
+    "http-control": {
+      "perf": {
+        "Test Duration (s)": 468.3889,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.427,
+        "Avg Latency (s)": 71.397,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 109.3109,
+        "Total Throughput (tok/s)": 1114.0635,
+        "Avg TTFT (ms)": 13499.91,
+        "Avg TPOT (ms)": 227.05,
+        "Avg ITL (ms)": 227.05,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 12800,
+        "exact": 200,
+        "percent": 100.0,
+        "passed": true
+      },
+      "prefill_pack_calls": 0
+    },
+    "http-best": {
+      "perf": {
+        "Test Duration (s)": 438.6882,
+        "Concurrency": 32,
+        "Request Rate (req/s)": -1.0,
+        "Total Requests": 200,
+        "Success Requests": 200,
+        "Failed Requests": 0,
+        "Stream Requests": 200,
+        "Non-Stream Requests": 0,
+        "Req Throughput (req/s)": 0.4559,
+        "Avg Latency (s)": 66.7845,
+        "Avg Input Tokens": 2353.075,
+        "Output Throughput (tok/s)": 116.7116,
+        "Total Throughput (tok/s)": 1189.4895,
+        "Avg TTFT (ms)": 9458.41,
+        "Avg TPOT (ms)": 224.81,
+        "Avg ITL (ms)": 224.81,
+        "Avg Output Tokens": 256.0,
+        "Input Throughput (tok/s)": 0.0
+      },
+      "score": {
+        "n": 200,
+        "total": 12800,
+        "matches": 12800,
+        "exact": 200,
+        "percent": 100.0,
+        "passed": true
+      },
+      "prefill_pack_calls": 7364
+    }
+  },
+  "increment": 0.06770322081329483
+}

@@ -1,0 +1,363 @@
+{
+  "requests": 32,
+  "elapsed_s": 35.17574826395139,
+  "output_tps": 232.88772533078645,
+  "ttft_p50_s": 2.9122147020534612,
+  "tpot_p50_ms": 126.50935572147479,
+  "e2e_p50_s": 35.17223686899524,
+  "inputs_sha256": "b6a558f7c4a0f2d740ede1ee5383fc6a0467f03df0fc53521cfc5555e7e7b922",
+  "rows": [
+    {
+      "id": "A-0001",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 1.6857777800178155,
+      "e2e": 35.17227978899609,
+      "tpot": 0.13131961572148343
+    },
+    {
+      "id": "A-0002",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9122450340073556,
+      "e2e": 35.17211515503004,
+      "tpot": 0.12650929459224583
+    },
+    {
+      "id": "A-0003",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.912184370099567,
+      "e2e": 35.17208566702902,
+      "tpot": 0.12650941685070374
+    },
+    {
+      "id": "A-0004",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9121392839588225,
+      "e2e": 35.1720972469775,
+      "tpot": 0.12650963907066148
+    },
+    {
+      "id": "A-0005",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.912088108016178,
+      "e2e": 35.17221861507278,
+      "tpot": 0.12651031571394747
+    },
+    {
+      "id": "A-0007",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9120070160133764,
+      "e2e": 35.172046191990376,
+      "tpot": 0.12650995755285097
+    },
+    {
+      "id": "A-0008",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9120397629449144,
+      "e2e": 35.17251166899223,
+      "tpot": 0.12651165453351887
+    },
+    {
+      "id": "A-0009",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.911894835997373,
+      "e2e": 35.172086316975765,
+      "tpot": 0.12651055482736626
+    },
+    {
+      "id": "A-0010",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.911838002037257,
+      "e2e": 35.17210841597989,
+      "tpot": 0.1265108643684025
+    },
+    {
+      "id": "A-0011",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9117139220470563,
+      "e2e": 35.17203332204372,
+      "tpot": 0.12651105647057515
+    },
+    {
+      "id": "A-0012",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9116499279625714,
+      "e2e": 35.172044951003045,
+      "tpot": 0.12651135303153127
+    },
+    {
+      "id": "A-0013",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9116196309914812,
+      "e2e": 35.17214911105111,
+      "tpot": 0.12651188031395935
+    },
+    {
+      "id": "A-0014",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9116355299483985,
+      "e2e": 35.1725026689237,
+      "tpot": 0.1265132044665698
+    },
+    {
+      "id": "A-0015",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9115037419833243,
+      "e2e": 35.17210637603421,
+      "tpot": 0.12651216719235642
+    },
+    {
+      "id": "A-0016",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.911493023042567,
+      "e2e": 35.17228885903023,
+      "tpot": 0.12651292484701046
+    },
+    {
+      "id": "A-0017",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.9114069810602814,
+      "e2e": 35.172142572002485,
+      "tpot": 0.1265126885919302
+    },
+    {
+      "id": "A-0018",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0273075150325894,
+      "e2e": 35.172417087014765,
+      "tpot": 0.1260592532234595
+    },
+    {
+      "id": "A-0019",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 2.911266654031351,
+      "e2e": 35.17192731203977,
+      "tpot": 0.12651239473728793
+    },
+    {
+      "id": "A-0020",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0271475600311533,
+      "e2e": 35.17220552696381,
+      "tpot": 0.12605905085071628
+    },
+    {
+      "id": "A-0021",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0270699369721115,
+      "e2e": 35.1722285549622,
+      "tpot": 0.12605944556074547
+    },
+    {
+      "id": "A-0022",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.027010682038963,
+      "e2e": 35.17224518302828,
+      "tpot": 0.12605974314113458
+    },
+    {
+      "id": "A-0023",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026937428978272,
+      "e2e": 35.17224543297198,
+      "tpot": 0.12606003138821062
+    },
+    {
+      "id": "A-0025",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026900601107627,
+      "e2e": 35.1722645011032,
+      "tpot": 0.12606025058821793
+    },
+    {
+      "id": "A-0026",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026868015062064,
+      "e2e": 35.17236369301099,
+      "tpot": 0.1260607673645056
+    },
+    {
+      "id": "A-0027",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0267771929502487,
+      "e2e": 35.17221103596967,
+      "tpot": 0.12606052487458597
+    },
+    {
+      "id": "A-0028",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026740825967863,
+      "e2e": 35.172321205958724,
+      "tpot": 0.12606109952937591
+    },
+    {
+      "id": "A-0029",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0267003499902785,
+      "e2e": 35.172347584040835,
+      "tpot": 0.12606136170215904
+    },
+    {
+      "id": "A-0030",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026638046023436,
+      "e2e": 35.17235722299665,
+      "tpot": 0.12606164383126753
+    },
+    {
+      "id": "A-0032",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026525145978667,
+      "e2e": 35.172310516936705,
+      "tpot": 0.1260619034155217
+    },
+    {
+      "id": "A-0033",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.0264705209992826,
+      "e2e": 35.17231943598017,
+      "tpot": 0.12606215260776818
+    },
+    {
+      "id": "A-0034",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.026412695995532,
+      "e2e": 35.17233067494817,
+      "tpot": 0.1260624234468731
+    },
+    {
+      "id": "A-0035",
+      "usage": {
+        "prompt_tokens": 1024,
+        "completion_tokens": 256,
+        "total_tokens": 1280
+      },
+      "ttft": 3.02635665202979,
+      "e2e": 35.17233407497406,
+      "tpot": 0.12606265656056576
+    }
+  ]
+}

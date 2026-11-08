@@ -1,0 +1,54 @@
+{
+  "s1-perf": [
+    12,
+    7
+  ],
+  "s2-perf": [
+    13,
+    13
+  ],
+  "s3-perf": [
+    12,
+    12
+  ],
+  "s2-prefill-pack-trace": [
+    11,
+    6
+  ],
+  "prefill-pack-precision32": [
+    4,
+    4
+  ],
+  "s2-prefill-pack": [
+    11,
+    0
+  ],
+  "s2-old-kv": [
+    6,
+    0
+  ],
+  "s3-cap1": [
+    6,
+    0
+  ],
+  "s3-equal-length": [
+    6,
+    0
+  ],
+  "s3-mask-reuse": [
+    5,
+    0
+  ],
+  "s1-idle": [
+    7,
+    0
+  ],
+  "s2-idle": [
+    6,
+    0
+  ],
+  "s3-idle": [
+    6,
+    0
+  ]
+}
